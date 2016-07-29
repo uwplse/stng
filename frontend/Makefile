@@ -39,8 +39,11 @@ CXXFLAGS=-std=c++0x -g -Wno-deprecated \
 OBJS=$(patsubst %.cpp, %.o, $(wildcard $(SRC)/*.cpp))
 
 
-all: $(OBJS) $(SRC)/*.h lib
+all: $(OBJS) $(SRC)/*.h lib $(ROSE_LIB)/librose.so.0.0.0
 	$(CXX) $(CXXFLAGS) $(INCLUDES) $(OBJS) -o bin/translator $(LIBS)
+
+$(ROSE_LIB)/librose.so.0.0.0: $(ROSE_LIB)/librose.so.0.0.0.lzma
+	xz --decompress $(ROSE_LIB)/librose.so.0.0.0.lzma
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ -c $<
@@ -52,5 +55,4 @@ clean:
 
 LIB_OBJS=$(patsubst %.c, %.o, $(wildcard $(LIB_SRC)/*.c))
 
-lib: $(LIB_OBJS)
-#	$(CC) -O3 -c $(wildcard $(LIB_SRC)/*.c) 
+lib: $(LIB_OBJS#	$(CC) -O3 -c $(wildcard $(LIB_SRC)/*.c) 
