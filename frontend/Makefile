@@ -1,28 +1,46 @@
+ROOT=$(PWD)
+
 CC=gcc
 CXX=g++
-CXXFLAGS=-std=c++0x -g -Wno-deprecated
+
 FC=gfortran
 
-SRC=./src
-LIB_SRC=./lib
+SRC=$(ROOT)/src
+LIB_SRC=$(ROOT)/lib
 
-ROSE_ROOT=$(HOME)/roseBuild
+# rose header files directly refer to rose.h rather than rose/rose.h
+ROSE_INCLUDE=$(ROOT)/include/rose
 
-BOOST_INSTALL=$(HOME)/boostBuild
+# this awkward setup is due to rose insisting that the libraries 
+# be located under a directory called 'lib' (sage_support.cpp:562)
+ROSE_LIB=$(ROOT)/lib/rose/lib
 
-INCLUDES=-I$(BOOST_INSTALL)/include -I$(ROSE_ROOT)/include/rose 
-JVMLIBS=-L/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server -ljvm
+# boost header files refer to boost/xxx.h
+BOOST_INCLUDE=$(ROOT)/include
+BOOST_LIB=$(ROOT)/lib/boost
 
-#LIBS=-L$(ROSE_ROOT)/lib -L$(BOOST_INSTALL)/lib \
+INCLUDES=-I$(BOOST_INCLUDE) -I$(ROSE_INCLUDE)
 
-LIBS=-L./lib \
-     -lrose -lboost_system -lboost_filesystem -lboost_regex #$(JVMLIBS)
+JVM_LIB=/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server
+
+LIBS=-L$(BOOST_LIB) -L$(ROSE_LIB) -L$(JVM_LIB) \
+     -lboost_system -lboost_filesystem -lboost_regex -lboost_thread -lboost_wave \
+     -ljvm \
+     -lrose 
+
+# pass to the linker paths to search for runtime libraries 
+# (same as setting LD_LIBRARY_PATH)
+CXXFLAGS=-std=c++0x -g -Wno-deprecated \
+-Wl,-rpath=$(BOOST_LIB) \
+-Wl,-rpath=$(JVM_LIB) \
+-Wl,-rpath=$(ROSE_LIB)
+
 
 OBJS=$(patsubst %.cpp, %.o, $(wildcard $(SRC)/*.cpp))
 
 
 all: $(OBJS) $(SRC)/*.h lib
-	$(CXX) $(CXXFLAGS) $(INCLUDES) $(OBJS) -o translator $(LIBS)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $(OBJS) -o bin/translator $(LIBS)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ -c $<
