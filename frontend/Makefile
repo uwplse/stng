@@ -42,7 +42,8 @@ OBJS=$(patsubst %.cpp, %.o, $(wildcard $(SRC)/*.cpp))
 all: $(OBJS) $(SRC)/*.h lib $(ROSE_LIB)/librose.so.0.0.0
 	$(CXX) $(CXXFLAGS) $(INCLUDES) $(OBJS) -o bin/translator $(LIBS)
 
-$(ROSE_LIB)/librose.so.0.0.0: $(ROSE_LIB)/librose.so.0.0.0.lzma
+# only matches if librose.so.0.0.0.lzma is found
+$(ROSE_LIB)/librose.so.0.0.0: $(wildcard $(ROSE_LIB)/librose.so.0.0.0.lzma)
 	xz --decompress $(ROSE_LIB)/librose.so.0.0.0.lzma
 
 %.o: %.cpp
