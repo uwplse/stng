@@ -30,7 +30,7 @@ namespace boost { namespace iostreams { namespace detail {
 //
 // Template name: buffer
 // Description: Character buffer.
-// Template parameters:
+// Template paramters:
 //     Ch - The character type.
 //     Alloc - The Allocator type.
 //
@@ -69,7 +69,7 @@ void swap(basic_buffer<Ch, Alloc>& lhs, basic_buffer<Ch, Alloc>& rhs)
 // Template name: buffer
 // Description: Character buffer with two pointers accessible via ptr() and
 //      eptr().
-// Template parameters:
+// Template paramters:
 //     Ch - A character type.
 //
 template< typename Ch,
@@ -104,6 +104,11 @@ public:
             iostreams::read(src, this->data() + keep, this->size() - keep);
         if (result != -1)
             this->set(0, keep + result);
+        //return result == this->size() - keep ?
+        //    traits_type::good() :
+        //    keep == -1 ?
+        //        traits_type::eof() :
+        //        traits_type::would_block();
         return result == -1 ?
             traits_type::eof() :
                 result == 0 ?
@@ -148,12 +153,7 @@ basic_buffer<Ch, Alloc>::basic_buffer(int buffer_size)
 
 template<typename Ch, typename Alloc>
 inline basic_buffer<Ch, Alloc>::~basic_buffer()
-{
-    if (buf_) {
-        allocator_type().deallocate(buf_,
-            static_cast<BOOST_DEDUCED_TYPENAME Alloc::size_type>(size_));
-    }
-}
+{ if (buf_) allocator_type().deallocate(buf_, size_); }
 
 template<typename Ch, typename Alloc>
 inline void basic_buffer<Ch, Alloc>::resize(int buffer_size)

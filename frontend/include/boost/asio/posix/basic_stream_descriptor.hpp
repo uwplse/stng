@@ -1,8 +1,8 @@
 //
-// posix/basic_stream_descriptor.hpp
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// basic_stream_descriptor.hpp
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
-// Copyright (c) 2003-2012 Christopher M. Kohlhoff (chris at kohlhoff dot com)
+// Copyright (c) 2003-2008 Christopher M. Kohlhoff (chris at kohlhoff dot com)
 //
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -15,19 +15,20 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include <boost/asio/detail/config.hpp>
+#include <boost/asio/detail/push_options.hpp>
 
-#if defined(BOOST_ASIO_HAS_POSIX_STREAM_DESCRIPTOR) \
-  || defined(GENERATING_DOCUMENTATION)
-
+#include <boost/asio/detail/push_options.hpp>
 #include <cstddef>
-#include <boost/asio/detail/handler_type_requirements.hpp>
-#include <boost/asio/detail/throw_error.hpp>
+#include <boost/config.hpp>
+#include <boost/asio/detail/pop_options.hpp>
+
 #include <boost/asio/error.hpp>
 #include <boost/asio/posix/basic_descriptor.hpp>
 #include <boost/asio/posix/stream_descriptor_service.hpp>
+#include <boost/asio/detail/throw_error.hpp>
 
-#include <boost/asio/detail/push_options.hpp>
+#if defined(BOOST_ASIO_HAS_POSIX_STREAM_DESCRIPTOR) \
+  || defined(GENERATING_DOCUMENTATION)
 
 namespace boost {
 namespace asio {
@@ -50,13 +51,8 @@ class basic_stream_descriptor
   : public basic_descriptor<StreamDescriptorService>
 {
 public:
-  /// (Deprecated: Use native_handle_type.) The native representation of a
-  /// descriptor.
-  typedef typename StreamDescriptorService::native_handle_type native_type;
-
   /// The native representation of a descriptor.
-  typedef typename StreamDescriptorService::native_handle_type
-    native_handle_type;
+  typedef typename StreamDescriptorService::native_type native_type;
 
   /// Construct a basic_stream_descriptor without opening it.
   /**
@@ -87,46 +83,10 @@ public:
    * @throws boost::system::system_error Thrown on failure.
    */
   basic_stream_descriptor(boost::asio::io_service& io_service,
-      const native_handle_type& native_descriptor)
+      const native_type& native_descriptor)
     : basic_descriptor<StreamDescriptorService>(io_service, native_descriptor)
   {
   }
-
-#if defined(BOOST_ASIO_HAS_MOVE) || defined(GENERATING_DOCUMENTATION)
-  /// Move-construct a basic_stream_descriptor from another.
-  /**
-   * This constructor moves a stream descriptor from one object to another.
-   *
-   * @param other The other basic_stream_descriptor object from which the move
-   * will occur.
-   *
-   * @note Following the move, the moved-from object is in the same state as if
-   * constructed using the @c basic_stream_descriptor(io_service&) constructor.
-   */
-  basic_stream_descriptor(basic_stream_descriptor&& other)
-    : basic_descriptor<StreamDescriptorService>(
-        BOOST_ASIO_MOVE_CAST(basic_stream_descriptor)(other))
-  {
-  }
-
-  /// Move-assign a basic_stream_descriptor from another.
-  /**
-   * This assignment operator moves a stream descriptor from one object to
-   * another.
-   *
-   * @param other The other basic_stream_descriptor object from which the move
-   * will occur.
-   *
-   * @note Following the move, the moved-from object is in the same state as if
-   * constructed using the @c basic_stream_descriptor(io_service&) constructor.
-   */
-  basic_stream_descriptor& operator=(basic_stream_descriptor&& other)
-  {
-    basic_descriptor<StreamDescriptorService>::operator=(
-        BOOST_ASIO_MOVE_CAST(basic_stream_descriptor)(other));
-    return *this;
-  }
-#endif // defined(BOOST_ASIO_HAS_MOVE) || defined(GENERATING_DOCUMENTATION)
 
   /// Write some data to the descriptor.
   /**
@@ -159,9 +119,8 @@ public:
   std::size_t write_some(const ConstBufferSequence& buffers)
   {
     boost::system::error_code ec;
-    std::size_t s = this->get_service().write_some(
-        this->get_implementation(), buffers, ec);
-    boost::asio::detail::throw_error(ec, "write_some");
+    std::size_t s = this->service.write_some(this->implementation, buffers, ec);
+    boost::asio::detail::throw_error(ec);
     return s;
   }
 
@@ -185,8 +144,7 @@ public:
   std::size_t write_some(const ConstBufferSequence& buffers,
       boost::system::error_code& ec)
   {
-    return this->get_service().write_some(
-        this->get_implementation(), buffers, ec);
+    return this->service.write_some(this->implementation, buffers, ec);
   }
 
   /// Start an asynchronous write.
@@ -226,14 +184,9 @@ public:
    */
   template <typename ConstBufferSequence, typename WriteHandler>
   void async_write_some(const ConstBufferSequence& buffers,
-      BOOST_ASIO_MOVE_ARG(WriteHandler) handler)
+      WriteHandler handler)
   {
-    // If you get an error on the following line it means that your handler does
-    // not meet the documented type requirements for a WriteHandler.
-    BOOST_ASIO_WRITE_HANDLER_CHECK(WriteHandler, handler) type_check;
-
-    this->get_service().async_write_some(this->get_implementation(),
-        buffers, BOOST_ASIO_MOVE_CAST(WriteHandler)(handler));
+    this->service.async_write_some(this->implementation, buffers, handler);
   }
 
   /// Read some data from the descriptor.
@@ -268,9 +221,8 @@ public:
   std::size_t read_some(const MutableBufferSequence& buffers)
   {
     boost::system::error_code ec;
-    std::size_t s = this->get_service().read_some(
-        this->get_implementation(), buffers, ec);
-    boost::asio::detail::throw_error(ec, "read_some");
+    std::size_t s = this->service.read_some(this->implementation, buffers, ec);
+    boost::asio::detail::throw_error(ec);
     return s;
   }
 
@@ -295,8 +247,7 @@ public:
   std::size_t read_some(const MutableBufferSequence& buffers,
       boost::system::error_code& ec)
   {
-    return this->get_service().read_some(
-        this->get_implementation(), buffers, ec);
+    return this->service.read_some(this->implementation, buffers, ec);
   }
 
   /// Start an asynchronous read.
@@ -337,14 +288,9 @@ public:
    */
   template <typename MutableBufferSequence, typename ReadHandler>
   void async_read_some(const MutableBufferSequence& buffers,
-      BOOST_ASIO_MOVE_ARG(ReadHandler) handler)
+      ReadHandler handler)
   {
-    // If you get an error on the following line it means that your handler does
-    // not meet the documented type requirements for a ReadHandler.
-    BOOST_ASIO_READ_HANDLER_CHECK(ReadHandler, handler) type_check;
-
-    this->get_service().async_read_some(this->get_implementation(),
-        buffers, BOOST_ASIO_MOVE_CAST(ReadHandler)(handler));
+    this->service.async_read_some(this->implementation, buffers, handler);
   }
 };
 
@@ -352,9 +298,9 @@ public:
 } // namespace asio
 } // namespace boost
 
-#include <boost/asio/detail/pop_options.hpp>
-
 #endif // defined(BOOST_ASIO_HAS_POSIX_STREAM_DESCRIPTOR)
        //   || defined(GENERATING_DOCUMENTATION)
+
+#include <boost/asio/detail/pop_options.hpp>
 
 #endif // BOOST_ASIO_POSIX_BASIC_STREAM_DESCRIPTOR_HPP

@@ -22,7 +22,7 @@
 
 
 
-class ROSE_DLL_API RoseBin_DataFlowAnalysis : public RoseBin_FlowAnalysis {
+class RoseBin_DataFlowAnalysis : public RoseBin_FlowAnalysis {
  private:
   bool writeFile;
   int nrOfNodesVisited;
@@ -70,7 +70,7 @@ class ROSE_DLL_API RoseBin_DataFlowAnalysis : public RoseBin_FlowAnalysis {
 
 
 
-  bool exceptionCall(SgAsmX86Instruction* call);
+  bool exceptionCall(SgAsmx86Instruction* call);
 
 
  public:

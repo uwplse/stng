@@ -34,8 +34,7 @@
 #include <boost/graph/graph_as_tree.hpp>
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/prim_minimum_spanning_tree.hpp>
-#include <boost/graph/lookup_edge.hpp>
-#include <boost/throw_exception.hpp>
+
 
 namespace boost
 {
@@ -69,11 +68,11 @@ namespace boost
 
         PreorderTraverser(std::vector<Node>& p) : path_(p) {}
 
-        void preorder(Node n, const Tree&)
+        void preorder(Node n, const Tree& t)
         { path_.push_back(n); }
 
-        void inorder(Node, const Tree&) const {}
-        void postorder(Node, const Tree&) const {}
+        void inorder(Node n, const Tree& t) const {}
+        void postorder(Node, const Tree& t) const {}
 
         const_iterator begin() const { return path_.begin(); }
         const_iterator end() const { return path_.end(); }
@@ -242,7 +241,7 @@ namespace boost
         { }
 
         template <typename Vertex, typename Graph>
-        void visit_vertex(Vertex v, const Graph&)
+        void visit_vertex(Vertex v, const Graph& g)
         {
             BOOST_CONCEPT_ASSERT((OutputIterator<OutItr, Vertex>));
             *itr_++ = v;
@@ -285,9 +284,9 @@ namespace boost
                 // would require revisiting the core algorithm.
                 Edge e;
                 bool found;
-                boost::tie(e, found) = lookup_edge(previous_, v, g);
+                tie(e, found) = edge(previous_, v, g);
                 if(!found) {
-                    BOOST_THROW_EXCEPTION(not_complete());
+                    throw not_complete();
                 }
 
                 tourlen_ += wmap_[e];

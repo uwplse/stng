@@ -18,7 +18,6 @@
 #include <boost/mpi/detail/mpi_datatype_primitive.hpp>
 #include <boost/mpi/datatype_fwd.hpp>
 #include <boost/mpl/assert.hpp>
-#include <boost/static_assert.hpp>
 #include <boost/integer.hpp>
 #include <boost/archive/detail/register_archive.hpp>
 
@@ -62,7 +61,7 @@ public:
     {
       // select the right sized integer for the enum
       typedef typename boost::uint_t<8*sizeof(T)>::least int_type;
-      BOOST_STATIC_ASSERT((sizeof(T)==sizeof(int_type)));
+      BOOST_MPL_ASSERT((sizeof(T)==sizeof(int_type)));
       this->save(*reinterpret_cast<int_type const*>(&t));
     }
 

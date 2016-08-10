@@ -5,7 +5,7 @@
 #include "AsmUnparser_compat.h"
 #include <fstream>
 
-class ROSE_DLL_API AST_BIN_Traversal
+class AST_BIN_Traversal
   : public AstSimpleProcessing {
   // Checker specific parameters should be allocated here.
     std::ofstream myfile;

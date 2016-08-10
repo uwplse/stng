@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga 2005-2011. Distributed under the Boost
+// (C) Copyright Ion Gaztanaga 2005-2008. Distributed under the Boost
 // Software License, Version 1.0. (See accompanying file
 // LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
@@ -35,21 +35,25 @@ namespace interprocess{
 namespace bi = boost::intrusive;
 }}
 
-#include <utility>
-#include <memory>
-#include <functional>
-#include <iosfwd>
-#include <string>
+namespace std {
+
+template <class T>
+class allocator;
+
+template <class T>
+struct less;
+
+template <class T1, class T2>
+struct pair;
+
+template <class CharType> 
+struct char_traits;
+
+}  //namespace std {
 
 /// @endcond
 
 namespace boost { namespace interprocess {
-
-//////////////////////////////////////////////////////////////////////////////
-//                            permissions
-//////////////////////////////////////////////////////////////////////////////
-
-class permissions;
 
 //////////////////////////////////////////////////////////////////////////////
 //                            shared_memory
@@ -57,7 +61,7 @@ class permissions;
 
 class shared_memory_object;
 
-#if defined (BOOST_INTERPROCESS_WINDOWS) || defined(BOOST_INTERPROCESS_DOXYGEN_INVOKED)
+#if defined (BOOST_INTERPROCESS_WINDOWS)
 class windows_shared_memory;
 #endif   //#if defined (BOOST_INTERPROCESS_WINDOWS)
 
@@ -148,9 +152,7 @@ class cached_adaptive_pool;
 //                            offset_ptr
 //////////////////////////////////////////////////////////////////////////////
 
-static const std::size_t offset_type_alignment = 0;
-
-template <class T, class DifferenceType = std::ptrdiff_t, class OffsetType = std::size_t, std::size_t Alignment = offset_type_alignment>
+template <class T>
 class offset_ptr;
 
 //////////////////////////////////////////////////////////////////////////////
@@ -214,7 +216,7 @@ template <class CharType
          ,template<class IndexConfig> class IndexType>
 class basic_managed_shared_memory;
 
-typedef basic_managed_shared_memory
+typedef basic_managed_shared_memory 
    <char
    ,rbtree_best_fit<mutex_family>
    ,iset_index>
@@ -231,14 +233,14 @@ wmanaged_shared_memory;
 //                      Windows shared memory managed memory classes
 //////////////////////////////////////////////////////////////////////////////
 
-#if defined (BOOST_INTERPROCESS_WINDOWS) || defined(BOOST_INTERPROCESS_DOXYGEN_INVOKED)
+#if defined (BOOST_INTERPROCESS_WINDOWS)
 
 template <class CharType
          ,class MemoryAlgorithm
          ,template<class IndexConfig> class IndexType>
 class basic_managed_windows_shared_memory;
 
-typedef basic_managed_windows_shared_memory
+typedef basic_managed_windows_shared_memory 
    <char
    ,rbtree_best_fit<mutex_family>
    ,iset_index>
@@ -250,16 +252,15 @@ typedef basic_managed_windows_shared_memory
    ,iset_index>
 wmanaged_windows_shared_memory;
 
-#endif   //#if defined (BOOST_INTERPROCESS_WINDOWS)
+#else
 
-#if defined(BOOST_INTERPROCESS_XSI_SHARED_MEMORY_OBJECTS) || defined(BOOST_INTERPROCESS_DOXYGEN_INVOKED)
-
+#if defined(BOOST_INTERPROCESS_XSI_SHARED_MEMORY_OBJECTS)
 template <class CharType
          ,class MemoryAlgorithm
          ,template<class IndexConfig> class IndexType>
 class basic_managed_xsi_shared_memory;
 
-typedef basic_managed_xsi_shared_memory
+typedef basic_managed_xsi_shared_memory 
    <char
    ,rbtree_best_fit<mutex_family>
    ,iset_index>
@@ -270,8 +271,9 @@ typedef basic_managed_xsi_shared_memory
    ,rbtree_best_fit<mutex_family>
    ,iset_index>
 wmanaged_xsi_shared_memory;
-
 #endif //#if defined(BOOST_INTERPROCESS_XSI_SHARED_MEMORY_OBJECTS)
+
+#endif   //#if defined (BOOST_INTERPROCESS_WINDOWS)
 
 //////////////////////////////////////////////////////////////////////////////
 //                      Fixed address shared memory
@@ -402,10 +404,7 @@ class weak_ptr;
 //                                  IPC
 //////////////////////////////////////////////////////////////////////////////
 
-template<class VoidPointer>
-class message_queue_t;
-
-typedef message_queue_t<offset_ptr<void> > message_queue;
+class message_queue;
 
 }}  //namespace boost { namespace interprocess {
 

@@ -53,8 +53,6 @@ namespace boost { // should use a different namespace for this
     typedef void in_edge_iterator;
     typedef void vertex_iterator;
     typedef void edge_iterator;
-
-    static vertex_descriptor null_vertex() {return vertex_descriptor();}
   };
   template <typename V, typename D, typename P, typename B>
   V source(const typename incidence_graph_archetype<V,D,P,B>::edge_descriptor&,
@@ -107,8 +105,6 @@ namespace boost { // should use a different namespace for this
     typedef void out_edge_iterator;
     typedef void vertex_iterator;
     typedef void edge_iterator;
-
-    static vertex_descriptor null_vertex() {return vertex_descriptor();}
   };
   
   template <typename V, typename D, typename P, typename B>
@@ -158,8 +154,6 @@ namespace boost { // should use a different namespace for this
 
     typedef void in_edge_iterator;
     typedef void edge_iterator;
-
-    static vertex_descriptor null_vertex() {return vertex_descriptor();}
   };
   
   template <typename V, typename D, typename P, typename B>

@@ -50,10 +50,6 @@ class event : public detail::rtti_policy::rtti_derived_type<
       detail::deallocate< MostDerived, Allocator >( pEvent );
     }
 
-    void operator delete( void * pEvent, void * p )
-    {
-    }
-
   protected:
     //////////////////////////////////////////////////////////////////////////
     event() {}

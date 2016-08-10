@@ -1,5 +1,5 @@
 /*=============================================================================
-    Copyright (c) 2005-2011 Joel de Guzman
+    Copyright (c) 2001-2006 Joel de Guzman
     Copyright (c) 2005-2006 Dan Marsden
 
     Distributed under the Boost Software License, Version 1.0. (See accompanying 
@@ -8,7 +8,9 @@
 #if !defined(BOOST_FUSION_DEQUE_DETAIL_KEYED_ELEMENT_26112006_1330)
 #define BOOST_FUSION_DEQUE_DETAIL_KEYED_ELEMENT_26112006_1330
 
-#include <boost/fusion/support/detail/access.hpp>
+#include <boost/type_traits/add_reference.hpp>
+#include <boost/type_traits/add_const.hpp>
+
 #include <boost/fusion/iterator/deref.hpp>
 #include <boost/fusion/iterator/next.hpp>
 
@@ -57,17 +59,17 @@ namespace detail {
             return *this;
         }
 
-        typename cref_result<Value>::type get(Key) const
+        typename add_reference<typename add_const<Value>::type>::type get(Key) const
         {
             return value_;
         }
 
-        typename ref_result<Value>::type get(Key)
+        typename add_reference<Value>::type get(Key)
         {
             return value_;
         }
 
-        keyed_element(typename call_param<Value>::type value, Rest const& rest)
+        keyed_element(typename add_reference<typename add_const<Value>::type>::type value, Rest const& rest)
             : Rest(rest), value_(value)
         {}
 

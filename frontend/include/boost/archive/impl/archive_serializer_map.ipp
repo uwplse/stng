@@ -21,26 +21,17 @@ namespace boost {
 namespace archive {
 namespace detail {
 
-#ifdef BOOST_MSVC
-#  pragma warning(push)
-#  pragma warning(disable : 4511 4512)
-#endif
-
-namespace extra_detail { // anon
+namespace { // anon
     template<class Archive>
     class map : public basic_serializer_map 
     {};
 }
 
-#ifdef BOOST_MSVC
-#  pragma warning(pop)
-#endif
-
 template<class Archive>
-BOOST_ARCHIVE_OR_WARCHIVE_DECL(bool)
+BOOST_ARCHIVE_OR_WARCHIVE_DECL(void)
 archive_serializer_map<Archive>::insert(const basic_serializer * bs){
     return boost::serialization::singleton<
-        extra_detail::map<Archive>
+        map<Archive>
     >::get_mutable_instance().insert(bs);
 }
 
@@ -48,11 +39,11 @@ template<class Archive>
 BOOST_ARCHIVE_OR_WARCHIVE_DECL(void)
 archive_serializer_map<Archive>::erase(const basic_serializer * bs){
     if(boost::serialization::singleton<
-        extra_detail::map<Archive>
+        map<Archive>
     >::is_destroyed())
         return;
     boost::serialization::singleton<
-        extra_detail::map<Archive>
+        map<Archive>
     >::get_mutable_instance().erase(bs);
 }
 
@@ -62,7 +53,7 @@ archive_serializer_map<Archive>::find(
     const boost::serialization::extended_type_info & eti
 ) {
     return boost::serialization::singleton<
-        extra_detail::map<Archive>
+        map<Archive>
     >::get_const_instance().find(eti);
 }
 

@@ -9,7 +9,7 @@
 #define __MAKE_CONNECTED_HPP__
 
 #include <boost/config.hpp>
-#include <boost/next_prior.hpp>
+#include <boost/utility.hpp> //for next
 #include <boost/tuple/tuple.hpp>   //for tie
 #include <boost/graph/connected_components.hpp>
 #include <boost/property_map/property_map.hpp>
@@ -46,7 +46,7 @@ namespace boost
       return;
 
     vertex_iterator_t vi, vi_end;
-    boost::tie(vi,vi_end) = vertices(g);
+    tie(vi,vi_end) = vertices(g);
     std::copy(vi, vi_end, vertices_by_component.begin());
 
     bucket_sort(vertices_by_component.begin(),

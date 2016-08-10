@@ -72,6 +72,7 @@ namespace graph_detail {
     struct generate_label_map<multimapS, Label, Vertex>
     { typedef std::multimap<Label, Vertex> type; };
 
+#if !defined BOOST_NO_HASH
     template <typename Label, typename Vertex>
     struct generate_label_map<hash_mapS, Label, Vertex>
     { typedef boost::unordered_map<Label, Vertex> type; };
@@ -79,7 +80,7 @@ namespace graph_detail {
     template <typename Label, typename Vertex>
     struct generate_label_map<hash_multimapS, Label, Vertex>
     { typedef boost::unordered_multimap<Label, Vertex> type; };
-
+#endif
     template <typename Selector, typename Label, typename Vertex>
     struct choose_custom_map {
         typedef typename generate_label_map<Selector, Label, Vertex>::type type;
@@ -140,7 +141,7 @@ namespace graph_detail {
     // Tag dispatch on unique associative containers (i.e. maps).
     template <typename Container, typename Graph, typename Label, typename Prop>
     std::pair<typename graph_traits<Graph>::vertex_descriptor, bool>
-    insert_labeled_vertex(Container& c, Graph& g, Label const& l, Prop const&,
+    insert_labeled_vertex(Container& c, Graph& g, Label const& l, Prop const& p,
                           unique_associative_container_tag)
     {
         // Here, we actually have to try the insertion first, and only add
@@ -278,13 +279,10 @@ public:
     typedef typename graph_traits<graph_type>::edge_iterator edge_iterator;
     typedef typename graph_traits<graph_type>::edges_size_type edges_size_type;
 
-    typedef typename graph_type::graph_property_type graph_property_type;
-    typedef typename graph_type::graph_bundled graph_bundled;
-
     typedef typename graph_type::vertex_property_type vertex_property_type;
-    typedef typename graph_type::vertex_bundled vertex_bundled;
-
     typedef typename graph_type::edge_property_type edge_property_type;
+    typedef typename graph_type::graph_property_type graph_property_type;
+    typedef typename graph_type::vertex_bundled vertex_bundled;
     typedef typename graph_type::edge_bundled edge_bundled;
 
     typedef typename Base::label_type label_type;
@@ -697,19 +695,19 @@ get(Prop p, LABELED_GRAPH& g)
 template <LABELED_GRAPH_PARAMS, typename Prop>
 inline typename property_map<LABELED_GRAPH, Prop>::const_type
 get(Prop p, LABELED_GRAPH const& g)
-{ return get(p, g.graph()); }
+{ return get(p, g.impl()); }
 
 template <LABELED_GRAPH_PARAMS, typename Prop, typename Key>
 inline typename property_traits<
     typename property_map<typename LABELED_GRAPH::graph_type, Prop>::const_type
 >::value_type
 get(Prop p, LABELED_GRAPH const& g, const Key& k)
-{ return get(p, g.graph(), k); }
+{ return get(p, g.impl(), k); }
 
 template <LABELED_GRAPH_PARAMS, typename Prop, typename Key, typename Value>
 inline void
 put(Prop p, LABELED_GRAPH& g, Key const& k, Value const& v)
-{ put(p, g.graph(), k, v); }
+{ put(p, g.impl(), k, v); }
 //@}
 
 /** @name Mutable Graph */

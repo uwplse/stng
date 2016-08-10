@@ -19,11 +19,7 @@
 #include <boost/config.hpp>
 
 // Boost
-
-#ifndef BOOST_BIMAP_DISABLE_SERIALIZATION 
-  #include <boost/serialization/nvp.hpp>
-#endif // BOOST_BIMAP_DISABLE_SERIALIZATION
-
+#include <boost/serialization/nvp.hpp>
 #include <boost/iterator/detail/enable_if.hpp>
 #include <boost/iterator/iterator_adaptor.hpp>
 #include <boost/bimap/relation/support/get_pair_functor.hpp>

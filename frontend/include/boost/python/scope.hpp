@@ -8,6 +8,7 @@
 # include <boost/python/detail/prefix.hpp>
 # include <boost/python/object.hpp>
 # include <boost/python/refcount.hpp>
+# include <boost/utility.hpp>
 
 namespace boost { namespace python { 
 

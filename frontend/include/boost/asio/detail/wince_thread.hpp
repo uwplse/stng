@@ -1,8 +1,8 @@
 //
-// detail/wince_thread.hpp
-// ~~~~~~~~~~~~~~~~~~~~~~~
+// wince_thread.hpp
+// ~~~~~~~~~~~~~~~~
 //
-// Copyright (c) 2003-2012 Christopher M. Kohlhoff (chris at kohlhoff dot com)
+// Copyright (c) 2003-2008 Christopher M. Kohlhoff (chris at kohlhoff dot com)
 //
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -15,17 +15,23 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include <boost/asio/detail/config.hpp>
+#include <boost/asio/detail/push_options.hpp>
+
+#include <boost/asio/detail/push_options.hpp>
+#include <boost/config.hpp>
+#include <boost/system/system_error.hpp>
+#include <boost/asio/detail/pop_options.hpp>
 
 #if defined(BOOST_WINDOWS) && defined(UNDER_CE)
 
-#include <memory>
+#include <boost/asio/error.hpp>
 #include <boost/asio/detail/noncopyable.hpp>
 #include <boost/asio/detail/socket_types.hpp>
-#include <boost/asio/detail/throw_error.hpp>
-#include <boost/asio/error.hpp>
 
 #include <boost/asio/detail/push_options.hpp>
+#include <boost/throw_exception.hpp>
+#include <memory>
+#include <boost/asio/detail/pop_options.hpp>
 
 namespace boost {
 namespace asio {
@@ -39,7 +45,7 @@ class wince_thread
 public:
   // Constructor.
   template <typename Function>
-  wince_thread(Function f, unsigned int = 0)
+  wince_thread(Function f)
   {
     std::auto_ptr<func_base> arg(new func<Function>(f));
     DWORD thread_id = 0;
@@ -48,9 +54,11 @@ public:
     if (!thread_)
     {
       DWORD last_error = ::GetLastError();
-      boost::system::error_code ec(last_error,
-          boost::asio::error::get_system_category());
-      boost::asio::detail::throw_error(ec, "thread");
+      boost::system::system_error e(
+          boost::system::error_code(last_error,
+            boost::asio::error::get_system_category()),
+          "thread");
+      boost::throw_exception(e);
     }
     arg.release();
   }
@@ -111,8 +119,8 @@ inline DWORD WINAPI wince_thread_function(LPVOID arg)
 } // namespace asio
 } // namespace boost
 
-#include <boost/asio/detail/pop_options.hpp>
-
 #endif // defined(BOOST_WINDOWS) && defined(UNDER_CE)
+
+#include <boost/asio/detail/pop_options.hpp>
 
 #endif // BOOST_ASIO_DETAIL_WINCE_THREAD_HPP

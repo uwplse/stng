@@ -37,14 +37,10 @@ namespace boost { namespace fusion
             mpl::if_<traits::is_view<Sequence>, Sequence, sequence_type&>::type
         stored_seq_type;
 
-        repetitive_view(Sequence& in_seq)
-            : seq(in_seq) {}
+        repetitive_view(Sequence& seq)
+            : seq(seq) {}
 
         stored_seq_type seq;
-
-    private:
-        // silence MSVC warning C4512: assignment operator could not be generated
-        repetitive_view& operator= (repetitive_view const&);
     };
 
 }}

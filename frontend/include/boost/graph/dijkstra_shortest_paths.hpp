@@ -30,7 +30,6 @@
 #include <boost/property_map/property_map.hpp>
 #include <boost/property_map/vector_property_map.hpp>
 #include <boost/type_traits.hpp>
-#include <boost/concept/assert.hpp>
 
 #ifdef BOOST_GRAPH_DIJKSTRA_TESTING
 #  include <boost/pending/mutable_queue.hpp>
@@ -69,7 +68,7 @@ namespace boost {
   template <class Visitor, class Graph>
   struct DijkstraVisitorConcept {
     void constraints() {
-      BOOST_CONCEPT_ASSERT(( CopyConstructibleConcept<Visitor> ));
+      function_requires< CopyConstructibleConcept<Visitor> >();
       vis.initialize_vertex(u, g);
       vis.discover_vertex(u, g);
       vis.examine_vertex(u, g);
@@ -373,7 +372,7 @@ namespace boost {
     typedef typename property_traits<ColorMap>::value_type ColorValue;
     typedef color_traits<ColorValue> Color;
     typename graph_traits<VertexListGraph>::vertex_iterator ui, ui_end;
-    for (boost::tie(ui, ui_end) = vertices(g); ui != ui_end; ++ui) {
+    for (tie(ui, ui_end) = vertices(g); ui != ui_end; ++ui) {
       vis.initialize_vertex(*ui, g);
       put(distance, *ui, inf);
       put(predecessor, *ui, *ui);
@@ -421,9 +420,6 @@ namespace boost {
       dummy_property_map p_map;
 
       typedef typename property_traits<DistanceMap>::value_type D;
-      D inf = choose_param(get_param(params, distance_inf_t()),
-                           (std::numeric_limits<D>::max)());
-
       dijkstra_shortest_paths
         (g, s,
          choose_param(get_param(params, vertex_predecessor), p_map),
@@ -431,8 +427,9 @@ namespace boost {
          choose_param(get_param(params, distance_compare_t()),
                       std::less<D>()),
          choose_param(get_param(params, distance_combine_t()),
-                      closed_plus<D>(inf)),
-         inf,
+                      closed_plus<D>()),
+         choose_param(get_param(params, distance_inf_t()),
+                      (std::numeric_limits<D>::max)()),
          choose_param(get_param(params, distance_zero_t()),
                       D()),
          choose_param(get_param(params, graph_visitor),

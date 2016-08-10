@@ -11,11 +11,6 @@
 #ifndef BOOST_UNITS_DIMENSIONLESS_QUANTITY_HPP
 #define BOOST_UNITS_DIMENSIONLESS_QUANTITY_HPP
 
-///
-/// \file
-/// \brief Utility class to simplify construction of dimensionless quantities.
-///
-
 #include <boost/units/dimensionless_unit.hpp>
 #include <boost/units/quantity.hpp>
 
@@ -23,7 +18,7 @@ namespace boost {
 
 namespace units {
 
-/// Utility class to simplify construction of dimensionless quantities.
+/// utility class to simplify construction of dimensionless quantities
 template<class System,class Y>
 struct dimensionless_quantity
 {

@@ -14,7 +14,6 @@
 #error "Parallel BGL files should not be included unless <boost/graph/use_mpi.hpp> has been included"
 #endif
 
-#include <boost/assert.hpp>
 #include <boost/graph/named_graph.hpp>
 #include <boost/functional/hash.hpp>
 #include <boost/variant.hpp>
@@ -394,7 +393,7 @@ typename BGL_NAMED_GRAPH::vertex_descriptor
 BGL_NAMED_GRAPH::lazy_add_vertex::commit() const
 {
   typedef typename BGL_NAMED_GRAPH::process_id_type process_id_type;
-  BOOST_ASSERT (!committed);
+  assert (!committed);
   committed = true;
 
   process_id_type owner = self.named_distribution()(name);
@@ -531,7 +530,7 @@ BGL_NAMED_GRAPH::lazy_add_edge::commit() const
   typedef typename BGL_NAMED_GRAPH::process_id_type process_id_type;
   using boost::parallel::detail::make_untracked_pair;
 
-  BOOST_ASSERT(!committed);
+  assert(!committed);
   committed = true;
 
   /// The result we will return, if we are sending a message to
@@ -730,7 +729,7 @@ BGL_NAMED_GRAPH::lazy_add_edge_with_property::commit() const
 {
   using boost::detail::parallel::make_pair_with_property;
   typedef typename BGL_NAMED_GRAPH::process_id_type process_id_type;
-  BOOST_ASSERT(!committed);
+  assert(!committed);
   committed = true;
 
   /// The result we will return, if we are sending a message to

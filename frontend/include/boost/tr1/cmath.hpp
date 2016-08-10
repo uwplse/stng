@@ -9,7 +9,7 @@
 
 #ifdef BOOST_HAS_TR1_CMATH
 
-#  if defined(BOOST_HAS_INCLUDE_NEXT) && !defined(BOOST_TR1_DISABLE_INCLUDE_NEXT)
+#  ifdef BOOST_HAS_INCLUDE_NEXT
 #     include_next BOOST_TR1_HEADER(cmath)
 #  else
 #     include <boost/tr1/detail/config_all.hpp>

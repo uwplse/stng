@@ -13,11 +13,14 @@
 # pragma once
 #endif
 
-#include "boost/proto/detail/ignore_unused.hpp"
-
 namespace boost { namespace xpressive { namespace detail
 {
-  using boost::proto::detail::ignore_unused;
+
+    template<typename T>
+    void ignore_unused(T const &)
+    {
+    }
+
 }}}
 
 #endif

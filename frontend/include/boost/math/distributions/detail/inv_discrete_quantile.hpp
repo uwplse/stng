@@ -24,7 +24,7 @@ struct distribution_quantile_finder
 
    value_type operator()(value_type const& x)
    {
-      return comp ? value_type(target - cdf(complement(dist, x))) : value_type(cdf(dist, x) - target);
+      return comp ? target - cdf(complement(dist, x)) : cdf(dist, x) - target;
    }
 
 private:
@@ -92,7 +92,7 @@ typename Dist::value_type
    // Max bounds of the distribution:
    //
    value_type min_bound, max_bound;
-   boost::math::tie(min_bound, max_bound) = support(dist);
+   std::tr1::tie(min_bound, max_bound) = support(dist);
 
    if(guess > max_bound)
       guess = max_bound;
@@ -124,8 +124,6 @@ typename Dist::value_type
             --count;
             if(fb == 0)
                return b;
-            if(a == b)
-               return b; // can't go any higher!
          }
          else
          {
@@ -137,8 +135,6 @@ typename Dist::value_type
             --count;
             if(fa == 0)
                return a;
-            if(a == b)
-               return a;  //  We can't go any lower than this!
          }
       }
    }
@@ -212,7 +208,7 @@ typename Dist::value_type
          // Zero is to the right of x2, so walk upwards
          // until we find it:
          //
-         while(((boost::math::sign)(fb) == (boost::math::sign)(fa)) && (a != b))
+         while((boost::math::sign)(fb) == (boost::math::sign)(fa))
          {
             if(count == 0)
                policies::raise_evaluation_error(function, "Unable to bracket root, last nearest value was %1%", b, policy_type());
@@ -232,7 +228,7 @@ typename Dist::value_type
          // Zero is to the left of a, so walk downwards
          // until we find it:
          //
-         while(((boost::math::sign)(fb) == (boost::math::sign)(fa)) && (a != b))
+         while((boost::math::sign)(fb) == (boost::math::sign)(fa))
          {
             if(fabs(a) < tools::min_value<value_type>())
             {
@@ -259,8 +255,6 @@ typename Dist::value_type
       return a;
    if(fb == 0)
       return b;
-   if(a == b)
-      return b;  // Ran out of bounds trying to bracket - there is no answer!
    //
    // Adjust bounds so that if we're looking for an integer
    // result, then both ends round the same way:

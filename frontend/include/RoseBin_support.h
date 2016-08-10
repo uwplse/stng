@@ -12,7 +12,6 @@
 #include <stdio.h>
 #include <iostream>
 #include <sstream>
-// rose.h and sage3basic.h should not be included in librose header files. [Robb P. Matzke 2014-10-15]
 // #include "rose.h"
 #include "stdint.h"
 
@@ -34,7 +33,7 @@ namespace RoseBin_Def {
     x86,
     arm
  } ;
- ROSE_DLL_API extern RoseLanguage RoseAssemblyLanguage;
+ extern RoseLanguage RoseAssemblyLanguage;
 }
 
 namespace RoseBin_OS {
@@ -157,7 +156,7 @@ class RoseBin_support {
    static bool DEBUG_M;
    static bool DEBUG_M_MIN;
    static RoseBin_Def::RoseLanguage assemblyLanguage;
-   ROSE_DLL_API static bool db;
+   static bool db;
 
  public:
    /* This enum used to be defined as part of x86InstructionEnum.h, but we don't represent registers this way anymore. The
@@ -264,14 +263,14 @@ class RoseBin_support {
      db = db_p;
   }
 
-  static bool isConditionalInstruction(SgAsmX86Instruction*inst) {
+  static bool isConditionalInstruction(SgAsmx86Instruction*inst) {
     if (x86InstructionIsConditionalControlTransfer(inst) ||
         x86InstructionIsConditionalDataTransfer(inst))
       return true;
     return false;
   }
 
-  static bool isConditionalFlagInstruction(SgAsmX86Instruction*inst) {
+  static bool isConditionalFlagInstruction(SgAsmx86Instruction*inst) {
     if (x86InstructionIsConditionalFlagControlTransfer(inst) ||
         x86InstructionIsConditionalFlagDataTransfer(inst) ||
         x86InstructionIsConditionalFlagBitAndByte(inst))
@@ -357,7 +356,7 @@ class RoseBin_support {
 SgAsmArmInstruction* createArmInstruction(uint64_t address,
                                           const std::string& mnemonic);
 
-SgAsmX86Instruction* createx86Instruction(uint64_t address,
+SgAsmx86Instruction* createx86Instruction(uint64_t address,
                                           const std::string& mnemonic);
 
 void normalizex86Mnemonic(std::string& mnemonic);
@@ -366,6 +365,7 @@ void normalizeArmMnemonic(std::string& mnemonic);
 // From RoseBin_support.cpp:
 bool isAsmUnconditionalBranch(SgAsmInstruction*);
 bool isAsmBranch(SgAsmInstruction*);
+bool getAsmKnownBranchTarget(SgAsmInstruction*, uint64_t& addr);
 
 #endif
 

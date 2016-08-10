@@ -42,7 +42,8 @@ namespace boost { namespace xpressive { namespace detail
 
     struct action_context;
 
-    struct ReplaceAlgo;
+    template<typename BidiIter>
+    struct replacement_context;
 
     ///////////////////////////////////////////////////////////////////////////////
     // placeholders
@@ -211,11 +212,11 @@ namespace boost { namespace xpressive { namespace detail
     template<typename Traits>
     struct logical_newline_matcher;
 
-    typedef proto::expr<proto::tag::terminal, proto::term<logical_newline_placeholder>, 0> logical_newline_xpression;
+    typedef proto::terminal<logical_newline_placeholder>::type logical_newline_xpression;
 
     struct set_initializer;
 
-    typedef proto::expr<proto::tag::terminal, proto::term<set_initializer>, 0> set_initializer_type;
+    typedef proto::terminal<set_initializer>::type set_initializer_type;
 
     struct lookahead_tag;
 
@@ -286,9 +287,6 @@ namespace boost { namespace xpressive { namespace detail
     template<typename BidiIter>
     struct sub_match_impl;
 
-    template<typename T>
-    struct list;
-
     template<typename BidiIter>
     struct results_cache;
 
@@ -325,22 +323,22 @@ namespace boost { namespace xpressive { namespace detail
     struct memento;
 
     template<typename Char, typename Traits>
-    void set_char(compound_charset<Traits> &chset, Char ch, Traits const &tr, bool icase);
+    void set_char(compound_charset<Traits> &chset, Char ch, Traits const &traits, bool icase);
 
     template<typename Char, typename Traits>
-    void set_range(compound_charset<Traits> &chset, Char from, Char to, Traits const &tr, bool icase);
+    void set_range(compound_charset<Traits> &chset, Char from, Char to, Traits const &traits, bool icase);
 
     template<typename Traits>
-    void set_class(compound_charset<Traits> &chset, typename Traits::char_class_type char_class, bool no, Traits const &tr);
+    void set_class(compound_charset<Traits> &chset, typename Traits::char_class_type char_class, bool no, Traits const &traits);
 
     template<typename Char, typename Traits>
-    void set_char(basic_chset<Char> &chset, Char ch, Traits const &tr, bool icase);
+    void set_char(basic_chset<Char> &chset, Char ch, Traits const &traits, bool icase);
 
     template<typename Char, typename Traits>
-    void set_range(basic_chset<Char> &chset, Char from, Char to, Traits const &tr, bool icase);
+    void set_range(basic_chset<Char> &chset, Char from, Char to, Traits const &traits, bool icase);
 
     template<typename Char, typename Traits>
-    void set_class(basic_chset<Char> &chset, typename Traits::char_class_type char_class, bool no, Traits const &tr);
+    void set_class(basic_chset<Char> &chset, typename Traits::char_class_type char_class, bool no, Traits const &traits);
 
     template<typename Matcher>
     static_xpression<Matcher> const

@@ -13,12 +13,6 @@
 #ifndef BOOST_LAMBDA_LAMBDA_FUNCTOR_BASE_HPP
 #define BOOST_LAMBDA_LAMBDA_FUNCTOR_BASE_HPP
 
-#include "boost/type_traits/add_reference.hpp"
-#include "boost/type_traits/add_const.hpp"
-#include "boost/type_traits/remove_const.hpp"
-#include "boost/lambda/detail/lambda_fwd.hpp"
-#include "boost/lambda/detail/lambda_traits.hpp"
-
 namespace boost { 
 namespace lambda {
 
@@ -46,7 +40,7 @@ public:
   explicit identity(par_t t) : elem(t) {}
 
   template <typename SigArgs> 
-  struct sig { typedef typename boost::remove_const<element_t>::type type; };
+  struct sig { typedef element_t type; };
 
   template<class RET, CALL_TEMPLATE_ARGS>
   RET call(CALL_FORMAL_ARGS) const { CALL_USE_ARGS; return elem; }
@@ -383,7 +377,7 @@ public:                                                                \
                                                                        \
   template<class SigArgs> struct sig {                                 \
     typedef typename                                                   \
-    detail::deduce_argument_types<Args, SigArgs>::type rets_t;         \
+    detail::deduce_non_ref_argument_types<Args, SigArgs>::type rets_t; \
   public:                                                              \
     typedef typename                                                   \
       return_type_N_prot<Act, rets_t>::type type;                      \

@@ -20,7 +20,6 @@
 #include <boost/graph/distributed/concepts.hpp>
 #include <boost/graph/graph_traits.hpp>
 #include <boost/config.hpp>
-#include <boost/assert.hpp>
 
 // For additive_reducer
 #include <boost/graph/distributed/distributed_graph_utility.hpp>
@@ -72,10 +71,10 @@ namespace boost {
                    boost::tuple<T1,T2,T3, T4>& t,
                    const unsigned int)
     {
-      ar & boost::tuples::get<0>(t);
-      ar & boost::tuples::get<1>(t);
-      ar & boost::tuples::get<2>(t);
-      ar & boost::tuples::get<3>(t);
+      ar & get<0>(t);
+      ar & get<1>(t);
+      ar & get<2>(t);
+      ar & get<3>(t);
     }
 
   } // serialization
@@ -88,7 +87,7 @@ namespace boost {
     
     get_owner_of_first_tuple_element(OwnerMap owner) : owner(owner) { }
 
-    owner_type get_owner(Tuple t) { return get(owner, boost::tuples::get<0>(t)); }
+    owner_type get_owner(Tuple t) { return boost::get(owner, get<0>(t)); }
 
   private:
     OwnerMap owner;
@@ -912,10 +911,10 @@ namespace boost {
     while(!Q.empty()) {
 
       queue_value_type x = Q.top(); Q.pop();
-      vertex_descriptor w = boost::tuples::get<0>(x);
-      vertex_descriptor source = boost::tuples::get<1>(x);
-      dependency_type dep = boost::tuples::get<2>(x);
-      path_count_type pc = boost::tuples::get<3>(x);
+      vertex_descriptor w = get<0>(x);
+      vertex_descriptor source = get<1>(x);
+      dependency_type dep = get<2>(x);
+      path_count_type pc = get<3>(x);
 
       cache(dependency, source, dep);
       cache(path_count, source, pc);
@@ -930,7 +929,7 @@ namespace boost {
         for (incoming_iterator vw = el.begin(); vw != el.end(); ++vw) {
           vertex_descriptor v = *vw;
 
-          BOOST_ASSERT(get(path_count, w) != 0);
+          assert(get(path_count, w) != 0);
 
           dependency_type factor = dependency_type(get(path_count, v))
             / dependency_type(get(path_count, w));
@@ -1702,7 +1701,7 @@ central_point_dominance(const Graph& g, CentralityMap centrality
   // Find max centrality
   centrality_type max_centrality(0);
   vertex_iterator v, v_end;
-  for (boost::tie(v, v_end) = vertices(g); v != v_end; ++v) {
+  for (tie(v, v_end) = vertices(g); v != v_end; ++v) {
     max_centrality = (max)(max_centrality, get(centrality, *v));
   }
 
@@ -1711,7 +1710,7 @@ central_point_dominance(const Graph& g, CentralityMap centrality
 
   // Compute central point dominance
   centrality_type sum(0);
-  for (boost::tie(v, v_end) = vertices(g); v != v_end; ++v) {
+  for (tie(v, v_end) = vertices(g); v != v_end; ++v) {
     sum += (max_centrality - get(centrality, *v));
   }
 

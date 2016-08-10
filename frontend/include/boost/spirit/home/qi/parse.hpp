@@ -1,66 +1,38 @@
 /*=============================================================================
-    Copyright (c) 2001-2011 Joel de Guzman
-    Copyright (c) 2001-2011 Hartmut Kaiser
+    Copyright (c) 2001-2007 Joel de Guzman
 
     Distributed under the Boost Software License, Version 1.0. (See accompanying
     file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 =============================================================================*/
-#if !defined(BOOST_SPIRIT_PARSE_APRIL_16_2006_0442PM)
-#define BOOST_SPIRIT_PARSE_APRIL_16_2006_0442PM
+#if !defined(BOOST_SPIRIT_PARSE_APR_16_2006_0442PM)
+#define BOOST_SPIRIT_PARSE_APR_16_2006_0442PM
 
-#if defined(_MSC_VER)
-#pragma once
-#endif
-
-#include <boost/spirit/home/support/context.hpp>
-#include <boost/spirit/home/support/nonterminal/locals.hpp>
-#include <boost/spirit/home/qi/detail/parse.hpp>
-#include <boost/concept_check.hpp>
+#include <boost/spirit/home/qi/meta_grammar.hpp>
+#include <boost/spirit/home/qi/skip.hpp>
+#include <boost/spirit/home/support/unused.hpp>
+#include <boost/mpl/assert.hpp>
+#include <boost/mpl/bool.hpp>
 
 namespace boost { namespace spirit { namespace qi
 {
-    ///////////////////////////////////////////////////////////////////////////
     template <typename Iterator, typename Expr>
     inline bool
     parse(
         Iterator& first
       , Iterator last
-      , Expr const& expr)
+      , Expr const& xpr)
     {
-        // Make sure the iterator is at least a forward_iterator. If you got a 
-        // compilation error here, then you are using an input_iterator while
-        // calling this function, you need to supply at least a 
-        // forward_iterator instead.
-        BOOST_CONCEPT_ASSERT((ForwardIterator<Iterator>));
+        typedef spirit::traits::is_component<qi::domain, Expr> is_component;
 
-        return detail::parse_impl<Expr>::call(first, last, expr);
-    }
+        // report invalid expression error as early as possible
+        BOOST_MPL_ASSERT_MSG(
+            is_component::value,
+            xpr_is_not_convertible_to_a_parser, (Iterator, Expr));
 
-    template <typename Iterator, typename Expr>
-    inline bool
-    parse(
-        Iterator const& first_
-      , Iterator last
-      , Expr const& expr)
-    {
-        Iterator first = first_;
-        return qi::parse(first, last, expr);
-    }
-
-    ///////////////////////////////////////////////////////////////////////////
-    namespace detail
-    {
-        template <typename T>
-        struct make_context
-        {
-            typedef context<fusion::cons<T&>, locals<> > type;
-        };
-
-        template <>
-        struct make_context<unused_type>
-        {
-            typedef unused_type type;
-        };
+        typedef typename result_of::as_component<qi::domain, Expr>::type component;
+        typedef typename component::director director;
+        component c = spirit::as_component(qi::domain(), xpr);
+        return director::parse(c, first, last, unused, unused, unused);
     }
 
     template <typename Iterator, typename Expr, typename Attr>
@@ -68,34 +40,20 @@ namespace boost { namespace spirit { namespace qi
     parse(
         Iterator& first
       , Iterator last
-      , Expr const& expr
+      , Expr const& xpr
       , Attr& attr)
     {
-        // Make sure the iterator is at least a forward_iterator. If you got a 
-        // compilation error here, then you are using an input_iterator while
-        // calling this function, you need to supply at least a 
-        // forward_iterator instead.
-        BOOST_CONCEPT_ASSERT((ForwardIterator<Iterator>));
+        typedef spirit::traits::is_component<qi::domain, Expr> is_component;
 
-        // Report invalid expression error as early as possible.
-        // If you got an error_invalid_expression error message here,
-        // then the expression (expr) is not a valid spirit qi expression.
-        BOOST_SPIRIT_ASSERT_MATCH(qi::domain, Expr);
+        // report invalid expression error as early as possible
+        BOOST_MPL_ASSERT_MSG(
+            is_component::value,
+            xpr_is_not_convertible_to_a_parser, (Iterator, Expr, Attr));
 
-        typename detail::make_context<Attr>::type context(attr);
-        return compile<qi::domain>(expr).parse(first, last, context, unused, attr);
-    }
-
-    template <typename Iterator, typename Expr, typename Attr>
-    inline bool
-    parse(
-        Iterator const& first_
-      , Iterator last
-      , Expr const& expr
-      , Attr& attr)
-    {
-        Iterator first = first_;
-        return qi::parse(first, last, expr, attr);
+        typedef typename result_of::as_component<qi::domain, Expr>::type component;
+        typedef typename component::director director;
+        component c = spirit::as_component(qi::domain(), xpr);
+        return director::parse(c, first, last, unused, unused, attr);
     }
 
     ///////////////////////////////////////////////////////////////////////////
@@ -104,111 +62,74 @@ namespace boost { namespace spirit { namespace qi
     phrase_parse(
         Iterator& first
       , Iterator last
-      , Expr const& expr
-      , Skipper const& skipper
-      , BOOST_SCOPED_ENUM(skip_flag) post_skip = skip_flag::postskip)
+      , Expr const& xpr
+      , Skipper const& skipper_)
     {
-        // Make sure the iterator is at least a forward_iterator. If you got a 
-        // compilation error here, then you are using an input_iterator while
-        // calling this function, you need to supply at least a 
-        // forward_iterator instead.
-        BOOST_CONCEPT_ASSERT((ForwardIterator<Iterator>));
+        typedef spirit::traits::is_component<qi::domain, Expr> expr_is_component;
+        typedef spirit::traits::is_component<qi::domain, Skipper> skipper_is_component;
 
-        return detail::phrase_parse_impl<Expr>::call(
-            first, last, expr, skipper, post_skip);
-    }
+        // report invalid expressions error as early as possible
+        BOOST_MPL_ASSERT_MSG(
+            expr_is_component::value,
+            xpr_is_not_convertible_to_a_parser, (Iterator, Expr, Skipper));
 
-    template <typename Iterator, typename Expr, typename Skipper>
-    inline bool
-    phrase_parse(
-        Iterator const& first_
-      , Iterator last
-      , Expr const& expr
-      , Skipper const& skipper
-      , BOOST_SCOPED_ENUM(skip_flag) post_skip = skip_flag::postskip)
-    {
-        Iterator first = first_;
-        return qi::phrase_parse(first, last, expr, skipper, post_skip);
-    }
+        BOOST_MPL_ASSERT_MSG(
+            skipper_is_component::value,
+            skipper_is_not_convertible_to_a_parser, (Iterator, Expr, Skipper));
 
-    ///////////////////////////////////////////////////////////////////////////
-    template <typename Iterator, typename Expr, typename Skipper, typename Attr>
-    inline bool
-    phrase_parse(
-        Iterator& first
-      , Iterator last
-      , Expr const& expr
-      , Skipper const& skipper
-      , BOOST_SCOPED_ENUM(skip_flag) post_skip
-      , Attr& attr)
-    {
-        // Make sure the iterator is at least a forward_iterator. If you got a 
-        // compilation error here, then you are using an input_iterator while
-        // calling this function, you need to supply at least a 
-        // forward_iterator instead.
-        BOOST_CONCEPT_ASSERT((ForwardIterator<Iterator>));
+        typedef typename result_of::as_component<qi::domain, Expr>::type component;
+        typedef typename component::director director;
+        component c = spirit::as_component(qi::domain(), xpr);
 
-        // Report invalid expression error as early as possible.
-        // If you got an error_invalid_expression error message here,
-        // then either the expression (expr) or skipper is not a valid
-        // spirit qi expression.
-        BOOST_SPIRIT_ASSERT_MATCH(qi::domain, Expr);
-        BOOST_SPIRIT_ASSERT_MATCH(qi::domain, Skipper);
+        typename result_of::as_component<qi::domain, Skipper>::type 
+            skipper = spirit::as_component(qi::domain(), skipper_);
 
-        typedef
-            typename result_of::compile<qi::domain, Skipper>::type
-        skipper_type;
-        skipper_type const skipper_ = compile<qi::domain>(skipper);
-
-        typename detail::make_context<Attr>::type context(attr);
-        if (!compile<qi::domain>(expr).parse(
-                first, last, context, skipper_, attr))
+        if (!director::parse(c, first, last, unused, skipper, unused))
             return false;
 
-        if (post_skip == skip_flag::postskip)
-            qi::skip_over(first, last, skipper_);
+        // do a final post-skip
+        skip(first, last, skipper);
         return true;
     }
 
-    template <typename Iterator, typename Expr, typename Skipper, typename Attr>
-    inline bool
-    phrase_parse(
-        Iterator const& first_
-      , Iterator last
-      , Expr const& expr
-      , Skipper const& skipper
-      , BOOST_SCOPED_ENUM(skip_flag) post_skip
-      , Attr& attr)
-    {
-        Iterator first = first_;
-        return qi::phrase_parse(first, last, expr, skipper, post_skip, attr);
-    }
-
-    ///////////////////////////////////////////////////////////////////////////
-    template <typename Iterator, typename Expr, typename Skipper, typename Attr>
+    template <typename Iterator, typename Expr, typename Attr, typename Skipper>
     inline bool
     phrase_parse(
         Iterator& first
       , Iterator last
-      , Expr const& expr
-      , Skipper const& skipper
-      , Attr& attr)
+      , Expr const& xpr
+      , Attr& attr
+      , Skipper const& skipper_)
     {
-        return qi::phrase_parse(first, last, expr, skipper, skip_flag::postskip, attr);
-    }
+        typedef spirit::traits::is_component<qi::domain, Expr> expr_is_component;
+        typedef spirit::traits::is_component<qi::domain, Skipper> skipper_is_component;
 
-    template <typename Iterator, typename Expr, typename Skipper, typename Attr>
-    inline bool
-    phrase_parse(
-        Iterator const& first_
-      , Iterator last
-      , Expr const& expr
-      , Skipper const& skipper
-      , Attr& attr)
-    {
-        Iterator first = first_;
-        return qi::phrase_parse(first, last, expr, skipper, skip_flag::postskip, attr);
+        // report invalid expressions error as early as possible
+        BOOST_MPL_ASSERT_MSG(
+            expr_is_component::value,
+            xpr_is_not_convertible_to_a_parser, 
+            (Iterator, Expr, Attr, Skipper));
+
+        BOOST_MPL_ASSERT_MSG(
+            skipper_is_component::value,
+            skipper_is_not_convertible_to_a_parser, 
+            (Iterator, Expr, Attr, Skipper));
+
+        typedef typename result_of::as_component<qi::domain, Expr>::type component;
+        typedef typename component::director director;
+        component c = spirit::as_component(qi::domain(), xpr);
+
+        typename result_of::as_component<qi::domain, Skipper>::type 
+            skipper = spirit::as_component(qi::domain(), skipper_);
+
+        if (!director::parse(c, first, last, unused, skipper, attr))
+            return false;
+
+        // do a final post-skip
+        skip(first, last, skipper);
+        return true;
     }
+    
 }}}
 
 #endif

@@ -34,8 +34,8 @@ template <class First, class Second, char sep>
 struct CollectPair : public std::pair<First, Second>
 {
  public:
-   using std::pair<First, Second>::first;
-   using std::pair<First, Second>::second;
+   std::pair<First, Second>::first;
+   std::pair<First, Second>::second;
    CollectPair() {}
    CollectPair( const std::pair<First,Second>& that) : std::pair<First, Second>(that) {}
    bool read( std::istream& in) ;
@@ -48,8 +48,8 @@ template <class First, class Second, char sep, char sel>
 struct SelectPair : public std::pair<First, Second>
 {
  public:
-   using std::pair<First, Second>::first;
-   using std::pair<First, Second>::second;
+   std::pair<First, Second>::first;
+   std::pair<First, Second>::second;
 
    SelectPair() {}
    SelectPair( const std::pair<First,Second>& that) : std::pair<First, Second>(that) {}
@@ -77,9 +77,9 @@ template <class Member,char sep, char left, char right>
 class SetDescriptor : public std::set<Member>
     {
       public:
-        using std::set<Member>::end;
+        std::set<Member>::end;
         void push_back( const Member& n)
-         { this->insert(n); }
+         { insert(n); }
         bool is_member( const Member& n)
          { return find(n) != end(); }
         bool replace( const Member& orig, const Member& n) 
@@ -98,7 +98,8 @@ class SetDescriptor : public std::set<Member>
         std::string ToString() const { std::stringstream out; write(out); return out.str(); }
         bool read( std::istream& in)
             { 
-              return ReadContainer<SetDescriptor<Member,sep,left,right>, Member,sep, left, right>::read(*this, in); 
+              return ReadContainer<SetDescriptor<Member,sep,left,right>, Member,
+                                  sep, left, right>::read(*this, in); 
             }
 
     };
@@ -117,10 +118,10 @@ class MapDescriptor : public std::map< Key,Member>
                   return std::map< Key,Member>::const_iterator ::operator*();
             }
      };
-     using std::map< Key,Member>::end;
+     std::map< Key,Member>::end;
 
      void push_back( const std::pair<Key, Member>& n )
-         { this->operator[](n.first) = n.second;  }
+         { operator[](n.first) = n.second;  }
      bool is_member( const Key& key, const Member*& n)
          { 
            typename std::map< Key,Member>::const_iterator p = find(key);
@@ -213,7 +214,7 @@ class IntDescriptor
 };
 //! A descriptor with begin(left) and end(right) characters, such as {x}, (x), etc
 template <class Descriptor, char left, char right>
-class ROSE_DLL_API CloseDescriptor : public Descriptor {
+class CloseDescriptor : public Descriptor {
  public:
   bool read( std::istream& in);
   void write(std::ostream& out) const ;

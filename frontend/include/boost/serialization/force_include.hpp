@@ -40,11 +40,9 @@
 #   if defined(__MWERKS__)
 #       define BOOST_DLLEXPORT __declspec(dllexport)
 #   elif defined(__GNUC__) && (__GNUC__ >= 3)
-#       define BOOST_USED __attribute__ ((__used__))
-#   elif defined(__IBMCPP__) && (__IBMCPP__ >= 1110)
-#       define BOOST_USED __attribute__ ((__used__))
+#       define BOOST_USED __attribute__ ((used))
 #   elif defined(__INTEL_COMPILER) && (BOOST_INTEL_CXX_VERSION >= 800)
-#       define BOOST_USED __attribute__ ((__used__))
+#       define BOOST_USED __attribute__ ((used))
 #   endif
 #endif
 

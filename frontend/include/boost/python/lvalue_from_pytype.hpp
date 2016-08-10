@@ -63,7 +63,7 @@ struct extract_member
 {
     static MemberType& execute(InstanceType& c)
     {
-        (void)Py_TYPE(&c); // static assertion
+        (void)c.ob_type; // static assertion
         return c.*member;
     }
 };
@@ -75,7 +75,7 @@ struct extract_identity
 {
     static InstanceType& execute(InstanceType& c)
     {
-        (void)Py_TYPE(&c); // static assertion
+        (void)c.ob_type; // static assertion
         return c;
     }
 };

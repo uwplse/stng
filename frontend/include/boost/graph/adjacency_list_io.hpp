@@ -94,7 +94,7 @@ void getSubset
 }
 
 inline void getSubset
-( no_property&, const no_property& )
+( no_property& p, const no_property& s )
 {
 }
 
@@ -215,7 +215,7 @@ struct PropertyPrinter
         template<class Val>
         PropertyPrinter& operator () ( std::ostream& out, const Val& v )
         {
-                typename property_map<Graph,Tag>::const_type ps = get(Tag(), *graph);
+                typename property_map<Graph,Tag>::type ps = get(Tag(), *graph);
                 out << ps[ v ] <<" ";
                 PropertyPrinter<Graph,Next> print(*graph);
                 print(out, v);
@@ -248,7 +248,7 @@ struct PropertyPrinter<Graph, property<Tag, Value, Next> >
         template<class Val>
         PropertyPrinter& operator () ( std::ostream& out, const Val& v )
         {
-                typename property_map<Graph,Tag>::const_type ps = get(Tag(), *graph);
+                typename property_map<Graph,Tag>::type ps = get(Tag(), *graph);
                 out << ps[ v ] <<" ";
                 PropertyPrinter<Graph,Next> print(*graph);
                 print(out, v);

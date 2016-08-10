@@ -7,7 +7,7 @@
 //
 //  File        : $RCSfile$
 //
-//  Version     : $Revision: 57992 $
+//  Version     : $Revision: 54633 $
 //
 //  Description : defines Unit Test Framework public API
 // ***************************************************************************
@@ -116,12 +116,12 @@ BOOST_FIXTURE_TEST_CASE( test_name, BOOST_AUTO_TEST_CASE_FIXTURE )
 /**/
 
 // ************************************************************************** //
-// **************       BOOST_FIXTURE_TEST_CASE_TEMPLATE       ************** //
+// **************        BOOST_AUTO_TEST_CASE_TEMPLATE         ************** //
 // ************************************************************************** //
 
-#define BOOST_FIXTURE_TEST_CASE_TEMPLATE( test_name, type_name, TL, F ) \
+#define BOOST_AUTO_TEST_CASE_TEMPLATE( test_name, type_name, TL )       \
 template<typename type_name>                                            \
-struct test_name : public F                                             \
+struct test_name : public BOOST_AUTO_TEST_CASE_FIXTURE                  \
 { void test_method(); };                                                \
                                                                         \
 struct BOOST_AUTO_TC_INVOKER( test_name ) {                             \
@@ -141,13 +141,6 @@ BOOST_AUTO_TU_REGISTRAR( test_name )(                                   \
 template<typename type_name>                                            \
 void test_name<type_name>::test_method()                                \
 /**/
-
-// ************************************************************************** //
-// **************        BOOST_AUTO_TEST_CASE_TEMPLATE         ************** //
-// ************************************************************************** //
-
-#define BOOST_AUTO_TEST_CASE_TEMPLATE( test_name, type_name, TL )       \
-BOOST_FIXTURE_TEST_CASE_TEMPLATE( test_name, type_name, TL, BOOST_AUTO_TEST_CASE_FIXTURE )
 
 // ************************************************************************** //
 // **************           BOOST_TEST_CASE_TEMPLATE           ************** //

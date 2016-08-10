@@ -15,7 +15,7 @@
 # pragma once
 #endif
 
-#include <boost/assert.hpp>
+#include <cassert>
 #include <cstdio>
 #include <stdexcept>                       // logic_error.
 #include <boost/config.hpp>                // BOOST_STATIC_CONSTANT.
@@ -27,14 +27,13 @@
 #include <boost/iostreams/pipeline.hpp>
 #include <boost/iostreams/putback.hpp>
 #include <boost/mpl/bool.hpp>
-#include <boost/throw_exception.hpp>
 #include <boost/type_traits/is_convertible.hpp>
 
 // Must come last.
 #include <boost/iostreams/detail/config/disable_warnings.hpp>
 
 #define BOOST_IOSTREAMS_ASSERT_UNREACHABLE(val) \
-    (BOOST_ASSERT("unreachable code" == 0), val) \
+    (assert("unreachable code" == 0), val) \
     /**/
 
 namespace boost { namespace iostreams {
@@ -121,11 +120,11 @@ public:
 
     explicit newline_filter(int target) : flags_(target)
     {
-        if ( target != iostreams::newline::posix &&
-             target != iostreams::newline::dos &&
-             target != iostreams::newline::mac )
+        if ( target != newline::posix &&
+             target != newline::dos &&
+             target != newline::mac )
         {
-            boost::throw_exception(std::logic_error("bad flags"));
+            throw std::logic_error("bad flags");
         }
     }
 
@@ -135,7 +134,7 @@ public:
         using iostreams::newline::CR;
         using iostreams::newline::LF;
 
-        BOOST_ASSERT((flags_ & f_write) == 0);
+        assert((flags_ & f_write) == 0);
         flags_ |= f_read;
 
         if (flags_ & (f_has_LF | f_has_EOF)) {
@@ -187,7 +186,7 @@ public:
         using iostreams::newline::CR;
         using iostreams::newline::LF;
 
-        BOOST_ASSERT((flags_ & f_read) == 0);
+        assert((flags_ & f_read) == 0);
         flags_ |= f_write;
 
         if ((flags_ & f_has_LF) != 0)
@@ -212,7 +211,7 @@ public:
     }
 
     template<typename Sink>
-    void close(Sink& dest, BOOST_IOS::openmode)
+    void close(Sink& dest, BOOST_IOS::openmode which)
     {
         typedef typename iostreams::category_of<Sink>::type category;
         if ((flags_ & f_write) != 0 && (flags_ & f_has_CR) != 0)
@@ -227,12 +226,12 @@ private:
         using iostreams::newline::CR;
         using iostreams::newline::LF;
 
-        switch (flags_ & iostreams::newline::platform_mask) {
-        case iostreams::newline::posix:
+        switch (flags_ & newline::platform_mask) {
+        case newline::posix:
             return LF;
-        case iostreams::newline::mac:
+        case newline::mac:
             return CR;
-        case iostreams::newline::dos:
+        case newline::dos:
             if (flags_ & f_has_LF) {
                 flags_ &= ~f_has_LF;
                 return LF;
@@ -252,14 +251,14 @@ private:
         using iostreams::newline::LF;
 
         bool success = false;
-        switch (flags_ & iostreams::newline::platform_mask) {
-        case iostreams::newline::posix:
+        switch (flags_ & newline::platform_mask) {
+        case newline::posix:
             success = boost::iostreams::put(dest, LF);
             break;
-        case iostreams::newline::mac:
+        case newline::mac:
             success = boost::iostreams::put(dest, CR);
             break;
-        case iostreams::newline::dos:
+        case newline::dos:
             if ((flags_ & f_has_LF) != 0) {
                 if ((success = boost::iostreams::put(dest, LF)))
                     flags_ &= ~f_has_LF;
@@ -399,7 +398,7 @@ public:
     }
 
     template<typename Sink>
-    void close(Sink&, BOOST_IOS::openmode)
+    void close(Sink&, BOOST_IOS::openmode which)
     {
         using iostreams::newline::final_newline;
 
@@ -421,7 +420,7 @@ public:
         }
     }
 private:
-    void fail() { boost::throw_exception(newline_error(source())); }
+    void fail() { throw newline_error(source()); }
     int& source() { return flags_; }
     int source() const { return flags_; }
 

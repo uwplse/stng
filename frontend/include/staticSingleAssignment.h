@@ -3,11 +3,7 @@
 
 #pragma once
 
-// DQ (10/5/2014): This is more strict now that we include rose_config.h in the sage3basic.h.
-// #include "rose.h"
-// rose.h and sage3basic.h should not be included in librose header files. [Robb P. Matzke 2014-10-15]
-// #include "sage3basic.h"
-
+#include <rose.h>
 #include <string>
 #include <iostream>
 #include <map>
@@ -63,7 +59,7 @@ namespace ssa_private
  * optimizations can access the results of this analysis while still preserving
  * the original AST.
  */
-class ROSE_DLL_API StaticSingleAssignment
+class StaticSingleAssignment
 {
 private:
     /** The project to perform SSA Analysis on. */

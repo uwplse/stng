@@ -19,7 +19,7 @@ SgStatement*
 MidLevelRewrite<ASTNodeCollection>::previousPrefixRelevantStatement ( 
    SgStatement* currentStatement )
    {
-     SgStatement* returnStatement = rose::getPreviousStatement(currentStatement);
+     SgStatement* returnStatement = ROSE::getPreviousStatement(currentStatement);
      switch (returnStatement->variantT())
         {
           case SgFunctionDefinition:
@@ -136,7 +136,7 @@ MidLevelRewrite<ASTNodeCollection>::generatePrefixAndSuffix (
             // (e.g. for test codes that replace the current statement with itself 
             // (which can happen in reality as well)).
             // printf ("Looking for previous statement of currentStatement = %s \n",currentStatement->sage_class_name());
-               SgStatement* startingLocation = rose::getPreviousStatement(currentStatement);
+               SgStatement* startingLocation = ROSE::getPreviousStatement(currentStatement);
                ROSE_ASSERT (startingLocation != NULL);
 
             // Handle special cases where we want to start a little further toward the root in the AST
@@ -147,7 +147,7 @@ MidLevelRewrite<ASTNodeCollection>::generatePrefixAndSuffix (
                     case V_SgMemberFunctionDeclaration:
                        {
                       // printf ("Handling special case of SgClassDeclaration or SgFunctionDeclaration \n");
-                         startingLocation = rose::getPreviousStatement(startingLocation);
+                         startingLocation = ROSE::getPreviousStatement(startingLocation);
                          break;
                        }
                     default:
@@ -304,23 +304,23 @@ MidLevelRewrite<ASTNodeCollection>::fileStringToNodeCollection (
      SgSourceFile* currentFile = TransformationSupport::getSourceFile(astNode);
      ROSE_ASSERT (currentFile != NULL);
      // Keep the suffix to deal differently with C, C++, etc.
-     std::string currentFileNameWithSuffix = rose::utility_stripPathFromFileName(currentFile->getFileName());
+     std::string currentFileNameWithSuffix = ROSE::stripPathFromFileName(currentFile->getFileName());
   // printf ("currentFileNameWithSuffix = %s \n",currentFileNameWithSuffix.c_str());
-  // string currentFileName = rose::stripFileSuffixFromFileName(currentFileNameWithSuffix.c_str());
+  // string currentFileName = ROSE::stripFileSuffixFromFileName(currentFileNameWithSuffix.c_str());
   // printf ("currentFileName = %s \n",currentFileName.c_str());
-  // std::string currentFileName = rose::stripFileSuffixFromFileName(rose::utility_stripPathFromFileName(currentFile->getFileName()));
+  // std::string currentFileName = ROSE::stripFileSuffixFromFileName(ROSE::stripPathFromFileName(currentFile->getFileName()));
   //   std::string currentFileName = StringUtility::stripFileSuffixFromFileName(StringUtility::stripPathFromFileName(currentFile->getFileName()));
 
   // Make the file name different each time a new set of transformation strings are compiled
      static int fileNumber = 1;
-     std::string numberString   = rose::StringUtility::numberToString(fileNumber++);
+     std::string numberString   = StringUtility::numberToString(fileNumber++);
      //std::string fileNameString = "rose_transformation_" + currentFileName + numberString + ".C";
      std::string fileNameString = "rose_transformation_" + numberString + "_" + currentFileNameWithSuffix;
 
   // For now - write the string representing the file containing the strings representing the
   // transformation out to a file Later we can try to avoid the intermediate file generation (but
   // for now this helps us debug the whole transformation specification mechanism).
-     rose::StringUtility::writeFile(
+     StringUtility::writeFile(
           /* string containing transformation strings */ finalSourceCodeString.c_str(),
        // /* filename */ "rose_transformation.C",
           /* filename */ fileNameString.c_str(),
@@ -349,10 +349,6 @@ MidLevelRewrite<ASTNodeCollection>::fileStringToNodeCollection (
      SgSourceFile* transformationASTPointer = isSgSourceFile(determineFileType(transformation_argv, errorCode, project));
 
      ROSE_ASSERT (transformationASTPointer != NULL);
-
-  // DQ (6/14/2013): Since we seperated the construction of the SgFile IR nodes from the invocation of the frontend, we have to call the frontend explicitly.
-     transformationASTPointer->runFrontend(errorCode);
-
      ROSE_ASSERT (errorCode <= 2);
 
   // GB (9/4/2009): Construction of a SgFile using determineFileType() no
@@ -363,7 +359,7 @@ MidLevelRewrite<ASTNodeCollection>::fileStringToNodeCollection (
   // printf ("DONE: Calling SgProject constructor \n");
 
 #if 0
-     std::string pdffilename = std::string("./") + std::string(rose::utility_stripPathFromFileName(rose::getFileName(transformationASTPointer)))+".pdf";
+     std::string pdffilename = std::string("./") + std::string(ROSE::stripPathFromFileName(ROSE::getFileName(transformationASTPointer)))+".pdf";
   // printf ("Expected PDF file name = %s \n",pdffilename.c_str());
 
   // Output the source code file (as represented by the SAGE AST) as a PDF file (with bookmarks)
@@ -375,7 +371,7 @@ MidLevelRewrite<ASTNodeCollection>::fileStringToNodeCollection (
 #endif
 
 #if 0
-     std::string dotfilename=string("./") + std::string(rose::utility_stripPathFromFileName(rose::getFileName(transformationASTPointer)))+".dot";
+     std::string dotfilename=string("./") + std::string(ROSE::stripPathFromFileName(ROSE::getFileName(transformationASTPointer)))+".dot";
   // printf ("Expected DOT file name = %s \n",dotfilename.c_str());
 
   // test ROSE specific class
@@ -464,13 +460,13 @@ MidLevelRewrite<ASTNodeCollection>::postponeMacroExpansion ( std::string macroCa
      static int counter = 0;
 
   // std::string prefix = "char* rose_macro_declaration_" + StringUtility::numberToString(counter) + " = \"ROSE-TRANSFORMATION-MACRO:";
-     std::string prefix = "char* rose_macro_declaration_" + rose::StringUtility::numberToString(counter) + " = \"ROSE-MACRO-CALL:";
+     std::string prefix = "char* rose_macro_declaration_" + StringUtility::numberToString(counter) + " = \"ROSE-MACRO-CALL:";
      std::string suffix = "\";";
 
   // Fix quoted strings to escape all quotes (escaped quotes are unescaped in
   // the unparser (the other end))
   // string returnString = prefix + macroCall + suffix;
-     std::string processedInputString = rose::StringUtility::copyEdit (macroCall,"\"","\\\"");
+     std::string processedInputString = StringUtility::copyEdit (macroCall,"\"","\\\"");
      std::string returnString = prefix + processedInputString + suffix;
 
   // printf ("In postponeMacroExpansion(): returnString = %s \n",returnString.c_str());

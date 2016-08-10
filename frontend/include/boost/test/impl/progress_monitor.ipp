@@ -7,7 +7,7 @@
 //
 //  File        : $RCSfile$
 //
-//  Version     : $Revision: 57992 $
+//  Version     : $Revision: 49312 $
 //
 //  Description : implements simple text based progress monitor
 // ***************************************************************************
@@ -18,8 +18,6 @@
 // Boost.Test
 #include <boost/test/progress_monitor.hpp>
 #include <boost/test/unit_test_suite_impl.hpp>
-
-#include <boost/test/detail/unit_test_parameters.hpp>
 
 // Boost
 #include <boost/progress.hpp>
@@ -42,7 +40,7 @@ namespace {
 struct progress_monitor_impl {
     // Constructor
     progress_monitor_impl()
-        : m_stream( runtime_config::log_sink() )
+    : m_stream( &std::cout )
     {}
 
     std::ostream*                m_stream;

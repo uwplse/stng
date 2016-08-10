@@ -39,12 +39,11 @@
 #include <boost/graph/iteration_macros.hpp>
 #include <boost/optional.hpp>
 #include <utility> // for std::pair
-#include <boost/assert.hpp>
+#include <cassert>
 #include <algorithm> // for std::find, std::mismatch
 #include <vector>
 #include <boost/graph/parallel/algorithm.hpp>
 #include <boost/graph/distributed/connected_components.hpp>
-#include <boost/concept/assert.hpp>
 
 namespace boost { namespace graph { namespace distributed {
 
@@ -137,9 +136,9 @@ namespace hohberg_detail {
   template<typename T>
   T branch_point(const std::vector<T>& p1, const std::vector<T>& p2)
   {
-    BOOST_ASSERT(!p1.empty());
-    BOOST_ASSERT(!p2.empty());
-    BOOST_ASSERT(p1.front() == p2.front());
+    assert(!p1.empty());
+    assert(!p2.empty());
+    assert(p1.front() == p2.front());
 
     typedef typename std::vector<T>::const_iterator iterator;
 
@@ -174,7 +173,7 @@ namespace hohberg_detail {
 #endif
 
     if (a == b) {
-#if defined(PBGL_HOHBERG_DEBUG) && PBGL_HOHBERG_DEBUG > 2
+#if defined(PBGL_HOHBERG_DEBUG) and PBGL_HOHBERG_DEBUG > 2
       std::cerr << local(a) << '@' << owner(a) << std::endl;
 #endif
       return a;
@@ -187,7 +186,7 @@ namespace hohberg_detail {
       if (*last == b) { swap(a,b); break; }
 
       if (last == first) {
-#if defined(PBGL_HOHBERG_DEBUG) && PBGL_HOHBERG_DEBUG > 2
+#if defined(PBGL_HOHBERG_DEBUG) and PBGL_HOHBERG_DEBUG > 2
         std::cerr << local(*first) << '@' << owner(*first) << std::endl;
 #endif
         return *first;
@@ -206,7 +205,7 @@ namespace hohberg_detail {
       else --last;
     }
 
-#if defined(PBGL_HOHBERG_DEBUG) && PBGL_HOHBERG_DEBUG > 2
+#if defined(PBGL_HOHBERG_DEBUG) and PBGL_HOHBERG_DEBUG > 2
     std::cerr << local(*last) << '@' << owner(*last) << std::endl;
 #endif
     // We've found b; it's the infimum.
@@ -386,7 +385,7 @@ class hohberg_vertex_processor
   template<typename Archiver>
   void serialize(Archiver&, const unsigned int /*version*/)
   {
-    BOOST_ASSERT(false);
+    assert(false);
   }
 };
 
@@ -524,7 +523,7 @@ hohberg_vertex_processor<Graph>::operator()(Edge e, path_t& path,
 
   default:
 //    std::cerr << "Phase is " << int(phase) << "\n";
-    BOOST_ASSERT(false);
+    assert(false);
   }
 }
 
@@ -580,7 +579,7 @@ hohberg_vertex_processor<Graph>::operator()(Edge e, Vertex gamma,
     break;
 
   default:
-    BOOST_ASSERT(false);
+    assert(false);
   }
 }
 
@@ -597,7 +596,7 @@ hohberg_vertex_processor<Graph>::operator()(Edge e, edges_size_type name,
             << name << "), phase = " << (int)phase << std::endl;
 #endif
 
-  BOOST_ASSERT(phase == 4);
+  assert(phase == 4);
 
   typename property_map<Graph, vertex_owner_t>::const_type
     owner = get(vertex_owner, g);
@@ -685,7 +684,7 @@ start_naming_phase(Vertex alpha, const Graph& g, edges_size_type offset)
 {
   using namespace hohberg_detail;
 
-  BOOST_ASSERT(phase == 4);
+  assert(phase == 4);
 
   typename property_map<Graph, vertex_owner_t>::const_type
     owner = get(vertex_owner, g);
@@ -716,7 +715,7 @@ start_naming_phase(Vertex alpha, const Graph& g, edges_size_type offset)
     } else if (edata.is_tree_edge) {
       has_more_children_to_name = true;
     }
-#if defined(PBGL_HOHBERG_DEBUG) && PBGL_HOHBERG_DEBUG > 2
+#if defined(PBGL_HOHBERG_DEBUG) and PBGL_HOHBERG_DEBUG > 2
     std::cerr << "M[" << local(source(e, g)) << '@' << owner(source(e, g))
               << " -> " << local(target(e, g)) << '@' << owner(target(e, g))
               << "] = ";
@@ -748,7 +747,7 @@ hohberg_vertex_processor<Graph>::echo_phase(Vertex alpha, const Graph& g)
   if (parent != graph_traits<Graph>::null_vertex()) {
     Edge edge_to_parent;
 
-#if defined(PBGL_HOHBERG_DEBUG) && PBGL_HOHBERG_DEBUG > 1
+#if defined(PBGL_HOHBERG_DEBUG) and PBGL_HOHBERG_DEBUG > 1
      std::cerr << local(alpha) << '@' << owner(alpha) << " echo: parent = "
                << local(parent) << '@' << owner(parent) << ", eta = "
                << local(eta) << '@' << owner(eta) << ", Gamma = ";
@@ -760,7 +759,7 @@ hohberg_vertex_processor<Graph>::echo_phase(Vertex alpha, const Graph& g)
       if (target(e, g) == parent && parent == eta) {
         edge_to_parent = e;
         if (find(bicomp.begin(), bicomp.end(), alpha) == bicomp.end()) {
-#if defined(PBGL_HOHBERG_DEBUG) && PBGL_HOHBERG_DEBUG > 1
+#if defined(PBGL_HOHBERG_DEBUG) and PBGL_HOHBERG_DEBUG > 1
           std::cerr << local(alpha) << '@' << owner(alpha) << ' ';
 #endif
           bicomp.push_back(alpha);
@@ -778,7 +777,7 @@ hohberg_vertex_processor<Graph>::echo_phase(Vertex alpha, const Graph& g)
             ++pos;
             if (pos != edata.msg.path_or_bicomp.end()
                 && find(bicomp.begin(), bicomp.end(), *pos) == bicomp.end()) {
-#if defined(PBGL_HOHBERG_DEBUG) && PBGL_HOHBERG_DEBUG > 1
+#if defined(PBGL_HOHBERG_DEBUG) and PBGL_HOHBERG_DEBUG > 1
               std::cerr << local(*pos) << '@' << owner(*pos) << ' ';
 #endif
               bicomp.push_back(*pos);
@@ -788,7 +787,7 @@ hohberg_vertex_processor<Graph>::echo_phase(Vertex alpha, const Graph& g)
           for (path_iterator i = edata.msg.path_or_bicomp.begin();
                i != edata.msg.path_or_bicomp.end(); ++i) {
             if (find(bicomp.begin(), bicomp.end(), *i) == bicomp.end()) {
-#if defined(PBGL_HOHBERG_DEBUG) && PBGL_HOHBERG_DEBUG > 1
+#if defined(PBGL_HOHBERG_DEBUG) and PBGL_HOHBERG_DEBUG > 1
               std::cerr << local(*i) << '@' << owner(*i) << ' ';
 #endif
               bicomp.push_back(*i);
@@ -871,7 +870,7 @@ hohberg_vertex_processor<Graph>::get_edge_index(Edge e, const Graph& g)
     if (source(e, g) == target(oe, g)) return result;
     ++result;
   }
-  BOOST_ASSERT(false);
+  assert(false);
 }
 
 template<typename Graph>
@@ -884,7 +883,7 @@ hohberg_vertex_processor<Graph>::get_incident_edge_index(Vertex u, Vertex v,
     if (target(e, g) == v) return result;
     ++result;
   }
-  BOOST_ASSERT(false);
+  assert(false);
 }
 
 template<typename Graph, typename InputIterator, typename ComponentMap,
@@ -909,7 +908,7 @@ hohberg_biconnected_components
                     undirected_tag>::value));
 
   // The graph must model Incidence Graph
-  BOOST_CONCEPT_ASSERT(( IncidenceGraphConcept<Graph> ));
+  function_requires< IncidenceGraphConcept<Graph> >();
 
   typedef typename graph_traits<Graph>::edges_size_type edges_size_type;
   typedef typename graph_traits<Graph>::degree_size_type degree_size_type;
@@ -953,7 +952,7 @@ hohberg_biconnected_components
           // Receive the path header
           path_header<edge_descriptor> header;
           receive(pg, msg->first, msg->second, header);
-          BOOST_ASSERT(path_length == header.path_length);
+          assert(path_length == header.path_length);
 
           // Receive the path itself
           path_t path(path_length);
@@ -967,7 +966,7 @@ hohberg_biconnected_components
       case msg_path_vertices:
         // Should be handled in msg_path_header case, unless we're going
         // stateless.
-        BOOST_ASSERT(false);
+        assert(false);
         break;
 
       case msg_tree_header:
@@ -990,7 +989,7 @@ hohberg_biconnected_components
       case msg_tree_vertices:
         // Should be handled in msg_tree_header case, unless we're
         // going stateless.
-        BOOST_ASSERT(false);
+        assert(false);
         break;
 
       case msg_name:
@@ -1003,7 +1002,7 @@ hohberg_biconnected_components
         break;
 
       default:
-        BOOST_ASSERT(false);
+        assert(false);
       }
     }
     ++path_length;

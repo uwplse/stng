@@ -34,7 +34,7 @@ class RewriteRuleCombiner: public RewriteRule {
 
 //! Rewrite a node and its children recursively using a rule.  Iterate until no
 //! more changes can be made.
-ROSE_DLL_API void rewrite(RewriteRule* rule, SgNode*& top);
+void rewrite(RewriteRule* rule, SgNode*& top);
 
 //! Replace a child of a node.
 void replaceChild(SgNode* parent, SgNode* from, SgNode* to);
@@ -92,7 +92,7 @@ Pattern* p_int(int x);
 extern Pattern* p_wildcard;
 
 //! A standard set of algebraic rules for simple optimizations
-ROSE_DLL_API RewriteRule* getAlgebraicRules();
+RewriteRule* getAlgebraicRules();
 
 //! A standard set of algebraic and finite-differencing rules
 RewriteRule* getFiniteDifferencingRules();

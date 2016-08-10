@@ -29,21 +29,12 @@ namespace boost { namespace numeric
 {
     namespace operators
     {
-        namespace acc_detail
-        {
-            template<typename Fun>
-            struct make_valarray
-            {
-                typedef std::valarray<typename Fun::result_type> type;
-            };
-        }
-
         ///////////////////////////////////////////////////////////////////////////////
         // Handle valarray<Left> / Right where Right is a scalar and Right != Left.
         template<typename Left, typename Right>
-        typename lazy_enable_if<
+        typename enable_if<
             mpl::and_<is_scalar<Right>, mpl::not_<is_same<Left, Right> > >
-          , acc_detail::make_valarray<functional::divides<Left, Right> >
+          , std::valarray<typename functional::divides<Left, Right>::result_type>
         >::type
         operator /(std::valarray<Left> const &left, Right const &right)
         {
@@ -59,9 +50,9 @@ namespace boost { namespace numeric
         ///////////////////////////////////////////////////////////////////////////////
         // Handle valarray<Left> * Right where Right is a scalar and Right != Left.
         template<typename Left, typename Right>
-        typename lazy_enable_if<
+        typename enable_if<
             mpl::and_<is_scalar<Right>, mpl::not_<is_same<Left, Right> > >
-          , acc_detail::make_valarray<functional::multiplies<Left, Right> >
+          , std::valarray<typename functional::multiplies<Left, Right>::result_type>
         >::type
         operator *(std::valarray<Left> const &left, Right const &right)
         {
@@ -77,9 +68,9 @@ namespace boost { namespace numeric
         ///////////////////////////////////////////////////////////////////////////////
         // Handle valarray<Left> + valarray<Right> where Right != Left.
         template<typename Left, typename Right>
-        typename lazy_disable_if<
+        typename disable_if<
             is_same<Left, Right>
-          , acc_detail::make_valarray<functional::plus<Left, Right> >
+          , std::valarray<typename functional::plus<Left, Right>::result_type>
         >::type
         operator +(std::valarray<Left> const &left, std::valarray<Right> const &right)
         {

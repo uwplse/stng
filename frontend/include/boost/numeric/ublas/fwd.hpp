@@ -1,6 +1,6 @@
 //
-//  Copyright (c) 2000-2010
-//  Joerg Walter, Mathias Koch, David Bellot
+//  Copyright (c) 2000-2002
+//  Joerg Walter, Mathias Koch
 //
 //  Distributed under the Boost Software License, Version 1.0. (See
 //  accompanying file LICENSE_1_0.txt or copy at
@@ -9,8 +9,6 @@
 //  The authors gratefully acknowledge the support of
 //  GeNeSys mbH & Co. KG in producing this work.
 //
-
-/// \file fwd.hpp is essentially used to forward declare the main types
 
 #ifndef BOOST_UBLAS_FWD_H
 #define BOOST_UBLAS_FWD_H

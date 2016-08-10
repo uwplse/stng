@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga  2006-2009
+// (C) Copyright Ion Gaztanaga  2006-2008
 //
 // Distributed under the Boost Software License, Version 1.0.
 //    (See accompanying file LICENSE_1_0.txt or copy at
@@ -13,7 +13,6 @@
 #ifndef BOOST_INTRUSIVE_DETAIL_MPL_HPP
 #define BOOST_INTRUSIVE_DETAIL_MPL_HPP
 
-#include <boost/intrusive/detail/config_begin.hpp>
 #include <cstddef>
 
 namespace boost {
@@ -127,20 +126,16 @@ struct identity
 #if defined(BOOST_MSVC) || defined(__BORLANDC_)
 #define BOOST_INTRUSIVE_TT_DECL __cdecl
 #else
-#define BOOST_INTRUSIVE_TT_DECL
+#define BOOST_INTRUSIVE_TT_DECL 
 #endif
 
-#if defined(_MSC_EXTENSIONS) && !defined(__BORLAND__) && !defined(_WIN64) && !defined(UNDER_CE)
+#if defined(_MSC_EXTENSIONS) && !defined(__BORLAND__) && !defined(_WIN64)
 #define BOOST_INTRUSIVE_TT_TEST_MSC_FUNC_SIGS
 #endif
 
 template <typename T>
 struct is_unary_or_binary_function_impl
 {  static const bool value = false; };
-
-// see boost ticket #4094
-// avoid duplicate definitions of is_unary_or_binary_function_impl
-#ifndef BOOST_INTRUSIVE_TT_TEST_MSC_FUNC_SIGS
 
 template <typename R>
 struct is_unary_or_binary_function_impl<R (*)()>
@@ -149,15 +144,27 @@ struct is_unary_or_binary_function_impl<R (*)()>
 template <typename R>
 struct is_unary_or_binary_function_impl<R (*)(...)>
 {  static const bool value = true;  };
-
-#else // BOOST_INTRUSIVE_TT_TEST_MSC_FUNC_SIGS
+/*
+#ifdef BOOST_INTRUSIVE_TT_TEST_MSC_FUNC_SIGS
 
 template <typename R>
 struct is_unary_or_binary_function_impl<R (__stdcall*)()>
 {  static const bool value = true;  };
 
 template <typename R>
+struct is_unary_or_binary_function_impl<R (__stdcall*)(...)>
+{  static const bool value = true;  };
+
+template <typename R>
+struct is_unary_or_binary_function_impl<R (__stdcall*)(...)>
+{  static const bool value = true;  };
+
+template <typename R>
 struct is_unary_or_binary_function_impl<R (__fastcall*)()>
+{  static const bool value = true;  };
+
+template <typename R>
+struct is_unary_or_binary_function_impl<R (__fastcall*)(...)>
 {  static const bool value = true;  };
 
 template <typename R>
@@ -167,13 +174,8 @@ struct is_unary_or_binary_function_impl<R (__cdecl*)()>
 template <typename R>
 struct is_unary_or_binary_function_impl<R (__cdecl*)(...)>
 {  static const bool value = true;  };
-
 #endif
-
-// see boost ticket #4094
-// avoid duplicate definitions of is_unary_or_binary_function_impl
-#ifndef BOOST_INTRUSIVE_TT_TEST_MSC_FUNC_SIGS
-
+*/
 template <typename R, class T0>
 struct is_unary_or_binary_function_impl<R (*)(T0)>
 {  static const bool value = true;  };
@@ -182,14 +184,22 @@ template <typename R, class T0>
 struct is_unary_or_binary_function_impl<R (*)(T0...)>
 {  static const bool value = true;  };
 
-#else // BOOST_INTRUSIVE_TT_TEST_MSC_FUNC_SIGS
+#ifdef BOOST_INTRUSIVE_TT_TEST_MSC_FUNC_SIGS
 
 template <typename R, class T0>
 struct is_unary_or_binary_function_impl<R (__stdcall*)(T0)>
 {  static const bool value = true;  };
+/*
+template <typename R, class T0>
+struct is_unary_or_binary_function_impl<R (__stdcall*)(T0...)>
+{  static const bool value = true;  };
 
 template <typename R, class T0>
 struct is_unary_or_binary_function_impl<R (__fastcall*)(T0)>
+{  static const bool value = true;  };
+
+template <typename R, class T0>
+struct is_unary_or_binary_function_impl<R (__fastcall*)(T0...)>
 {  static const bool value = true;  };
 
 template <typename R, class T0>
@@ -199,12 +209,8 @@ struct is_unary_or_binary_function_impl<R (__cdecl*)(T0)>
 template <typename R, class T0>
 struct is_unary_or_binary_function_impl<R (__cdecl*)(T0...)>
 {  static const bool value = true;  };
-
+*/
 #endif
-
-// see boost ticket #4094
-// avoid duplicate definitions of is_unary_or_binary_function_impl
-#ifndef BOOST_INTRUSIVE_TT_TEST_MSC_FUNC_SIGS
 
 template <typename R, class T0, class T1>
 struct is_unary_or_binary_function_impl<R (*)(T0, T1)>
@@ -213,15 +219,23 @@ struct is_unary_or_binary_function_impl<R (*)(T0, T1)>
 template <typename R, class T0, class T1>
 struct is_unary_or_binary_function_impl<R (*)(T0, T1...)>
 {  static const bool value = true;  };
-
-#else // BOOST_INTRUSIVE_TT_TEST_MSC_FUNC_SIGS
+/*
+#ifdef BOOST_INTRUSIVE_TT_TEST_MSC_FUNC_SIGS
 
 template <typename R, class T0, class T1>
 struct is_unary_or_binary_function_impl<R (__stdcall*)(T0, T1)>
 {  static const bool value = true;  };
 
 template <typename R, class T0, class T1>
+struct is_unary_or_binary_function_impl<R (__stdcall*)(T0, T1...)>
+{  static const bool value = true;  };
+
+template <typename R, class T0, class T1>
 struct is_unary_or_binary_function_impl<R (__fastcall*)(T0, T1)>
+{  static const bool value = true;  };
+
+template <typename R, class T0, class T1>
+struct is_unary_or_binary_function_impl<R (__fastcall*)(T0, T1...)>
 {  static const bool value = true;  };
 
 template <typename R, class T0, class T1>
@@ -232,7 +246,7 @@ template <typename R, class T0, class T1>
 struct is_unary_or_binary_function_impl<R (__cdecl*)(T0, T1...)>
 {  static const bool value = true;  };
 #endif
-
+*/
 template <typename T>
 struct is_unary_or_binary_function_impl<T&>
 {  static const bool value = false; };
@@ -346,10 +360,8 @@ struct ls_zeros<1>
    static const std::size_t value = 0;
 };
 
-} //namespace detail
-} //namespace intrusive
-} //namespace boost
-
-#include <boost/intrusive/detail/config_end.hpp>
+} //namespace detail 
+} //namespace intrusive 
+} //namespace boost 
 
 #endif //BOOST_INTRUSIVE_DETAIL_MPL_HPP

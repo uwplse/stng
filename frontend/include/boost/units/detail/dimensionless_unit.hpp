@@ -26,14 +26,6 @@ struct homogeneous_system;
 template<class T1, class T2, class Scale>
 struct heterogeneous_system_impl;
 
-typedef boost::units::heterogeneous_system<
-    boost::units::heterogeneous_system_impl<
-        boost::units::dimensionless_type,
-        boost::units::dimensionless_type,
-        boost::units::dimensionless_type
-    >
-> heterogeneous_dimensionless_system;
-
 namespace detail {
 
 template<class System>
@@ -47,7 +39,15 @@ struct void_if_dimensionless<boost::units::homogeneous_system<T> > {
 };
 
 template<>
-struct void_if_dimensionless<heterogeneous_dimensionless_system> {
+struct void_if_dimensionless<
+   boost::units::heterogeneous_system<
+       boost::units::heterogeneous_system_impl<
+           boost::units::dimensionless_type,
+           boost::units::dimensionless_type,
+           boost::units::dimensionless_type
+       >
+   >
+> {
     typedef void type;
 };
 

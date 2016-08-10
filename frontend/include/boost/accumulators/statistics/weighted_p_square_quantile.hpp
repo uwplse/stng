@@ -8,7 +8,6 @@
 #ifndef BOOST_ACCUMULATORS_STATISTICS_WEIGHTED_P_SQUARE_QUANTILE_HPP_DE_01_01_2006
 #define BOOST_ACCUMULATORS_STATISTICS_WEIGHTED_P_SQUARE_QUANTILE_HPP_DE_01_01_2006
 
-#include <cmath>
 #include <functional>
 #include <boost/array.hpp>
 #include <boost/parameter/keyword.hpp>

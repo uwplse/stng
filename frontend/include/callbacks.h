@@ -1,8 +1,7 @@
 #ifndef ROSE_Callbacks_H
 #define ROSE_Callbacks_H
 
-#include <boost/thread/locks.hpp>
-#include <boost/thread/mutex.hpp>
+#include "threadSupport.h"
 #include <list>
 
 /** User callbacks. See the ROSE_Callbacks::List class for details. */
@@ -81,20 +80,13 @@ namespace ROSE_Callbacks {
     public:
         typedef T CallbackType;                                 /**< Functor class. */
         typedef std::list<CallbackType*> CBList;                /**< Standard vector of functor pointers. */
-        
-    private:
-        mutable boost::mutex mutex_;
-        CBList list;
 
-    public:
-        List() {}
-
-        List(const List &other) {
-            boost::lock_guard<boost::mutex> lock(other.mutex_);
-            list = other.list;
+        List() {
+            RTS_mutex_init(&mutex, RTS_LAYER_ROSE_CALLBACKS_LIST_OBJ, NULL);
         }
 
         explicit List(CallbackType *callback) {
+            RTS_mutex_init(&mutex, RTS_LAYER_ROSE_CALLBACKS_LIST_OBJ, NULL);
             append(callback);
         }
 
@@ -102,16 +94,22 @@ namespace ROSE_Callbacks {
          *
          *  Thread safety: This method is thread safe. */
         size_t size() const {
-            boost::lock_guard<boost::mutex> lock(mutex_);
-            return list.size();
+            size_t retval = 0;
+            RTS_MUTEX(mutex) {
+                retval = list.size();
+            } RTS_MUTEX_END;
+            return retval;
         }
 
         /** Predicate to test whether the list is empty.  Returns true if the list is empty, false otherwise.
          *
          *  Thread safety: This method is thread safe. */
         bool empty() const {
-            boost::lock_guard<boost::mutex> lock(mutex_);
-            return list.empty();
+            bool retval = false;
+            RTS_MUTEX(mutex) {
+                retval = list.empty();
+            } RTS_MUTEX_END;
+            return retval;
         }
 
         /** Append a functor to the end of the list without copying it.  Functors can be inserted more than once into a list,
@@ -120,9 +118,10 @@ namespace ROSE_Callbacks {
          *  Thread safety: This method is thread safe.  In fact, it is safe to modify the list while apply() is calling the
          *  functors on that list. */
         List& append(CallbackType *cb) {
-            assert(cb!=NULL);
-            boost::lock_guard<boost::mutex> lock(mutex_);
-            list.push_back(cb);
+            RTS_MUTEX(mutex) {
+                assert(cb!=NULL);
+                list.push_back(cb);
+            } RTS_MUTEX_END;
             return *this;
         }
 
@@ -132,9 +131,10 @@ namespace ROSE_Callbacks {
          *  Thread safety: This method is thread safe.  In fact, it is safe to modify the list while apply() is calling the
          *  functors on that list. */
         List& prepend(CallbackType *cb) {
-            assert(cb!=NULL);
-            boost::lock_guard<boost::mutex> lock(mutex_);
-            list.push_front(cb);
+            RTS_MUTEX(mutex) {
+                assert(cb!=NULL);
+                list.push_front(cb);
+            } RTS_MUTEX_END;
             return *this;
         }
 
@@ -144,14 +144,15 @@ namespace ROSE_Callbacks {
          *  Thread safety: This method is thread safe.  In fact, it is safe to modify the list while apply() is calling the
          *  functors on that list. */
         List& after(CallbackType *relative_to, CallbackType *cb, size_t nreplacements=(size_t)(-1)) {
-            assert(cb!=NULL);
-            boost::lock_guard<boost::mutex> lock(mutex_);
-            for (typename CBList::iterator li=list.begin(); li!=list.end() && nreplacements>0; ++li) {
-                if (*li==relative_to) {
-                    li = list.insert(++li, cb);
-                    --nreplacements;
+            RTS_MUTEX(mutex) {
+                assert(cb!=NULL);
+                for (typename CBList::iterator li=list.begin(); li!=list.end() && nreplacements>0; ++li) {
+                    if (*li==relative_to) {
+                        li = list.insert(++li, cb);
+                        --nreplacements;
+                    }
                 }
-            }
+            } RTS_MUTEX_END;
             return *this;
         }
 
@@ -161,15 +162,16 @@ namespace ROSE_Callbacks {
          *  Thread safety: This method is thread safe.  In fact, it is safe to modify the list while apply() is calling the
          *  functors on that list. */
         List& before(CallbackType *relative_to, CallbackType *cb, size_t nreplacements=(size_t)(-1)) {
-            assert(cb!=NULL);
-            boost::lock_guard<boost::mutex> lock(mutex_);
-            for (typename CBList::iterator li=list.begin(); li!=list.end() && nreplacements>0; ++li) {
-                if (*li==relative_to) {
-                    li = list.insert(li, cb);
-                    ++li;
-                    --nreplacements;
+            RTS_MUTEX(mutex) {
+                assert(cb!=NULL);
+                for (typename CBList::iterator li=list.begin(); li!=list.end() && nreplacements>0; ++li) {
+                    if (*li==relative_to) {
+                        li = list.insert(li, cb);
+                        ++li;
+                        --nreplacements;
+                    }
                 }
-            }
+            } RTS_MUTEX_END;
             return *this;
         }
 
@@ -180,23 +182,24 @@ namespace ROSE_Callbacks {
          *  Thread safety: This method is thread safe. In fact, it is safe to modify the list while apply() is calling the
          *  functors on that list. */
         List& replace(CallbackType *old_cb, CallbackType *new_cb, size_t nreplacements=(size_t)(-1), Direction dir=FORWARD) {
-            assert(new_cb!=NULL);
-            boost::lock_guard<boost::mutex> lock(mutex_);
-            if (FORWARD==dir) {
-                for (typename CBList::iterator li=list.begin(); li!=list.end() && nreplacements>0; ++li) {
-                    if (*li==old_cb) {
-                        *li = new_cb;
-                        --nreplacements;
+            RTS_MUTEX(mutex) {
+                assert(new_cb!=NULL);
+                if (FORWARD==dir) {
+                    for (typename CBList::iterator li=list.begin(); li!=list.end() && nreplacements>0; ++li) {
+                        if (*li==old_cb) {
+                            *li = new_cb;
+                            --nreplacements;
+                        }
+                    }
+                } else {
+                    for (typename CBList::reverse_iterator li=list.rbegin(); li!=list.rend() && nreplacements>0; ++li) {
+                        if (*li==old_cb) {
+                            *li = new_cb;
+                            --nreplacements;
+                        }
                     }
                 }
-            } else {
-                for (typename CBList::reverse_iterator li=list.rbegin(); li!=list.rend() && nreplacements>0; ++li) {
-                    if (*li==old_cb) {
-                        *li = new_cb;
-                        --nreplacements;
-                    }
-                }
-            }
+            } RTS_MUTEX_END;
             return *this;
         }
 
@@ -207,23 +210,27 @@ namespace ROSE_Callbacks {
          *  Thread safety: This method is thread safe.  In fact, it is safe to modify the list while apply() is calling the
          *  functors on that list. */
         bool erase(CallbackType *cb, Direction dir=FORWARD) {
-            boost::lock_guard<boost::mutex> lock(mutex_);
-            if (FORWARD==dir) {
-                for (typename CBList::iterator li=list.begin(); li!=list.end(); ++li) {
-                    if (*li==cb) {
-                        list.erase(li);
-                        return true;
+            bool erased = false;
+            RTS_MUTEX(mutex) {
+                if (FORWARD==dir) {
+                    for (typename CBList::iterator li=list.begin(); li!=list.end(); ++li) {
+                        if (*li==cb) {
+                            list.erase(li);
+                            erased = true;
+                            break;
+                        }
+                    }
+                } else {
+                    for (typename CBList::reverse_iterator li=list.rbegin(); li!=list.rend(); ++li) {
+                        if (*li==cb) {
+                            list.erase((++li).base());
+                            erased = true;
+                            break;
+                        }
                     }
                 }
-            } else {
-                for (typename CBList::reverse_iterator li=list.rbegin(); li!=list.rend(); ++li) {
-                    if (*li==cb) {
-                        list.erase((++li).base());
-                        return true;
-                    }
-                }
-            }
-            return false;
+            } RTS_MUTEX_END;
+            return erased;
         }
 
         /** Remove all callbacks from list without destroying them.
@@ -231,8 +238,9 @@ namespace ROSE_Callbacks {
          *  Thread safety: This method is thread safe.  In fact, it is safe to modify the list while apply() is calling the
          *  functors on that list. */
         List& clear() {
-            boost::lock_guard<boost::mutex> lock(mutex_);
-            list.clear();
+            RTS_MUTEX(mutex) {
+                list.clear();
+            } RTS_MUTEX_END;
             return *this;
         }
 
@@ -240,8 +248,11 @@ namespace ROSE_Callbacks {
          *
          *  Thread safety: This method is thread safe. */
         std::list<CallbackType*> callbacks() const {
-            boost::lock_guard<boost::mutex> lock(mutex_);
-            return list;
+            CBList retval;
+            RTS_MUTEX(mutex) {
+                retval = list;
+            } RTS_MUTEX_END;
+            return retval;
         }
 
         /** Invokes all functors in the callback list.  The functors are invoked sequentially in the order specified by calling
@@ -268,6 +279,10 @@ namespace ROSE_Callbacks {
             }
             return b;
         }
+
+    private:
+        mutable RTS_mutex_t mutex;
+        CBList list;
     };
 }
 

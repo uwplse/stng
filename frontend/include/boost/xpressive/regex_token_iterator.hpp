@@ -93,14 +93,14 @@ inline int get_mark_number(int i)
     return i;
 }
 
-inline std::vector<int> to_vector(int subs)
+inline std::vector<int> to_vector(int sub_match)
 {
-    return std::vector<int>(1, subs);
+    return std::vector<int>(1, sub_match);
 }
 
-inline std::vector<int> const &to_vector(std::vector<int> const &subs)
+inline std::vector<int> const &to_vector(std::vector<int> const &sub_matches)
 {
-    return subs;
+    return sub_matches;
 }
 
 template<typename Int, std::size_t Size>

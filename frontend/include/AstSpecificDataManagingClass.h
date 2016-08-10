@@ -1,4 +1,4 @@
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarStaticDataManagingClassHeader.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarStaticDataManagingClassHeader.macro" */
 /* JH (01/01/2006) This file is generated using ROSETTA. It should never be 
    manipulated by hand. The generation is located in buildStorageClasses.C!
 
@@ -7,25 +7,21 @@
 class SgProject;
 
 
-class ROSE_DLL_API AstSpecificDataManagingClass 
+class AstSpecificDataManagingClass 
   {
     private:
      SgProject* rootOfAst;
      int astIndex;
-     unsigned long listOfAccumulatedPoolSizes [ 824 + 1 ];
+     unsigned long listOfAccumulatedPoolSizes [ 710 + 1 ];
      SgFunctionTypeTable*  SgNode_globalFunctionTypeTable;
      SgTypeTable*  SgNode_globalTypeTable;
      std::map<SgNode*,std::string>  SgNode_globalMangledNameMap;
      std::map<std::string, int>  SgNode_shortMangledNameCache;
      std::map<SgNode*,std::string>  SgNode_globalQualifiedNameMapForNames;
      std::map<SgNode*,std::string>  SgNode_globalQualifiedNameMapForTypes;
-     std::map<SgNode*,std::string>  SgNode_globalQualifiedNameMapForTemplateHeaders;
      std::map<SgNode*,std::string>  SgNode_globalTypeNameMap;
-     SgNodeSet  SgSymbolTable_aliasSymbolCausalNodeSet;
-     bool  SgSymbolTable_force_search_of_base_classes;
      std::map<int, std::string>  Sg_File_Info_fileidtoname_map;
      std::map<std::string, int>  Sg_File_Info_nametofileid_map;
-     bool  SgFile_skip_unparse_asm_commands;
      SgTypePtrList  SgUnparse_Info_structureTagProcessingList;
      bool  SgUnparse_Info_forceDefaultConstructorToTriggerError;
      int  SgGraph_index_counter;
@@ -52,8 +48,6 @@ class ROSE_DLL_API AstSpecificDataManagingClass
      SgTypeLongLong*  SgTypeLongLong_builtin_type;
      SgTypeSignedLongLong*  SgTypeSignedLongLong_builtin_type;
      SgTypeUnsignedLongLong*  SgTypeUnsignedLongLong_builtin_type;
-     SgTypeSigned128bitInteger*  SgTypeSigned128bitInteger_builtin_type;
-     SgTypeUnsigned128bitInteger*  SgTypeUnsigned128bitInteger_builtin_type;
      SgTypeLongDouble*  SgTypeLongDouble_builtin_type;
      SgTypeBool*  SgTypeBool_builtin_type;
      SgNamedType*  SgNamedType_builtin_type;
@@ -63,11 +57,17 @@ class ROSE_DLL_API AstSpecificDataManagingClass
      SgTypeCAFTeam*  SgTypeCAFTeam_builtin_type;
      SgTypeCrayPointer*  SgTypeCrayPointer_builtin_type;
      SgTypeLabel*  SgTypeLabel_builtin_type;
-     SgTypeNullptr*  SgTypeNullptr_builtin_type;
-     SgTypeMatrix*  SgTypeMatrix_builtin_type;
-     SgTypeTuple*  SgTypeTuple_builtin_type;
+     SgAsmTypeByte*  SgAsmTypeByte_builtin_type;
+     SgAsmTypeWord*  SgAsmTypeWord_builtin_type;
+     SgAsmTypeDoubleWord*  SgAsmTypeDoubleWord_builtin_type;
+     SgAsmTypeQuadWord*  SgAsmTypeQuadWord_builtin_type;
+     SgAsmTypeDoubleQuadWord*  SgAsmTypeDoubleQuadWord_builtin_type;
+     SgAsmType80bitFloat*  SgAsmType80bitFloat_builtin_type;
+     SgAsmType128bitFloat*  SgAsmType128bitFloat_builtin_type;
+     SgAsmTypeSingleFloat*  SgAsmTypeSingleFloat_builtin_type;
+     SgAsmTypeDoubleFloat*  SgAsmTypeDoubleFloat_builtin_type;
 
-/* #line 16 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarStaticDataManagingClassHeader.macro" */
+/* #line 16 "/home/demo/rose/src/ROSETTA/Grammar/grammarStaticDataManagingClassHeader.macro" */
     public:
      AstSpecificDataManagingClass(SgProject* root);
      AstSpecificDataManagingClass(const AstSpecificDataManagingClassStorageClass& source );
@@ -83,13 +83,9 @@ class ROSE_DLL_API AstSpecificDataManagingClass
      std::map<std::string, int>  get_SgNode_shortMangledNameCache() const;
      std::map<SgNode*,std::string>  get_SgNode_globalQualifiedNameMapForNames() const;
      std::map<SgNode*,std::string>  get_SgNode_globalQualifiedNameMapForTypes() const;
-     std::map<SgNode*,std::string>  get_SgNode_globalQualifiedNameMapForTemplateHeaders() const;
      std::map<SgNode*,std::string>  get_SgNode_globalTypeNameMap() const;
-     SgNodeSet  get_SgSymbolTable_aliasSymbolCausalNodeSet() const;
-     bool  get_SgSymbolTable_force_search_of_base_classes() const;
      std::map<int, std::string>  get_Sg_File_Info_fileidtoname_map() const;
      std::map<std::string, int>  get_Sg_File_Info_nametofileid_map() const;
-     bool  get_SgFile_skip_unparse_asm_commands() const;
      SgTypePtrList  get_SgUnparse_Info_structureTagProcessingList() const;
      bool  get_SgUnparse_Info_forceDefaultConstructorToTriggerError() const;
      int  get_SgGraph_index_counter() const;
@@ -116,8 +112,6 @@ class ROSE_DLL_API AstSpecificDataManagingClass
      SgTypeLongLong*  get_SgTypeLongLong_builtin_type() const;
      SgTypeSignedLongLong*  get_SgTypeSignedLongLong_builtin_type() const;
      SgTypeUnsignedLongLong*  get_SgTypeUnsignedLongLong_builtin_type() const;
-     SgTypeSigned128bitInteger*  get_SgTypeSigned128bitInteger_builtin_type() const;
-     SgTypeUnsigned128bitInteger*  get_SgTypeUnsigned128bitInteger_builtin_type() const;
      SgTypeLongDouble*  get_SgTypeLongDouble_builtin_type() const;
      SgTypeBool*  get_SgTypeBool_builtin_type() const;
      SgNamedType*  get_SgNamedType_builtin_type() const;
@@ -127,11 +121,17 @@ class ROSE_DLL_API AstSpecificDataManagingClass
      SgTypeCAFTeam*  get_SgTypeCAFTeam_builtin_type() const;
      SgTypeCrayPointer*  get_SgTypeCrayPointer_builtin_type() const;
      SgTypeLabel*  get_SgTypeLabel_builtin_type() const;
-     SgTypeNullptr*  get_SgTypeNullptr_builtin_type() const;
-     SgTypeMatrix*  get_SgTypeMatrix_builtin_type() const;
-     SgTypeTuple*  get_SgTypeTuple_builtin_type() const;
+     SgAsmTypeByte*  get_SgAsmTypeByte_builtin_type() const;
+     SgAsmTypeWord*  get_SgAsmTypeWord_builtin_type() const;
+     SgAsmTypeDoubleWord*  get_SgAsmTypeDoubleWord_builtin_type() const;
+     SgAsmTypeQuadWord*  get_SgAsmTypeQuadWord_builtin_type() const;
+     SgAsmTypeDoubleQuadWord*  get_SgAsmTypeDoubleQuadWord_builtin_type() const;
+     SgAsmType80bitFloat*  get_SgAsmType80bitFloat_builtin_type() const;
+     SgAsmType128bitFloat*  get_SgAsmType128bitFloat_builtin_type() const;
+     SgAsmTypeSingleFloat*  get_SgAsmTypeSingleFloat_builtin_type() const;
+     SgAsmTypeDoubleFloat*  get_SgAsmTypeDoubleFloat_builtin_type() const;
 
-/* #line 26 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarStaticDataManagingClassHeader.macro" */
+/* #line 26 "/home/demo/rose/src/ROSETTA/Grammar/grammarStaticDataManagingClassHeader.macro" */
 
     friend class AST_FILE_IO;
     friend class AstSpecificDataManagingClassStorageClass;

@@ -35,7 +35,6 @@ class Unparse_Type
           virtual void unparsePointerType(SgType* type, SgUnparse_Info& info);
           virtual void unparseMemberPointerType(SgType* type, SgUnparse_Info& info);
           virtual void unparseReferenceType(SgType* type, SgUnparse_Info& info);
-          virtual void unparseRvalueReferenceType(SgType* type, SgUnparse_Info& info);
        // void unparseNameType(SgType* type, SgUnparse_Info& info);
           virtual void unparseClassType(SgType* type, SgUnparse_Info& info);
        // CI
@@ -48,33 +47,10 @@ class Unparse_Type
           virtual void unparseFunctionType(SgType* type, SgUnparse_Info& info);
           virtual void unparseMemberFunctionType(SgType* type, SgUnparse_Info& info);
           virtual void unparseArrayType(SgType* type, SgUnparse_Info& info);
-
-       // DQ (11/20/2011): Adding support for template declarations in the AST.
-          virtual void unparseTemplateType(SgType* type, SgUnparse_Info& info);
-
-       // DQ (7/31/2014): Adding support for nullptr constant expression and its associated type.
-          virtual void unparseNullptrType(SgType* type, SgUnparse_Info& info);
-
-       // DQ (8/2/2014): Adding support for C++11 decltype.
-          virtual void unparseDeclType(SgType* type, SgUnparse_Info& info);
-
-       // DQ (3/28/2015): Adding support for GNU C typeof language extension.
-          virtual void unparseTypeOfType(SgType* type, SgUnparse_Info& info);
-
-       // DQ (5/3/2013): This approach is no longer supported, as I recall.
-       // virtual void unparseQualifiedNameType(SgType* type, SgUnparse_Info& info );
+          virtual void unparseQualifiedNameType(SgType* type, SgUnparse_Info& info );
 
        // DQ (6/6/2007): Test for if types should be elaborated
           bool generateElaboratedType(SgDeclarationStatement* declarationStatement, const SgUnparse_Info & info );
-
-       // DQ (12/11/2012): Refactored function to control output of "restrict" keyword (different for several backend compilers).
-          static std::string unparseRestrictKeyword();
-
-       // DQ (5/5/2013): Refactored code to support unparsing name qualified types.
-          template <class T>
-          void outputType(T* referenceNode, SgType* referenceNodeType, SgUnparse_Info & info);
-
-          void foobar( SgUnparse_Info & info );
    };
 
 #endif

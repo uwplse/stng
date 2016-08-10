@@ -16,13 +16,13 @@
 
 //  See http://www.boost.org for updates, documentation, and revision history.
 
-#include <set>
+#include <list>
 
 #include <boost/config.hpp>
-#include <boost/utility.hpp>
 #include <boost/archive/detail/auto_link_archive.hpp>
-
 #include <boost/archive/detail/abi_prefix.hpp> // must be the last header
+
+#include <boost/utility.hpp>
 
 namespace boost { 
 namespace serialization {
@@ -34,23 +34,13 @@ namespace detail {
 
 class basic_serializer;
 
-class BOOST_ARCHIVE_OR_WARCHIVE_DECL(BOOST_PP_EMPTY())
-basic_serializer_map : public
+class BOOST_ARCHIVE_OR_WARCHIVE_DECL(BOOST_PP_EMPTY()) basic_serializer_map : public
     boost::noncopyable
 {
-    struct type_info_pointer_compare
-    {
-        bool operator()(
-            const basic_serializer * lhs, const basic_serializer * rhs
-        ) const ;
-    };
-    typedef std::set<
-        const basic_serializer *, 
-        type_info_pointer_compare
-    > map_type;
+    typedef std::list<const basic_serializer *> map_type;
     map_type m_map;
 public:
-    bool insert(const basic_serializer * bs);
+    void insert(const basic_serializer * bs);
     void erase(const basic_serializer * bs);
     const basic_serializer * find(
         const boost::serialization::extended_type_info & type_

@@ -62,7 +62,7 @@ namespace boost
       degree(degree_vector.begin(), vm)
     {
       vertex_iterator_t vi, vi_end;
-      for(boost::tie(vi,vi_end) = vertices(g); vi != vi_end; ++vi)
+      for(tie(vi,vi_end) = vertices(g); vi != vi_end; ++vi)
         put(degree, *vi, out_degree(*vi, g));
     }
 
@@ -117,7 +117,7 @@ namespace boost
 
       // Mark all of the min degree vertex's neighbors
       adjacency_iterator_t ai, ai_end;
-      for(boost::tie(ai,ai_end) = adjacent_vertices(vertices_on_face.front(),g); 
+      for(tie(ai,ai_end) = adjacent_vertices(vertices_on_face.front(),g); 
           ai != ai_end; ++ai
           )
         {

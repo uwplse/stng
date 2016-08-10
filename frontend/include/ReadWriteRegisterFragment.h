@@ -69,7 +69,7 @@ ValueType<Len> readRegister(const RegisterDescriptor &reg) {
                 throw Exception("byte access only valid for general purpose registers");
             if (reg.get_minor()>=cur_state.registers.n_gprs)
                 throw Exception("register not implemented in semantic policy");
-            ASSERT_require(reg.get_nbits()==8); // we had better be asking for a one-byte register (e.g., "ah", not "ax")
+            assert(reg.get_nbits()==8); // we had better be asking for a one-byte register (e.g., "ah", not "ax")
             switch (reg.get_offset()) {
                 case 0:
                     return extract<0, Len>(cur_state.registers.gpr[reg.get_minor()]);
@@ -96,21 +96,21 @@ ValueType<Len> readRegister(const RegisterDescriptor &reg) {
                 case x86_regclass_flags:
                     if (reg.get_minor()!=0 || cur_state.registers.n_flags<16)
                         throw Exception("register not implemented in semantic policy");
-                    return unsignedExtend<16, Len>(concat<1, 15>(cur_state.registers.flag[0],
-                                                   concat<1, 14>(cur_state.registers.flag[1],
-                                                   concat<1, 13>(cur_state.registers.flag[2],
-                                                   concat<1, 12>(cur_state.registers.flag[3],
-                                                   concat<1, 11>(cur_state.registers.flag[4],
-                                                   concat<1, 10>(cur_state.registers.flag[5],
-                                                   concat<1, 9>(cur_state.registers.flag[6],
-                                                   concat<1, 8>(cur_state.registers.flag[7],
-                                                   concat<1, 7>(cur_state.registers.flag[8],
-                                                   concat<1, 6>(cur_state.registers.flag[9],
-                                                   concat<1, 5>(cur_state.registers.flag[10],
-                                                   concat<1, 4>(cur_state.registers.flag[11],
-                                                   concat<1, 3>(cur_state.registers.flag[12],
-                                                   concat<1, 2>(cur_state.registers.flag[13],
-                                                   concat<1, 1>(cur_state.registers.flag[14],
+                    return unsignedExtend<16, Len>(concat(cur_state.registers.flag[0],
+                                                   concat(cur_state.registers.flag[1],
+                                                   concat(cur_state.registers.flag[2],
+                                                   concat(cur_state.registers.flag[3],
+                                                   concat(cur_state.registers.flag[4],
+                                                   concat(cur_state.registers.flag[5],
+                                                   concat(cur_state.registers.flag[6],
+                                                   concat(cur_state.registers.flag[7],
+                                                   concat(cur_state.registers.flag[8],
+                                                   concat(cur_state.registers.flag[9],
+                                                   concat(cur_state.registers.flag[10],
+                                                   concat(cur_state.registers.flag[11],
+                                                   concat(cur_state.registers.flag[12],
+                                                   concat(cur_state.registers.flag[13],
+                                                   concat(cur_state.registers.flag[14],
                                                           cur_state.registers.flag[15]))))))))))))))));
                 default:
                     throw Exception("word access not valid for this register type");
@@ -185,7 +185,7 @@ void writeRegister(const RegisterDescriptor &reg, const ValueType<Len> &value) {
                 throw Exception("byte access only valid for general purpose registers.");
             if (reg.get_minor()>=cur_state.registers.n_gprs)
                 throw Exception("register not implemented in semantic policy");
-            ASSERT_require(reg.get_nbits()==8); // we had better be asking for a one-byte register (e.g., "ah", not "ax")
+            assert(reg.get_nbits()==8); // we had better be asking for a one-byte register (e.g., "ah", not "ax")
             switch (reg.get_offset()) {
                 case 0:
                     cur_state.registers.gpr[reg.get_minor()] =

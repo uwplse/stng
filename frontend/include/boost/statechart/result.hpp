@@ -1,7 +1,7 @@
 #ifndef BOOST_STATECHART_RESULT_HPP_INCLUDED
 #define BOOST_STATECHART_RESULT_HPP_INCLUDED
 //////////////////////////////////////////////////////////////////////////////
-// Copyright 2002-2010 Andreas Huber Doenni
+// Copyright 2002-2006 Andreas Huber Doenni
 // Distributed under the Boost Software License, Version 1.0. (See accompany-
 // ing file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //////////////////////////////////////////////////////////////////////////////
@@ -39,13 +39,13 @@ class safe_reaction_result
   public:
     //////////////////////////////////////////////////////////////////////////
     safe_reaction_result( const safe_reaction_result & other ) :
-      reactionResult_( other.reactionResult_ )
+      reactionResult( other.reactionResult )
     {
       // This assert fails when an attempt is made to make multiple copies of
       // a result value. This makes little sense, given the requirement that
       // an obtained result value must be returned out of the react function.
-      BOOST_ASSERT( reactionResult_ != consumed );
-      other.reactionResult_ = consumed;
+      BOOST_ASSERT( reactionResult != consumed );
+      other.reactionResult = consumed;
     }
 
     ~safe_reaction_result()
@@ -55,26 +55,26 @@ class safe_reaction_result
       // makes more than one call to reaction functions inside react() or
       // accidentally makes one or more calls to reaction functions outside
       // react()
-      BOOST_ASSERT( reactionResult_ == consumed );
+      BOOST_ASSERT( reactionResult == consumed );
     }
 
   private:
     //////////////////////////////////////////////////////////////////////////
     safe_reaction_result( reaction_result reactionResult ) :
-      reactionResult_( reactionResult )
+      reactionResult( reactionResult )
     {
     }
 
     operator reaction_result() const
     {
-      const reaction_result val = reactionResult_;
-      reactionResult_ = consumed;
+      const reaction_result val = reactionResult;
+      reactionResult = consumed;
       return val;
     }
 
     safe_reaction_result & operator=( const safe_reaction_result & );
 
-    mutable reaction_result reactionResult_;
+    mutable reaction_result reactionResult;
 
     friend struct result_utility;
 };

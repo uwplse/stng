@@ -1,15 +1,7 @@
 /*
- * This header (or its precompiled version) includes the forward declarations of all the Sage IR node classes ("Sg*")
- * from the ROSETTA-generated files (i.e., gives just the class names).
+ * this includes the forward declarations of all the sage node classes
+ * from the generated files (i.e. gives just the class names.)
  *
- * Every source file (.C) that becomes part of librose should include "sage3basic.h" as the first included file before any C++
- * token is processed by the compiler, thus allowing a precompiled version of this header to be used.  This applies to pretty
- * much every .C file under the $ROSE/src directory.  Such source files should not include "rose.h".
- *
- * No librose header file (those under $ROSE/src) should include sage3basic.h, rose_config.h, or rose.h.  If a header file
- * needs something that's declared in sage3basic.h then include sage3basic.h in the .C file first (GCC cannot use the
- * precompiled version if it is included from inside another header).  If a header file needs a configuration macro (like
- * HAVE_WHATEVER) from rose_config.h, then it should include "rosePublicConfig.h" instead (and use ROSE_HAVE_WHATEVER).
  */
 
 #ifndef SAGE3_CLASSES_BASIC__H
@@ -31,17 +23,13 @@
 #endif
 #include <inttypes.h>
 
-#include "rose_override.h"                              // defines ROSE_OVERRIDE as "override" if C++11 is present
-
 
 #include <semaphore.h>
 #include "fileoffsetbits.h"
 #include "rosedll.h"
 //tps (05/04/2010): Added compatibility
 #ifdef _MSC_VER
-# if _MSC_VER < 1900
   #define snprintf _snprintf
-# endif
 #endif
 
 // George Vulov (Aug. 23, 2010): This macro is not available in OS X by default
@@ -98,10 +86,6 @@
 #include <algorithm>
 #include <fstream>
 
-// DQ (8/25/2014): Added logic to isTemplateDeclaration(a_routine_ptr) to force isTemplateDeclaration 
-// in ROSE/EDG connection to be false where the topScopeStack() is a template class instantaition scope.
-#define ENFORCE_NO_FUNCTION_TEMPLATE_DECLARATIONS_IN_TEMPLATE_CLASS_INSTANTIATIONS 0
-
 // DQ (9/24/2004): Try again to remove use of set parent side effect in EDG/Sage III connection! This works!!!
 #define REMOVE_SET_PARENT_FUNCTION
 
@@ -117,65 +101,21 @@
 // It is now called within the AstFixup.C.
 #define USE_RESET_TEMPLATE_NAME false
 
-// The ROSE_DEPRECATED marker unconditionally marks a function or variable as deprecated and will produce a warning if
-// whenever a use of that function or variable occurs.  Do not disable this macro; see ROSE_DEPRECATED_FUNCTION instead.
-// If you mark a function or variable as deprecated, then BE SURE TO FIX PLACES WHERE IT IS USED IN ROSE!!!  The WHY argument
-// should be a string literal (unevaluated) describing why it's deprecated or what to use instead.
-#if defined(__GNUC__)
-#   define ROSE_DEPRECATED(WHY) __attribute__((deprecated))
-#elif defined(_MSC_VER)
-#   define ROSE_DEPRECATED(WHY) /*deprecated*/
-#else
-#   define ROSE_DEPRECATED(WHY) /*deprecated*/
-#endif
+#if 0
+// DQ (5/22/2005):
+// This is often turned of during development because it is annoying (until we can actually 
+// remove numerous functions where they are declared).  Also not clear what versions of GNU 
+// support it.
 
-// The ROSE_DEPRECATED_FUNCTION and ROSE_DEPRECATED_VARIABLE conditionally mark a function or variable as deprecated.  At this
-// time, ROSE itself contains hundreds of uses of deprecated functions and variables because the people that marked those
-// functions and variables as deprecated did not also fix ROSE to avoid calling them.  The warnings can be suppressed by
-// defining ROSE_SUPPRESS_DEPRECATION_WARNINGS on the compiler command-line during configuration.
-//
-// For the time being we explicitly define ROSE_SUPPRESS_DEPRECATION_WARNINGS because of the problem mentioned above. ROSE
-// authors should only add ROSE_DEPRECATED markers and not use new ROSE_DEPRECATED_FUNCTION or ROSE_DEPRECATED_VARAIBLE since
-// the latter two do nothing. AND BE SURE TO FIX PLACES IN ROSE WHERE THE DEPRECATED THING IS USED!!!!!
-#undef ROSE_SUPPRESS_DEPRECATION_WARNINGS
-#define ROSE_SUPPRESS_DEPRECATION_WARNINGS
-#if !defined(ROSE_SUPPRESS_DEPRECATION_WARNINGS)
-#   if !defined(ROSE_DEPRECATED_FUNCTION)
-#       define ROSE_DEPRECATED_FUNCTION ROSE_DEPRECATED
-#   endif
-#   if !defined(ROSE_DEPRECATED_VARIABLE)
-#       define ROSE_DEPRECATED_VARIABLE ROSE_DEPRECATED
-#   endif
+// Use the new GNU attribute mechanism to add more information to the source code
+// By specifying funcations and variables as depreicated we can start the remove
+// some functions and data members from Sage III.
+#define ROSE_DEPRECATED_FUNCTION __attribute__ ((deprecated))
+#define ROSE_DEPRECATED_VARIABLE __attribute__ ((deprecated))
 #else
-#   if !defined(ROSE_DEPRECATED_FUNCTION)
-#       define ROSE_DEPRECATED_FUNCTION /*deprecated*/
-#   endif
-#   if !defined(ROSE_DEPRECATED_VARIABLE)
-#       define ROSE_DEPRECATED_VARIABLE /*deprecated*/
-#   endif
-#endif
-
-// Used to mark deprecated functions and advertise that fact to developers and especially to end users.  This is sometimes
-// turned off during development (because it's annoying) by defining ROSE_SUPPRESS_DEPRECATION_WARNINGS when configuring.
-#if !defined(ROSE_SUPPRESS_DEPRECATION_WARNINGS)
-#   if defined(__GNUC__)
-        // Put ROSE_DEPRECATED_FUNCTION after the declaration, i.e.: int Foo::bar() const ROSE_DEPRECATED_FUNCTION;
-#       define ROSE_DEPRECATED_FUNCTION __attribute__((deprecated))
-#       define ROSE_DEPRECATED_VARIABLE __attribute__((deprecated))
-#   elif defined(_MSC_VER)
-        // Microsoft Visual C++ needs "__declspec(deprecated)" before the declaration. We don't really want to put
-        // ROSE_DEPRECATED_FUNCTION both before and after functions, so we just don't worry about advertising deprecation when
-        // using Microsoft compilers.  Use MinGW instead if you want a real C++ compiler on Windows.
-#       define ROSE_DEPRECATED_FUNCTION /*deprecated*/
-#       define ROSE_DEPRECATED_VARIABLE /*deprecated*/
-#   else
-        // No portable way to mark C++ functions as deprecated.
-#       define ROSE_DEPRECATED_FUNCTION /*deprecated*/
-#       define ROSE_DEPRECATED_VARIABLE /*deprecated*/
-#   endif
-#else
-#   define ROSE_DEPRECATED_FUNCTION /*deprecated*/
-#   define ROSE_DEPRECATED_VARIABLE /*deprecated*/
+// DQ (9/8/2004): Allow these to get turned of to simplify debugging while we have not yet removed their use.
+#define ROSE_DEPRECATED_FUNCTION 
+#define ROSE_DEPRECATED_VARIABLE 
 #endif
 
 // DQ (12/22/2007): Name of implicit Fortran "main" when building the program function.
@@ -257,8 +197,7 @@
 #include "rose_attributes_list.h"
 
 // Include ROSE common utility function library
-#include "StringUtility.h"
-#include "FileUtility.h"
+#include "string_functions.h"
 #include "escape.h"
 
 // Include support for Brian Gunney's command line parser tool (nice work)
@@ -333,69 +272,15 @@ namespace Exec { namespace ELF { class ElfFileHeader; }; };
    #define ROSE_USING_SMALL_GENERATED_HEADER_FILES 1
 #endif
 
-// DQ (10/4/2014): Added to support USE_ROSE_ATERM_SUPPORT macro.
-// Including rose_config.h is a problem, and is caught in any files that
-// also include rose.h.  Since ROSE source files in /src should not be 
-// including rose.h I have fixed many of these, but at least one fails
-// without rose.h (/src/midend/programAnalysis/genericDataflow/cfgUtils/CFGRewrite.C)
-// so maybe we should have it be an enforced policy instead of the kind of
-// error that is is if rose_config.h is included below.  The better solution 
-// for users is to include rosePublicConfig.h below (no in place).
-// Note also that some macros from ROSE may need to be added to the generated
-// rosePublicConfig.h file (in the script scripts/publicConfiguration.pl).
-// #include "rose_config.h"
-#include "rosePublicConfig.h"
-
-// DQ (10/4/2014): Not clear if this is the best way to control use of ATerm.
-// I think we need a specific macro to be defined for when ATerms are being used.
-// Also I want to initially seperate this from Windows support.
-#ifndef _MSC_VER
-  #ifdef ROSE_USE_ROSE_ATERM_SUPPORT
- // DQ (9/27/2013): This is required to be defined for the 64bit ATerm support.
-    #if (__x86_64__ == 1)
-   // 64-bit machines are required to set this before including the ATerm header files.
-      #define SIZEOF_LONG 8
-      #define SIZEOF_VOID_P 8
-    #else
-   // 32-bit machines need not have the values defined (but it is required for this program).
-      #define SIZEOF_LONG 4
-      #define SIZEOF_VOID_P 4
-    #endif
-
-    #include "aterm1.h"
-    #include "aterm2.h"
-  #else
- // Define this away so that we can trivially compile without ATerm support.
-    typedef int ATerm;
-  #endif
-#else
-// Define this away so that we can trivially compile without ATerm support.
-   typedef int ATerm;
-#endif
-
-// DQ (3/7/2013): I think that we need to use "" instead of <> and this may make a difference for SWIG.
 // DQ (9/21/2005): This is the simplest way to include this here
 // This is the definition of the Sage III IR classes (generated header).
-// #include <Cxx_Grammar.h>
-#include "Cxx_Grammar.h"
-
-// DQ (10/4/2014): Not clear if this is the best way to control use of ATerm.
-// I think we need a specific macro to be defined for when ATerms are being used.
-// Also I want to initially seperate this from Windows support.
-#ifndef _MSC_VER
-//  #ifdef ROSE_USE_ROSE_ATERM_SUPPORT
-    #include "atermSupport.h"
-//  #endif
-#endif
+#include <Cxx_Grammar.h>
 
 // Disable CC++ extensions (we want to support only the C++ Standard)
 #undef CCPP_EXTENSIONS_ALLOWED
 
 // This should be a simple include (without dependence upon ROSE_META_PROGRAM
 #include "utility_functions.h"
-
-// DQ (3/6/2013): Adding support to restrict visability to SWIG.
-// #ifndef ROSE_USE_SWIG_SUPPORT
 
 // Markus Schordan: temporary fixes for Ast flaws (modified by DQ)
 #include <typeinfo>
@@ -451,11 +336,8 @@ namespace Exec { namespace ELF { class ElfFileHeader; }; };
    #include "transformationSupport.h"
 #endif
 
-// endif for ifndef ROSE_USE_SWIG_SUPPORT
-// #endif
-
-#include <initialize.h>                                 // defines rose::initialize
-
 #endif
+
+
 
 

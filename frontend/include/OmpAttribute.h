@@ -42,16 +42,6 @@ namespace OmpSupport
     e_atomic,
     e_flush,
 
-    // Liao, 1/15/2013, experimental implementation for the draft OpenMP Accelerator Model technical report 
-    e_target, 
-    e_target_declare,
-    e_target_data,
-    e_target_update, 
-    e_map, // map clauses
-    e_device,
-    e_begin, // 10/29/2015, experimental begin/end directives for SPMD code blocks, without changing variable scopes
-    e_end,
-
     e_threadprivate,
     e_parallel_for,
     e_parallel_do,
@@ -141,30 +131,8 @@ namespace OmpSupport
     e_schedule_auto,
     e_schedule_runtime,
 
-    // 4 device map variants
-    //----------------------
-    e_map_alloc,
-    e_map_to,
-    e_map_from,
-    e_map_tofrom,
-
-    // experimental dist_data clause dist_data(dim1_policy, dim2_policy, dim3_policy)
-    // A policy can be block(n), cyclic(n), or duplicate
-    e_dist_data, 
-    e_duplicate, 
-    e_block,
-    e_cyclic,
-
-    // experimental SIMD directive, phlin 8/5/2013
-    e_simd,
-    e_safelen,
-    e_uniform,
-    e_aligned,
-    e_linear,
-
     // not an OpenMP construct
     e_not_omp
-
   }; //end omp_construct_enum
 
   //-------------------------------------------------------------------
@@ -196,20 +164,20 @@ namespace OmpSupport
   //! Some utility functions to manipulate OmpAttribute
   //
   //! A builder for OmpAttribute, useDefined indicates if the directive is added by programmer or not (by autoParallelization)
-  ROSE_DLL_API OmpAttribute* buildOmpAttribute(enum omp_construct_enum directive_type, SgNode* context_node, bool useDefined);
+  OmpAttribute* buildOmpAttribute(enum omp_construct_enum directive_type, SgNode* context_node, bool useDefined);
 
   //! Add OmpAttribute to a SgNode
-  ROSE_DLL_API void addOmpAttribute(OmpAttribute* ompattribute, SgNode* node);
+  void addOmpAttribute(OmpAttribute* ompattribute, SgNode* node);
 
   //! Remove OmpAttribute from a SgNode
-  ROSE_DLL_API void removeOmpAttribute(OmpAttribute* ompattribute, SgNode* node);
+  void removeOmpAttribute(OmpAttribute* ompattribute, SgNode* node);
 
   //! Check if two OmpAttributes are semantically equivalent to each other 
-  ROSE_DLL_API bool isEquivalentOmpAttribute (OmpAttribute* a1, OmpAttribute* a2);
+  bool isEquivalentOmpAttribute (OmpAttribute* a1, OmpAttribute* a2);
   
   class OmpAttributeList;
   //! Get OmpAttribute from a SgNode, return NULL if not found
-  ROSE_DLL_API OmpAttributeList* getOmpAttributeList(SgNode* node);
+  OmpAttributeList* getOmpAttributeList(SgNode* node);
 
   //! Get the first OmpAttribute from a SgNode, return NULL if not found
   OmpAttribute* getOmpAttribute(SgNode* node);
@@ -224,12 +192,12 @@ namespace OmpSupport
   omp_construct_enum getEndOmpConstructEnum (omp_construct_enum begin_enum);
 
   //! Generate a pragma declaration from OmpAttribute attached to a statement
-  ROSE_DLL_API void generatePragmaFromOmpAttribute(SgNode* sg_node); 
+  void generatePragmaFromOmpAttribute(SgNode* sg_node); 
   //TODO this is duplicated from autoParallization project's generatedOpenMPPragmas() 
   // We should remove this duplicate once autopar is moved into rose/src 
   
   //! Generate diff text from OmpAttribute attached to a statement
-  ROSE_DLL_API std::string generateDiffTextFromOmpAttribute(SgNode* sg_node);
+  std::string generateDiffTextFromOmpAttribute(SgNode* sg_node);
 
   //------------------------------------------------------------------
   // By default, the persistent attribute attached to an OpenMP pragma node in SAGE III AST
@@ -249,7 +217,7 @@ namespace OmpSupport
   //    'omp for' needs scheduling type 
   //------------------------------------------------------------------
 
-  class ROSE_DLL_API OmpAttributeList :public AstAttribute
+  class OmpAttributeList :public AstAttribute
   {
     public:
       std::vector<OmpAttribute*> ompAttriList;
@@ -258,18 +226,9 @@ namespace OmpSupport
       // Pretty print for debugging purpose
       void print();
       ~OmpAttributeList();
-
-      // This attribute attempts to manage its own memory by calling "delete" whenever the attribute is removed from an AST
-      // node.  It avoids memory leaks by not allowing OmpAttributeList attributes to be copied (no virtual "copy"
-      // constructor), and it never tries to replace one OmpAttributeList object with another with AstAttributeMechanism's
-      // "set" or "replace" methods or the corresponding methods in SgNode. However, it leaks memory if an AST node is deleted.
-      virtual OwnershipPolicy getOwnershipPolicy() const ROSE_OVERRIDE {
-          return CUSTOM_OWNERSHIP;
-      }
   };                      
 
-  // One attribute object stores all information within an OpenMP pragma (directive and clauses)
-  class ROSE_DLL_API OmpAttribute
+  class OmpAttribute
   {
     public:
       //!--------------AST connection------------------
@@ -297,34 +256,17 @@ namespace OmpSupport
       std::vector<omp_construct_enum> getClauses();
 
       //!--------var list --------------
-      //! Add a variable into a variable list of an OpenMP construct ,return the symbol of the variable added, if possible
-      SgVariableSymbol* addVariable(omp_construct_enum targetConstruct, const std::string& varString, SgInitializedName* sgvar=NULL);
+      //! Add a variable into a variable list of a construct
+      void addVariable(omp_construct_enum targetConstruct, const std::string& varString,SgInitializedName* sgvar=NULL);
       //! Check if a variable list is associated with a construct
       bool hasVariableList(omp_construct_enum);
       //! Get the variable list associated with a construct
       std::vector<std::pair<std::string,SgNode* > > 
         getVariableList(omp_construct_enum);
 
-      //! Dimension information for array variables, used by map clause, such as map (tofrom:array[0:n][0:m])
-      // We store a list (vector) of dimension bounds for each array variable
-      std::map<SgSymbol*,  std::vector < std::pair <SgExpression*, SgExpression*> > >  array_dimensions;  
-      
-      // dist_data (dim1_policy, dim2_policy, dim3_policy) for mapped arrays
-      // we use std::map <variable, policy_vector> to represent this.
-      // the policy vector contains up to three pair of (policy, optional size)
-      // e.g.  map(x[0:n][0:m] dist_data(duplicate, block(2)))
-      // -----------------------------------
-      std::map <SgSymbol* ,  std::vector < std::pair<omp_construct_enum, SgExpression*> >   >  dist_data_policies; 
- 
       //! Find the relevant clauses for a variable 
       std::vector<enum omp_construct_enum> get_clauses(const std::string& variable);
 
-      //! Insert dist_data policy for one dimension of an array into its policy vector (duplicate, block(n), cyclic(4)) (up to size 3)
-      bool appendDistDataPolicy(SgVariableSymbol* array_symbol, omp_construct_enum dist_data_policy, SgExpression* size_exp = NULL);
-
-     //!Obtain data distribution policy for an array. There are up to 3 pairs for 3-D.
-     std::vector < std::pair < omp_construct_enum, SgExpression*> > getDistDataPolicy (SgVariableSymbol* array_symbol); 
-       
       //!--------Expressions -----------------------------
       //! Add an expression to a clause
       void addExpression(omp_construct_enum targetConstruct, const std::string& expString, SgExpression*    sgexp=NULL); 
@@ -344,18 +286,6 @@ namespace OmpSupport
       std::vector<omp_construct_enum> getReductionOperators();
       //! Check if a reduction operation exists
       bool hasReductionOperator(omp_construct_enum operatorx);
-
-      // map clause is similar to reduction clause, 
-      //
-      // Add a new map clauses with the specified variant type
-      void setMapVariant(omp_construct_enum operatorx);
-      //! Get map clauses for each variant,  map(variant:var_list)
-      std::vector<omp_construct_enum> getMapVariants();
-      //! Check if a map variant exists
-      bool hasMapVariant(omp_construct_enum operatorx);
-
-      //! Check if the input parameter is a map variant enum type
-      bool isMapVariant(omp_construct_enum omp_type);
 
       // default () value
       void setDefaultValue(omp_construct_enum valuex);
@@ -437,11 +367,6 @@ namespace OmpSupport
       std::vector<omp_construct_enum> reduction_operators;
       //omp_construct_enum reduction_operator;
 
-      // Liao, 1/15/2013, map variant:
-      // there could be multiple map clause with the same variant type: alloc, to, from , and tofrom.
-      std::vector<omp_construct_enum> map_variants; 
-      //enum omp_construct_enum map_variant; 
-      
       //variable lists------------------- 
       //appeared within some directives and clauses
       //The clauses/directive are: flush, threadprivate, private, firstprivate, 
@@ -453,7 +378,6 @@ namespace OmpSupport
       // A reverse map from a variable to the clauses the variable appears
       std::map<std::string, std::vector<omp_construct_enum> > var_clauses;
 
-     
       // expressions ----------------------
       // e.g.: if (exp), num_threads(exp), schedule(,exp), collapse(exp)
       std::map<omp_construct_enum, std::pair<std::string, SgExpression*> > expressions;
@@ -487,14 +411,10 @@ namespace OmpSupport
 
       //! Convert entire directives and clauses to string ,
       // invoke OmpSupport::toString() to stringify the enumerate type internally
-      // some variables have the optional dist_data policy
       std::string toOpenMPString(omp_construct_enum omp_type);
 
       //! Convert a variable list to x,y,z ,without parenthesis.
-      std::string toOpenMPString(std::vector<std::pair<std::string,SgNode* > > varList, bool checkDistPolicy = false);
-
-      //! Convert dist_data() for an array symbol, return empty string if no dimension policies in input
-      std::string toOpenMPString (std::vector < std::pair <omp_construct_enum, SgExpression*> > dim_policies);
+      std::string toOpenMPString(std::vector<std::pair<std::string,SgNode* > >);
   }; // end class OmpAttribute
 
 

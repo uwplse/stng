@@ -28,8 +28,8 @@ namespace regex_constants{
 
 enum error_type{
 
-   error_ok = 0,         /* not used */
-   error_no_match = 1,   /* not used */
+   error_ok = 0,         // not used
+   error_no_match = 1,   // not used
    error_bad_pattern = 2,
    error_collate = 3,
    error_ctype = 4,
@@ -42,18 +42,17 @@ enum error_type{
    error_range = 11,
    error_space = 12,
    error_badrepeat = 13,
-   error_end = 14,    /* not used */
+   error_end = 14,    // not used
    error_size = 15,
-   error_right_paren = 16,  /* not used */
+   error_right_paren = 16,  // not used
    error_empty = 17,
    error_complexity = 18,
    error_stack = 19,
-   error_perl_extension = 20,
-   error_unknown = 21
+   error_unknown = 20
 };
 
 }
 }
-#endif /* __cplusplus */
+#endif // __cplusplus
 
 #endif

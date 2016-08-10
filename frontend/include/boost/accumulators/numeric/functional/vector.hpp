@@ -28,21 +28,12 @@ namespace boost { namespace numeric
 {
     namespace operators
     {
-        namespace acc_detail
-        {
-            template<typename Fun>
-            struct make_vector
-            {
-                typedef std::vector<typename Fun::result_type> type;
-            };
-        }
-
         ///////////////////////////////////////////////////////////////////////////////
         // Handle vector<Left> / Right where Right is a scalar.
         template<typename Left, typename Right>
-        typename lazy_enable_if<
+        typename enable_if<
             is_scalar<Right>
-          , acc_detail::make_vector<functional::divides<Left, Right> >
+          , std::vector<typename functional::divides<Left, Right>::result_type>
         >::type
         operator /(std::vector<Left> const &left, Right const &right)
         {
@@ -73,9 +64,9 @@ namespace boost { namespace numeric
         ///////////////////////////////////////////////////////////////////////////////
         // Handle vector<Left> * Right where Right is a scalar.
         template<typename Left, typename Right>
-        typename lazy_enable_if<
+        typename enable_if<
             is_scalar<Right>
-          , acc_detail::make_vector<functional::multiplies<Left, Right> >
+          , std::vector<typename functional::multiplies<Left, Right>::result_type>
         >::type
         operator *(std::vector<Left> const &left, Right const &right)
         {
@@ -91,9 +82,9 @@ namespace boost { namespace numeric
         ///////////////////////////////////////////////////////////////////////////////
         // Handle Left * vector<Right> where Left is a scalar.
         template<typename Left, typename Right>
-        typename lazy_enable_if<
+        typename enable_if<
             is_scalar<Left>
-          , acc_detail::make_vector<functional::multiplies<Left, Right> >
+          , std::vector<typename functional::multiplies<Left, Right>::result_type>
         >::type
         operator *(Left const &left, std::vector<Right> const &right)
         {

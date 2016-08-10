@@ -53,7 +53,7 @@
 */
 using namespace VirtualCFG;
 using namespace::DominatorTreesAndDominanceFrontiers;
-ROSE_DLL_API bool IsImportantForSliceSgFilter(SgNode * n);
+bool IsImportantForSliceSgFilter(SgNode * n);
 struct IsImportantForSliceCFGFilter;
 
 
@@ -160,7 +160,7 @@ typedef TemplatedDominanceFrontier<IsImportantForSliceCFGFilter> SliceDominanceF
 
 
 
-class ROSE_DLL_API DependenceNode:public SimpleDirectedGraphNode
+class DependenceNode:public SimpleDirectedGraphNode
 {
   // Han: moved to lower
   /*
@@ -171,7 +171,7 @@ class ROSE_DLL_API DependenceNode:public SimpleDirectedGraphNode
  public:
 
   // ! This enum notes what type of node this is
-  enum NodeType // NO_STRINGIFY
+  enum NodeType
   {
     CONTROL=0,                /* !< Used to indicate a dummy node for
                                  control dependence */
@@ -669,7 +669,7 @@ class InterproceduralInfo
 
 */
 
-class ROSE_DLL_API DependenceGraph:public SimpleDirectedGraph
+class DependenceGraph:public SimpleDirectedGraph
 {
  protected:
   bool debugme;
@@ -689,7 +689,7 @@ class ROSE_DLL_API DependenceGraph:public SimpleDirectedGraph
 
      This enum is used in conjunction with bit vector representations, so
      some of the values are powers of two */
-  enum EdgeType // NO_STRINGIFY
+  enum EdgeType
   {
     // control information
     CONTROL         = 0x1,          /* !< A control dependence edge */
@@ -1245,7 +1245,7 @@ class FunctionDependenceGraph:public MergedDependenceGraph
    call graph analysis, which will let us slice codes which have more
    ambiguous function calls. */
 
-class ROSE_DLL_API SystemDependenceGraph:public MergedDependenceGraph
+class SystemDependenceGraph:public MergedDependenceGraph
 {
 
   std::vector<SDGLibraryExtender *> libraryExtenders;

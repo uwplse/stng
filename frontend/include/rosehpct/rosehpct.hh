@@ -57,35 +57,35 @@ namespace RoseHPCT
 
   //! A quick reference to all file and non-stmt nodes of the original Profile IR trees
   // This gives a global view of where to find hot portions
-  ROSE_DLL_API extern std::set<const RoseHPCT::IRNode *> profFileNodes_;
-  ROSE_DLL_API extern std::set<const RoseHPCT::IRNode *> profStmtNodes_;
+  extern std::set<const RoseHPCT::IRNode *> profFileNodes_;
+  extern std::set<const RoseHPCT::IRNode *> profStmtNodes_;
   // a map of all profile tree's nodes to matched ROSE AST tree of the current SgProject
   // Ideally, the profile trees of different metric set should be merged into one single tree
-  ROSE_DLL_API extern std::map<const RoseHPCT::IRNode *, std::set<SgLocatedNode *> > profSageMap_;
+  extern std::map<const RoseHPCT::IRNode *, std::set<SgLocatedNode *> > profSageMap_;
 
   //! flags to accept command line option
-  ROSE_DLL_API extern bool enable_debug; // output debug information
-  ROSE_DLL_API extern bool gprof_only; // if users are using gprof result as an alternative
-  ROSE_DLL_API extern std::string gprof_file_name; // We expect only on gprof input file
+  extern bool enable_debug; // output debug information
+  extern bool gprof_only; // if users are using gprof result as an alternative
+  extern std::string gprof_file_name; // We expect only on gprof input file
 
   //! Loads HPCToolkit XML or GNU gprof text profiling data given on the command-line.
-  ROSE_DLL_API ProgramTreeList_t loadProfilingFiles(std::vector<std::string>& argvList);
+  ProgramTreeList_t loadProfilingFiles(std::vector<std::string>& argvList);
 
   //! Attach HPCToolkit metrics to the tree.
-  ROSE_DLL_API void attachMetrics (const ProgramTreeList_t& profiles,
+  void attachMetrics (const ProgramTreeList_t& profiles,
                       SgProject* proj,
                       bool verbose = false);
 
   //! Same as attachMetrics but _without_ parent scope propagation.
-  ROSE_DLL_API void attachMetricsRaw (const ProgramTreeList_t& profiles,
+  void attachMetricsRaw (const ProgramTreeList_t& profiles,
                          SgProject* proj,
                          bool verbose = false);
 
   //! Get HPCToolkit profile data options from the command-line.
-  ROSE_DLL_API FilenameList_t getProfileOptions (std::vector<std::string>& argvList);
+  FilenameList_t getProfileOptions (std::vector<std::string>& argvList);
 
   //! Extract equivalent paths from a set of command-line options.
-  ROSE_DLL_API EquivPathMap_t getEquivPaths (std::vector<std::string>& argvList);
+  EquivPathMap_t getEquivPaths (std::vector<std::string>& argvList);
   //@}
 }
 

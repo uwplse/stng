@@ -20,7 +20,7 @@
 #ifndef BOOST_NO_EXCEPTIONS
 #include <exception>
 
-#include <boost/assert.hpp>
+#include <cassert>
 
 namespace boost {
 namespace archive {

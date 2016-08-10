@@ -1,22 +1,17 @@
-/*=============================================================================
-    Copyright (c) 2007-2011 Hartmut Kaiser
-    Copyright (c) Christopher Diggins 2005
-    Copyright (c) Pablo Aguilar 2005
-    Copyright (c) Kevlin Henney 2001
+//  Copyright (c) 2008-2009 Hartmut Kaiser
+//  Copyright (c) Christopher Diggins 2005
+//  Copyright (c) Pablo Aguilar 2005
+//  Copyright (c) Kevlin Henney 2001
+//
+//  Distributed under the Boost Software License, Version 1.0. (See accompanying
+//  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+//
+//  The class boost::spirit::hold_any is built based on the any class
+//  published here: http://www.codeproject.com/cpp/dynamic_typing.asp. It adds
+//  support for std streaming operator<<() and operator>>().
 
-    Distributed under the Boost Software License, Version 1.0. (See accompanying
-    file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
-
-    The class boost::spirit::hold_any is built based on the any class
-    published here: http://www.codeproject.com/cpp/dynamic_typing.asp. It adds
-    support for std streaming operator<<() and operator>>().
-==============================================================================*/
 #if !defined(BOOST_SPIRIT_HOLD_ANY_MAY_02_2007_0857AM)
 #define BOOST_SPIRIT_HOLD_ANY_MAY_02_2007_0857AM
-
-#if defined(_MSC_VER)
-#pragma once
-#endif
 
 #include <boost/config.hpp>
 #include <boost/type_traits/remove_reference.hpp>
@@ -25,7 +20,6 @@
 #include <boost/static_assert.hpp>
 #include <boost/mpl/bool.hpp>
 #include <boost/assert.hpp>
-#include <boost/detail/sp_typeinfo.hpp>
 
 #include <stdexcept>
 #include <typeinfo>
@@ -33,11 +27,11 @@
 #include <iosfwd>
 
 ///////////////////////////////////////////////////////////////////////////////
-#if BOOST_WORKAROUND(BOOST_MSVC, >= 1400)
-# pragma warning(push)
-# pragma warning(disable: 4100)   // 'x': unreferenced formal parameter
+#if BOOST_WORKAROUND(BOOST_MSVC, >= 1400)  
+# pragma warning(push)  
+# pragma warning(disable: 4100)   // 'x': unreferenced formal parameter  
 # pragma warning(disable: 4127)   // conditional expression is constant
-#endif
+#endif 
 
 ///////////////////////////////////////////////////////////////////////////////
 namespace boost { namespace spirit
@@ -45,7 +39,7 @@ namespace boost { namespace spirit
     struct bad_any_cast
       : std::bad_cast
     {
-        bad_any_cast(boost::detail::sp_typeinfo const& src, boost::detail::sp_typeinfo const& dest)
+        bad_any_cast(std::type_info const& src, std::type_info const& dest)
           : from(src.name()), to(dest.name())
         {}
 
@@ -58,31 +52,30 @@ namespace boost { namespace spirit
     namespace detail
     {
         // function pointer table
-        template <typename Char>
         struct fxn_ptr_table
         {
-            boost::detail::sp_typeinfo const& (*get_type)();
+            std::type_info const& (*get_type)();
             void (*static_delete)(void**);
             void (*destruct)(void**);
             void (*clone)(void* const*, void**);
             void (*move)(void* const*, void**);
-            std::basic_istream<Char>& (*stream_in)(std::basic_istream<Char>&, void**);
-            std::basic_ostream<Char>& (*stream_out)(std::basic_ostream<Char>&, void* const*);
+            std::istream& (*stream_in)(std::istream&, void**);
+            std::ostream& (*stream_out)(std::ostream&, void* const*);
         };
 
         // static functions for small value-types
-        template <typename Small>
+        template<typename Small>
         struct fxns;
 
-        template <>
+        template<>
         struct fxns<mpl::true_>
         {
-            template<typename T, typename Char>
+            template<typename T>
             struct type
             {
-                static boost::detail::sp_typeinfo const& get_type()
+                static std::type_info const& get_type()
                 {
-                    return BOOST_SP_TYPEID(T);
+                    return typeid(T);
                 }
                 static void static_delete(void** x)
                 {
@@ -102,14 +95,12 @@ namespace boost { namespace spirit
                     *reinterpret_cast<T*>(dest) =
                         *reinterpret_cast<T const*>(src);
                 }
-                static std::basic_istream<Char>& 
-                stream_in (std::basic_istream<Char>& i, void** obj)
+                static std::istream& stream_in (std::istream& i, void** obj)
                 {
                     i >> *reinterpret_cast<T*>(obj);
                     return i;
                 }
-                static std::basic_ostream<Char>& 
-                stream_out(std::basic_ostream<Char>& o, void* const* obj)
+                static std::ostream& stream_out(std::ostream& o, void* const* obj)
                 {
                     o << *reinterpret_cast<T const*>(obj);
                     return o;
@@ -118,15 +109,15 @@ namespace boost { namespace spirit
         };
 
         // static functions for big value-types (bigger than a void*)
-        template <>
+        template<>
         struct fxns<mpl::false_>
         {
-            template<typename T, typename Char>
+            template<typename T>
             struct type
             {
-                static boost::detail::sp_typeinfo const& get_type()
+                static std::type_info const& get_type()
                 {
-                    return BOOST_SP_TYPEID(T);
+                    return typeid(T);
                 }
                 static void static_delete(void** x)
                 {
@@ -148,14 +139,12 @@ namespace boost { namespace spirit
                     **reinterpret_cast<T**>(dest) =
                         **reinterpret_cast<T* const*>(src);
                 }
-                static std::basic_istream<Char>& 
-                stream_in(std::basic_istream<Char>& i, void** obj)
+                static std::istream& stream_in(std::istream& i, void** obj)
                 {
                     i >> **reinterpret_cast<T**>(obj);
                     return i;
                 }
-                static std::basic_ostream<Char>& 
-                stream_out(std::basic_ostream<Char>& o, void* const* obj)
+                static std::ostream& stream_out(std::ostream& o, void* const* obj)
                 {
                     o << **reinterpret_cast<T* const*>(obj);
                     return o;
@@ -163,23 +152,22 @@ namespace boost { namespace spirit
             };
         };
 
-        template <typename T>
+        template<typename T>
         struct get_table
         {
             typedef mpl::bool_<(sizeof(T) <= sizeof(void*))> is_small;
 
-            template <typename Char>
-            static fxn_ptr_table<Char>* get()
+            static fxn_ptr_table* get()
             {
-                static fxn_ptr_table<Char> static_table =
+                static fxn_ptr_table static_table =
                 {
-                    fxns<is_small>::template type<T, Char>::get_type,
-                    fxns<is_small>::template type<T, Char>::static_delete,
-                    fxns<is_small>::template type<T, Char>::destruct,
-                    fxns<is_small>::template type<T, Char>::clone,
-                    fxns<is_small>::template type<T, Char>::move,
-                    fxns<is_small>::template type<T, Char>::stream_in,
-                    fxns<is_small>::template type<T, Char>::stream_out
+                    fxns<is_small>::template type<T>::get_type,
+                    fxns<is_small>::template type<T>::static_delete,
+                    fxns<is_small>::template type<T>::destruct,
+                    fxns<is_small>::template type<T>::clone,
+                    fxns<is_small>::template type<T>::move,
+                    fxns<is_small>::template type<T>::stream_in,
+                    fxns<is_small>::template type<T>::stream_out
                 };
                 return &static_table;
             }
@@ -188,9 +176,8 @@ namespace boost { namespace spirit
         ///////////////////////////////////////////////////////////////////////
         struct empty {};
 
-        template <typename Char>
-        inline std::basic_istream<Char>&
-        operator>> (std::basic_istream<Char>& i, empty&)
+        inline std::istream&
+        operator>> (std::istream& i, empty&)
         {
             // If this assertion fires you tried to insert from a std istream
             // into an empty hold_any instance. This simply can't work, because
@@ -200,29 +187,25 @@ namespace boost { namespace spirit
             // value of the required type to the hold_any instance you want to
             // stream to. This assignment has to be executed before the actual
             // call to the operator>>().
-            BOOST_ASSERT(false && 
-                "Tried to insert from a std istream into an empty "
-                "hold_any instance");
+            BOOST_ASSERT(false);
             return i;
         }
 
-        template <typename Char>
-        inline std::basic_ostream<Char>&
-        operator<< (std::basic_ostream<Char>& o, empty const&)
+        inline std::ostream&
+        operator<< (std::ostream& o, empty const&)
         {
             return o;
         }
     }
 
     ///////////////////////////////////////////////////////////////////////////
-    template <typename Char>
-    class basic_hold_any
+    class hold_any
     {
     public:
         // constructors
         template <typename T>
-        explicit basic_hold_any(T const& x)
-          : table(spirit::detail::get_table<T>::template get<Char>()), object(0)
+        hold_any(T const& x)
+          : table(spirit::detail::get_table<T>::get()), object(0)
         {
             if (spirit::detail::get_table<T>::is_small::value)
                 new (&object) T(x);
@@ -230,26 +213,26 @@ namespace boost { namespace spirit
                 object = new T(x);
         }
 
-        basic_hold_any()
-          : table(spirit::detail::get_table<spirit::detail::empty>::template get<Char>()),
+        hold_any()
+          : table(spirit::detail::get_table<spirit::detail::empty>::get()),
             object(0)
         {
         }
 
-        basic_hold_any(basic_hold_any const& x)
-          : table(spirit::detail::get_table<spirit::detail::empty>::template get<Char>()),
+        hold_any(hold_any const& x)
+          : table(spirit::detail::get_table<spirit::detail::empty>::get()),
             object(0)
         {
             assign(x);
         }
 
-        ~basic_hold_any()
+        ~hold_any()
         {
             table->static_delete(&object);
         }
 
         // assignment
-        basic_hold_any& assign(basic_hold_any const& x)
+        hold_any& assign(hold_any const& x)
         {
             if (&x != this) {
                 // are we copying between the same type?
@@ -267,11 +250,11 @@ namespace boost { namespace spirit
         }
 
         template <typename T>
-        basic_hold_any& assign(T const& x)
+        hold_any& assign(T const& x)
         {
             // are we copying between the same type?
-            spirit::detail::fxn_ptr_table<Char>* x_table =
-                spirit::detail::get_table<T>::template get<Char>();
+            spirit::detail::fxn_ptr_table* x_table = 
+                spirit::detail::get_table<T>::get();
             if (table == x_table) {
             // if so, we can avoid deallocating and re-use memory
                 table->destruct(&object);    // first destruct the old content
@@ -288,7 +271,7 @@ namespace boost { namespace spirit
                 if (spirit::detail::get_table<T>::is_small::value) {
                     // create copy on-top of object pointer itself
                     table->destruct(&object); // first destruct the old content
-                    new (&object) T(x);
+                    new (&object) T(x); 
                 }
                 else {
                     reset();                  // first delete the old content
@@ -301,20 +284,20 @@ namespace boost { namespace spirit
 
         // assignment operator
         template <typename T>
-        basic_hold_any& operator=(T const& x)
+        hold_any& operator=(T const& x)
         {
             return assign(x);
         }
 
         // utility functions
-        basic_hold_any& swap(basic_hold_any& x)
+        hold_any& swap(hold_any& x)
         {
             std::swap(table, x.table);
             std::swap(object, x.object);
             return *this;
         }
 
-        boost::detail::sp_typeinfo const& type() const
+        std::type_info const& type() const
         {
             return table->get_type();
         }
@@ -322,8 +305,8 @@ namespace boost { namespace spirit
         template <typename T>
         T const& cast() const
         {
-            if (type() != BOOST_SP_TYPEID(T))
-              throw bad_any_cast(type(), BOOST_SP_TYPEID(T));
+            if (type() != typeid(T))
+              throw bad_any_cast(type(), typeid(T));
 
             return spirit::detail::get_table<T>::is_small::value ?
                 *reinterpret_cast<T const*>(&object) :
@@ -339,7 +322,7 @@ namespace boost { namespace spirit
 
         bool empty() const
         {
-            return table == spirit::detail::get_table<spirit::detail::empty>::template get<Char>();
+            return table == spirit::detail::get_table<spirit::detail::empty>::get();
         }
 
         void reset()
@@ -347,7 +330,7 @@ namespace boost { namespace spirit
             if (!empty())
             {
                 table->static_delete(&object);
-                table = spirit::detail::get_table<spirit::detail::empty>::template get<Char>();
+                table = spirit::detail::get_table<spirit::detail::empty>::get();
                 object = 0;
             }
         }
@@ -356,37 +339,33 @@ namespace boost { namespace spirit
     // type has a corresponding operator defined, which is completely safe
     // because spirit::hold_any is used only in contexts where these operators
     // do exist
-        template <typename Char_>
-        friend inline std::basic_istream<Char_>& 
-        operator>> (std::basic_istream<Char_>& i, basic_hold_any<Char_>& obj)
+        friend std::istream& operator>> (std::istream& i, hold_any& obj)
         {
             return obj.table->stream_in(i, &obj.object);
         }
 
-        template <typename Char_>
-        friend inline std::basic_ostream<Char_>& 
-        operator<< (std::basic_ostream<Char_>& o, basic_hold_any<Char_> const& obj)
+        friend std::ostream& operator<< (std::ostream& o, hold_any const& obj)
         {
             return obj.table->stream_out(o, &obj.object);
         }
 
 #ifndef BOOST_NO_MEMBER_TEMPLATE_FRIENDS
     private: // types
-        template <typename T, typename Char_>
-        friend T* any_cast(basic_hold_any<Char_> *);
+        template<typename T>
+        friend T* any_cast(hold_any *);
 #else
     public: // types (public so any_cast can be non-friend)
 #endif
         // fields
-        spirit::detail::fxn_ptr_table<Char>* table;
+        spirit::detail::fxn_ptr_table* table;
         void* object;
     };
 
     // boost::any-like casting
-    template <typename T, typename Char>
-    inline T* any_cast (basic_hold_any<Char>* operand)
+    template <typename T>
+    inline T* any_cast (hold_any* operand)
     {
-        if (operand && operand->type() == BOOST_SP_TYPEID(T)) {
+        if (operand && operand->type() == typeid(T)) {
             return spirit::detail::get_table<T>::is_small::value ?
                 reinterpret_cast<T*>(&operand->object) :
                 reinterpret_cast<T*>(operand->object);
@@ -394,14 +373,14 @@ namespace boost { namespace spirit
         return 0;
     }
 
-    template <typename T, typename Char>
-    inline T const* any_cast(basic_hold_any<Char> const* operand)
+    template <typename T>
+    inline T const* any_cast(hold_any const* operand)
     {
-        return any_cast<T>(const_cast<basic_hold_any<Char>*>(operand));
+        return any_cast<T>(const_cast<hold_any*>(operand));
     }
 
-    template <typename T, typename Char>
-    T any_cast(basic_hold_any<Char>& operand)
+    template <typename T>
+    T any_cast(hold_any& operand)
     {
         typedef BOOST_DEDUCED_TYPENAME remove_reference<T>::type nonref;
 
@@ -417,12 +396,12 @@ namespace boost { namespace spirit
 
         nonref* result = any_cast<nonref>(&operand);
         if(!result)
-            boost::throw_exception(bad_any_cast(operand.type(), BOOST_SP_TYPEID(T)));
+            boost::throw_exception(bad_any_cast(operand.type(), typeid(T)));
         return *result;
     }
 
-    template <typename T, typename Char>
-    T const& any_cast(basic_hold_any<Char> const& operand)
+    template <typename T>
+    T const& any_cast(hold_any const& operand)
     {
         typedef BOOST_DEDUCED_TYPENAME remove_reference<T>::type nonref;
 
@@ -432,28 +411,15 @@ namespace boost { namespace spirit
         BOOST_STATIC_ASSERT(!is_reference<nonref>::value);
 #endif
 
-        return any_cast<nonref const&>(const_cast<basic_hold_any<Char> &>(operand));
+        return any_cast<nonref const&>(const_cast<hold_any &>(operand));
     }
 
-    ///////////////////////////////////////////////////////////////////////////////
-    // backwards compatibility
-    typedef basic_hold_any<char> hold_any;
-    typedef basic_hold_any<wchar_t> whold_any;
-
-    namespace traits
-    {
-        template <typename T>
-        struct is_hold_any : mpl::false_ {};
-
-        template <typename Char>
-        struct is_hold_any<basic_hold_any<Char> > : mpl::true_ {};
-    }
-
+///////////////////////////////////////////////////////////////////////////////
 }}    // namespace boost::spirit
 
 ///////////////////////////////////////////////////////////////////////////////
-#if BOOST_WORKAROUND(BOOST_MSVC, >= 1400)
-# pragma warning(pop)
-#endif
+#if BOOST_WORKAROUND(BOOST_MSVC, >= 1400)  
+# pragma warning(pop)  
+#endif 
 
 #endif

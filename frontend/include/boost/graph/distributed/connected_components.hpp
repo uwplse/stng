@@ -14,8 +14,6 @@
 #error "Parallel BGL files should not be included unless <boost/graph/use_mpi.hpp> has been included"
 #endif
 
-#include <boost/detail/is_sorted.hpp>
-#include <boost/assert.hpp>
 #include <boost/property_map/property_map.hpp>
 #include <boost/property_map/parallel/caching_property_map.hpp>
 #include <boost/graph/parallel/algorithm.hpp>
@@ -29,7 +27,6 @@
 #include <boost/graph/named_function_params.hpp>
 #include <boost/graph/parallel/process_group.hpp>
 #include <boost/optional.hpp>
-#include <functional>
 #include <algorithm>
 #include <vector>
 #include <list>
@@ -119,7 +116,7 @@ namespace boost { namespace graph { namespace distributed {
 
         // Receive remote roots and edges
         while (optional<std::pair<process_id_type, int> > m = probe(pg)) {
-          BOOST_ASSERT(m->second == root_adj_msg);
+          assert(m->second == root_adj_msg);
 
           std::vector<vertex_descriptor> adjs;
           receive(pg, m->first, m->second, adjs);
@@ -369,7 +366,7 @@ namespace boost { namespace graph { namespace distributed {
       // Build adjacency list for all roots
       BGL_FORALL_VERTICES_T(v, g, DistributedGraph) {
         std::vector<vertex_descriptor>& my_adj = adj[get(p, v)];
-        for (boost::tie(av1, av2) = adjacent_vertices(v, g);
+        for (tie(av1, av2) = adjacent_vertices(v, g);
              av1 != av2; ++av1) {
           if (get(owner, *av1) != id) my_adj.push_back(*av1);
         }
@@ -392,14 +389,14 @@ namespace boost { namespace graph { namespace distributed {
             *aliter = get(p, *aliter);
 
           my_adj.erase
-            (std::remove_if(my_adj.begin(), my_adj.end(),
+            (remove_if(my_adj.begin(), my_adj.end(),
                        cull_adjacency_list<vertex_descriptor, 
                                            ParentMap>(*liter, p) ),
              my_adj.end());
           // This sort needs to be here to make sure the initial
           // adjacency list is sorted
-          std::sort(my_adj.begin(), my_adj.end(), std::less<vertex_descriptor>());
-          my_adj.erase(std::unique(my_adj.begin(), my_adj.end()), my_adj.end());
+          sort(my_adj.begin(), my_adj.end(), std::less<vertex_descriptor>());
+          my_adj.erase(unique(my_adj.begin(), my_adj.end()), my_adj.end());
         }
 
       // Get p(v) for the new adjacent roots
@@ -557,12 +554,12 @@ namespace boost { namespace graph { namespace distributed {
                                adj[*liter].begin(), adj[*liter].end() );
 #ifdef PBGL_IN_PLACE_MERGE
 #ifdef PBGL_SORT_ASSERT
-                BOOST_ASSERT(::boost::detail::is_sorted(my_adj.begin(),
-                                                  my_adj.end() - adj[*liter].size(),
-                                                  std::less<vertex_descriptor>()));
-                BOOST_ASSERT(::boost::detail::is_sorted(my_adj.end() - adj[*liter].size(),
-                                                  my_adj.end(),
-                                                  std::less<vertex_descriptor>()));
+                assert(__gnu_cxx::is_sorted(my_adj.begin(),
+                                            my_adj.end() - adj[*liter].size(),
+                                            std::less<vertex_descriptor>()));
+                assert(__gnu_cxx::is_sorted(my_adj.end() - adj[*liter].size(),
+                                            my_adj.end(),
+                                            std::less<vertex_descriptor>()));
 #endif
                 std::inplace_merge(my_adj.begin(),
                                    my_adj.end() - adj[*liter].size(),
@@ -605,12 +602,12 @@ namespace boost { namespace graph { namespace distributed {
 #ifdef PBGL_IN_PLACE_MERGE
             std::size_t num_incoming_edges = incoming_edges.size();
 #ifdef PBGL_SORT_ASSERT
-            BOOST_ASSERT(::boost::detail::is_sorted(my_adj.begin(),
-                                              my_adj.end() - (num_incoming_edges-1),
-                                              std::less<vertex_descriptor>()));
-            BOOST_ASSERT(::boost::detail::is_sorted(my_adj.end() - (num_incoming_edges-1),
-                                              my_adj.end(),
-                                              std::less<vertex_descriptor>()));
+            assert(__gnu_cxx::is_sorted(my_adj.begin(),
+                                        my_adj.end() - (num_incoming_edges-1),
+                                        std::less<vertex_descriptor>()));
+            assert(__gnu_cxx::is_sorted(my_adj.end() - (num_incoming_edges-1),
+                                        my_adj.end(),
+                                        std::less<vertex_descriptor>()));
 #endif
             std::inplace_merge(my_adj.begin(),
                                my_adj.end() - (num_incoming_edges - 1),
@@ -631,15 +628,15 @@ namespace boost { namespace graph { namespace distributed {
             // the most potential to hook to at each step
             std::vector<vertex_descriptor>& my_adj = adj[*liter];
             my_adj.erase
-              (std::remove_if(my_adj.begin(), my_adj.end(),
+              (remove_if(my_adj.begin(), my_adj.end(),
                          cull_adjacency_list<vertex_descriptor,
                                              ParentMap>(*liter, p) ),
                my_adj.end());
 #ifndef PBGL_IN_PLACE_MERGE
-            std::sort(my_adj.begin(), my_adj.end(),
+            sort(my_adj.begin(), my_adj.end(),
                  std::less<vertex_descriptor>() );
 #endif
-            my_adj.erase(std::unique(my_adj.begin(), my_adj.end()), my_adj.end());
+            my_adj.erase(unique(my_adj.begin(), my_adj.end()), my_adj.end());
           }
 
         // Reduce result of empty root list test
@@ -681,7 +678,7 @@ namespace boost { namespace graph { namespace distributed {
     std::vector<vertex_descriptor> my_roots, all_roots;
 
     BGL_FORALL_VERTICES_T(v, g, Graph) {
-      if( std::find( my_roots.begin(), my_roots.end(), get(p, v) )
+      if( find( my_roots.begin(), my_roots.end(), get(p, v) )
           == my_roots.end() )
         my_roots.push_back( get(p, v) );
     }

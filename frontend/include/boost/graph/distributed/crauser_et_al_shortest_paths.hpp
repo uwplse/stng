@@ -30,7 +30,6 @@
 #error "Parallel BGL files should not be included unless <boost/graph/use_mpi.hpp> has been included"
 #endif
 
-#include <boost/assert.hpp>
 #include <boost/graph/distributed/detail/dijkstra_shortest_paths.hpp>
 #include <boost/graph/parallel/algorithm.hpp>
 #include <functional>
@@ -331,7 +330,7 @@ namespace detail {
         crauser_et_al_shortest_paths_stats.deleted_vertices.push_back(deletions);
       }
       local_deletions = 0;
-      BOOST_ASSERT(deletions > 0);
+      assert(deletions > 0);
 #endif
 
       return min_distance == (std::numeric_limits<distance_type>::max)();
@@ -580,7 +579,7 @@ crauser_et_al_shortest_paths
 
   // Initialize local portion of property maps
   typename graph_traits<DistributedGraph>::vertex_iterator ui, ui_end;
-  for (boost::tie(ui, ui_end) = vertices(g); ui != ui_end; ++ui) {
+  for (tie(ui, ui_end) = vertices(g); ui != ui_end; ++ui) {
     put(distance, *ui, inf);
     put(predecessor, *ui, *ui);
   }

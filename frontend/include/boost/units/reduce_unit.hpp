@@ -11,9 +11,6 @@
 #ifndef BOOST_UNITS_REDUCE_UNIT_HPP_INCLUDED
 #define BOOST_UNITS_REDUCE_UNIT_HPP_INCLUDED
 
-/// \file
-/// \brief Returns a unique type for every unit.
-
 namespace boost {
 namespace units {
 

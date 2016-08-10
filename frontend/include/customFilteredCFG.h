@@ -14,7 +14,7 @@ namespace StaticCFG
 {
 //! A CFG implementation with Custom filters
 template <typename _Filter>
-class ROSE_DLL_API CustomFilteredCFG : public CFG {
+class CustomFilteredCFG : public CFG {
     
 public:
         CustomFilteredCFG(SgNode *node) : CFG(node, true) {

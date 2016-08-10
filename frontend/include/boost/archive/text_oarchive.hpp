@@ -30,14 +30,8 @@ namespace std{
 #include <boost/archive/basic_text_oprimitive.hpp>
 #include <boost/archive/basic_text_oarchive.hpp>
 #include <boost/archive/detail/register_archive.hpp>
-#include <boost/serialization/item_version_type.hpp>
 
 #include <boost/archive/detail/abi_prefix.hpp> // must be the last header
-
-#ifdef BOOST_MSVC
-#  pragma warning(push)
-#  pragma warning(disable : 4511 4512)
-#endif
 
 namespace boost { 
 namespace archive {
@@ -60,12 +54,6 @@ protected:
         this->newtoken();
         basic_text_oprimitive<std::ostream>::save(t);
     }
-    void save(const version_type & t){
-        save(static_cast<const unsigned int>(t));
-    }
-    void save(const boost::serialization::item_version_type & t){
-        save(static_cast<const unsigned int>(t));
-    }
     BOOST_ARCHIVE_DECL(void) 
     save(const char * t);
     #ifndef BOOST_NO_INTRINSIC_WCHAR_T
@@ -80,8 +68,7 @@ protected:
     #endif
     BOOST_ARCHIVE_DECL(BOOST_PP_EMPTY()) 
     text_oarchive_impl(std::ostream & os, unsigned int flags);
-    // don't import inline definitions! leave this as a reminder.
-    //BOOST_ARCHIVE_DECL(BOOST_PP_EMPTY()) 
+    BOOST_ARCHIVE_DECL(BOOST_PP_EMPTY()) 
     ~text_oarchive_impl(){};
 public:
     BOOST_ARCHIVE_DECL(void) 
@@ -95,9 +82,9 @@ class text_oarchive :
     public text_oarchive_impl<text_oarchive>
 {
 public:
-    text_oarchive(std::ostream & os_, unsigned int flags = 0) :
-        // note: added _ to suppress useless gcc warning
-        text_oarchive_impl<text_oarchive>(os_, flags)
+     
+    text_oarchive(std::ostream & os, unsigned int flags = 0) :
+        text_oarchive_impl<text_oarchive>(os, flags)
     {}
     ~text_oarchive(){}
 };
@@ -109,10 +96,6 @@ typedef text_oarchive naked_text_oarchive;
 
 // required by export
 BOOST_SERIALIZATION_REGISTER_ARCHIVE(boost::archive::text_oarchive)
-
-#ifdef BOOST_MSVC
-#pragma warning(pop)
-#endif
 
 #include <boost/archive/detail/abi_suffix.hpp> // pops abi_suffix.hpp pragmas
 

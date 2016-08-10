@@ -16,7 +16,7 @@
 
 //  See http://www.boost.org for updates, documentation, and revision history.
 
-#include <boost/assert.hpp>
+#include <cassert>
 
 #include <boost/config.hpp> // for BOOST_DEDUCED_TYPENAME
 
@@ -24,7 +24,6 @@
 
 #include <boost/iterator/iterator_adaptor.hpp>
 #include <boost/iterator/filter_iterator.hpp>
-#include <boost/iterator/iterator_traits.hpp>
 
 //#include <boost/detail/workaround.hpp>
 //#if ! BOOST_WORKAROUND(BOOST_MSVC, <=1300)
@@ -141,19 +140,13 @@ public:
 template<class Base>
 class remove_whitespace : 
     public filter_iterator<
-        remove_whitespace_predicate<
-            BOOST_DEDUCED_TYPENAME boost::iterator_value<Base>::type
-            //BOOST_DEDUCED_TYPENAME Base::value_type
-        >,
+        remove_whitespace_predicate<BOOST_DEDUCED_TYPENAME Base::value_type>,
         Base
     >
 {
     friend class boost::iterator_core_access;
     typedef filter_iterator<
-        remove_whitespace_predicate<
-            BOOST_DEDUCED_TYPENAME boost::iterator_value<Base>::type
-            //BOOST_DEDUCED_TYPENAME Base::value_type
-        >,
+        remove_whitespace_predicate<BOOST_DEDUCED_TYPENAME Base::value_type>,
         Base
     > super_t;
 public:
@@ -161,7 +154,7 @@ public:
     // make composible buy using templated constructor
     template<class T>
     remove_whitespace(BOOST_PFTO_WRAPPER(T) start) :
-        super_t(Base(BOOST_MAKE_PFTO_WRAPPER(static_cast< T >(start))))
+        super_t(Base(BOOST_MAKE_PFTO_WRAPPER(static_cast<T>(start))))
     {}
     // intel 7.1 doesn't like default copy constructor
     remove_whitespace(const remove_whitespace & rhs) : 

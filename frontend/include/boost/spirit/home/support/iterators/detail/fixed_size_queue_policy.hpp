@@ -1,5 +1,5 @@
-//  Copyright (c) 2001 Daniel C. Nuffer
-//  Copyright (c) 2001-2011 Hartmut Kaiser
+//  Copyright (c) 2001, Daniel C. Nuffer
+//  Copyright (c) 2001-2008, Hartmut Kaiser
 // 
 //  Distributed under the Boost Software License, Version 1.0. (See accompanying
 //  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -12,7 +12,7 @@
 #include <boost/assert.hpp>
 #include <cstdlib>
 
-namespace boost { namespace spirit { namespace iterator_policies
+namespace boost { namespace spirit { namespace multi_pass_policies
 {
     ///////////////////////////////////////////////////////////////////////////
     //  class fixed_size_queue
@@ -38,14 +38,16 @@ namespace boost { namespace spirit { namespace iterator_policies
             typedef detail::fixed_size_queue<Value, N> queue_type;
 
         protected:
-            unique() {}
+            unique()
+            {}
 
             unique(unique const& x)
-              : queued_position(x.queued_position) {}
+              : queuePosition(x.queuePosition)
+            {}
 
             void swap(unique& x)
             {
-                boost::swap(queued_position, x.queued_position);
+                spirit::detail::swap(queuePosition, x.queuePosition);
             }
 
             //  This is called when the iterator is dereferenced. It's a 
@@ -55,13 +57,14 @@ namespace boost { namespace spirit { namespace iterator_policies
             static typename MultiPass::reference 
             dereference(MultiPass const& mp)
             {
-                if (!mp.queued_position.get_position().is_initialized())
-                   mp.queued_position.get_position().set_queue(&mp.shared()->queued_elements);
-
-                if (mp.queued_position == mp.shared()->queued_elements.end())
+                if (mp.queuePosition == mp.shared->queuedElements.end())
+                {
                     return MultiPass::get_input(mp);
-
-                return *mp.queued_position;
+                }
+                else
+                {
+                    return *mp.queuePosition;
+                }
             }
 
             //  This is called when the iterator is incremented. It's a 
@@ -70,20 +73,16 @@ namespace boost { namespace spirit { namespace iterator_policies
             template <typename MultiPass>
             static void increment(MultiPass& mp)
             {
-                if (!mp.queued_position.get_position().is_initialized())
-                    mp.queued_position.get_position().set_queue(&mp.shared()->queued_elements);
-
-                if (mp.queued_position == mp.shared()->queued_elements.end())
+                if (mp.queuePosition == mp.shared->queuedElements.end())
                 {
                     // don't let the queue get larger than N
-                    if (mp.shared()->queued_elements.size() >= N)
-                        mp.shared()->queued_elements.pop_front();
+                    if (mp.shared->queuedElements.size() >= N)
+                        mp.shared->queuedElements.pop_front();
 
-                    mp.shared()->queued_elements.push_back(
-                        MultiPass::get_input(mp));
+                    mp.shared->queuedElements.push_back(MultiPass::get_input(mp));
                     MultiPass::advance_input(mp);
                 }
-                ++mp.queued_position;
+                ++mp.queuePosition;
             }
 
             // clear_queue is a no-op
@@ -92,7 +91,7 @@ namespace boost { namespace spirit { namespace iterator_policies
             template <typename MultiPass>
             static bool is_eof(MultiPass const& mp)
             {
-                return mp.queued_position == mp.shared()->queued_elements.end() &&
+                return mp.queuePosition == mp.shared->queuedElements.end() &&
                        MultiPass::input_at_eof(mp);
             }
 
@@ -100,18 +99,18 @@ namespace boost { namespace spirit { namespace iterator_policies
             template <typename MultiPass>
             static bool equal_to(MultiPass const& mp, MultiPass const& x) 
             {
-                return mp.queued_position == x.queued_position;
+                return mp.queuePosition == x.queuePosition;
             }
 
             // called by operator<
             template <typename MultiPass>
             static bool less_than(MultiPass const& mp, MultiPass const& x)
             {
-                return mp.queued_position < x.queued_position;
+                return mp.queuePosition < x.queuePosition;
             }
 
         protected:
-            mutable typename queue_type::iterator queued_position;
+            mutable typename queue_type::iterator queuePosition;
         }; 
 
         ///////////////////////////////////////////////////////////////////////
@@ -119,7 +118,7 @@ namespace boost { namespace spirit { namespace iterator_policies
         struct shared
         {
             typedef detail::fixed_size_queue<Value, N> queue_type;
-            queue_type queued_elements;
+            queue_type queuedElements;
         }; 
     }; 
 

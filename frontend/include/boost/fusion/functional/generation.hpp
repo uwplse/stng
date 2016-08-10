@@ -12,6 +12,8 @@
 #include <boost/fusion/functional/generation/make_fused.hpp>
 #include <boost/fusion/functional/generation/make_fused_procedure.hpp>
 #include <boost/fusion/functional/generation/make_fused_function_object.hpp>
-#include <boost/fusion/functional/generation/make_unfused.hpp>
+#include <boost/fusion/functional/generation/make_unfused_generic.hpp>
+#include <boost/fusion/functional/generation/make_unfused_lvalue_args.hpp>
+#include <boost/fusion/functional/generation/make_unfused_rvalue_args.hpp>
 
 #endif

@@ -6,10 +6,6 @@
 #include <vector>
 
 #include "callbacks.h"
-#include "Diagnostics.h"
-
-namespace rose {
-namespace BinaryAnalysis {
 
 /** Functions indexed by entry address.
  *
@@ -56,23 +52,8 @@ namespace BinaryAnalysis {
  *  @endcode
  *
  *  The output might look something like this:
- *  @verbatim
-  Num Entry-Addr Begin-Addr  End-Addr  Insns/ Bytes      Reason        Kind         Hash                     Name              
- ---- ---------- ---------- ---------- ------------ ---------------- -------- ---------------- --------------------------------
-    0 0x08048278 0x0804828e 0x0804828f     8/23     .C..S...........  unknown                  _init                           
-    1 0x080482a0 0x080482a0 0x080482a6     1/6      .C.I............  unknown                  malloc@@plt                      
-    2 0x080482b0 0x080482b0 0x080482b6     1/6      .C.I............  unknown                  __libc_start_main@@plt           
-    3 0x080482c0 0x080482e1 0x080482e2    14/34     E...S...........  unknown                  _start                          
-    4 0x080482e4 0x08048304 0x08048305    15/33     .C..S...........  unknown                  call_gmon_start                 
-    5 0x08048310 0x0804833e 0x0804833f    16/47     .C..S...........  unknown                  __do_global_dtors_aux           
-    6 0x08048340 0x08048362 0x08048363    13/35     .C..S...........  unknown                  frame_dummy                     
-    7 0x08048364 0x080483bf 0x080483c0    29/92     ....S...........  unknown 91badca44c59fae6 main                            
-    8 0x080483c0 0x08048411 0x08048412    34/82     ....S...........  unknown                  __libc_csu_init                 
-    9 0x08048414 0x08048455 0x08048456    27/66     ....S...........  unknown                  __libc_csu_fini                 
-   10 0x08048460 0x08048490 0x08048491    20/49     .C..S...........  unknown                  __do_global_ctors_aux           
-   11 0x08048494 0x080484ad 0x080484ae    12/26     .C..S...........  unknown                  _fini                           
- ---- ---------- ---------- ---------- ------------ ---------------- -------- ---------------- --------------------------------
-@endverbatim
+ *  <pre>
+
  */
 class AsmFunctionIndex {
     /**************************************************************************************************************************
@@ -171,7 +152,7 @@ public:
             return val(a) != val(b);
         }
         size_t val(SgAsmFunction *x) {
-            AddressIntervalSet extent;
+            ExtentMap extent;
             x->get_extent(&extent);
             return extent.size();
         }
@@ -362,7 +343,7 @@ public:
          *  callback, so subclasses should take care to add their own footnote if necessary. */
         OutputCallback(const std::string &name, size_t width, const std::string description="")
             : name(name), desc(description), width(width), header_prefix(" "), separator_prefix(" "), data_prefix(" ") {
-            ASSERT_require(width>0 || name.empty());
+            assert(width>0 || name.empty());
         }
 
         virtual ~OutputCallback() {}
@@ -455,24 +436,9 @@ public:
     /** Print calling convention. */
     class CallingConventionCallback: public OutputCallback {
     public:
-        CallingConventionCallback(): OutputCallback("CallConv", 8) {}
+        CallingConventionCallback(): OutputCallback("Kind", 8) {}
         virtual bool operator()(bool enabled, const DataArgs&);
     } callingConventionCallback;
-
-    /** Print whether function can return. */
-    class MayReturnCallback: public OutputCallback {
-    public:
-        MayReturnCallback(): OutputCallback("Returns", 9) {}
-        virtual bool operator()(bool enabled, const DataArgs&);
-    } mayReturnCallback;
-
-    /** Print stack delta. */
-    class StackDeltaCallback: public OutputCallback {
-    public:
-        StackDeltaCallback(): OutputCallback("Stack", 9) {}
-        virtual bool operator()(bool enabled, const HeadingArgs&);
-        virtual bool operator()(bool enabled, const DataArgs&);
-    } stackDeltaCallback;
 
     /** Function name. Prints function name if known, nothing otherwise. */
     class NameCallback: public OutputCallback {
@@ -504,7 +470,5 @@ protected:
     ROSE_Callbacks::List<OutputCallback> output_callbacks;
 };
 
-} // namespace
-} // namespace
-
+    
 #endif

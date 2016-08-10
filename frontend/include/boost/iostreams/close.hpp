@@ -73,7 +73,7 @@ void close_all(T& t, Sink& snk)
     boost::iostreams::close(t, snk, BOOST_IOS::out);
 }
 
-} // End namespace detail. 
+} // End namespaces detail. 
 
 } } // End namespaces iostreams, boost.
 
@@ -97,7 +97,7 @@ template<typename T>
 void close(T& t, BOOST_IOS::openmode which)
 { 
 #ifdef BOOST_IOSTREAMS_STRICT
-    BOOST_ASSERT(which == BOOST_IOS::in || which == BOOST_IOS::out);
+    assert(which == BOOST_IOS::in || which == BOOST_IOS::out);
 #else
     if (which == (BOOST_IOS::in | BOOST_IOS::out)) {
         detail::close_all(t);
@@ -111,7 +111,7 @@ template<typename T, typename Sink>
 void close(T& t, Sink& snk, BOOST_IOS::openmode which)
 { 
 #ifdef BOOST_IOSTREAMS_STRICT
-    BOOST_ASSERT(which == BOOST_IOS::in || which == BOOST_IOS::out);
+    assert(which == BOOST_IOS::in || which == BOOST_IOS::out);
 #else
     if (which == (BOOST_IOS::in | BOOST_IOS::out)) {
         detail::close_all(t, snk);
@@ -212,6 +212,7 @@ struct close_impl<close_filtering_stream> {
     }
 };
 
+#include <boost/iostreams/detail/config/disable_warnings.hpp> // Borland.
 template<>
 struct close_impl<closable_tag> {
     template<typename T>

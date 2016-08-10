@@ -23,7 +23,7 @@ LoopLabeler::labelLoops (SgProject * proj)
          attr->getUseArray() && !attr->getUsePointer())
     {
       boost::filesystem::path boostPath((*it)->get_file_info()->get_filenameString());
-      std::string stem = boostPath.stem().generic_string();
+      std::string stem = boostPath.stem(); //.generic_string();
 
       std::string loopName = stem + "_loop" + std::to_string(count++);
       attr->setNames(loopName,              // loop name

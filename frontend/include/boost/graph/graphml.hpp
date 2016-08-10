@@ -16,20 +16,69 @@
 #include <boost/lexical_cast.hpp>
 #include <boost/any.hpp>
 #include <boost/type_traits/is_convertible.hpp>
-#include <boost/graph/dll_import_export.hpp>
 #include <boost/graph/graphviz.hpp> // for exceptions
 #include <typeinfo>
 #include <boost/mpl/bool.hpp>
 #include <boost/mpl/vector.hpp>
 #include <boost/mpl/find.hpp>
 #include <boost/mpl/for_each.hpp>
+#if 0 // Change this back later
 #include <boost/property_tree/detail/xml_parser_utils.hpp>
-#include <boost/throw_exception.hpp>
+#endif
 #include <exception>
 #include <sstream>
 
 namespace boost
 {
+
+  // FIXME: Remove this once property_tree is stable
+  namespace graph_detail_from_property_tree {
+
+// ----------------------------------------------------------------------------
+// Copyright (C) 2002-2006 Marcin Kalicinski
+//
+// Distributed under the Boost Software License, Version 1.0. 
+// (See accompanying file LICENSE_1_0.txt or copy at 
+// http://www.boost.org/LICENSE_1_0.txt)
+//
+// For more information, see www.boost.org
+// ----------------------------------------------------------------------------
+
+    // Naively convert narrow string to another character type
+    template<class Ch>
+    std::basic_string<Ch> widen(const char *text)
+    {
+        std::basic_string<Ch> result;
+        while (*text)
+        {
+            result += Ch(*text);
+            ++text;
+        }
+        return result;
+    }
+
+    template<class Ch>
+    std::basic_string<Ch> encode_char_entities(const std::basic_string<Ch> &s)
+    {
+        typedef typename std::basic_string<Ch> Str;
+        Str r;
+        typename Str::const_iterator end = s.end();
+        for (typename Str::const_iterator it = s.begin(); it != end; ++it)
+        {
+            switch (*it)
+            {
+                case Ch('<'): r += boost::graph_detail_from_property_tree::widen<Ch>("&lt;"); break;
+                case Ch('>'): r += boost::graph_detail_from_property_tree::widen<Ch>("&gt;"); break;
+                case Ch('&'): r += boost::graph_detail_from_property_tree::widen<Ch>("&amp;"); break;
+                case Ch('"'): r += boost::graph_detail_from_property_tree::widen<Ch>("&quot;"); break;
+                case Ch('\''): r += boost::graph_detail_from_property_tree::widen<Ch>("&apos;"); break;
+                default: r += *it; break;
+            }
+        }
+        return r;
+    }
+    
+  }
 
 /////////////////////////////////////////////////////////////////////////////
 // Graph reader exceptions
@@ -102,16 +151,12 @@ class mutate_graph_impl : public mutate_graph
         }
         catch (bad_lexical_cast)
         {
-            BOOST_THROW_EXCEPTION(
-              parse_error("invalid value \"" + value + "\" for key " +
-                          name + " of type " + value_type));
+            throw parse_error("invalid value \"" + value + "\" for key " +
+                              name + " of type " + value_type);
         }
         if (!type_found)
-        {
-            BOOST_THROW_EXCEPTION(
-              parse_error("unrecognized type \"" + value_type +
-                          "\" for key " + name));
-        }
+            throw  parse_error("unrecognized type \"" + value_type +
+                               "\" for key " + name);
 
     }
 
@@ -127,16 +172,12 @@ class mutate_graph_impl : public mutate_graph
         }
         catch (bad_lexical_cast)
         {
-            BOOST_THROW_EXCEPTION(
-              parse_error("invalid value \"" + value + "\" for key " +
-                          name + " of type " + value_type));
+            throw parse_error("invalid value \"" + value + "\" for key " +
+                              name + " of type " + value_type);
         }
         if (!type_found)
-        {
-            BOOST_THROW_EXCEPTION(
-              parse_error("unrecognized type \"" + value_type +
-                          "\" for key " + name));
-        }
+            throw  parse_error("unrecognized type \"" + value_type +
+                               "\" for key " + name);
 
     }
 
@@ -152,16 +193,12 @@ class mutate_graph_impl : public mutate_graph
         }
         catch (bad_lexical_cast)
         {
-            BOOST_THROW_EXCEPTION(
-              parse_error("invalid value \"" + value + "\" for key " +
-                          name + " of type " + value_type));
+            throw parse_error("invalid value \"" + value + "\" for key " +
+                              name + " of type " + value_type);
         }
         if (!type_found)
-        {
-            BOOST_THROW_EXCEPTION(
-              parse_error("unrecognized type \"" + value_type +
-                          "\" for key " + name));
-        }
+            throw  parse_error("unrecognized type \"" + value_type +
+                               "\" for key " + name);
     }
 
     template <typename Key, typename ValueVector>
@@ -242,7 +279,8 @@ write_graphml(std::ostream& out, const Graph& g, VertexIndexMap vertex_index,
     typedef typename graph_traits<Graph>::edge_descriptor edge_descriptor;
     typedef typename graph_traits<Graph>::vertex_descriptor vertex_descriptor;
 
-    using boost::property_tree::xml_parser::encode_char_entities;
+    // using boost::property_tree::xml_parser::encode_char_entities;
+    using boost::graph_detail_from_property_tree::encode_char_entities;
 
     BOOST_STATIC_CONSTANT(bool,
                           graph_is_directed =
@@ -262,8 +300,8 @@ write_graphml(std::ostream& out, const Graph& g, VertexIndexMap vertex_index,
     for (dynamic_properties::const_iterator i = dp.begin(); i != dp.end(); ++i)
     {
         std::string key_id = "key" + lexical_cast<std::string>(key_count++);
-        if (i->second->key() == typeid(Graph*))
-            graph_key_ids[i->first] = key_id;
+        if (i->second->key() == typeid(Graph))
+            vertex_key_ids[i->first] = key_id;
         else if (i->second->key() == typeid(vertex_descriptor))
             vertex_key_ids[i->first] = key_id;
         else if (i->second->key() == typeid(edge_descriptor))
@@ -273,7 +311,7 @@ write_graphml(std::ostream& out, const Graph& g, VertexIndexMap vertex_index,
         std::string type_name = "string";
         mpl::for_each<value_types>(get_type_name<value_types>(i->second->value(), type_names, type_name));
         out << "  <key id=\"" << encode_char_entities(key_id) << "\" for=\""
-            << (i->second->key() == typeid(Graph*) ? "graph" : (i->second->key() == typeid(vertex_descriptor) ? "node" : "edge")) << "\""
+            << (i->second->key() == typeid(Graph) ? "graph" : (i->second->key() == typeid(vertex_descriptor) ? "node" : "edge")) << "\""
             << " attr.name=\"" << i->first << "\""
             << " attr.type=\"" << type_name << "\""
             << " />\n";
@@ -287,18 +325,16 @@ write_graphml(std::ostream& out, const Graph& g, VertexIndexMap vertex_index,
     // Output graph data
     for (dynamic_properties::const_iterator i = dp.begin(); i != dp.end(); ++i)
     {
-        if (i->second->key() == typeid(Graph*))
+        if (i->second->key() == typeid(Graph))
         {
-            // The const_cast here is just to get typeid correct for property
-            // map key; the graph should not be mutated using it.
             out << "   <data key=\"" << graph_key_ids[i->first] << "\">"
-                << encode_char_entities(i->second->get_string(const_cast<Graph*>(&g))) << "</data>\n";
+                << encode_char_entities(i->second->get_string(g)) << "</data>\n";
         }
     }
 
     typedef typename graph_traits<Graph>::vertex_iterator vertex_iterator;
     vertex_iterator v, v_end;
-    for (boost::tie(v, v_end) = vertices(g); v != v_end; ++v)
+    for (tie(v, v_end) = vertices(g); v != v_end; ++v)
     {
         out << "    <node id=\"n" << get(vertex_index, *v) << "\">\n";
         // Output data
@@ -316,7 +352,7 @@ write_graphml(std::ostream& out, const Graph& g, VertexIndexMap vertex_index,
     typedef typename graph_traits<Graph>::edge_iterator edge_iterator;
     edge_iterator e, e_end;
     typename graph_traits<Graph>::edges_size_type edge_count = 0;
-    for (boost::tie(e, e_end) = edges(g); e != e_end; ++e)
+    for (tie(e, e_end) = edges(g); e != e_end; ++e)
     {
         out << "    <edge id=\"e" << edge_count++ << "\" source=\"n"
             << get(vertex_index, source(*e, g)) << "\" target=\"n"

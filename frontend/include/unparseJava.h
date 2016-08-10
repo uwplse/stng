@@ -32,8 +32,6 @@ class Unparse_Java : public UnparseLanguageIndependentConstructs
 
           virtual ~Unparse_Java();
 
-          void unparseJavaFile(SgSourceFile *file, SgUnparse_Info &info);
-
        // DQ (3/13/2004): Added to support templates
           virtual void unparseTemplateParameter(SgTemplateParameter* templateParameter, SgUnparse_Info& info);
           virtual void unparseTemplateArgument (SgTemplateArgument*  templateArgument , SgUnparse_Info& info);
@@ -67,10 +65,7 @@ class Unparse_Java : public UnparseLanguageIndependentConstructs
        // expression trees from contant folding)
           virtual void unparseStringVal               (SgExpression* expr, SgUnparse_Info& info);  
 
-       // these need Java-specific treatment
-          virtual void unparseBoolVal                 (SgExpression* expr, SgUnparse_Info& info);  
-          virtual void unparseWCharVal                (SgExpression* expr, SgUnparse_Info& info);  
-
+       // JJW -- these need C-specific suffixes
           virtual void unparseUIntVal                 (SgExpression* expr, SgUnparse_Info& info);  
           virtual void unparseLongIntVal              (SgExpression* expr, SgUnparse_Info& info);  
           virtual void unparseLongLongIntVal          (SgExpression* expr, SgUnparse_Info& info);    
@@ -99,7 +94,6 @@ class Unparse_Java : public UnparseLanguageIndependentConstructs
           virtual void unparseDeleteOp                (SgExpression* expr, SgUnparse_Info& info);  
           virtual void unparseThisNode                (SgExpression* expr, SgUnparse_Info& info);  
           virtual void unparseSuperNode               (SgExpression* expr, SgUnparse_Info& info);  
-          virtual void unparseClassNode               (SgExpression* expr, SgUnparse_Info& info);  
           virtual void unparseScopeOp                 (SgExpression* expr, SgUnparse_Info& info);  
           virtual void unparseForDeclOp               (SgExpression* expr, SgUnparse_Info& info);  
           virtual void unparseTypeRef                 (SgExpression* expr, SgUnparse_Info& info);  
@@ -118,10 +112,7 @@ class Unparse_Java : public UnparseLanguageIndependentConstructs
           virtual void unparsePseudoDtorRef           (SgExpression* expr, SgUnparse_Info& info);
           virtual void unparseJavaInstanceOfOp        (SgExpression* expr, SgUnparse_Info& info);
 
-//          virtual void unparseGlobalStmt       (SgStatement* stmt, SgUnparse_Info& info);
-
           virtual void unparseBasicBlockStmt   (SgStatement* stmt, SgUnparse_Info& info);
-          virtual void unparseCaseOrDefaultBasicBlockStmt   (SgStatement* stmt, SgUnparse_Info& info);
 
        // DQ (4/16/2011): Added Java specific "import" statement.
           virtual void unparseImportDeclarationStatement (SgStatement* stmt, SgUnparse_Info& info);
@@ -138,7 +129,6 @@ class Unparse_Java : public UnparseLanguageIndependentConstructs
           virtual void unparseMFuncDeclStmt    (SgStatement* stmt, SgUnparse_Info& info);
           virtual void unparseVarDeclStmt      (SgStatement* stmt, SgUnparse_Info& info);
           virtual void unparseVarDefnStmt      (SgStatement* stmt, SgUnparse_Info& info);
-          virtual void unparseJavaPackageStmt  (SgStatement* stmt, SgUnparse_Info& info);
           virtual void unparseClassDeclStmt    (SgStatement* stmt, SgUnparse_Info& info);
           virtual void unparseClassDefnStmt    (SgStatement* stmt, SgUnparse_Info& info);
           virtual void unparseEnumDeclStmt     (SgStatement* stmt, SgUnparse_Info& info);
@@ -227,7 +217,6 @@ class Unparse_Java : public UnparseLanguageIndependentConstructs
           virtual void unparseTypeVoid(SgTypeVoid* type, SgUnparse_Info& info);
 
           virtual void unparseBaseClass(SgBaseClass* base, SgUnparse_Info& info);
-          virtual void unparseParameterType(SgType *bound_type, SgUnparse_Info& info);
 
           virtual void unparseTypeWchar(SgTypeWchar* type, SgUnparse_Info& info);
           virtual void unparseTypeSignedChar(SgTypeSignedChar* type, SgUnparse_Info& info);
@@ -238,32 +227,12 @@ class Unparse_Java : public UnparseLanguageIndependentConstructs
           virtual void unparseTypeDouble(SgTypeDouble* type, SgUnparse_Info& info);
           virtual void unparseTypeBool(SgTypeBool* type, SgUnparse_Info& info);
 
-          virtual void unparseTypedefType(SgTypedefType* type, SgUnparse_Info& info);
           virtual void unparseClassType(SgClassType* type, SgUnparse_Info& info);
           virtual void unparseEnumType(SgEnumType* type, SgUnparse_Info& info);
           virtual void unparseArrayType(SgArrayType* type, SgUnparse_Info& info);
           virtual void unparseModifierType(SgModifierType* type, SgUnparse_Info& info);
 
-          virtual void unparseJavaQualifiedType(SgJavaQualifiedType *type, SgUnparse_Info& info);
           virtual void unparseJavaParameterizedType(SgJavaParameterizedType* type, SgUnparse_Info& info);
-          virtual void unparseJavaWildcardType(SgJavaWildcardType* type, SgUnparse_Info& info);
-          virtual void unparseJavaUnionType(SgJavaUnionType* type, SgUnparse_Info& info);
-
-          virtual bool requiresParentheses(SgExpression* expr, SgUnparse_Info& info);
-          virtual void unparseExpression(SgExpression* expr, SgUnparse_Info& info);
-          virtual void unparseUnaryExpr(SgExpression* expr, SgUnparse_Info& info);
-          virtual void unparseBinaryExpr(SgExpression* expr, SgUnparse_Info& info);
-
-
-          void unparseEnumBody(SgClassDefinition *, SgUnparse_Info& info);
-          void unparseTypeParameters(SgTemplateParameterList *type_list, SgUnparse_Info& info);
-          void unparseTypeArguments(SgTemplateParameterList *type_list, SgUnparse_Info& info);
-
-          void unparseJavaMarkerAnnotation(SgExpression *, SgUnparse_Info& info);
-          void unparseJavaSingleMemberAnnotation(SgExpression *, SgUnparse_Info& info);
-          void unparseJavaNormalAnnotation(SgExpression *, SgUnparse_Info& info);
-
-          void unparseJavaTypeExpression(SgExpression *, SgUnparse_Info& info);
    };
 
 #endif

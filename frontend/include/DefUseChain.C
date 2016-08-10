@@ -10,7 +10,7 @@
 
 #ifdef TEMPLATE_ONLY
 
-ROSE_DLL_API bool DebugDefUseChain();
+bool DebugDefUseChain();
 
 template <class Node>
 class BuildDefUseChain 
@@ -80,7 +80,7 @@ class ProcessGenInfo
     typename std::map<AstNodePtr,Node*>::const_iterator p = defmap.find( mod.first);
     assert( p != defmap.end());
     Node* cur = (*p).second;
-    this->CreateEdges( cur, mod.first, in);
+    CreateEdges( cur, mod.first, in);
     if (BuildDefUseChain<Node>::fa.IsVarRef(mod.first, 0, &varname, &scope)) {
       BuildDefUseChain<Node>::g->add_def( in, varname, scope, mod);
     }
@@ -157,7 +157,7 @@ class ProcessUseInfo
            std::cerr << "do not create node in def-use chain \n";
         return false;
     }
-    this->CreateEdges( cur, read.first, in);
+    CreateEdges( cur, read.first, in);
     return true;
   }
 public:

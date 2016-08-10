@@ -1,5 +1,5 @@
-//  Copyright (c) 2001 Daniel C. Nuffer
-//  Copyright (c) 2001-2011 Hartmut Kaiser
+//  Copyright (c) 2001, Daniel C. Nuffer
+//  Copyright (c) 2001-2008, Hartmut Kaiser
 // 
 //  Distributed under the Boost Software License, Version 1.0. (See accompanying
 //  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -10,7 +10,7 @@
 #include <boost/spirit/home/support/iterators/multi_pass_fwd.hpp>
 #include <boost/spirit/home/support/iterators/detail/multi_pass.hpp>
 
-namespace boost { namespace spirit { namespace iterator_policies
+namespace boost { namespace spirit { namespace multi_pass_policies
 {
     ///////////////////////////////////////////////////////////////////////////////
     //  class lex_input
@@ -20,13 +20,12 @@ namespace boost { namespace spirit { namespace iterator_policies
     ///////////////////////////////////////////////////////////////////////////
     struct lex_input
     {
-        typedef int value_type;
-
         ///////////////////////////////////////////////////////////////////////
         template <typename T>
         class unique : public detail::default_input_policy
         {
         public:
+            typedef int value_type;
             typedef std::ptrdiff_t difference_type;
             typedef std::ptrdiff_t distance_type;
             typedef int* pointer;
@@ -38,29 +37,23 @@ namespace boost { namespace spirit { namespace iterator_policies
 
         public:
             template <typename MultiPass>
-            static typename MultiPass::reference get_input(MultiPass& mp)
+            static void advance_input(MultiPass& mp, value_type& t)
             {
-                value_type& curtok = mp.shared()->curtok;
-                if (-1 == curtok)
+                // if mp.shared is NULL then this instance of the multi_pass 
+                // represents a end iterator, so no advance functionality is 
+                // needed
+                if (0 != mp.shared) 
                 {
                     extern int yylex();
-                    curtok = yylex();
+                    t = yylex();
                 }
-                return curtok;
-            }
-
-            template <typename MultiPass>
-            static void advance_input(MultiPass& mp)
-            {
-                extern int yylex();
-                mp.shared()->curtok = yylex();
             }
 
             // test, whether we reached the end of the underlying stream
             template <typename MultiPass>
-            static bool input_at_eof(MultiPass const& mp) 
+            static bool input_at_eof(MultiPass const&, value_type const& t) 
             {
-                return mp.shared()->curtok == 0;
+                return 0 == t;
             }
 
             template <typename MultiPass>
@@ -74,9 +67,9 @@ namespace boost { namespace spirit { namespace iterator_policies
         template <typename T>
         struct shared
         {
-            explicit shared(T) : curtok(-1) {}
+            explicit shared(T) {}
 
-            value_type curtok;
+            // no shared data elements
         };
     };
 

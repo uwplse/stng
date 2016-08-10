@@ -11,11 +11,6 @@
 #ifndef BOOST_UNITS_IS_QUANTITY_OF_DIMENSION_HPP
 #define BOOST_UNITS_IS_QUANTITY_OF_DIMENSION_HPP
 
-///
-/// \file
-/// \brief Check that a type is a quantity of the specified dimension.
-///
-
 #include <boost/mpl/bool.hpp>
 #include <boost/units/units_fwd.hpp>
 #include <boost/units/is_unit_of_dimension.hpp>
@@ -24,7 +19,7 @@ namespace boost {
 
 namespace units {
 
-/// Check that a type is a quantity of the specified dimension.
+/// check that a type is a quantity of the specified dimension
 template<class T,class Dim>
 struct is_quantity_of_dimension :
     public mpl::false_

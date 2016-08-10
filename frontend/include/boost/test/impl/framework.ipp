@@ -7,7 +7,7 @@
 //
 //  File        : $RCSfile$
 //
-//  Version     : $Revision: 57991 $
+//  Version     : $Revision: 54633 $
 //
 //  Description : implements framework API - main driver for the test
 // ***************************************************************************
@@ -124,14 +124,13 @@ public:
     void            clear()
     {
         while( !m_test_units.empty() ) {
-            test_unit_store::value_type const& tu     = *m_test_units.begin();
-            test_unit*                         tu_ptr = tu.second;
+            test_unit_store::value_type const& tu = *m_test_units.begin();
 
             // the delete will erase this element from map
             if( ut_detail::test_id_2_unit_type( tu.second->p_id ) == tut_suite )
-                delete  (test_suite const*)tu_ptr;
+                delete  static_cast<test_suite const*>(tu.second);
             else
-                delete  (test_case const*)tu_ptr;
+                delete  static_cast<test_case const*>(tu.second);
         }
     }
 

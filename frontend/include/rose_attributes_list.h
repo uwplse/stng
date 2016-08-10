@@ -46,25 +46,8 @@
 //  #define ROSE_SKIP_COMPILATION_OF_WAVE
 // #endif
 
-// DQ (2/27/2016): Check for DEBIAN and Boost 1.54 and disable WAVE (not found in 
-// Boost 1.54, for Debian OS installations, as I understand it).  This is a fix 
-// for a bug identified to be specific to Boost 1.54 on Debian systems, so that 
-// is why it is so specific in deactivating boost::wave.  To support this the 
-// boost::wave support had to be revisited to permit it to NOT be a dependence.
-// We shuld put in place tests that make sure it does not accedently become a 
-// dependence in the future.
-#ifdef ROSE_DEBIAN_OS_VENDOR
-   #if (ROSE_BOOST_VERSION == 105400)
-      #define ROSE_SKIP_COMPILATION_OF_WAVE
-   #endif
-#endif
-
-// DQ (2/27/2016): Test compilation of ROSE without boost::wave support.
-// #define ROSE_SKIP_COMPILATION_OF_WAVE
-
 #ifndef ROSE_SKIP_COMPILATION_OF_WAVE
-//  #if _MSC_VER < 1600  // 1600 == VC++ 10.0
-  #if (!defined(_MSC_VER) || (_MSC_VER > 1600))
+  #if _MSC_VER < 1600  // 1600 == VC++ 10.0
     #include <boost/preprocessor/iteration/iterate.hpp> // Liao, 7/10/2009, required by GCC 4.4.0 for a #define line of BOOST_PP_ITERATION_DEPTH
     #ifdef _MSC_VER
       #include <boost/wave.hpp> // CH (4/7/2010): Put this header here to avoid compiling error about mismatch between defination and declaration
@@ -91,7 +74,7 @@
 // using namespace std;
 #endif
 
-class ROSE_DLL_API PreprocessingInfo;
+class PreprocessingInfo;
 class ROSEAttributesList;
 //AS(01/04/07) Global map of filenames to PreprocessingInfo*'s as it is inefficient
 //to get this by a traversal of the AST
@@ -214,14 +197,6 @@ class  PreprocessingInfo
             //   '4' indicates that the following text should be treated as being wrapped in an implicit 'extern "C"' block
                CpreprocessorCompilerGeneratedLinemarker,
 
-            // DQ (2/2/2014): permit raw text to be specified as a extremely simple way to add text to the unparsing of the AST.
-            // Note that it is the user's responcability to have the text be legal code.  Additionall any language constructs
-            // added using this mechanism will ot show up in the AST.  So it is not possible to reference functions (for example) 
-            // added using this mechanism to build function calls as transformation elsewhere in the code.  But one could add
-            // the function via AST transformations and the function body using a mechanism provided here and that would define
-            // a simple appoach to adding large complex functions for which it is impractical to build up an AST.
-               RawText,
-
                LastDirectiveType
              };
 
@@ -250,13 +225,6 @@ class  PreprocessingInfo
           int lineNumberForCompilerGeneratedLinemarker;
           std::string filenameForCompilerGeneratedLinemarker;
           std::string optionalflagsForCompilerGeneratedLinemarker;
-
-       // DQ (1/15/2015): Adding support for token-based unparsing. When new comments and CPP directives are added we need
-       // to record these as a kind of transformation that will trigger the token stream representation to NOT be used and
-       // the comments and CPP directives unparsed from the AST seperately from the associated IR node being unparsed from
-       // the AST.  The problem is that we wnat to record where there might be comments or CPP directives removed and having
-       // a flag here is not going to work for that.  so we have to also record that the ROSEAttributesList has changed.
-          bool p_isTransformation;
 
 // This is part of Wave support in ROSE.
 // #ifndef USE_ROSE
@@ -303,7 +271,6 @@ class  PreprocessingInfo
        // Internal representation of a macro call
        // e.g #define MACRO_CALL int x;
        // MACRO_CALL
-#if 0
           typedef struct r_macro_call
              {
                bool is_functionlike;
@@ -324,24 +291,6 @@ class  PreprocessingInfo
 
                r_macro_call() : macro_call(), arguments(),expanded_macro() {}
              } rose_macro_call;
-#else
-       // DQ (3/9/2013): Modified to address SWIG error.
-          struct rose_macro_call
-             {
-               bool is_functionlike;
-               PreprocessingInfo* macro_def;
-               token_type macro_call;
-               token_container_container arguments;
-               token_container expanded_macro;                
-
-            // DQ (3/9/2013): The function definition is moved to the source file to get around SWIG error.
-            // Get string representation of the expanded macro
-               std::string get_expanded_string();
-
-            // DQ (3/9/2013): The function definition is moved to the source file to get around SWIG error.
-               rose_macro_call();
-             };
-#endif
 
      private:
        // AS add macro definition
@@ -454,19 +403,6 @@ class  PreprocessingInfo
           void push_back_token_stream(token_type tok);
 
 #endif
-
-      // DQ (12/30/2013): Adding support to supress output of macros that are self-referential.
-      // e.g. "#define foo X->foo", which would be expanded a second time in the backend processing.
-      // Note that if we don't output the #define, then we still might have a problem if there was 
-      // code that depended upon a "#ifdef foo".  So this handling is not without some risk, but it
-      // always better to use the token stream unparsing for these cases.
-         bool isSelfReferential();
-         std::string getMacroName();
-
-       // DQ (1/15/2015): Adding support for token-based unparsing. Access function for new data member.
-          bool isTransformation() const;
-          void setAsTransformation();
-          void unsetAsTransformation();
    };
 
 // DQ (10/15/2002) Changed list element from "PreprocessingInfo" to 
@@ -494,17 +430,6 @@ class ROSEAttributesList
        // go off and unparse a different include file.  This really should have
        // been stored in a static structure (I think) rather than in this list.
           int index;
-
-       // DQ (12/15/2012): Save file ids that are from filenames referenced in #line 
-       // directives, these will be considered equivalent to the input source filename.
-          std::set<int> filenameIdSet;
-
-       // DQ (1/15/2015): Adding support for token-based unparsing. When new comments and CPP directives are added we need
-       // to record these as a kind of transformation that will trigger the token stream representation to NOT be used and
-       // the comments and CPP directives unparsed from the AST seperately from the associated IR node being unparsed from
-       // the AST.  The problem is that we wnat to record where there might be comments or CPP directives removed and having
-       // a flag here is not going to work for that.  so we have to also record that the ROSEAttributesList has changed.
-       // bool p_isTransformation;
 
      public:
        // DQ (11/19/2008): Added language selection support for handling comments
@@ -551,9 +476,6 @@ class ROSEAttributesList
           void deepClean(void);
           void clean(void);
 
-      // DQ (9/19/2013): generate the number associated with each position relative to the attached IR node.
-      // size_t numberByRelativePosition(PreprocessingInfo::RelativePositionType pos);
-
        // Access function for list
           std::vector<PreprocessingInfo*> & getList() { return attributeList; };
 
@@ -578,22 +500,6 @@ class ROSEAttributesList
           bool isFortran77Comment( const std::string & line );
           bool isFortran90Comment( const std::string & line );
           bool isCppDirective( const std::string & line, PreprocessingInfo::DirectiveType & cppDeclarationKind, std::string & restOfTheLine );
-
-       // DQ (12/15/2012): traverse the attributeList and process all of the #line directives to generate a
-       // list of file ids that should be considered equivalent to that of the input source file's filename.
-       // std::set<int> generateFileIdListFromLineDirectives();
-          void generateFileIdListFromLineDirectives();
-
-       // DQ (12/15/2012): Added access function.
-          std::set<int> & get_filenameIdSet();
-
-       // DQ (9/29/2013): Added to support adding processed CPP directives and comments as tokens to token list.
-          PreprocessingInfo* lastElement();
-
-       // DQ (1/15/2015): Adding support for token-based unparsing. Access function for new data member.
-       // bool isTransformation() const;
-       // void setAsTransformation();
-       // void unsetAsTransformation();
    };
 
 //

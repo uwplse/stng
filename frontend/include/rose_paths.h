@@ -16,45 +16,32 @@
 #endif
 
 #include <string>
-#include "rosedll.h"
 
-ROSE_UTIL_API extern const std::string ROSE_GFORTRAN_PATH;
-ROSE_UTIL_API extern const std::string ROSE_AUTOMAKE_TOP_SRCDIR;
-ROSE_UTIL_API extern const std::string ROSE_AUTOMAKE_TOP_BUILDDIR;
-ROSE_UTIL_API extern const std::string ROSE_AUTOMAKE_PREFIX;
-ROSE_UTIL_API extern const std::string ROSE_AUTOMAKE_DATADIR;
-ROSE_UTIL_API extern const std::string ROSE_AUTOMAKE_BINDIR;
-ROSE_UTIL_API extern const std::string ROSE_AUTOMAKE_INCLUDEDIR;
-ROSE_UTIL_API extern const std::string ROSE_AUTOMAKE_INFODIR;
-ROSE_UTIL_API extern const std::string ROSE_AUTOMAKE_LIBDIR;
-ROSE_UTIL_API extern const std::string ROSE_AUTOMAKE_LIBEXECDIR;
-ROSE_UTIL_API extern const std::string ROSE_AUTOMAKE_LOCALSTATEDIR;
-ROSE_UTIL_API extern const std::string ROSE_AUTOMAKE_MANDIR;
+extern const std::string ROSE_GFORTRAN_PATH;
+extern const std::string ROSE_AUTOMAKE_TOP_SRCDIR;
+extern const std::string ROSE_AUTOMAKE_TOP_BUILDDIR;
+extern const std::string ROSE_AUTOMAKE_PREFIX;
+extern const std::string ROSE_AUTOMAKE_DATADIR;
+extern const std::string ROSE_AUTOMAKE_BINDIR;
+extern const std::string ROSE_AUTOMAKE_INCLUDEDIR;
+extern const std::string ROSE_AUTOMAKE_INFODIR;
+extern const std::string ROSE_AUTOMAKE_LIBDIR;
+extern const std::string ROSE_AUTOMAKE_LIBEXECDIR;
+extern const std::string ROSE_AUTOMAKE_LOCALSTATEDIR;
+extern const std::string ROSE_AUTOMAKE_MANDIR;
 
-ROSE_UTIL_API extern const std::string ROSE_AUTOMAKE_ABSOLUTE_PATH_TOP_SRCDIR;
+extern const std::string ROSE_AUTOMAKE_ABSOLUTE_PATH_TOP_SRCDIR;
 
 /* Additional interesting data to provide */
-ROSE_UTIL_API extern const std::string ROSE_CONFIGURE_DATE;
-ROSE_UTIL_API extern const std::string ROSE_AUTOMAKE_BUILD_OS;
-ROSE_UTIL_API extern const std::string ROSE_AUTOMAKE_BUILD_CPU;
-ROSE_UTIL_API extern const std::string ROSE_OFP_VERSION_STRING;
+extern const std::string ROSE_CONFIGURE_DATE;
+extern const std::string ROSE_AUTOMAKE_BUILD_OS;
+extern const std::string ROSE_AUTOMAKE_BUILD_CPU;
+extern const std::string ROSE_OFP_VERSION_STRING;
 
-/** Numeric form of ROSE version.
- *
- *  This is the numeric form of the ROSE version number. It's formed by taking the ROSE version string from the ROSE_VERSION
- *  file at the top of the source tree (e.g., "0.9.6.399-rc1", replacing all non-numeric characters with '.',
- *  ("0.9.6.399...1"), deleting dots that are repeated ("0.9.6.399.1"), discarding all but the first three numeric values
- *  ("0.9.6"), forming an integer using three digits per version part ("000009006"), and removing leading zeros ("9006").
- *
- *  If the first three numbers of a ROSE version are called "major", "minor", and "patch" then these three values can be
- *  obtained from the ROSE_NUMERIC_VERSION with this code:
- *
- * @code
- *   unsigned long patch_number = ROSE_NUMERIC_VERSION % 1000ul;
- *   unsigned long minor_number = ROSE_NUMERIC_VERSION / 1000ul % 1000ul;
- *   unsigned long major_number = ROSE_NUMERIC_VERSION / 1000000ul;
- * @endcode */
-extern const unsigned long ROSE_NUMERIC_VERSION;
+/* Numeric form of ROSE version -- assuming ROSE version x.y.zL (where */
+/* x, y, and z are numbers, and L is a single lowercase letter from a to j), */
+/* the numeric value is x * 1000000 + y * 10000 + z * 100 + (L - 'a') */
+extern const int ROSE_NUMERIC_VERSION;
 
 
 // DQ (5/2/2009): This is temporary while we work out the details of the new Graph IR nodes.

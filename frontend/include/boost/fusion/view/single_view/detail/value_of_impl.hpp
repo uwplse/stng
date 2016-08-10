@@ -1,16 +1,11 @@
 /*=============================================================================
-    Copyright (c) 2001-2011 Joel de Guzman
-    Copyright (c) 2011 Eric Niebler
+    Copyright (c) 2001-2006 Joel de Guzman
 
     Distributed under the Boost Software License, Version 1.0. (See accompanying 
     file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 ==============================================================================*/
-#if !defined(BOOST_FUSION_SINGLE_VIEW_VALUE_OF_IMPL_05052005_0324)
-#define BOOST_FUSION_SINGLE_VIEW_VALUE_OF_IMPL_05052005_0324
-
-#include <boost/mpl/int.hpp>
-#include <boost/mpl/assert.hpp>
-#include <boost/mpl/equal_to.hpp>
+#if !defined(FUSION_VALUE_IMPL_05052005_0324)
+#define FUSION_VALUE_IMPL_05052005_0324
 
 namespace boost { namespace fusion
 {
@@ -27,8 +22,8 @@ namespace boost { namespace fusion
             template <typename Iterator>
             struct apply
             {
-                BOOST_MPL_ASSERT((mpl::equal_to<typename Iterator::position, mpl::int_<0> >));
-                typedef typename Iterator::value_type type;
+                typedef typename Iterator::single_view_type single_view_type;
+                typedef typename single_view_type::value_type type;
             };
         };
     }

@@ -70,14 +70,9 @@ template <typename Result> struct nth_channel_view_fn {
     int _n;
     template <typename View> result_type operator()(const View& src) const { return result_type(nth_channel_view(src,_n)); }
 };
-template <typename DstP, typename Result, typename CC = default_color_converter> struct color_converted_view_fn {
+template <typename DstP, typename Result> struct color_converted_view_fn {
     typedef Result result_type;
-    color_converted_view_fn(CC cc = CC()): _cc(cc) {}
-
-    template <typename View> result_type operator()(const View& src) const { return result_type(color_converted_view<DstP>(src, _cc)); }
-
-    private:
-        CC _cc;
+    template <typename View> result_type operator()(const View& src) const { return result_type(color_converted_view<DstP>(src)); }
 };
 } // namespace detail
 

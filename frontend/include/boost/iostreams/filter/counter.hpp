@@ -25,7 +25,7 @@ namespace boost { namespace iostreams {
 
 //
 // Template name: basic_counter.
-// Template parameters:
+// Template paramters:
 //      Ch - The character type.
 // Description: Filter which counts lines and characters.
 //

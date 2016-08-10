@@ -37,18 +37,13 @@ std::complex<T> atanh(const std::complex<T>& z)
    // at : http://jove.prohosting.com/~skripty/toc.htm
    //
    
-   static const T pi = boost::math::constants::pi<T>();
-   static const T half_pi = pi / 2;
+   static const T half_pi = static_cast<T>(1.57079632679489661923132169163975144L);
+   static const T pi = static_cast<T>(3.141592653589793238462643383279502884197L);
    static const T one = static_cast<T>(1.0L);
    static const T two = static_cast<T>(2.0L);
    static const T four = static_cast<T>(4.0L);
    static const T zero = static_cast<T>(0);
    static const T a_crossover = static_cast<T>(0.3L);
-
-#ifdef BOOST_MSVC
-#pragma warning(push)
-#pragma warning(disable:4127)
-#endif
 
    T x = std::fabs(z.real());
    T y = std::fabs(z.imag());
@@ -61,20 +56,20 @@ std::complex<T> atanh(const std::complex<T>& z)
    //
    // Begin by handling the special cases specified in C99:
    //
-   if((boost::math::isnan)(x))
+   if(detail::test_is_nan(x))
    {
-      if((boost::math::isnan)(y))
+      if(detail::test_is_nan(y))
          return std::complex<T>(x, x);
-      else if((boost::math::isinf)(y))
-         return std::complex<T>(0, ((boost::math::signbit)(z.imag()) ? -half_pi : half_pi));
+      else if(std::numeric_limits<T>::has_infinity && (y == std::numeric_limits<T>::infinity()))
+         return std::complex<T>(0, ((z.imag() < 0) ? -half_pi : half_pi));
       else
          return std::complex<T>(x, x);
    }
-   else if((boost::math::isnan)(y))
+   else if(detail::test_is_nan(y))
    {
       if(x == 0)
          return std::complex<T>(x, y);
-      if((boost::math::isinf)(x))
+      if(std::numeric_limits<T>::has_infinity && (x == std::numeric_limits<T>::infinity()))
          return std::complex<T>(0, y);
       else
          return std::complex<T>(y, y);
@@ -109,7 +104,7 @@ std::complex<T> atanh(const std::complex<T>& z)
       T alpha = two*x / (one + xx + yy);
       if(alpha < a_crossover)
       {
-         real = boost::math::log1p(alpha) - boost::math::log1p((boost::math::changesign)(alpha));
+         real = boost::math::log1p(alpha) - boost::math::log1p(-alpha);
       }
       else
       {
@@ -117,13 +112,13 @@ std::complex<T> atanh(const std::complex<T>& z)
          real = boost::math::log1p(x2 + xx + yy) - std::log(xm1*xm1 + yy);
       }
       real /= four;
-      if((boost::math::signbit)(z.real()))
-         real = (boost::math::changesign)(real);
+      if(z.real() < 0)
+         real = -real;
 
       imag = std::atan2((y * two), (one - xx - yy));
       imag /= two;
       if(z.imag() < 0)
-         imag = (boost::math::changesign)(imag);
+         imag = -imag;
    }
    else
    {
@@ -138,7 +133,9 @@ std::complex<T> atanh(const std::complex<T>& z)
       T alpha = 0;
       if(x >= safe_upper)
       {
-         if((boost::math::isinf)(x) || (boost::math::isinf)(y))
+         // this is really a test for infinity, 
+         // but we may not have the necessary numeric_limits support:
+         if((x > (std::numeric_limits<T>::max)()) || (y > (std::numeric_limits<T>::max)()))
          {
             alpha = 0;
          }
@@ -183,7 +180,7 @@ std::complex<T> atanh(const std::complex<T>& z)
       }
       if(alpha < a_crossover)
       {
-         real = boost::math::log1p(alpha) - boost::math::log1p((boost::math::changesign)(alpha));
+         real = boost::math::log1p(alpha) - boost::math::log1p(-alpha);
       }
       else
       {
@@ -197,8 +194,8 @@ std::complex<T> atanh(const std::complex<T>& z)
       }
       
       real /= four;
-      if((boost::math::signbit)(z.real()))
-         real = (boost::math::changesign)(real);
+      if(z.real() < 0)
+         real = -real;
 
       //
       // Now handle imaginary part, this is much easier,
@@ -237,13 +234,10 @@ std::complex<T> atanh(const std::complex<T>& z)
             imag = std::atan2(two*y, 1 - x*x);
       }
       imag /= two;
-      if((boost::math::signbit)(z.imag()))
-         imag = (boost::math::changesign)(imag);
+      if(z.imag() < 0)
+         imag = -imag;
    }
    return std::complex<T>(real, imag);
-#ifdef BOOST_MSVC
-#pragma warning(pop)
-#endif
 }
 
 } } // namespaces

@@ -9,6 +9,7 @@
 #ifndef BOOST_PROTO_REPEAT_HPP_EAN_11_24_2008
 #define BOOST_PROTO_REPEAT_HPP_EAN_11_24_2008
 
+#include <boost/proto/detail/prefix.hpp>
 #include <boost/preprocessor/cat.hpp>
 #include <boost/preprocessor/facilities/intercept.hpp>
 #include <boost/preprocessor/repetition/enum.hpp>
@@ -17,6 +18,7 @@
 #include <boost/preprocessor/iteration/local.hpp>
 #include <boost/preprocessor/tuple/elem.hpp>
 #include <boost/proto/proto_fwd.hpp> // for BOOST_PROTO_MAX_ARITY
+#include <boost/proto/detail/suffix.hpp>
 
 ////////////////////////////////////////////
 /// INTERNAL ONLY
@@ -76,7 +78,7 @@
 /// \brief Repeatedly invoke the specified macro.
 ///
 /// BOOST_PROTO_REPEAT_FROM_TO_EX() is used generate the kind of repetitive code that is typical
-/// of EDSLs built with Proto. BOOST_PROTO_REPEAT_FROM_TO_EX(FROM, TO, MACRO, typename_A, A, A_a, a)  is equivalent to:
+/// of DSELs built with Proto. BOOST_PROTO_REPEAT_FROM_TO_EX(FROM, TO, MACRO, typename_A, A, A_a, a)  is equivalent to:
 ///
 /// \code
 /// MACRO(FROM, typename_A, A, A_a, a)
@@ -90,7 +92,7 @@
 /// \brief Repeatedly invoke the specified macro.
 ///
 /// BOOST_PROTO_REPEAT_FROM_TO() is used generate the kind of repetitive code that is typical
-/// of EDSLs built with Proto. BOOST_PROTO_REPEAT_FROM_TO(FROM, TO, MACRO)  is equivalent to:
+/// of DSELs built with Proto. BOOST_PROTO_REPEAT_FROM_TO(FROM, TO, MACRO)  is equivalent to: 
 ///
 /// \code
 /// MACRO(FROM, BOOST_PROTO_typename_A, BOOST_PROTO_A_const_ref, BOOST_PROTO_A_const_ref_a, BOOST_PROTO_ref_a)
@@ -105,21 +107,21 @@
 
 // Generate BOOST_PROTO_MAX_ARITY-1 overloads of the
 // following construct() function template.
-#define M0(N, typename_A, A_const_ref, A_const_ref_a, ref_a)      \
-template<typename T, typename_A(N)>                               \
-typename proto::result_of::make_expr<                             \
-    proto::tag::function                                          \
-  , construct_helper<T>                                           \
-  , A_const_ref(N)                                                \
->::type const                                                     \
-construct(A_const_ref_a(N))                                       \
-{                                                                 \
-    return proto::make_expr<                                      \
-        proto::tag::function                                      \
-    >(                                                            \
-        construct_helper<T>()                                     \
-      , ref_a(N)                                                  \
-    );                                                            \
+#define M0(N, typename_A, A_const_ref, A_const_ref_a, ref_a)      \ 
+template<typename T, typename_A(N)>                               \ 
+typename proto::result_of::make_expr<                             \ 
+    proto::tag::function                                          \ 
+  , construct_helper<T>                                           \ 
+  , A_const_ref(N)                                                \ 
+>::type const                                                     \ 
+construct(A_const_ref_a(N))                                       \ 
+{                                                                 \ 
+    return proto::make_expr<                                      \ 
+        proto::tag::function                                      \ 
+    >(                                                            \ 
+        construct_helper<T>()                                     \ 
+      , ref_a(N)                                                  \ 
+    );                                                            \ 
 }
 BOOST_PROTO_REPEAT_FROM_TO(1, BOOST_PROTO_MAX_ARITY, M0)
 #undef M0
@@ -127,7 +129,7 @@ BOOST_PROTO_REPEAT_FROM_TO(1, BOOST_PROTO_MAX_ARITY, M0)
 \endcode
 **/
 /// The above invocation of BOOST_PROTO_REPEAT_FROM_TO()  will generate
-/// the following code:
+/// the following code: 
 ///
 /// \code
 /// template<typename T, typename A0>
@@ -145,7 +147,7 @@ BOOST_PROTO_REPEAT_FROM_TO(1, BOOST_PROTO_MAX_ARITY, M0)
 ///       , boost::ref(a0)
 ///     );
 /// }
-///
+/// 
 /// template<typename T, typename A0, typename A1>
 /// typename proto::result_of::make_expr<
 ///     proto::tag::function
@@ -163,7 +165,7 @@ BOOST_PROTO_REPEAT_FROM_TO(1, BOOST_PROTO_MAX_ARITY, M0)
 ///       , boost::ref(a1)
 ///     );
 /// }
-///
+/// 
 /// // ... and so on, up to BOOST_PROTO_MAX_ARITY-1 arguments ...
 /// \endcode
 #define BOOST_PROTO_REPEAT_FROM_TO(FROM, TO, MACRO)\
@@ -172,7 +174,7 @@ BOOST_PROTO_REPEAT_FROM_TO(1, BOOST_PROTO_MAX_ARITY, M0)
 /// \brief Repeatedly invoke the specified macro.
 ///
 /// BOOST_PROTO_REPEAT_EX() is used generate the kind of repetitive code that is typical
-/// of EDSLs built with Proto. BOOST_PROTO_REPEAT_EX(MACRO, typename_A, A, A_a, a)  is equivalent to:
+/// of DSELs built with Proto. BOOST_PROTO_REPEAT_EX(MACRO, typename_A, A, A_a, a)  is equivalent to:
 ///
 /// \code
 /// MACRO(1, typename_A, A, A_a, a)
@@ -186,7 +188,7 @@ BOOST_PROTO_REPEAT_FROM_TO(1, BOOST_PROTO_MAX_ARITY, M0)
 /// \brief Repeatedly invoke the specified macro.
 ///
 /// BOOST_PROTO_REPEAT() is used generate the kind of repetitive code that is typical
-/// of EDSLs built with Proto. BOOST_PROTO_REPEAT(MACRO)  is equivalent to:
+/// of DSELs built with Proto. BOOST_PROTO_REPEAT(MACRO)  is equivalent to: 
 ///
 /// \code
 /// MACRO(1, BOOST_PROTO_typename_A, BOOST_PROTO_A_const_ref, BOOST_PROTO_A_const_ref_a, BOOST_PROTO_ref_a)
@@ -200,7 +202,7 @@ BOOST_PROTO_REPEAT_FROM_TO(1, BOOST_PROTO_MAX_ARITY, M0)
 /// \brief Repeatedly invoke the specified macro.
 ///
 /// BOOST_PROTO_LOCAL_ITERATE() is used generate the kind of repetitive code that is typical
-/// of EDSLs built with Proto. This macro causes the user-defined macro BOOST_PROTO_LOCAL_MACRO to
+/// of DSELs built with Proto. This macro causes the user-defined macro BOOST_PROTO_LOCAL_MACRO to
 /// be expanded with values in the range specified by BOOST_PROTO_LOCAL_LIMITS.
 ///
 /// Usage:
@@ -215,22 +217,22 @@ BOOST_PROTO_REPEAT_FROM_TO(1, BOOST_PROTO_MAX_ARITY, M0)
 
 // Generate BOOST_PROTO_MAX_ARITY-1 overloads of the
 // following construct() function template.
-#define BOOST_PROTO_LOCAL_MACRO(N, typename_A, A_const_ref,       \
-  A_const_ref_a, ref_a)                                           \
-template<typename T, typename_A(N)>                               \
-typename proto::result_of::make_expr<                             \
-    proto::tag::function                                          \
-  , construct_helper<T>                                           \
-  , A_const_ref(N)                                                \
->::type const                                                     \
-construct(A_const_ref_a(N))                                       \
-{                                                                 \
-    return proto::make_expr<                                      \
-        proto::tag::function                                      \
-    >(                                                            \
-        construct_helper<T>()                                     \
-      , ref_a(N)                                                  \
-    );                                                            \
+#define BOOST_PROTO_LOCAL_MACRO(N, typename_A, A_const_ref,       \ 
+  A_const_ref_a, ref_a)                                           \ 
+template<typename T, typename_A(N)>                               \ 
+typename proto::result_of::make_expr<                             \ 
+    proto::tag::function                                          \ 
+  , construct_helper<T>                                           \ 
+  , A_const_ref(N)                                                \ 
+>::type const                                                     \ 
+construct(A_const_ref_a(N))                                       \ 
+{                                                                 \ 
+    return proto::make_expr<                                      \ 
+        proto::tag::function                                      \ 
+    >(                                                            \ 
+        construct_helper<T>()                                     \ 
+      , ref_a(N)                                                  \ 
+    );                                                            \ 
 }
 #define BOOST_PROTO_LOCAL_LIMITS (1, BOOST_PP_DEC(BOOST_PROTO_MAX_ARITY))
 #include BOOST_PROTO_LOCAL_ITERATE()
@@ -238,7 +240,7 @@ construct(A_const_ref_a(N))                                       \
 \endcode
 **/
 /// The above inclusion of BOOST_PROTO_LOCAL_ITERATE() will generate
-/// the following code:
+/// the following code: 
 ///
 /// \code
 /// template<typename T, typename A0>
@@ -256,7 +258,7 @@ construct(A_const_ref_a(N))                                       \
 ///       , boost::ref(a0)
 ///     );
 /// }
-///
+/// 
 /// template<typename T, typename A0, typename A1>
 /// typename proto::result_of::make_expr<
 ///     proto::tag::function
@@ -274,7 +276,7 @@ construct(A_const_ref_a(N))                                       \
 ///       , boost::ref(a1)
 ///     );
 /// }
-///
+/// 
 /// // ... and so on, up to BOOST_PROTO_MAX_ARITY-1 arguments ...
 /// \endcode
 ///

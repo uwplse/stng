@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////
 //
 // (C) Copyright Olaf Krzikalla 2004-2006.
-// (C) Copyright Ion Gaztanaga  2006-2009
+// (C) Copyright Ion Gaztanaga  2006-2008
 //
 // Distributed under the Boost Software License, Version 1.0.
 //    (See accompanying file LICENSE_1_0.txt or copy at
@@ -17,7 +17,7 @@
 #include <boost/intrusive/detail/config_begin.hpp>
 #include <iterator>
 #include <boost/intrusive/detail/assert.hpp>
-#include <boost/intrusive/pointer_traits.hpp>
+#include <boost/intrusive/detail/pointer_to_other.hpp>
 
 namespace boost {
 namespace intrusive {
@@ -29,8 +29,8 @@ namespace intrusive {
 template<class VoidPointer>
 struct list_node
 {
-   typedef typename pointer_traits
-      <VoidPointer>:: template rebind_pointer<list_node>::type    node_ptr;
+   typedef typename boost::pointer_to_other
+      <VoidPointer, list_node>::type   node_ptr;
    node_ptr next_;
    node_ptr prev_;
 };
@@ -39,34 +39,32 @@ template<class VoidPointer>
 struct list_node_traits
 {
    typedef list_node<VoidPointer> node;
-   typedef typename pointer_traits
-      <VoidPointer>:: template rebind_pointer<node>::type         node_ptr;
-   typedef typename pointer_traits
-      <VoidPointer>:: template rebind_pointer<const node>::type   const_node_ptr;
+   typedef typename boost::pointer_to_other
+      <VoidPointer, node>::type          node_ptr;
+   typedef typename boost::pointer_to_other
+      <VoidPointer, const node>::type    const_node_ptr;
 
-   static const node_ptr &get_previous(const const_node_ptr & n)
+   static node_ptr get_previous(const_node_ptr n)
    {  return n->prev_;  }
 
-   static void set_previous(const node_ptr & n, const node_ptr & prev)
+   static void set_previous(node_ptr n, node_ptr prev)
    {  n->prev_ = prev;  }
 
-   static const node_ptr &get_next(const const_node_ptr & n)
+   static node_ptr get_next(const_node_ptr n)
    {  return n->next_;  }
 
-   static void set_next(const node_ptr & n, const node_ptr & next)
+   static void set_next(node_ptr n, node_ptr next)
    {  n->next_ = next;  }
 };
 
-// list_iterator provides some basic functions for a
+// list_iterator provides some basic functions for a 
 // node oriented bidirectional iterator:
 template<class Container, bool IsConst>
 class list_iterator
    :  public std::iterator
          < std::bidirectional_iterator_tag
-         , typename Container::value_type
-         , typename Container::difference_type
-         , typename detail::if_c<IsConst,typename Container::const_pointer,typename Container::pointer>::type
-         , typename detail::if_c<IsConst,typename Container::const_reference,typename Container::reference>::type
+         , typename detail::add_const_if_c
+            <typename Container::value_type, IsConst>::type
          >
 {
    protected:
@@ -74,21 +72,23 @@ class list_iterator
    typedef typename real_value_traits::node_traits node_traits;
    typedef typename node_traits::node              node;
    typedef typename node_traits::node_ptr          node_ptr;
-   typedef typename pointer_traits<node_ptr>::
-      template rebind_pointer<void>::type          void_pointer;
-   static const bool store_container_ptr =
+   typedef typename boost::pointer_to_other
+      <node_ptr, void>::type                       void_pointer;
+   static const bool store_container_ptr = 
       detail::store_cont_ptr_on_it<Container>::value;
 
    public:
-   typedef typename Container::value_type    value_type;
-   typedef typename detail::if_c<IsConst,typename Container::const_pointer,typename Container::pointer>::type pointer;
-   typedef typename detail::if_c<IsConst,typename Container::const_reference,typename Container::reference>::type reference;
+   typedef typename detail::add_const_if_c
+      <typename Container::value_type, IsConst>
+      ::type                                       value_type;
+   typedef value_type & reference;
+   typedef value_type * pointer;
 
    list_iterator()
-      : members_ (node_ptr(), 0)
+      : members_ (node_ptr(0), 0)
    {}
 
-   explicit list_iterator(const node_ptr & node, const Container *cont_ptr)
+   explicit list_iterator(node_ptr node, const Container *cont_ptr)
       : members_ (node, cont_ptr)
    {}
 
@@ -103,14 +103,12 @@ class list_iterator
    {  members_.nodeptr_ = node;  return static_cast<list_iterator&>(*this);  }
 
    public:
-   list_iterator& operator++()
-   {
-      node_ptr p = node_traits::get_next(members_.nodeptr_);
-      members_.nodeptr_ = p;
-      //members_.nodeptr_ = node_traits::get_next(members_.nodeptr_);
-      return static_cast<list_iterator&> (*this);
+   list_iterator& operator++() 
+   { 
+      members_.nodeptr_ = node_traits::get_next(members_.nodeptr_); 
+      return static_cast<list_iterator&> (*this); 
    }
-  
+   
    list_iterator operator++(int)
    {
       list_iterator result (*this);
@@ -118,12 +116,12 @@ class list_iterator
       return result;
    }
 
-   list_iterator& operator--()
-   {
-      members_.nodeptr_ = node_traits::get_previous(members_.nodeptr_);
-      return static_cast<list_iterator&> (*this);
+   list_iterator& operator--() 
+   { 
+      members_.nodeptr_ = node_traits::get_previous(members_.nodeptr_); 
+      return static_cast<list_iterator&> (*this); 
    }
-  
+   
    list_iterator operator--(int)
    {
       list_iterator result (*this);
@@ -131,17 +129,17 @@ class list_iterator
       return result;
    }
 
-   friend bool operator== (const list_iterator& l, const list_iterator& r)
-   {  return l.pointed_node() == r.pointed_node();   }
+   bool operator== (const list_iterator& i) const
+   {  return members_.nodeptr_ == i.pointed_node();   }
 
-   friend bool operator!= (const list_iterator& l, const list_iterator& r)
-   {  return !(l == r); }
+   bool operator!= (const list_iterator& i) const
+   {  return !operator== (i); }
 
-   reference operator*() const
+   value_type& operator*() const
    {  return *operator->();   }
 
    pointer operator->() const
-   { return this->get_real_value_traits()->to_value_ptr(members_.nodeptr_); }
+   { return detail::get_pointer(this->get_real_value_traits()->to_value_ptr(members_.nodeptr_)); }
 
    const Container *get_container() const
    {
@@ -182,8 +180,8 @@ class list_iterator
    } members_;
 };
 
-} //namespace intrusive
-} //namespace boost
+} //namespace intrusive 
+} //namespace boost 
 
 #include <boost/intrusive/detail/config_end.hpp>
 

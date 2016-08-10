@@ -9,7 +9,6 @@
 #ifndef __RoseBin_ASTAttribute__
 #define __RoseBin_ASTAttribute__
 
-// rose.h and sage3basic.h should not be included in librose header files. [Robb P. Matzke 2014-10-15]
 // #include "rose.h"
 
 

@@ -2,7 +2,6 @@
 #define VIRTUAL_BIN_CFG_H
 
 #include <stdint.h>
-#include "rosedll.h"
 
 //class AttachedPreprocessingInfoType;
 class SgAsmInstruction;
@@ -26,7 +25,7 @@ namespace VirtualBinCFG {
     typedef std::map<SgAsmInstruction*, AddressSet> InstructionToAddressesMap;
     typedef std::map<SgAsmStatement*, AddressSet> StatementToAddressesMap;
 
-    struct ROSE_DLL_API AuxiliaryInformation {
+    struct AuxiliaryInformation {
         AddressToInstructionMap    addressToInstructionMap;
         InstructionToAddressesMap  indirectJumpTargets;
         StatementToAddressesMap    returnTargets; /* statement is SgAsmBlock or SgAsmFunction */

@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga  2007-2009
+// (C) Copyright Ion Gaztanaga  2007-2008
 //
 // Distributed under the Boost Software License, Version 1.0.
 //    (See accompanying file LICENSE_1_0.txt or copy at
@@ -9,8 +9,8 @@
 // See http://www.boost.org/libs/intrusive for documentation.
 //
 /////////////////////////////////////////////////////////////////////////////
-#ifndef BOOST_INTRUSIVE_DETAIL_PARENT_FROM_MEMBER_HPP
-#define BOOST_INTRUSIVE_DETAIL_PARENT_FROM_MEMBER_HPP
+#ifndef BOOST_INTRUSIVE_PARENT_FROM_MEMBER_HPP
+#define BOOST_INTRUSIVE_PARENT_FROM_MEMBER_HPP
 
 #include <boost/intrusive/detail/config_begin.hpp>
 #include <cstddef>
@@ -47,25 +47,15 @@ inline std::ptrdiff_t offset_from_pointer_to_member(const Member Parent::* ptr_t
 template<class Parent, class Member>
 inline Parent *parent_from_member(Member *member, const Member Parent::* ptr_to_member)
 {
-   return static_cast<Parent*>
-      (
-         static_cast<void*>
-         (
-            static_cast<char*>(static_cast<void*>(member)) - offset_from_pointer_to_member(ptr_to_member)
-         )
-      );
+   return (Parent*)((char*)member - 
+      offset_from_pointer_to_member(ptr_to_member));
 }
 
 template<class Parent, class Member>
 inline const Parent *parent_from_member(const Member *member, const Member Parent::* ptr_to_member)
 {
-   return static_cast<const Parent*>
-      (
-         static_cast<const void*>
-         (
-            static_cast<const char*>(static_cast<const void*>(member)) - offset_from_pointer_to_member(ptr_to_member)
-         )
-      );
+   return (const Parent*)((const char*)member - 
+      offset_from_pointer_to_member(ptr_to_member));
 }
 
 }  //namespace detail {
@@ -78,4 +68,4 @@ inline const Parent *parent_from_member(const Member *member, const Member Paren
 
 #include <boost/intrusive/detail/config_end.hpp>
 
-#endif   //#ifndef BOOST_INTRUSIVE_DETAIL_PARENT_FROM_MEMBER_HPP
+#endif   //#ifndef BOOST_INTRUSIVE_PARENT_FROM_MEMBER_HPP

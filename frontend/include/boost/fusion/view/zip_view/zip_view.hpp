@@ -1,5 +1,5 @@
 /*=============================================================================
-    Copyright (c) 2001-2011 Joel de Guzman
+    Copyright (c) 2001-2006 Joel de Guzman
     Copyright (c) 2006 Dan Marsden
 
     Distributed under the Boost Software License, Version 1.0. (See accompanying 
@@ -37,8 +37,6 @@
 #include <boost/type_traits/remove_reference.hpp>
 #include <boost/type_traits/is_reference.hpp>
 
-#include <boost/config.hpp>
-
 namespace boost { namespace fusion {
 
     namespace detail
@@ -66,13 +64,6 @@ namespace boost { namespace fusion {
                     result_of::size<SeqClass>,
                     mpl::int_<high_int> >::type type;
             };
-
-            // never called, but needed for decltype-based result_of (C++0x)
-#ifndef BOOST_NO_RVALUE_REFERENCES
-            template<typename Seq>
-            typename result<seq_ref_size(Seq)>::type
-            operator()(Seq&&) const;
-#endif
         };
 
         struct poly_min
@@ -87,13 +78,6 @@ namespace boost { namespace fusion {
                 typedef typename remove_reference<Rhs>::type rhs;
                 typedef typename mpl::min<lhs, rhs>::type type;
             };
-
-            // never called, but needed for decltype-based result_of (C++0x)
-#ifndef BOOST_NO_RVALUE_REFERENCES
-            template<typename Lhs, typename Rhs>
-            typename result<poly_min(Lhs, Rhs)>::type
-            operator()(Lhs&&, Rhs&&) const;
-#endif
         };
 
         template<typename Sequences>

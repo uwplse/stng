@@ -1,8 +1,8 @@
 //
-// ip/basic_resolver.hpp
-// ~~~~~~~~~~~~~~~~~~~~~
+// basic_resolver.hpp
+// ~~~~~~~~~~~~~~~~~~
 //
-// Copyright (c) 2003-2012 Christopher M. Kohlhoff (chris at kohlhoff dot com)
+// Copyright (c) 2003-2008 Christopher M. Kohlhoff (chris at kohlhoff dot com)
 //
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -15,16 +15,12 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include <boost/asio/detail/config.hpp>
-#include <boost/asio/basic_io_object.hpp>
-#include <boost/asio/detail/handler_type_requirements.hpp>
-#include <boost/asio/detail/throw_error.hpp>
-#include <boost/asio/error.hpp>
-#include <boost/asio/ip/basic_resolver_iterator.hpp>
-#include <boost/asio/ip/basic_resolver_query.hpp>
-#include <boost/asio/ip/resolver_service.hpp>
-
 #include <boost/asio/detail/push_options.hpp>
+
+#include <boost/asio/basic_io_object.hpp>
+#include <boost/asio/error.hpp>
+#include <boost/asio/ip/resolver_service.hpp>
+#include <boost/asio/detail/throw_error.hpp>
 
 namespace boost {
 namespace asio {
@@ -52,10 +48,10 @@ public:
   typedef typename InternetProtocol::endpoint endpoint_type;
 
   /// The query type.
-  typedef basic_resolver_query<InternetProtocol> query;
+  typedef typename InternetProtocol::resolver_query query;
 
   /// The iterator type.
-  typedef basic_resolver_iterator<InternetProtocol> iterator;
+  typedef typename InternetProtocol::resolver_iterator iterator;
 
   /// Constructor.
   /**
@@ -100,7 +96,7 @@ public:
   {
     boost::system::error_code ec;
     iterator i = this->service.resolve(this->implementation, q, ec);
-    boost::asio::detail::throw_error(ec, "resolve");
+    boost::asio::detail::throw_error(ec);
     return i;
   }
 
@@ -153,16 +149,9 @@ public:
    * the handler.
    */
   template <typename ResolveHandler>
-  void async_resolve(const query& q,
-      BOOST_ASIO_MOVE_ARG(ResolveHandler) handler)
+  void async_resolve(const query& q, ResolveHandler handler)
   {
-    // If you get an error on the following line it means that your handler does
-    // not meet the documented type requirements for a ResolveHandler.
-    BOOST_ASIO_RESOLVE_HANDLER_CHECK(
-        ResolveHandler, handler, iterator) type_check;
-
-    return this->service.async_resolve(this->implementation, q,
-        BOOST_ASIO_MOVE_CAST(ResolveHandler)(handler));
+    return this->service.async_resolve(this->implementation, q, handler);
   }
 
   /// Perform reverse resolution of an endpoint to a list of entries.
@@ -187,7 +176,7 @@ public:
   {
     boost::system::error_code ec;
     iterator i = this->service.resolve(this->implementation, e, ec);
-    boost::asio::detail::throw_error(ec, "resolve");
+    boost::asio::detail::throw_error(ec);
     return i;
   }
 
@@ -244,16 +233,9 @@ public:
    * the handler.
    */
   template <typename ResolveHandler>
-  void async_resolve(const endpoint_type& e,
-      BOOST_ASIO_MOVE_ARG(ResolveHandler) handler)
+  void async_resolve(const endpoint_type& e, ResolveHandler handler)
   {
-    // If you get an error on the following line it means that your handler does
-    // not meet the documented type requirements for a ResolveHandler.
-    BOOST_ASIO_RESOLVE_HANDLER_CHECK(
-        ResolveHandler, handler, iterator) type_check;
-
-    return this->service.async_resolve(this->implementation, e,
-        BOOST_ASIO_MOVE_CAST(ResolveHandler)(handler));
+    return this->service.async_resolve(this->implementation, e, handler);
   }
 };
 

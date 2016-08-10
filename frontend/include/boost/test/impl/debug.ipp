@@ -7,7 +7,7 @@
 //
 //  File        : $RCSfile$
 //
-//  Version     : $Revision: 57992 $
+//  Version     : $Revision: 54633 $
 //
 //  Description : debug interfaces implementation
 // ***************************************************************************
@@ -23,7 +23,7 @@
 #include <boost/test/debug.hpp>
 #include <boost/test/debug_config.hpp>
 
-// Implementation on Windows
+// Implementation in windows
 #if defined(_WIN32) && !defined(UNDER_CE) && !defined(BOOST_DISABLE_WIN32) // ******* WIN32
 
 #  define BOOST_WIN32_BASED_DEBUG
@@ -653,7 +653,7 @@ under_debugger()
         if( dbg_list.find( pi.binary_name() ) != const_string::npos )
             return true;
 
-        pid = (pi.parent_pid() == pid ? 0 : pi.parent_pid());
+        pid = pi.parent_pid();
     }
 
     return false;

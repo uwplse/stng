@@ -207,13 +207,6 @@ public:
     }
 };
 
-#ifdef BOOST_MSVC
-// MSVC is bright enough to realise that the parameter rhs 
-// in operator==may be unused for some template argument types:
-#pragma warning(push)
-#pragma warning(disable:4100)
-#endif
-
 template< class A1 > class list1: private storage1< A1 >
 {
 private:
@@ -852,10 +845,6 @@ public:
             ref_compare( base_type::a9_, rhs.a9_, 0 );
     }
 };
-
-#ifdef BOOST_MSVC
-#pragma warning(pop)
-#endif
 
 // bind_t
 
@@ -1640,7 +1629,7 @@ template<class F, class A1, class A2, class A3, class A4, class A5, class A6, cl
 // data member pointers
 
 #if defined(BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION) || defined(BOOST_NO_FUNCTION_TEMPLATE_ORDERING) \
-    || ( defined(__BORLANDC__) && BOOST_WORKAROUND( __BORLANDC__, BOOST_TESTED_AT( 0x620 ) ) )
+    || ( defined(__BORLANDC__) && BOOST_WORKAROUND( __BORLANDC__, <= 0x610 ) )
 
 template<class R, class T, class A1>
 _bi::bind_t< R, _mfi::dm<R, T>, typename _bi::list_av_1<A1>::type >
@@ -1665,14 +1654,7 @@ template< class M, class T > struct add_cref< M T::*, 0 >
 
 template< class M, class T > struct add_cref< M T::*, 1 >
 {
-#ifdef BOOST_MSVC
-#pragma warning(push)
-#pragma warning(disable:4180)
-#endif
     typedef M const & type;
-#ifdef BOOST_MSVC
-#pragma warning(pop)
-#endif
 };
 
 template< class R, class T > struct add_cref< R (T::*) (), 1 >
@@ -1680,7 +1662,7 @@ template< class R, class T > struct add_cref< R (T::*) (), 1 >
     typedef void type;
 };
 
-#if !defined(__IBMCPP__) || __IBMCPP_FUNC_CV_TMPL_ARG_DEDUCTION
+#if !( defined(__IBMCPP__) && BOOST_WORKAROUND( __IBMCPP__, BOOST_TESTED_AT(600) ) )
 
 template< class R, class T > struct add_cref< R (T::*) () const, 1 >
 {

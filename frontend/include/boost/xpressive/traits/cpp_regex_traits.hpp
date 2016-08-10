@@ -24,7 +24,6 @@
 #include <boost/assert.hpp>
 #include <boost/integer.hpp>
 #include <boost/mpl/assert.hpp>
-#include <boost/static_assert.hpp>
 #include <boost/detail/workaround.hpp>
 #include <boost/type_traits/is_same.hpp>
 #include <boost/xpressive/detail/detail_fwd.hpp>
@@ -82,7 +81,7 @@ namespace detail
 
     #ifndef BOOST_XPRESSIVE_BUGGY_CTYPE_FACET
     // an unsigned integer with the highest bit set
-    umaskex_t const highest_bit = static_cast<umaskex_t>(1) << (sizeof(umaskex_t) * CHAR_BIT - 1);
+    umaskex_t const highest_bit = 1 << (sizeof(umaskex_t) * CHAR_BIT - 1);
 
     ///////////////////////////////////////////////////////////////////////////////
     // unused_mask
@@ -90,7 +89,7 @@ namespace detail
     template<umaskex_t In, umaskex_t Out = highest_bit, bool Done = (0 == (Out & In))>
     struct unused_mask
     {
-        BOOST_STATIC_ASSERT(1 != Out);
+        BOOST_MPL_ASSERT_RELATION(1, !=, Out);
         BOOST_STATIC_CONSTANT(umaskex_t, value = (unused_mask<In, (Out >> 1)>::value));
     };
 

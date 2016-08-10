@@ -1,5 +1,5 @@
 // state_machine.hpp
-// Copyright (c) 2007-2009 Ben Hanson (http://www.benhanson.net/)
+// Copyright (c) 2007 Ben Hanson (http://www.benhanson.net/)
 //
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file licence_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -10,7 +10,6 @@
 #include "conversion/char_state_machine.hpp"
 #include "consts.hpp"
 #include <deque>
-#include "internals.hpp"
 #include <map>
 #include "containers/ptr_vector.hpp"
 #include "size_t.hpp"
@@ -24,8 +23,6 @@ template<typename CharT>
 class basic_state_machine
 {
 public:
-    typedef CharT char_type;
-
     class iterator
     {
     public:
@@ -47,7 +44,6 @@ public:
             // Current state info
             bool end_state;
             std::size_t id;
-            std::size_t unique_id;
             std::size_t goto_dfa;
             std::size_t bol_index;
             std::size_t eol_index;
@@ -64,7 +60,6 @@ public:
                 transition (npos),
                 end_state (false),
                 id (npos),
-                unique_id (npos),
                 goto_dfa (npos),
                 bol_index (npos),
                 eol_index (npos),
@@ -81,7 +76,6 @@ public:
                     transition == rhs_.transition &&
                     end_state == rhs_.end_state &&
                     id == rhs_.id &&
-                    unique_id == rhs_.unique_id &&
                     goto_dfa == rhs_.goto_dfa &&
                     bol_index == rhs_.bol_index &&
                     eol_index == rhs_.eol_index &&
@@ -183,8 +177,7 @@ public:
                     }
                     else
                     {
-                        _states = _data.states =
-                            _sm->_csm._sm_vector[_dfa].size ();
+                        _states = _sm->_csm._sm_vector[_dfa].size ();
                         _state = _data.state = 0;
                     }
                 }
@@ -202,7 +195,6 @@ public:
                 _transitions = _data.transitions = ptr_->_transitions.size ();
                 _data.end_state = ptr_->_end_state;
                 _data.id = ptr_->_id;
-                _data.unique_id = ptr_->_unique_id;
                 _data.goto_dfa = ptr_->_state;
                 _data.bol_index = ptr_->_bol_index;
                 _data.eol_index = ptr_->_eol_index;
@@ -231,39 +223,42 @@ public:
     friend class iterator;
 #endif
 
-    basic_state_machine ()
+    basic_state_machine () :
+        _seen_BOL_assertion (false),
+        _seen_EOL_assertion (false)
     {
     }
 
     void clear ()
     {
-        _internals.clear ();
+        _lookup.clear ();
+        _dfa_alphabet.clear ();
+        _dfa.clear ();
+        _seen_BOL_assertion = false;
+        _seen_EOL_assertion = false;
         _csm.clear ();
     }
 
     bool empty () const
     {
         // Don't include _csm in this test, as irrelevant to state.
-        return _internals._lookup->empty () &&
-            _internals._dfa_alphabet.empty () &&
-            _internals._dfa->empty ();
+        return _lookup->empty () && _dfa_alphabet.empty () &&
+            _dfa->empty ();
     }
 
     std::size_t size () const
     {
-        return _internals._dfa->size ();
+        return _dfa->size ();
     }
 
     bool operator == (const basic_state_machine &rhs_) const
     {
         // Don't include _csm in this test, as irrelevant to state.
-        return _internals._lookup == rhs_._internals._lookup &&
-            _internals._dfa_alphabet == rhs_._internals._dfa_alphabet &&
-            _internals._dfa == rhs_._internals._dfa &&
-            _internals._seen_BOL_assertion ==
-                rhs_._internals._seen_BOL_assertion &&
-            _internals._seen_EOL_assertion ==
-                rhs_._internals._seen_EOL_assertion;
+        return _lookup == rhs_._lookup &&
+            _dfa_alphabet == rhs_._dfa_alphabet &&
+            _dfa == rhs_._dfa &&
+            _seen_BOL_assertion == rhs_._seen_BOL_assertion &&
+            _seen_EOL_assertion == rhs_._seen_EOL_assertion;
     }
 
     iterator begin () const
@@ -273,33 +268,26 @@ public:
         iter_._sm = const_cast<basic_state_machine *>(this);
         check_for_csm ();
 
-        if (!_csm.empty ())
+        if (!_csm.empty())
         {
             const typename detail::basic_char_state_machine<CharT>::
-                state_vector *ptr_ = &_csm._sm_vector.front ();
+                state_vector *ptr_ = &_csm._sm_vector[0];
 
             iter_._dfas = _csm._sm_vector.size ();
             iter_._states = iter_._data.states = ptr_->size ();
             iter_._transitions = iter_._data.transitions =
-                ptr_->front ()._transitions.size ();
+            ptr_->front ()._transitions.size ();
             iter_._dfa = iter_._data.dfa = 0;
             iter_._state = iter_._data.state = 0;
             iter_._transition = 0;
             iter_._data.end_state = ptr_->front ()._end_state;
             iter_._data.id = ptr_->front ()._id;
-            iter_._data.unique_id = ptr_->front ()._unique_id;
             iter_._data.goto_dfa = ptr_->front ()._state;
             iter_._data.bol_index = ptr_->front ()._bol_index;
             iter_._data.eol_index = ptr_->front ()._eol_index;
             iter_._token_iter = ptr_->front ()._transitions.begin ();
             iter_._token_end = ptr_->front ()._transitions.end ();
-
-            // Deal with case where there is only a bol or eol
-            // but no other transitions.
-            if (iter_._transitions)
-            {
-                ++iter_;
-            }
+            ++iter_;
         }
 
         return iter_;
@@ -315,17 +303,26 @@ public:
 
     void swap (basic_state_machine &sm_)
     {
-        _internals.swap (sm_._internals);
+        _lookup->swap (*sm_._lookup);
+        _dfa_alphabet.swap (sm_._dfa_alphabet);
+        _dfa->swap (*sm_._dfa);
+        std::swap (_seen_BOL_assertion, sm_._seen_BOL_assertion);
+        std::swap (_seen_EOL_assertion, sm_._seen_EOL_assertion);
         _csm.swap (sm_._csm);
     }
 
-    const detail::internals &data () const
-    {
-        return _internals;
-    }
+// VC++ 6, 7.1 and 8 can't cope with template friend classes!
+// #if !(defined _MSC_VER && _MSC_VER < 1500)
+// private:
+// #endif
+    typedef std::vector<std::size_t> size_t_vector;
+    typedef detail::ptr_vector<size_t_vector> size_t_vector_vector;
 
-private:
-    detail::internals _internals;
+    size_t_vector_vector _lookup;
+    size_t_vector _dfa_alphabet;
+    size_t_vector_vector _dfa;
+    bool _seen_BOL_assertion;
+    bool _seen_EOL_assertion;
     mutable detail::basic_char_state_machine<CharT> _csm;
 
     void check_for_csm () const
@@ -340,7 +337,7 @@ private:
     {
         const std::size_t max_ = sizeof (CharT) == 1 ?
             num_chars : num_wchar_ts;
-        const std::size_t start_states_ = _internals._dfa->size ();
+        const std::size_t start_states_ = _dfa->size ();
 
         sm_.clear ();
         sm_._sm_vector.resize (start_states_);
@@ -348,15 +345,13 @@ private:
         for (std::size_t start_state_index_ = 0;
             start_state_index_ < start_states_; ++start_state_index_)
         {
-            const detail::internals::size_t_vector *lu_ =
-                _internals._lookup[start_state_index_];
-            const std::size_t alphabet_ =
-                _internals._dfa_alphabet[start_state_index_] - dfa_offset;
+            const size_t_vector *lu_ = _lookup[start_state_index_];
+            const std::size_t alphabet_ = _dfa_alphabet[start_state_index_] - dfa_offset;
             std::vector<std::basic_string<CharT> > chars_ (alphabet_);
-            const std::size_t states_ = _internals._dfa[start_state_index_]->
-                size () / (alphabet_ + dfa_offset);
-            const std::size_t *read_ptr_ = &_internals.
-                _dfa[start_state_index_]->front () + alphabet_ + dfa_offset;
+            const std::size_t states_ = _dfa[start_state_index_]->size () /
+                (alphabet_ + dfa_offset);
+            const std::size_t *read_ptr_ = &_dfa[start_state_index_]->
+                front () + alphabet_ + dfa_offset;
 
             sm_._sm_vector[start_state_index_].resize (states_ - 1);
 
@@ -381,7 +376,6 @@ private:
 
                 state_->_end_state = *read_ptr_ != 0;
                 state_->_id = *(read_ptr_ + id_index);
-                state_->_unique_id = *(read_ptr_ + unique_id_index);
                 state_->_state = *(read_ptr_ + state_index);
                 state_->_bol_index = *(read_ptr_ + bol_index) - 1;
                 state_->_eol_index = *(read_ptr_ + eol_index) - 1;
@@ -429,6 +423,21 @@ private:
             }
         }
     }
+
+#if !(defined _MSC_VER && _MSC_VER < 1500)
+    template<typename ChT, typename Traits>
+    friend class basic_file_input;
+
+    template<typename ChT, typename Traits>
+    friend class basic_generator;
+
+    template<typename FwdIter, typename Traits>
+    friend class basic_input;
+
+    template<typename ChT, class Archive>
+    friend void serialise (basic_state_machine &sm_, Archive &ar_,
+        unsigned int version_);
+#endif
 };
 
 typedef basic_state_machine<char> state_machine;

@@ -2,7 +2,7 @@
 
 enum E_SgSourceFile 
 {
-SgSourceFile_globalScope, SgSourceFile_package, SgSourceFile_import_list, SgSourceFile_class_list};
+SgSourceFile_globalScope};
 enum E_SgBinaryComposite 
 {
 SgBinaryComposite_genericFileList, SgBinaryComposite_interpretations};
@@ -20,10 +20,10 @@ enum E_SgBaseClass
 SgBaseClass_base_class};
 enum E_SgTemplateParameter 
 {
-SgTemplateParameter_expression, SgTemplateParameter_defaultExpressionParameter, SgTemplateParameter_templateDeclaration, SgTemplateParameter_defaultTemplateDeclarationParameter, SgTemplateParameter_initializedName};
+SgTemplateParameter_expression, SgTemplateParameter_defaultExpressionParameter, SgTemplateParameter_templateDeclaration, SgTemplateParameter_defaultTemplateDeclarationParameter};
 enum E_SgTemplateArgument 
 {
-SgTemplateArgument_expression, SgTemplateArgument_templateDeclaration, SgTemplateArgument_initializedName};
+SgTemplateArgument_expression, SgTemplateArgument_templateDeclaration};
 enum E_SgDirectory 
 {
 SgDirectory_fileList, SgDirectory_directoryList};
@@ -39,201 +39,156 @@ SgTemplateArgumentList_args};
 enum E_SgTemplateParameterList 
 {
 SgTemplateParameterList_args};
-enum E_SgJavaImportStatementList 
-{
-SgJavaImportStatementList_java_import_list};
-enum E_SgJavaClassDeclarationList 
-{
-SgJavaClassDeclarationList_java_class_list};
 enum E_SgTypeUnknown 
 {
-SgTypeUnknown_type_kind, SgTypeUnknown_builtin_type};
+SgTypeUnknown_ref_to, SgTypeUnknown_ptr_to, SgTypeUnknown_modifiers, SgTypeUnknown_typedefs, SgTypeUnknown_type_kind, SgTypeUnknown_builtin_type};
 enum E_SgTypeChar 
 {
-SgTypeChar_type_kind, SgTypeChar_builtin_type};
+SgTypeChar_ref_to, SgTypeChar_ptr_to, SgTypeChar_modifiers, SgTypeChar_typedefs, SgTypeChar_type_kind, SgTypeChar_builtin_type};
 enum E_SgTypeSignedChar 
 {
-SgTypeSignedChar_type_kind, SgTypeSignedChar_builtin_type};
+SgTypeSignedChar_ref_to, SgTypeSignedChar_ptr_to, SgTypeSignedChar_modifiers, SgTypeSignedChar_typedefs, SgTypeSignedChar_type_kind, SgTypeSignedChar_builtin_type};
 enum E_SgTypeUnsignedChar 
 {
-SgTypeUnsignedChar_type_kind, SgTypeUnsignedChar_builtin_type};
+SgTypeUnsignedChar_ref_to, SgTypeUnsignedChar_ptr_to, SgTypeUnsignedChar_modifiers, SgTypeUnsignedChar_typedefs, SgTypeUnsignedChar_type_kind, SgTypeUnsignedChar_builtin_type};
 enum E_SgTypeShort 
 {
-SgTypeShort_type_kind, SgTypeShort_builtin_type};
+SgTypeShort_ref_to, SgTypeShort_ptr_to, SgTypeShort_modifiers, SgTypeShort_typedefs, SgTypeShort_type_kind, SgTypeShort_builtin_type};
 enum E_SgTypeSignedShort 
 {
-SgTypeSignedShort_type_kind, SgTypeSignedShort_builtin_type};
+SgTypeSignedShort_ref_to, SgTypeSignedShort_ptr_to, SgTypeSignedShort_modifiers, SgTypeSignedShort_typedefs, SgTypeSignedShort_type_kind, SgTypeSignedShort_builtin_type};
 enum E_SgTypeUnsignedShort 
 {
-SgTypeUnsignedShort_type_kind, SgTypeUnsignedShort_builtin_type};
+SgTypeUnsignedShort_ref_to, SgTypeUnsignedShort_ptr_to, SgTypeUnsignedShort_modifiers, SgTypeUnsignedShort_typedefs, SgTypeUnsignedShort_type_kind, SgTypeUnsignedShort_builtin_type};
 enum E_SgTypeInt 
 {
-SgTypeInt_type_kind, SgTypeInt_builtin_type};
+SgTypeInt_ref_to, SgTypeInt_ptr_to, SgTypeInt_modifiers, SgTypeInt_typedefs, SgTypeInt_type_kind, SgTypeInt_builtin_type};
 enum E_SgTypeSignedInt 
 {
-SgTypeSignedInt_type_kind, SgTypeSignedInt_builtin_type};
+SgTypeSignedInt_ref_to, SgTypeSignedInt_ptr_to, SgTypeSignedInt_modifiers, SgTypeSignedInt_typedefs, SgTypeSignedInt_type_kind, SgTypeSignedInt_builtin_type};
 enum E_SgTypeUnsignedInt 
 {
-SgTypeUnsignedInt_type_kind, SgTypeUnsignedInt_builtin_type};
+SgTypeUnsignedInt_ref_to, SgTypeUnsignedInt_ptr_to, SgTypeUnsignedInt_modifiers, SgTypeUnsignedInt_typedefs, SgTypeUnsignedInt_type_kind, SgTypeUnsignedInt_builtin_type};
 enum E_SgTypeLong 
 {
-SgTypeLong_type_kind, SgTypeLong_builtin_type};
+SgTypeLong_ref_to, SgTypeLong_ptr_to, SgTypeLong_modifiers, SgTypeLong_typedefs, SgTypeLong_type_kind, SgTypeLong_builtin_type};
 enum E_SgTypeSignedLong 
 {
-SgTypeSignedLong_type_kind, SgTypeSignedLong_builtin_type};
+SgTypeSignedLong_ref_to, SgTypeSignedLong_ptr_to, SgTypeSignedLong_modifiers, SgTypeSignedLong_typedefs, SgTypeSignedLong_type_kind, SgTypeSignedLong_builtin_type};
 enum E_SgTypeUnsignedLong 
 {
-SgTypeUnsignedLong_type_kind, SgTypeUnsignedLong_builtin_type};
+SgTypeUnsignedLong_ref_to, SgTypeUnsignedLong_ptr_to, SgTypeUnsignedLong_modifiers, SgTypeUnsignedLong_typedefs, SgTypeUnsignedLong_type_kind, SgTypeUnsignedLong_builtin_type};
 enum E_SgTypeVoid 
 {
-SgTypeVoid_type_kind, SgTypeVoid_builtin_type};
+SgTypeVoid_ref_to, SgTypeVoid_ptr_to, SgTypeVoid_modifiers, SgTypeVoid_typedefs, SgTypeVoid_type_kind, SgTypeVoid_builtin_type};
 enum E_SgTypeGlobalVoid 
 {
-SgTypeGlobalVoid_type_kind, SgTypeGlobalVoid_builtin_type};
+SgTypeGlobalVoid_ref_to, SgTypeGlobalVoid_ptr_to, SgTypeGlobalVoid_modifiers, SgTypeGlobalVoid_typedefs, SgTypeGlobalVoid_type_kind, SgTypeGlobalVoid_builtin_type};
 enum E_SgTypeWchar 
 {
-SgTypeWchar_type_kind, SgTypeWchar_builtin_type};
+SgTypeWchar_ref_to, SgTypeWchar_ptr_to, SgTypeWchar_modifiers, SgTypeWchar_typedefs, SgTypeWchar_type_kind, SgTypeWchar_builtin_type};
 enum E_SgTypeFloat 
 {
-SgTypeFloat_type_kind, SgTypeFloat_builtin_type};
+SgTypeFloat_ref_to, SgTypeFloat_ptr_to, SgTypeFloat_modifiers, SgTypeFloat_typedefs, SgTypeFloat_type_kind, SgTypeFloat_builtin_type};
 enum E_SgTypeDouble 
 {
-SgTypeDouble_type_kind, SgTypeDouble_builtin_type};
+SgTypeDouble_ref_to, SgTypeDouble_ptr_to, SgTypeDouble_modifiers, SgTypeDouble_typedefs, SgTypeDouble_type_kind, SgTypeDouble_builtin_type};
 enum E_SgTypeLongLong 
 {
-SgTypeLongLong_type_kind, SgTypeLongLong_builtin_type};
+SgTypeLongLong_ref_to, SgTypeLongLong_ptr_to, SgTypeLongLong_modifiers, SgTypeLongLong_typedefs, SgTypeLongLong_type_kind, SgTypeLongLong_builtin_type};
 enum E_SgTypeSignedLongLong 
 {
-SgTypeSignedLongLong_type_kind, SgTypeSignedLongLong_builtin_type};
+SgTypeSignedLongLong_ref_to, SgTypeSignedLongLong_ptr_to, SgTypeSignedLongLong_modifiers, SgTypeSignedLongLong_typedefs, SgTypeSignedLongLong_type_kind, SgTypeSignedLongLong_builtin_type};
 enum E_SgTypeUnsignedLongLong 
 {
-SgTypeUnsignedLongLong_type_kind, SgTypeUnsignedLongLong_builtin_type};
-enum E_SgTypeSigned128bitInteger 
-{
-SgTypeSigned128bitInteger_type_kind, SgTypeSigned128bitInteger_builtin_type};
-enum E_SgTypeUnsigned128bitInteger 
-{
-SgTypeUnsigned128bitInteger_type_kind, SgTypeUnsigned128bitInteger_builtin_type};
+SgTypeUnsignedLongLong_ref_to, SgTypeUnsignedLongLong_ptr_to, SgTypeUnsignedLongLong_modifiers, SgTypeUnsignedLongLong_typedefs, SgTypeUnsignedLongLong_type_kind, SgTypeUnsignedLongLong_builtin_type};
 enum E_SgTypeLongDouble 
 {
-SgTypeLongDouble_type_kind, SgTypeLongDouble_builtin_type};
+SgTypeLongDouble_ref_to, SgTypeLongDouble_ptr_to, SgTypeLongDouble_modifiers, SgTypeLongDouble_typedefs, SgTypeLongDouble_type_kind, SgTypeLongDouble_builtin_type};
 enum E_SgTypeString 
 {
-SgTypeString_type_kind, SgTypeString_lengthExpression};
+SgTypeString_ref_to, SgTypeString_ptr_to, SgTypeString_modifiers, SgTypeString_typedefs, SgTypeString_type_kind, SgTypeString_lengthExpression};
 enum E_SgTypeBool 
 {
-SgTypeBool_type_kind, SgTypeBool_builtin_type};
+SgTypeBool_ref_to, SgTypeBool_ptr_to, SgTypeBool_modifiers, SgTypeBool_typedefs, SgTypeBool_type_kind, SgTypeBool_builtin_type};
 enum E_SgPointerMemberType 
 {
-SgPointerMemberType_type_kind, SgPointerMemberType_base_type};
+SgPointerMemberType_ref_to, SgPointerMemberType_ptr_to, SgPointerMemberType_modifiers, SgPointerMemberType_typedefs, SgPointerMemberType_type_kind};
 enum E_SgPointerType 
 {
-SgPointerType_type_kind, SgPointerType_base_type};
+SgPointerType_ref_to, SgPointerType_ptr_to, SgPointerType_modifiers, SgPointerType_typedefs, SgPointerType_type_kind};
 enum E_SgReferenceType 
 {
-SgReferenceType_type_kind};
-enum E_SgJavaParameterType 
-{
-SgJavaParameterType_type_kind, SgJavaParameterType_builtin_type, SgJavaParameterType_declaration};
+SgReferenceType_ref_to, SgReferenceType_ptr_to, SgReferenceType_modifiers, SgReferenceType_typedefs, SgReferenceType_type_kind};
 enum E_SgClassType 
 {
-SgClassType_type_kind, SgClassType_builtin_type, SgClassType_declaration};
+SgClassType_ref_to, SgClassType_ptr_to, SgClassType_modifiers, SgClassType_typedefs, SgClassType_type_kind, SgClassType_builtin_type, SgClassType_declaration};
 enum E_SgJavaParameterizedType 
 {
-SgJavaParameterizedType_type_kind, SgJavaParameterizedType_builtin_type, SgJavaParameterizedType_declaration};
-enum E_SgJavaQualifiedType 
-{
-SgJavaQualifiedType_type_kind, SgJavaQualifiedType_builtin_type, SgJavaQualifiedType_declaration};
+SgJavaParameterizedType_ref_to, SgJavaParameterizedType_ptr_to, SgJavaParameterizedType_modifiers, SgJavaParameterizedType_typedefs, SgJavaParameterizedType_type_kind, SgJavaParameterizedType_builtin_type, SgJavaParameterizedType_declaration};
 enum E_SgEnumType 
 {
-SgEnumType_type_kind, SgEnumType_builtin_type, SgEnumType_declaration};
+SgEnumType_ref_to, SgEnumType_ptr_to, SgEnumType_modifiers, SgEnumType_typedefs, SgEnumType_type_kind, SgEnumType_builtin_type, SgEnumType_declaration};
 enum E_SgTypedefType 
 {
-SgTypedefType_type_kind, SgTypedefType_builtin_type, SgTypedefType_declaration};
-enum E_SgJavaWildcardType 
-{
-SgJavaWildcardType_type_kind, SgJavaWildcardType_builtin_type, SgJavaWildcardType_declaration};
+SgTypedefType_ref_to, SgTypedefType_ptr_to, SgTypedefType_modifiers, SgTypedefType_typedefs, SgTypedefType_type_kind, SgTypedefType_builtin_type, SgTypedefType_declaration};
 enum E_SgNamedType 
 {
-SgNamedType_type_kind, SgNamedType_builtin_type, SgNamedType_declaration};
+SgNamedType_ref_to, SgNamedType_ptr_to, SgNamedType_modifiers, SgNamedType_typedefs, SgNamedType_type_kind, SgNamedType_builtin_type, SgNamedType_declaration};
 enum E_SgModifierType 
 {
-SgModifierType_type_kind, SgModifierType_base_type};
+SgModifierType_ref_to, SgModifierType_ptr_to, SgModifierType_modifiers, SgModifierType_typedefs, SgModifierType_type_kind};
 enum E_SgPartialFunctionModifierType 
 {
-SgPartialFunctionModifierType_type_kind, SgPartialFunctionModifierType_return_type, SgPartialFunctionModifierType_orig_return_type, SgPartialFunctionModifierType_builtin_type};
+SgPartialFunctionModifierType_ref_to, SgPartialFunctionModifierType_ptr_to, SgPartialFunctionModifierType_modifiers, SgPartialFunctionModifierType_typedefs, SgPartialFunctionModifierType_type_kind, SgPartialFunctionModifierType_return_type, SgPartialFunctionModifierType_orig_return_type, SgPartialFunctionModifierType_builtin_type};
 enum E_SgPartialFunctionType 
 {
-SgPartialFunctionType_type_kind, SgPartialFunctionType_return_type, SgPartialFunctionType_orig_return_type};
+SgPartialFunctionType_ref_to, SgPartialFunctionType_ptr_to, SgPartialFunctionType_modifiers, SgPartialFunctionType_typedefs, SgPartialFunctionType_type_kind, SgPartialFunctionType_return_type, SgPartialFunctionType_orig_return_type};
 enum E_SgMemberFunctionType 
 {
-SgMemberFunctionType_type_kind, SgMemberFunctionType_return_type, SgMemberFunctionType_orig_return_type};
+SgMemberFunctionType_ref_to, SgMemberFunctionType_ptr_to, SgMemberFunctionType_modifiers, SgMemberFunctionType_typedefs, SgMemberFunctionType_type_kind, SgMemberFunctionType_return_type, SgMemberFunctionType_orig_return_type};
 enum E_SgFunctionType 
 {
-SgFunctionType_type_kind, SgFunctionType_return_type, SgFunctionType_orig_return_type};
+SgFunctionType_ref_to, SgFunctionType_ptr_to, SgFunctionType_modifiers, SgFunctionType_typedefs, SgFunctionType_type_kind, SgFunctionType_return_type, SgFunctionType_orig_return_type};
 enum E_SgArrayType 
 {
-SgArrayType_type_kind, SgArrayType_index, SgArrayType_dim_info};
+SgArrayType_ref_to, SgArrayType_ptr_to, SgArrayType_modifiers, SgArrayType_typedefs, SgArrayType_type_kind, SgArrayType_index, SgArrayType_dim_info};
 enum E_SgTypeEllipse 
 {
-SgTypeEllipse_type_kind, SgTypeEllipse_builtin_type};
+SgTypeEllipse_ref_to, SgTypeEllipse_ptr_to, SgTypeEllipse_modifiers, SgTypeEllipse_typedefs, SgTypeEllipse_type_kind, SgTypeEllipse_builtin_type};
 enum E_SgTemplateType 
 {
-SgTemplateType_type_kind};
+SgTemplateType_ref_to, SgTemplateType_ptr_to, SgTemplateType_modifiers, SgTemplateType_typedefs, SgTemplateType_type_kind};
 enum E_SgQualifiedNameType 
 {
-SgQualifiedNameType_type_kind};
+SgQualifiedNameType_ref_to, SgQualifiedNameType_ptr_to, SgQualifiedNameType_modifiers, SgQualifiedNameType_typedefs, SgQualifiedNameType_type_kind};
 enum E_SgTypeComplex 
 {
-SgTypeComplex_type_kind};
+SgTypeComplex_ref_to, SgTypeComplex_ptr_to, SgTypeComplex_modifiers, SgTypeComplex_typedefs, SgTypeComplex_type_kind};
 enum E_SgTypeImaginary 
 {
-SgTypeImaginary_type_kind};
+SgTypeImaginary_ref_to, SgTypeImaginary_ptr_to, SgTypeImaginary_modifiers, SgTypeImaginary_typedefs, SgTypeImaginary_type_kind};
 enum E_SgTypeDefault 
 {
-SgTypeDefault_type_kind, SgTypeDefault_builtin_type};
+SgTypeDefault_ref_to, SgTypeDefault_ptr_to, SgTypeDefault_modifiers, SgTypeDefault_typedefs, SgTypeDefault_type_kind, SgTypeDefault_builtin_type};
 enum E_SgTypeCAFTeam 
 {
-SgTypeCAFTeam_type_kind, SgTypeCAFTeam_builtin_type};
+SgTypeCAFTeam_ref_to, SgTypeCAFTeam_ptr_to, SgTypeCAFTeam_modifiers, SgTypeCAFTeam_typedefs, SgTypeCAFTeam_type_kind, SgTypeCAFTeam_builtin_type};
 enum E_SgTypeCrayPointer 
 {
-SgTypeCrayPointer_type_kind, SgTypeCrayPointer_builtin_type};
+SgTypeCrayPointer_ref_to, SgTypeCrayPointer_ptr_to, SgTypeCrayPointer_modifiers, SgTypeCrayPointer_typedefs, SgTypeCrayPointer_type_kind, SgTypeCrayPointer_builtin_type};
 enum E_SgTypeLabel 
 {
-SgTypeLabel_type_kind, SgTypeLabel_builtin_type};
-enum E_SgJavaUnionType 
-{
-SgJavaUnionType_type_kind};
-enum E_SgRvalueReferenceType 
-{
-SgRvalueReferenceType_type_kind};
-enum E_SgTypeNullptr 
-{
-SgTypeNullptr_type_kind, SgTypeNullptr_builtin_type};
-enum E_SgDeclType 
-{
-SgDeclType_type_kind};
-enum E_SgTypeOfType 
-{
-SgTypeOfType_type_kind};
-enum E_SgTypeMatrix 
-{
-SgTypeMatrix_type_kind, SgTypeMatrix_builtin_type};
-enum E_SgTypeTuple 
-{
-SgTypeTuple_type_kind, SgTypeTuple_builtin_type};
+SgTypeLabel_ref_to, SgTypeLabel_ptr_to, SgTypeLabel_modifiers, SgTypeLabel_typedefs, SgTypeLabel_type_kind, SgTypeLabel_builtin_type};
 enum E_SgType 
 {
-SgType_type_kind};
+SgType_ref_to, SgType_ptr_to, SgType_modifiers, SgType_typedefs, SgType_type_kind};
 enum E_SgCommonBlockObject 
 {
 SgCommonBlockObject_variable_reference_list};
 enum E_SgInitializedName 
 {
 SgInitializedName_initptr};
-enum E_SgJavaMemberValuePair 
-{
-SgJavaMemberValuePair_value};
 enum E_SgOmpCollapseClause 
 {
 SgOmpCollapseClause_expression};
@@ -243,12 +198,6 @@ SgOmpIfClause_expression};
 enum E_SgOmpNumThreadsClause 
 {
 SgOmpNumThreadsClause_expression};
-enum E_SgOmpDeviceClause 
-{
-SgOmpDeviceClause_expression};
-enum E_SgOmpSafelenClause 
-{
-SgOmpSafelenClause_expression};
 enum E_SgOmpExpressionClause 
 {
 SgOmpExpressionClause_expression};
@@ -273,90 +222,12 @@ SgOmpLastprivateClause_variables};
 enum E_SgOmpReductionClause 
 {
 SgOmpReductionClause_variables};
-enum E_SgOmpMapClause 
-{
-SgOmpMapClause_variables};
-enum E_SgOmpLinearClause 
-{
-SgOmpLinearClause_variables};
-enum E_SgOmpUniformClause 
-{
-SgOmpUniformClause_variables};
-enum E_SgOmpAlignedClause 
-{
-SgOmpAlignedClause_variables};
 enum E_SgOmpVariablesClause 
 {
 SgOmpVariablesClause_variables};
 enum E_SgOmpScheduleClause 
 {
 SgOmpScheduleClause_chunk_size};
-enum E_SgUntypedUnaryOperator 
-{
-SgUntypedUnaryOperator_operand};
-enum E_SgUntypedBinaryOperator 
-{
-SgUntypedBinaryOperator_lhs_operand, SgUntypedBinaryOperator_rhs_operand};
-enum E_SgUntypedVariableDeclaration 
-{
-SgUntypedVariableDeclaration_parameters};
-enum E_SgUntypedProgramHeaderDeclaration 
-{
-SgUntypedProgramHeaderDeclaration_parameters, SgUntypedProgramHeaderDeclaration_scope, SgUntypedProgramHeaderDeclaration_end_statement};
-enum E_SgUntypedSubroutineDeclaration 
-{
-SgUntypedSubroutineDeclaration_parameters, SgUntypedSubroutineDeclaration_scope, SgUntypedSubroutineDeclaration_end_statement};
-enum E_SgUntypedFunctionDeclaration 
-{
-SgUntypedFunctionDeclaration_parameters, SgUntypedFunctionDeclaration_scope, SgUntypedFunctionDeclaration_end_statement};
-enum E_SgUntypedModuleDeclaration 
-{
-SgUntypedModuleDeclaration_scope, SgUntypedModuleDeclaration_end_statement};
-enum E_SgUntypedAssignmentStatement 
-{
-SgUntypedAssignmentStatement_lhs_operand, SgUntypedAssignmentStatement_rhs_operand};
-enum E_SgUntypedBlockStatement 
-{
-SgUntypedBlockStatement_scope};
-enum E_SgUntypedFunctionScope 
-{
-SgUntypedFunctionScope_declaration_list, SgUntypedFunctionScope_statement_list, SgUntypedFunctionScope_function_list};
-enum E_SgUntypedModuleScope 
-{
-SgUntypedModuleScope_declaration_list, SgUntypedModuleScope_statement_list, SgUntypedModuleScope_function_list};
-enum E_SgUntypedGlobalScope 
-{
-SgUntypedGlobalScope_declaration_list, SgUntypedGlobalScope_statement_list, SgUntypedGlobalScope_function_list};
-enum E_SgUntypedScope 
-{
-SgUntypedScope_declaration_list, SgUntypedScope_statement_list, SgUntypedScope_function_list};
-enum E_SgUntypedArrayType 
-{
-SgUntypedArrayType_type_kind};
-enum E_SgUntypedType 
-{
-SgUntypedType_type_kind};
-enum E_SgUntypedFile 
-{
-SgUntypedFile_scope};
-enum E_SgUntypedStatementList 
-{
-SgUntypedStatementList_stmt_list};
-enum E_SgUntypedDeclarationStatementList 
-{
-SgUntypedDeclarationStatementList_decl_list};
-enum E_SgUntypedFunctionDeclarationList 
-{
-SgUntypedFunctionDeclarationList_func_list};
-enum E_SgUntypedInitializedNameList 
-{
-SgUntypedInitializedNameList_name_list};
-enum E_SgLambdaCapture 
-{
-SgLambdaCapture_capture_variable, SgLambdaCapture_source_closure_variable, SgLambdaCapture_closure_variable};
-enum E_SgLambdaCaptureList 
-{
-SgLambdaCaptureList_capture_list};
 enum E_SgGlobal 
 {
 SgGlobal_declarations};
@@ -423,15 +294,9 @@ SgJavaForEachStatement_element, SgJavaForEachStatement_collection, SgJavaForEach
 enum E_SgJavaLabelStatement 
 {
 SgJavaLabelStatement_statement};
-enum E_SgMatlabForStatement 
-{
-SgMatlabForStatement_index, SgMatlabForStatement_range, SgMatlabForStatement_body};
 enum E_SgFunctionParameterList 
 {
 SgFunctionParameterList_args};
-enum E_SgTemplateVariableDeclaration 
-{
-SgTemplateVariableDeclaration_baseTypeDefiningDeclaration, SgTemplateVariableDeclaration_variables};
 enum E_SgVariableDeclaration 
 {
 SgVariableDeclaration_baseTypeDefiningDeclaration, SgVariableDeclaration_variables};
@@ -444,6 +309,15 @@ SgEnumDeclaration_enumerators};
 enum E_SgAsmStmt 
 {
 SgAsmStmt_operands};
+enum E_SgTemplateClassDeclaration 
+{
+SgTemplateClassDeclaration_definition};
+enum E_SgTemplateMemberFunctionDeclaration 
+{
+SgTemplateMemberFunctionDeclaration_definition};
+enum E_SgTemplateFunctionDeclaration 
+{
+SgTemplateFunctionDeclaration_definition};
 enum E_SgTemplateInstantiationDirectiveStatement 
 {
 SgTemplateInstantiationDirectiveStatement_declaration};
@@ -459,12 +333,6 @@ SgInterfaceStatement_interface_body_list};
 enum E_SgCommonBlock 
 {
 SgCommonBlock_block_list};
-enum E_SgTemplateTypedefDeclaration 
-{
-SgTemplateTypedefDeclaration_declaration};
-enum E_SgTemplateInstantiationTypedefDeclaration 
-{
-SgTemplateInstantiationTypedefDeclaration_declaration};
 enum E_SgTypedefDeclaration 
 {
 SgTypedefDeclaration_declaration};
@@ -477,9 +345,6 @@ SgCtorInitializerList_ctors};
 enum E_SgPragmaDeclaration 
 {
 SgPragmaDeclaration_pragma};
-enum E_SgTemplateClassDeclaration 
-{
-SgTemplateClassDeclaration_definition, SgTemplateClassDeclaration_decoratorList};
 enum E_SgTemplateInstantiationDecl 
 {
 SgTemplateInstantiationDecl_definition, SgTemplateInstantiationDecl_decoratorList};
@@ -489,21 +354,12 @@ SgDerivedTypeStatement_definition, SgDerivedTypeStatement_decoratorList};
 enum E_SgModuleStatement 
 {
 SgModuleStatement_definition, SgModuleStatement_decoratorList};
-enum E_SgJavaPackageDeclaration 
-{
-SgJavaPackageDeclaration_definition, SgJavaPackageDeclaration_decoratorList};
 enum E_SgClassDeclaration 
 {
 SgClassDeclaration_definition, SgClassDeclaration_decoratorList};
 enum E_SgImplicitStatement 
 {
 SgImplicitStatement_variables};
-enum E_SgTemplateFunctionDeclaration 
-{
-SgTemplateFunctionDeclaration_parameterList, SgTemplateFunctionDeclaration_decoratorList, SgTemplateFunctionDeclaration_definition};
-enum E_SgTemplateMemberFunctionDeclaration 
-{
-SgTemplateMemberFunctionDeclaration_parameterList, SgTemplateMemberFunctionDeclaration_decoratorList, SgTemplateMemberFunctionDeclaration_definition, SgTemplateMemberFunctionDeclaration_CtorInitializerList};
 enum E_SgTemplateInstantiationMemberFunctionDecl 
 {
 SgTemplateInstantiationMemberFunctionDecl_parameterList, SgTemplateInstantiationMemberFunctionDecl_decoratorList, SgTemplateInstantiationMemberFunctionDecl_definition, SgTemplateInstantiationMemberFunctionDecl_CtorInitializerList};
@@ -669,15 +525,6 @@ SgOmpDoStatement_body, SgOmpDoStatement_clauses};
 enum E_SgOmpSectionsStatement 
 {
 SgOmpSectionsStatement_body, SgOmpSectionsStatement_clauses};
-enum E_SgOmpTargetStatement 
-{
-SgOmpTargetStatement_body, SgOmpTargetStatement_clauses};
-enum E_SgOmpTargetDataStatement 
-{
-SgOmpTargetDataStatement_body, SgOmpTargetDataStatement_clauses};
-enum E_SgOmpSimdStatement 
-{
-SgOmpSimdStatement_body, SgOmpSimdStatement_clauses};
 enum E_SgOmpClauseBodyStatement 
 {
 SgOmpClauseBodyStatement_body, SgOmpClauseBodyStatement_clauses};
@@ -702,21 +549,6 @@ SgPythonGlobalStmt_names};
 enum E_SgJavaSynchronizedStatement 
 {
 SgJavaSynchronizedStatement_expression, SgJavaSynchronizedStatement_body};
-enum E_SgAsyncStmt 
-{
-SgAsyncStmt_body};
-enum E_SgFinishStmt 
-{
-SgFinishStmt_body};
-enum E_SgAtStmt 
-{
-SgAtStmt_expression, SgAtStmt_body};
-enum E_SgAtomicStmt 
-{
-SgAtomicStmt_body};
-enum E_SgWhenStmt 
-{
-SgWhenStmt_expression, SgWhenStmt_body};
 enum E_SgExpressionRoot 
 {
 SgExpressionRoot_operand_i};
@@ -762,9 +594,6 @@ SgConjugateOp_operand_i};
 enum E_SgUserDefinedUnaryOp 
 {
 SgUserDefinedUnaryOp_operand_i};
-enum E_SgMatrixTransposeOp 
-{
-SgMatrixTransposeOp_operand_i};
 enum E_SgUnaryOp 
 {
 SgUnaryOp_operand_i};
@@ -918,36 +747,6 @@ SgIsOp_lhs_operand_i, SgIsOp_rhs_operand_i};
 enum E_SgIsNotOp 
 {
 SgIsNotOp_lhs_operand_i, SgIsNotOp_rhs_operand_i};
-enum E_SgDotDotExp 
-{
-SgDotDotExp_lhs_operand_i, SgDotDotExp_rhs_operand_i};
-enum E_SgElementwiseMultiplyOp 
-{
-SgElementwiseMultiplyOp_lhs_operand_i, SgElementwiseMultiplyOp_rhs_operand_i};
-enum E_SgElementwisePowerOp 
-{
-SgElementwisePowerOp_lhs_operand_i, SgElementwisePowerOp_rhs_operand_i};
-enum E_SgElementwiseLeftDivideOp 
-{
-SgElementwiseLeftDivideOp_lhs_operand_i, SgElementwiseLeftDivideOp_rhs_operand_i};
-enum E_SgElementwiseDivideOp 
-{
-SgElementwiseDivideOp_lhs_operand_i, SgElementwiseDivideOp_rhs_operand_i};
-enum E_SgElementwiseAddOp 
-{
-SgElementwiseAddOp_lhs_operand_i, SgElementwiseAddOp_rhs_operand_i};
-enum E_SgElementwiseSubtractOp 
-{
-SgElementwiseSubtractOp_lhs_operand_i, SgElementwiseSubtractOp_rhs_operand_i};
-enum E_SgElementwiseOp 
-{
-SgElementwiseOp_lhs_operand_i, SgElementwiseOp_rhs_operand_i};
-enum E_SgPowerOp 
-{
-SgPowerOp_lhs_operand_i, SgPowerOp_rhs_operand_i};
-enum E_SgLeftDivideOp 
-{
-SgLeftDivideOp_lhs_operand_i, SgLeftDivideOp_rhs_operand_i};
 enum E_SgBinaryOp 
 {
 SgBinaryOp_lhs_operand_i, SgBinaryOp_rhs_operand_i};
@@ -957,18 +756,12 @@ SgListExp_expressions};
 enum E_SgTupleExp 
 {
 SgTupleExp_expressions};
-enum E_SgMatrixExp 
-{
-SgMatrixExp_expressions};
 enum E_SgExprListExp 
 {
 SgExprListExp_expressions};
 enum E_SgComplexVal 
 {
 SgComplexVal_real_value, SgComplexVal_imaginary_value};
-enum E_SgCudaKernelCallExp 
-{
-SgCudaKernelCallExp_function, SgCudaKernelCallExp_args, SgCudaKernelCallExp_exec_config};
 enum E_SgFunctionCallExp 
 {
 SgFunctionCallExp_function, SgFunctionCallExp_args};
@@ -1056,6 +849,9 @@ SgUnknownArrayOrFunctionReference_named_reference, SgUnknownArrayOrFunctionRefer
 enum E_SgCAFCoExpression 
 {
 SgCAFCoExpression_referData};
+enum E_SgCudaKernelCallExp 
+{
+SgCudaKernelCallExp_function, SgCudaKernelCallExp_args, SgCudaKernelCallExp_exec_config};
 enum E_SgCudaKernelExecConfig 
 {
 SgCudaKernelExecConfig_grid, SgCudaKernelExecConfig_blocks, SgCudaKernelExecConfig_shared, SgCudaKernelExecConfig_stream};
@@ -1095,54 +891,15 @@ SgStringConversion_expression};
 enum E_SgYieldExpression 
 {
 SgYieldExpression_value};
-enum E_SgAlignOfOp 
-{
-SgAlignOfOp_operand_expr};
-enum E_SgRangeExp 
-{
-SgRangeExp_start, SgRangeExp_end, SgRangeExp_stride};
-enum E_SgJavaSingleMemberAnnotation 
-{
-SgJavaSingleMemberAnnotation_value};
-enum E_SgJavaNormalAnnotation 
-{
-SgJavaNormalAnnotation_value_pair_list};
-enum E_SgFunctionParameterRefExp 
-{
-SgFunctionParameterRefExp_parameter_expression};
-enum E_SgLambdaExp 
-{
-SgLambdaExp_lambda_capture_list, SgLambdaExp_lambda_function};
-enum E_SgHereExp 
-{
-SgHereExp_expression};
-enum E_SgAtExp 
-{
-SgAtExp_expression, SgAtExp_body};
-enum E_SgFinishExp 
-{
-SgFinishExp_expression, SgFinishExp_body};
-enum E_SgNoexceptOp 
-{
-SgNoexceptOp_operand_expr};
-enum E_SgTemplateMemberFunctionSymbol 
-{
-SgTemplateMemberFunctionSymbol_declaration};
 enum E_SgMemberFunctionSymbol 
 {
 SgMemberFunctionSymbol_declaration};
-enum E_SgTemplateFunctionSymbol 
-{
-SgTemplateFunctionSymbol_declaration};
 enum E_SgRenameSymbol 
 {
 SgRenameSymbol_declaration, SgRenameSymbol_original_symbol};
 enum E_SgFunctionSymbol 
 {
 SgFunctionSymbol_declaration};
-enum E_SgTemplateClassSymbol 
-{
-SgTemplateClassSymbol_declaration};
 enum E_SgClassSymbol 
 {
 SgClassSymbol_declaration};
@@ -1152,9 +909,6 @@ SgTemplateSymbol_declaration};
 enum E_SgEnumSymbol 
 {
 SgEnumSymbol_declaration};
-enum E_SgTemplateTypedefSymbol 
-{
-SgTemplateTypedefSymbol_declaration};
 enum E_SgTypedefSymbol 
 {
 SgTypedefSymbol_declaration};
@@ -1179,33 +933,42 @@ SgAsmFunction_statementList};
 enum E_SgAsmBlock 
 {
 SgAsmBlock_statementList};
-enum E_SgAsmX86Instruction 
+enum E_SgAsmx86Instruction 
 {
-SgAsmX86Instruction_operandList, SgAsmX86Instruction_semantics};
+SgAsmx86Instruction_operandList};
 enum E_SgAsmArmInstruction 
 {
-SgAsmArmInstruction_operandList, SgAsmArmInstruction_semantics};
+SgAsmArmInstruction_operandList};
 enum E_SgAsmPowerpcInstruction 
 {
-SgAsmPowerpcInstruction_operandList, SgAsmPowerpcInstruction_semantics};
-enum E_SgAsmMipsInstruction 
-{
-SgAsmMipsInstruction_operandList, SgAsmMipsInstruction_semantics};
-enum E_SgAsmM68kInstruction 
-{
-SgAsmM68kInstruction_operandList, SgAsmM68kInstruction_semantics};
+SgAsmPowerpcInstruction_operandList};
 enum E_SgAsmInstruction 
 {
-SgAsmInstruction_operandList, SgAsmInstruction_semantics};
+SgAsmInstruction_operandList};
+enum E_SgAsmByteValueExpression 
+{
+SgAsmByteValueExpression_unfolded_expression_tree};
+enum E_SgAsmWordValueExpression 
+{
+SgAsmWordValueExpression_unfolded_expression_tree};
+enum E_SgAsmDoubleWordValueExpression 
+{
+SgAsmDoubleWordValueExpression_unfolded_expression_tree};
+enum E_SgAsmQuadWordValueExpression 
+{
+SgAsmQuadWordValueExpression_unfolded_expression_tree};
 enum E_SgAsmIntegerValueExpression 
 {
 SgAsmIntegerValueExpression_unfolded_expression_tree};
-enum E_SgAsmFloatValueExpression 
+enum E_SgAsmSingleFloatValueExpression 
 {
-SgAsmFloatValueExpression_unfolded_expression_tree};
-enum E_SgAsmConstantExpression 
+SgAsmSingleFloatValueExpression_unfolded_expression_tree};
+enum E_SgAsmDoubleFloatValueExpression 
 {
-SgAsmConstantExpression_unfolded_expression_tree};
+SgAsmDoubleFloatValueExpression_unfolded_expression_tree};
+enum E_SgAsmVectorValueExpression 
+{
+SgAsmVectorValueExpression_unfolded_expression_tree};
 enum E_SgAsmValueExpression 
 {
 SgAsmValueExpression_unfolded_expression_tree};
@@ -1275,24 +1038,45 @@ SgAsmCommonSubExpression_subexpression};
 enum E_SgAsmExprListExp 
 {
 SgAsmExprListExp_expressions};
-enum E_SgAsmRegisterNames 
-{
-SgAsmRegisterNames_registers};
-enum E_SgAsmRiscOperation 
-{
-SgAsmRiscOperation_operands};
 enum E_SgAsmInterpretation 
 {
-SgAsmInterpretation_global_block};
+SgAsmInterpretation_dwarf_info, SgAsmInterpretation_global_block};
 enum E_SgAsmOperandList 
 {
 SgAsmOperandList_operands};
+enum E_SgAsmTypeByte 
+{
+SgAsmTypeByte_builtin_type};
+enum E_SgAsmTypeWord 
+{
+SgAsmTypeWord_builtin_type};
+enum E_SgAsmTypeDoubleWord 
+{
+SgAsmTypeDoubleWord_builtin_type};
+enum E_SgAsmTypeQuadWord 
+{
+SgAsmTypeQuadWord_builtin_type};
+enum E_SgAsmTypeDoubleQuadWord 
+{
+SgAsmTypeDoubleQuadWord_builtin_type};
+enum E_SgAsmType80bitFloat 
+{
+SgAsmType80bitFloat_builtin_type};
+enum E_SgAsmType128bitFloat 
+{
+SgAsmType128bitFloat_builtin_type};
+enum E_SgAsmTypeSingleFloat 
+{
+SgAsmTypeSingleFloat_builtin_type};
+enum E_SgAsmTypeDoubleFloat 
+{
+SgAsmTypeDoubleFloat_builtin_type};
 enum E_SgAsmGenericDLL 
 {
 SgAsmGenericDLL_name};
 enum E_SgAsmGenericFile 
 {
-SgAsmGenericFile_dwarf_info, SgAsmGenericFile_headers, SgAsmGenericFile_holes};
+SgAsmGenericFile_headers, SgAsmGenericFile_holes};
 enum E_SgAsmPEFileHeader 
 {
 SgAsmPEFileHeader_exec_format, SgAsmPEFileHeader_dlls, SgAsmPEFileHeader_sections, SgAsmPEFileHeader_rvasize_pairs};
@@ -1398,9 +1182,6 @@ SgAsmGenericHeaderList_headers};
 enum E_SgAsmElfSymbolList 
 {
 SgAsmElfSymbolList_symbols};
-enum E_SgAsmElfRelocEntryList 
-{
-SgAsmElfRelocEntryList_entries};
 enum E_SgAsmPEExportEntry 
 {
 SgAsmPEExportEntry_name, SgAsmPEExportEntry_forwarder};

@@ -2,7 +2,7 @@
 
 
 // generated file
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -45,7 +45,7 @@ void SgNode_resetValidFreepointers( );
 unsigned long SgNode_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -88,7 +88,7 @@ void SgSupport_resetValidFreepointers( );
 unsigned long SgSupport_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -131,7 +131,7 @@ void SgModifier_resetValidFreepointers( );
 unsigned long SgModifier_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -174,7 +174,7 @@ void SgModifierNodes_resetValidFreepointers( );
 unsigned long SgModifierNodes_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -217,7 +217,7 @@ void SgConstVolatileModifier_resetValidFreepointers( );
 unsigned long SgConstVolatileModifier_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -260,7 +260,7 @@ void SgStorageModifier_resetValidFreepointers( );
 unsigned long SgStorageModifier_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -303,7 +303,7 @@ void SgAccessModifier_resetValidFreepointers( );
 unsigned long SgAccessModifier_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -346,7 +346,7 @@ void SgFunctionModifier_resetValidFreepointers( );
 unsigned long SgFunctionModifier_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -389,7 +389,7 @@ void SgUPC_AccessModifier_resetValidFreepointers( );
 unsigned long SgUPC_AccessModifier_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -432,7 +432,7 @@ void SgSpecialFunctionModifier_resetValidFreepointers( );
 unsigned long SgSpecialFunctionModifier_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -475,7 +475,7 @@ void SgElaboratedTypeModifier_resetValidFreepointers( );
 unsigned long SgElaboratedTypeModifier_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -518,7 +518,7 @@ void SgLinkageModifier_resetValidFreepointers( );
 unsigned long SgLinkageModifier_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -561,7 +561,7 @@ void SgBaseClassModifier_resetValidFreepointers( );
 unsigned long SgBaseClassModifier_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -604,7 +604,7 @@ void SgTypeModifier_resetValidFreepointers( );
 unsigned long SgTypeModifier_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -647,7 +647,7 @@ void SgDeclarationModifier_resetValidFreepointers( );
 unsigned long SgDeclarationModifier_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -690,7 +690,7 @@ void SgOpenclAccessModeModifier_resetValidFreepointers( );
 unsigned long SgOpenclAccessModeModifier_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -733,7 +733,7 @@ void SgName_resetValidFreepointers( );
 unsigned long SgName_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -776,7 +776,7 @@ void SgSymbolTable_resetValidFreepointers( );
 unsigned long SgSymbolTable_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -819,7 +819,7 @@ void SgAttribute_resetValidFreepointers( );
 unsigned long SgAttribute_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -862,7 +862,7 @@ void SgPragma_resetValidFreepointers( );
 unsigned long SgPragma_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -905,7 +905,7 @@ void SgBitAttribute_resetValidFreepointers( );
 unsigned long SgBitAttribute_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -948,7 +948,7 @@ void SgFuncDecl_attr_resetValidFreepointers( );
 unsigned long SgFuncDecl_attr_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -991,7 +991,7 @@ void SgClassDecl_attr_resetValidFreepointers( );
 unsigned long SgClassDecl_attr_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1034,7 +1034,7 @@ void Sg_File_Info_resetValidFreepointers( );
 unsigned long Sg_File_Info_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1077,7 +1077,7 @@ void SgFile_resetValidFreepointers( );
 unsigned long SgFile_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1120,7 +1120,7 @@ void SgSourceFile_resetValidFreepointers( );
 unsigned long SgSourceFile_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1163,7 +1163,7 @@ void SgBinaryComposite_resetValidFreepointers( );
 unsigned long SgBinaryComposite_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1206,7 +1206,7 @@ void SgUnknownFile_resetValidFreepointers( );
 unsigned long SgUnknownFile_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1249,7 +1249,7 @@ void SgProject_resetValidFreepointers( );
 unsigned long SgProject_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1292,7 +1292,7 @@ void SgOptions_resetValidFreepointers( );
 unsigned long SgOptions_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1335,7 +1335,7 @@ void SgUnparse_Info_resetValidFreepointers( );
 unsigned long SgUnparse_Info_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1378,7 +1378,7 @@ void SgBaseClass_resetValidFreepointers( );
 unsigned long SgBaseClass_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1421,7 +1421,7 @@ void SgExpBaseClass_resetValidFreepointers( );
 unsigned long SgExpBaseClass_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1464,7 +1464,7 @@ void SgTypedefSeq_resetValidFreepointers( );
 unsigned long SgTypedefSeq_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1507,7 +1507,7 @@ void SgTemplateParameter_resetValidFreepointers( );
 unsigned long SgTemplateParameter_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1550,7 +1550,7 @@ void SgTemplateArgument_resetValidFreepointers( );
 unsigned long SgTemplateArgument_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1593,7 +1593,7 @@ void SgDirectory_resetValidFreepointers( );
 unsigned long SgDirectory_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1636,7 +1636,7 @@ void SgFileList_resetValidFreepointers( );
 unsigned long SgFileList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1679,7 +1679,7 @@ void SgDirectoryList_resetValidFreepointers( );
 unsigned long SgDirectoryList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1722,7 +1722,7 @@ void SgFunctionParameterTypeList_resetValidFreepointers( );
 unsigned long SgFunctionParameterTypeList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1765,7 +1765,7 @@ void SgQualifiedName_resetValidFreepointers( );
 unsigned long SgQualifiedName_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1808,7 +1808,7 @@ void SgTemplateArgumentList_resetValidFreepointers( );
 unsigned long SgTemplateArgumentList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1851,7 +1851,7 @@ void SgTemplateParameterList_resetValidFreepointers( );
 unsigned long SgTemplateParameterList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1894,7 +1894,7 @@ void SgGraph_resetValidFreepointers( );
 unsigned long SgGraph_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1937,7 +1937,7 @@ void SgIncidenceDirectedGraph_resetValidFreepointers( );
 unsigned long SgIncidenceDirectedGraph_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -1980,7 +1980,7 @@ void SgBidirectionalGraph_resetValidFreepointers( );
 unsigned long SgBidirectionalGraph_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -2023,7 +2023,7 @@ void SgStringKeyedBidirectionalGraph_resetValidFreepointers( );
 unsigned long SgStringKeyedBidirectionalGraph_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -2066,7 +2066,7 @@ void SgIntKeyedBidirectionalGraph_resetValidFreepointers( );
 unsigned long SgIntKeyedBidirectionalGraph_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -2109,7 +2109,7 @@ void SgIncidenceUndirectedGraph_resetValidFreepointers( );
 unsigned long SgIncidenceUndirectedGraph_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -2152,7 +2152,7 @@ void SgGraphNode_resetValidFreepointers( );
 unsigned long SgGraphNode_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -2195,7 +2195,7 @@ void SgGraphEdge_resetValidFreepointers( );
 unsigned long SgGraphEdge_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -2238,7 +2238,7 @@ void SgDirectedGraphEdge_resetValidFreepointers( );
 unsigned long SgDirectedGraphEdge_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -2281,7 +2281,7 @@ void SgUndirectedGraphEdge_resetValidFreepointers( );
 unsigned long SgUndirectedGraphEdge_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -2324,7 +2324,7 @@ void SgGraphNodeList_resetValidFreepointers( );
 unsigned long SgGraphNodeList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -2367,7 +2367,7 @@ void SgGraphEdgeList_resetValidFreepointers( );
 unsigned long SgGraphEdgeList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -2410,7 +2410,7 @@ void SgTypeTable_resetValidFreepointers( );
 unsigned long SgTypeTable_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -2453,7 +2453,7 @@ void SgNameGroup_resetValidFreepointers( );
 unsigned long SgNameGroup_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -2496,7 +2496,7 @@ void SgDimensionObject_resetValidFreepointers( );
 unsigned long SgDimensionObject_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -2539,7 +2539,7 @@ void SgFormatItem_resetValidFreepointers( );
 unsigned long SgFormatItem_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -2582,7 +2582,7 @@ void SgFormatItemList_resetValidFreepointers( );
 unsigned long SgFormatItemList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -2625,7 +2625,7 @@ void SgDataStatementGroup_resetValidFreepointers( );
 unsigned long SgDataStatementGroup_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -2668,7 +2668,7 @@ void SgDataStatementObject_resetValidFreepointers( );
 unsigned long SgDataStatementObject_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -2711,93 +2711,7 @@ void SgDataStatementValue_resetValidFreepointers( );
 unsigned long SgDataStatementValue_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgJavaImportStatementList_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgJavaImportStatementList* SgJavaImportStatementList_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgJavaImportStatementList_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgJavaImportStatementList* SgJavaImportStatementList_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgJavaImportStatementList* SgJavaImportStatementList_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgJavaImportStatementList_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgJavaImportStatementList_clearMemoryPool ( );
-void SgJavaImportStatementList_extendMemoryPoolForFileIO ( );
-unsigned long SgJavaImportStatementList_initializeStorageClassArray( SgJavaImportStatementListStorageClass *storageArray );
-void SgJavaImportStatementList_resetValidFreepointers( );
-unsigned long SgJavaImportStatementList_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgJavaClassDeclarationList_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgJavaClassDeclarationList* SgJavaClassDeclarationList_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgJavaClassDeclarationList_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgJavaClassDeclarationList* SgJavaClassDeclarationList_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgJavaClassDeclarationList* SgJavaClassDeclarationList_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgJavaClassDeclarationList_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgJavaClassDeclarationList_clearMemoryPool ( );
-void SgJavaClassDeclarationList_extendMemoryPoolForFileIO ( );
-unsigned long SgJavaClassDeclarationList_initializeStorageClassArray( SgJavaClassDeclarationListStorageClass *storageArray );
-void SgJavaClassDeclarationList_resetValidFreepointers( );
-unsigned long SgJavaClassDeclarationList_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -2840,7 +2754,7 @@ void SgType_resetValidFreepointers( );
 unsigned long SgType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -2883,7 +2797,7 @@ void SgTypeUnknown_resetValidFreepointers( );
 unsigned long SgTypeUnknown_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -2926,7 +2840,7 @@ void SgTypeChar_resetValidFreepointers( );
 unsigned long SgTypeChar_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -2969,7 +2883,7 @@ void SgTypeSignedChar_resetValidFreepointers( );
 unsigned long SgTypeSignedChar_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -3012,7 +2926,7 @@ void SgTypeUnsignedChar_resetValidFreepointers( );
 unsigned long SgTypeUnsignedChar_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -3055,7 +2969,7 @@ void SgTypeShort_resetValidFreepointers( );
 unsigned long SgTypeShort_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -3098,7 +3012,7 @@ void SgTypeSignedShort_resetValidFreepointers( );
 unsigned long SgTypeSignedShort_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -3141,7 +3055,7 @@ void SgTypeUnsignedShort_resetValidFreepointers( );
 unsigned long SgTypeUnsignedShort_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -3184,7 +3098,7 @@ void SgTypeInt_resetValidFreepointers( );
 unsigned long SgTypeInt_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -3227,7 +3141,7 @@ void SgTypeSignedInt_resetValidFreepointers( );
 unsigned long SgTypeSignedInt_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -3270,7 +3184,7 @@ void SgTypeUnsignedInt_resetValidFreepointers( );
 unsigned long SgTypeUnsignedInt_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -3313,7 +3227,7 @@ void SgTypeLong_resetValidFreepointers( );
 unsigned long SgTypeLong_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -3356,7 +3270,7 @@ void SgTypeSignedLong_resetValidFreepointers( );
 unsigned long SgTypeSignedLong_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -3399,7 +3313,7 @@ void SgTypeUnsignedLong_resetValidFreepointers( );
 unsigned long SgTypeUnsignedLong_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -3442,7 +3356,7 @@ void SgTypeVoid_resetValidFreepointers( );
 unsigned long SgTypeVoid_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -3485,7 +3399,7 @@ void SgTypeGlobalVoid_resetValidFreepointers( );
 unsigned long SgTypeGlobalVoid_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -3528,7 +3442,7 @@ void SgTypeWchar_resetValidFreepointers( );
 unsigned long SgTypeWchar_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -3571,7 +3485,7 @@ void SgTypeFloat_resetValidFreepointers( );
 unsigned long SgTypeFloat_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -3614,7 +3528,7 @@ void SgTypeDouble_resetValidFreepointers( );
 unsigned long SgTypeDouble_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -3657,7 +3571,7 @@ void SgTypeLongLong_resetValidFreepointers( );
 unsigned long SgTypeLongLong_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -3700,7 +3614,7 @@ void SgTypeSignedLongLong_resetValidFreepointers( );
 unsigned long SgTypeSignedLongLong_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -3743,93 +3657,7 @@ void SgTypeUnsignedLongLong_resetValidFreepointers( );
 unsigned long SgTypeUnsignedLongLong_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgTypeSigned128bitInteger_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgTypeSigned128bitInteger* SgTypeSigned128bitInteger_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgTypeSigned128bitInteger_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgTypeSigned128bitInteger* SgTypeSigned128bitInteger_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgTypeSigned128bitInteger* SgTypeSigned128bitInteger_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgTypeSigned128bitInteger_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgTypeSigned128bitInteger_clearMemoryPool ( );
-void SgTypeSigned128bitInteger_extendMemoryPoolForFileIO ( );
-unsigned long SgTypeSigned128bitInteger_initializeStorageClassArray( SgTypeSigned128bitIntegerStorageClass *storageArray );
-void SgTypeSigned128bitInteger_resetValidFreepointers( );
-unsigned long SgTypeSigned128bitInteger_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgTypeUnsigned128bitInteger_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgTypeUnsigned128bitInteger* SgTypeUnsigned128bitInteger_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgTypeUnsigned128bitInteger_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgTypeUnsigned128bitInteger* SgTypeUnsigned128bitInteger_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgTypeUnsigned128bitInteger* SgTypeUnsigned128bitInteger_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgTypeUnsigned128bitInteger_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgTypeUnsigned128bitInteger_clearMemoryPool ( );
-void SgTypeUnsigned128bitInteger_extendMemoryPoolForFileIO ( );
-unsigned long SgTypeUnsigned128bitInteger_initializeStorageClassArray( SgTypeUnsigned128bitIntegerStorageClass *storageArray );
-void SgTypeUnsigned128bitInteger_resetValidFreepointers( );
-unsigned long SgTypeUnsigned128bitInteger_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -3872,7 +3700,7 @@ void SgTypeLongDouble_resetValidFreepointers( );
 unsigned long SgTypeLongDouble_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -3915,7 +3743,7 @@ void SgTypeString_resetValidFreepointers( );
 unsigned long SgTypeString_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -3958,7 +3786,7 @@ void SgTypeBool_resetValidFreepointers( );
 unsigned long SgTypeBool_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -4001,7 +3829,7 @@ void SgPointerType_resetValidFreepointers( );
 unsigned long SgPointerType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -4044,7 +3872,7 @@ void SgPointerMemberType_resetValidFreepointers( );
 unsigned long SgPointerMemberType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -4087,7 +3915,7 @@ void SgReferenceType_resetValidFreepointers( );
 unsigned long SgReferenceType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -4130,7 +3958,7 @@ void SgNamedType_resetValidFreepointers( );
 unsigned long SgNamedType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -4173,50 +4001,7 @@ void SgClassType_resetValidFreepointers( );
 unsigned long SgClassType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgJavaParameterType_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgJavaParameterType* SgJavaParameterType_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgJavaParameterType_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgJavaParameterType* SgJavaParameterType_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgJavaParameterType* SgJavaParameterType_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgJavaParameterType_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgJavaParameterType_clearMemoryPool ( );
-void SgJavaParameterType_extendMemoryPoolForFileIO ( );
-unsigned long SgJavaParameterType_initializeStorageClassArray( SgJavaParameterTypeStorageClass *storageArray );
-void SgJavaParameterType_resetValidFreepointers( );
-unsigned long SgJavaParameterType_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -4259,50 +4044,7 @@ void SgJavaParameterizedType_resetValidFreepointers( );
 unsigned long SgJavaParameterizedType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgJavaQualifiedType_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgJavaQualifiedType* SgJavaQualifiedType_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgJavaQualifiedType_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgJavaQualifiedType* SgJavaQualifiedType_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgJavaQualifiedType* SgJavaQualifiedType_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgJavaQualifiedType_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgJavaQualifiedType_clearMemoryPool ( );
-void SgJavaQualifiedType_extendMemoryPoolForFileIO ( );
-unsigned long SgJavaQualifiedType_initializeStorageClassArray( SgJavaQualifiedTypeStorageClass *storageArray );
-void SgJavaQualifiedType_resetValidFreepointers( );
-unsigned long SgJavaQualifiedType_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -4345,7 +4087,7 @@ void SgEnumType_resetValidFreepointers( );
 unsigned long SgEnumType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -4388,50 +4130,7 @@ void SgTypedefType_resetValidFreepointers( );
 unsigned long SgTypedefType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgJavaWildcardType_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgJavaWildcardType* SgJavaWildcardType_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgJavaWildcardType_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgJavaWildcardType* SgJavaWildcardType_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgJavaWildcardType* SgJavaWildcardType_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgJavaWildcardType_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgJavaWildcardType_clearMemoryPool ( );
-void SgJavaWildcardType_extendMemoryPoolForFileIO ( );
-unsigned long SgJavaWildcardType_initializeStorageClassArray( SgJavaWildcardTypeStorageClass *storageArray );
-void SgJavaWildcardType_resetValidFreepointers( );
-unsigned long SgJavaWildcardType_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -4474,7 +4173,7 @@ void SgModifierType_resetValidFreepointers( );
 unsigned long SgModifierType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -4517,7 +4216,7 @@ void SgFunctionType_resetValidFreepointers( );
 unsigned long SgFunctionType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -4560,7 +4259,7 @@ void SgMemberFunctionType_resetValidFreepointers( );
 unsigned long SgMemberFunctionType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -4603,7 +4302,7 @@ void SgPartialFunctionType_resetValidFreepointers( );
 unsigned long SgPartialFunctionType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -4646,7 +4345,7 @@ void SgPartialFunctionModifierType_resetValidFreepointers( );
 unsigned long SgPartialFunctionModifierType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -4689,7 +4388,7 @@ void SgArrayType_resetValidFreepointers( );
 unsigned long SgArrayType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -4732,7 +4431,7 @@ void SgTypeEllipse_resetValidFreepointers( );
 unsigned long SgTypeEllipse_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -4775,7 +4474,7 @@ void SgTemplateType_resetValidFreepointers( );
 unsigned long SgTemplateType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -4818,7 +4517,7 @@ void SgQualifiedNameType_resetValidFreepointers( );
 unsigned long SgQualifiedNameType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -4861,7 +4560,7 @@ void SgTypeComplex_resetValidFreepointers( );
 unsigned long SgTypeComplex_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -4904,7 +4603,7 @@ void SgTypeImaginary_resetValidFreepointers( );
 unsigned long SgTypeImaginary_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -4947,7 +4646,7 @@ void SgTypeDefault_resetValidFreepointers( );
 unsigned long SgTypeDefault_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -4990,7 +4689,7 @@ void SgTypeCAFTeam_resetValidFreepointers( );
 unsigned long SgTypeCAFTeam_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -5033,7 +4732,7 @@ void SgTypeCrayPointer_resetValidFreepointers( );
 unsigned long SgTypeCrayPointer_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -5076,308 +4775,7 @@ void SgTypeLabel_resetValidFreepointers( );
 unsigned long SgTypeLabel_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgJavaUnionType_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgJavaUnionType* SgJavaUnionType_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgJavaUnionType_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgJavaUnionType* SgJavaUnionType_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgJavaUnionType* SgJavaUnionType_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgJavaUnionType_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgJavaUnionType_clearMemoryPool ( );
-void SgJavaUnionType_extendMemoryPoolForFileIO ( );
-unsigned long SgJavaUnionType_initializeStorageClassArray( SgJavaUnionTypeStorageClass *storageArray );
-void SgJavaUnionType_resetValidFreepointers( );
-unsigned long SgJavaUnionType_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgRvalueReferenceType_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgRvalueReferenceType* SgRvalueReferenceType_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgRvalueReferenceType_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgRvalueReferenceType* SgRvalueReferenceType_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgRvalueReferenceType* SgRvalueReferenceType_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgRvalueReferenceType_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgRvalueReferenceType_clearMemoryPool ( );
-void SgRvalueReferenceType_extendMemoryPoolForFileIO ( );
-unsigned long SgRvalueReferenceType_initializeStorageClassArray( SgRvalueReferenceTypeStorageClass *storageArray );
-void SgRvalueReferenceType_resetValidFreepointers( );
-unsigned long SgRvalueReferenceType_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgTypeNullptr_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgTypeNullptr* SgTypeNullptr_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgTypeNullptr_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgTypeNullptr* SgTypeNullptr_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgTypeNullptr* SgTypeNullptr_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgTypeNullptr_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgTypeNullptr_clearMemoryPool ( );
-void SgTypeNullptr_extendMemoryPoolForFileIO ( );
-unsigned long SgTypeNullptr_initializeStorageClassArray( SgTypeNullptrStorageClass *storageArray );
-void SgTypeNullptr_resetValidFreepointers( );
-unsigned long SgTypeNullptr_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgDeclType_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgDeclType* SgDeclType_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgDeclType_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgDeclType* SgDeclType_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgDeclType* SgDeclType_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgDeclType_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgDeclType_clearMemoryPool ( );
-void SgDeclType_extendMemoryPoolForFileIO ( );
-unsigned long SgDeclType_initializeStorageClassArray( SgDeclTypeStorageClass *storageArray );
-void SgDeclType_resetValidFreepointers( );
-unsigned long SgDeclType_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgTypeOfType_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgTypeOfType* SgTypeOfType_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgTypeOfType_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgTypeOfType* SgTypeOfType_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgTypeOfType* SgTypeOfType_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgTypeOfType_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgTypeOfType_clearMemoryPool ( );
-void SgTypeOfType_extendMemoryPoolForFileIO ( );
-unsigned long SgTypeOfType_initializeStorageClassArray( SgTypeOfTypeStorageClass *storageArray );
-void SgTypeOfType_resetValidFreepointers( );
-unsigned long SgTypeOfType_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgTypeMatrix_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgTypeMatrix* SgTypeMatrix_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgTypeMatrix_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgTypeMatrix* SgTypeMatrix_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgTypeMatrix* SgTypeMatrix_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgTypeMatrix_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgTypeMatrix_clearMemoryPool ( );
-void SgTypeMatrix_extendMemoryPoolForFileIO ( );
-unsigned long SgTypeMatrix_initializeStorageClassArray( SgTypeMatrixStorageClass *storageArray );
-void SgTypeMatrix_resetValidFreepointers( );
-unsigned long SgTypeMatrix_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgTypeTuple_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgTypeTuple* SgTypeTuple_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgTypeTuple_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgTypeTuple* SgTypeTuple_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgTypeTuple* SgTypeTuple_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgTypeTuple_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgTypeTuple_clearMemoryPool ( );
-void SgTypeTuple_extendMemoryPoolForFileIO ( );
-unsigned long SgTypeTuple_initializeStorageClassArray( SgTypeTupleStorageClass *storageArray );
-void SgTypeTuple_resetValidFreepointers( );
-unsigned long SgTypeTuple_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -5420,50 +4818,7 @@ void SgLocatedNode_resetValidFreepointers( );
 unsigned long SgLocatedNode_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgToken_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgToken* SgToken_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgToken_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgToken* SgToken_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgToken* SgToken_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgToken_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgToken_clearMemoryPool ( );
-void SgToken_extendMemoryPoolForFileIO ( );
-unsigned long SgToken_initializeStorageClassArray( SgTokenStorageClass *storageArray );
-void SgToken_resetValidFreepointers( );
-unsigned long SgToken_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -5506,7 +4861,7 @@ void SgLocatedNodeSupport_resetValidFreepointers( );
 unsigned long SgLocatedNodeSupport_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -5549,7 +4904,7 @@ void SgCommonBlockObject_resetValidFreepointers( );
 unsigned long SgCommonBlockObject_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -5592,7 +4947,7 @@ void SgInitializedName_resetValidFreepointers( );
 unsigned long SgInitializedName_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -5635,7 +4990,7 @@ void SgInterfaceBody_resetValidFreepointers( );
 unsigned long SgInterfaceBody_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -5678,7 +5033,7 @@ void SgHeaderFileBody_resetValidFreepointers( );
 unsigned long SgHeaderFileBody_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -5721,50 +5076,7 @@ void SgRenamePair_resetValidFreepointers( );
 unsigned long SgRenamePair_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgJavaMemberValuePair_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgJavaMemberValuePair* SgJavaMemberValuePair_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgJavaMemberValuePair_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgJavaMemberValuePair* SgJavaMemberValuePair_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgJavaMemberValuePair* SgJavaMemberValuePair_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgJavaMemberValuePair_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgJavaMemberValuePair_clearMemoryPool ( );
-void SgJavaMemberValuePair_extendMemoryPoolForFileIO ( );
-unsigned long SgJavaMemberValuePair_initializeStorageClassArray( SgJavaMemberValuePairStorageClass *storageArray );
-void SgJavaMemberValuePair_resetValidFreepointers( );
-unsigned long SgJavaMemberValuePair_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -5807,7 +5119,7 @@ void SgOmpClause_resetValidFreepointers( );
 unsigned long SgOmpClause_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -5850,7 +5162,7 @@ void SgOmpOrderedClause_resetValidFreepointers( );
 unsigned long SgOmpOrderedClause_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -5893,93 +5205,7 @@ void SgOmpNowaitClause_resetValidFreepointers( );
 unsigned long SgOmpNowaitClause_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgOmpBeginClause_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgOmpBeginClause* SgOmpBeginClause_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgOmpBeginClause_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgOmpBeginClause* SgOmpBeginClause_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgOmpBeginClause* SgOmpBeginClause_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgOmpBeginClause_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgOmpBeginClause_clearMemoryPool ( );
-void SgOmpBeginClause_extendMemoryPoolForFileIO ( );
-unsigned long SgOmpBeginClause_initializeStorageClassArray( SgOmpBeginClauseStorageClass *storageArray );
-void SgOmpBeginClause_resetValidFreepointers( );
-unsigned long SgOmpBeginClause_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgOmpEndClause_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgOmpEndClause* SgOmpEndClause_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgOmpEndClause_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgOmpEndClause* SgOmpEndClause_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgOmpEndClause* SgOmpEndClause_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgOmpEndClause_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgOmpEndClause_clearMemoryPool ( );
-void SgOmpEndClause_extendMemoryPoolForFileIO ( );
-unsigned long SgOmpEndClause_initializeStorageClassArray( SgOmpEndClauseStorageClass *storageArray );
-void SgOmpEndClause_resetValidFreepointers( );
-unsigned long SgOmpEndClause_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -6022,7 +5248,7 @@ void SgOmpUntiedClause_resetValidFreepointers( );
 unsigned long SgOmpUntiedClause_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -6065,7 +5291,7 @@ void SgOmpDefaultClause_resetValidFreepointers( );
 unsigned long SgOmpDefaultClause_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -6108,7 +5334,7 @@ void SgOmpExpressionClause_resetValidFreepointers( );
 unsigned long SgOmpExpressionClause_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -6151,7 +5377,7 @@ void SgOmpCollapseClause_resetValidFreepointers( );
 unsigned long SgOmpCollapseClause_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -6194,7 +5420,7 @@ void SgOmpIfClause_resetValidFreepointers( );
 unsigned long SgOmpIfClause_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -6237,93 +5463,7 @@ void SgOmpNumThreadsClause_resetValidFreepointers( );
 unsigned long SgOmpNumThreadsClause_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgOmpDeviceClause_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgOmpDeviceClause* SgOmpDeviceClause_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgOmpDeviceClause_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgOmpDeviceClause* SgOmpDeviceClause_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgOmpDeviceClause* SgOmpDeviceClause_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgOmpDeviceClause_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgOmpDeviceClause_clearMemoryPool ( );
-void SgOmpDeviceClause_extendMemoryPoolForFileIO ( );
-unsigned long SgOmpDeviceClause_initializeStorageClassArray( SgOmpDeviceClauseStorageClass *storageArray );
-void SgOmpDeviceClause_resetValidFreepointers( );
-unsigned long SgOmpDeviceClause_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgOmpSafelenClause_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgOmpSafelenClause* SgOmpSafelenClause_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgOmpSafelenClause_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgOmpSafelenClause* SgOmpSafelenClause_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgOmpSafelenClause* SgOmpSafelenClause_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgOmpSafelenClause_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgOmpSafelenClause_clearMemoryPool ( );
-void SgOmpSafelenClause_extendMemoryPoolForFileIO ( );
-unsigned long SgOmpSafelenClause_initializeStorageClassArray( SgOmpSafelenClauseStorageClass *storageArray );
-void SgOmpSafelenClause_resetValidFreepointers( );
-unsigned long SgOmpSafelenClause_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -6366,7 +5506,7 @@ void SgOmpVariablesClause_resetValidFreepointers( );
 unsigned long SgOmpVariablesClause_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -6409,7 +5549,7 @@ void SgOmpCopyprivateClause_resetValidFreepointers( );
 unsigned long SgOmpCopyprivateClause_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -6452,7 +5592,7 @@ void SgOmpPrivateClause_resetValidFreepointers( );
 unsigned long SgOmpPrivateClause_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -6495,7 +5635,7 @@ void SgOmpFirstprivateClause_resetValidFreepointers( );
 unsigned long SgOmpFirstprivateClause_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -6538,7 +5678,7 @@ void SgOmpSharedClause_resetValidFreepointers( );
 unsigned long SgOmpSharedClause_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -6581,7 +5721,7 @@ void SgOmpCopyinClause_resetValidFreepointers( );
 unsigned long SgOmpCopyinClause_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -6624,7 +5764,7 @@ void SgOmpLastprivateClause_resetValidFreepointers( );
 unsigned long SgOmpLastprivateClause_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -6667,179 +5807,7 @@ void SgOmpReductionClause_resetValidFreepointers( );
 unsigned long SgOmpReductionClause_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgOmpMapClause_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgOmpMapClause* SgOmpMapClause_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgOmpMapClause_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgOmpMapClause* SgOmpMapClause_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgOmpMapClause* SgOmpMapClause_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgOmpMapClause_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgOmpMapClause_clearMemoryPool ( );
-void SgOmpMapClause_extendMemoryPoolForFileIO ( );
-unsigned long SgOmpMapClause_initializeStorageClassArray( SgOmpMapClauseStorageClass *storageArray );
-void SgOmpMapClause_resetValidFreepointers( );
-unsigned long SgOmpMapClause_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgOmpLinearClause_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgOmpLinearClause* SgOmpLinearClause_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgOmpLinearClause_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgOmpLinearClause* SgOmpLinearClause_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgOmpLinearClause* SgOmpLinearClause_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgOmpLinearClause_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgOmpLinearClause_clearMemoryPool ( );
-void SgOmpLinearClause_extendMemoryPoolForFileIO ( );
-unsigned long SgOmpLinearClause_initializeStorageClassArray( SgOmpLinearClauseStorageClass *storageArray );
-void SgOmpLinearClause_resetValidFreepointers( );
-unsigned long SgOmpLinearClause_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgOmpUniformClause_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgOmpUniformClause* SgOmpUniformClause_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgOmpUniformClause_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgOmpUniformClause* SgOmpUniformClause_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgOmpUniformClause* SgOmpUniformClause_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgOmpUniformClause_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgOmpUniformClause_clearMemoryPool ( );
-void SgOmpUniformClause_extendMemoryPoolForFileIO ( );
-unsigned long SgOmpUniformClause_initializeStorageClassArray( SgOmpUniformClauseStorageClass *storageArray );
-void SgOmpUniformClause_resetValidFreepointers( );
-unsigned long SgOmpUniformClause_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgOmpAlignedClause_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgOmpAlignedClause* SgOmpAlignedClause_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgOmpAlignedClause_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgOmpAlignedClause* SgOmpAlignedClause_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgOmpAlignedClause* SgOmpAlignedClause_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgOmpAlignedClause_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgOmpAlignedClause_clearMemoryPool ( );
-void SgOmpAlignedClause_extendMemoryPoolForFileIO ( );
-unsigned long SgOmpAlignedClause_initializeStorageClassArray( SgOmpAlignedClauseStorageClass *storageArray );
-void SgOmpAlignedClause_resetValidFreepointers( );
-unsigned long SgOmpAlignedClause_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -6882,1598 +5850,7 @@ void SgOmpScheduleClause_resetValidFreepointers( );
 unsigned long SgOmpScheduleClause_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedNode_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedNode* SgUntypedNode_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedNode_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedNode* SgUntypedNode_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedNode* SgUntypedNode_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedNode_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedNode_clearMemoryPool ( );
-void SgUntypedNode_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedNode_initializeStorageClassArray( SgUntypedNodeStorageClass *storageArray );
-void SgUntypedNode_resetValidFreepointers( );
-unsigned long SgUntypedNode_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedExpression_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedExpression* SgUntypedExpression_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedExpression_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedExpression* SgUntypedExpression_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedExpression* SgUntypedExpression_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedExpression_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedExpression_clearMemoryPool ( );
-void SgUntypedExpression_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedExpression_initializeStorageClassArray( SgUntypedExpressionStorageClass *storageArray );
-void SgUntypedExpression_resetValidFreepointers( );
-unsigned long SgUntypedExpression_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedUnaryOperator_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedUnaryOperator* SgUntypedUnaryOperator_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedUnaryOperator_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedUnaryOperator* SgUntypedUnaryOperator_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedUnaryOperator* SgUntypedUnaryOperator_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedUnaryOperator_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedUnaryOperator_clearMemoryPool ( );
-void SgUntypedUnaryOperator_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedUnaryOperator_initializeStorageClassArray( SgUntypedUnaryOperatorStorageClass *storageArray );
-void SgUntypedUnaryOperator_resetValidFreepointers( );
-unsigned long SgUntypedUnaryOperator_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedBinaryOperator_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedBinaryOperator* SgUntypedBinaryOperator_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedBinaryOperator_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedBinaryOperator* SgUntypedBinaryOperator_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedBinaryOperator* SgUntypedBinaryOperator_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedBinaryOperator_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedBinaryOperator_clearMemoryPool ( );
-void SgUntypedBinaryOperator_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedBinaryOperator_initializeStorageClassArray( SgUntypedBinaryOperatorStorageClass *storageArray );
-void SgUntypedBinaryOperator_resetValidFreepointers( );
-unsigned long SgUntypedBinaryOperator_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedValueExpression_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedValueExpression* SgUntypedValueExpression_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedValueExpression_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedValueExpression* SgUntypedValueExpression_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedValueExpression* SgUntypedValueExpression_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedValueExpression_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedValueExpression_clearMemoryPool ( );
-void SgUntypedValueExpression_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedValueExpression_initializeStorageClassArray( SgUntypedValueExpressionStorageClass *storageArray );
-void SgUntypedValueExpression_resetValidFreepointers( );
-unsigned long SgUntypedValueExpression_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedArrayReferenceExpression_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedArrayReferenceExpression* SgUntypedArrayReferenceExpression_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedArrayReferenceExpression_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedArrayReferenceExpression* SgUntypedArrayReferenceExpression_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedArrayReferenceExpression* SgUntypedArrayReferenceExpression_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedArrayReferenceExpression_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedArrayReferenceExpression_clearMemoryPool ( );
-void SgUntypedArrayReferenceExpression_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedArrayReferenceExpression_initializeStorageClassArray( SgUntypedArrayReferenceExpressionStorageClass *storageArray );
-void SgUntypedArrayReferenceExpression_resetValidFreepointers( );
-unsigned long SgUntypedArrayReferenceExpression_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedOtherExpression_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedOtherExpression* SgUntypedOtherExpression_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedOtherExpression_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedOtherExpression* SgUntypedOtherExpression_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedOtherExpression* SgUntypedOtherExpression_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedOtherExpression_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedOtherExpression_clearMemoryPool ( );
-void SgUntypedOtherExpression_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedOtherExpression_initializeStorageClassArray( SgUntypedOtherExpressionStorageClass *storageArray );
-void SgUntypedOtherExpression_resetValidFreepointers( );
-unsigned long SgUntypedOtherExpression_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedFunctionCallOrArrayReferenceExpression_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedFunctionCallOrArrayReferenceExpression* SgUntypedFunctionCallOrArrayReferenceExpression_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedFunctionCallOrArrayReferenceExpression_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedFunctionCallOrArrayReferenceExpression* SgUntypedFunctionCallOrArrayReferenceExpression_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedFunctionCallOrArrayReferenceExpression* SgUntypedFunctionCallOrArrayReferenceExpression_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedFunctionCallOrArrayReferenceExpression_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedFunctionCallOrArrayReferenceExpression_clearMemoryPool ( );
-void SgUntypedFunctionCallOrArrayReferenceExpression_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedFunctionCallOrArrayReferenceExpression_initializeStorageClassArray( SgUntypedFunctionCallOrArrayReferenceExpressionStorageClass *storageArray );
-void SgUntypedFunctionCallOrArrayReferenceExpression_resetValidFreepointers( );
-unsigned long SgUntypedFunctionCallOrArrayReferenceExpression_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedReferenceExpression_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedReferenceExpression* SgUntypedReferenceExpression_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedReferenceExpression_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedReferenceExpression* SgUntypedReferenceExpression_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedReferenceExpression* SgUntypedReferenceExpression_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedReferenceExpression_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedReferenceExpression_clearMemoryPool ( );
-void SgUntypedReferenceExpression_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedReferenceExpression_initializeStorageClassArray( SgUntypedReferenceExpressionStorageClass *storageArray );
-void SgUntypedReferenceExpression_resetValidFreepointers( );
-unsigned long SgUntypedReferenceExpression_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedStatement* SgUntypedStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedStatement* SgUntypedStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedStatement* SgUntypedStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedStatement_clearMemoryPool ( );
-void SgUntypedStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedStatement_initializeStorageClassArray( SgUntypedStatementStorageClass *storageArray );
-void SgUntypedStatement_resetValidFreepointers( );
-unsigned long SgUntypedStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedDeclarationStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedDeclarationStatement* SgUntypedDeclarationStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedDeclarationStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedDeclarationStatement* SgUntypedDeclarationStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedDeclarationStatement* SgUntypedDeclarationStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedDeclarationStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedDeclarationStatement_clearMemoryPool ( );
-void SgUntypedDeclarationStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedDeclarationStatement_initializeStorageClassArray( SgUntypedDeclarationStatementStorageClass *storageArray );
-void SgUntypedDeclarationStatement_resetValidFreepointers( );
-unsigned long SgUntypedDeclarationStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedImplicitDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedImplicitDeclaration* SgUntypedImplicitDeclaration_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedImplicitDeclaration_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedImplicitDeclaration* SgUntypedImplicitDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedImplicitDeclaration* SgUntypedImplicitDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedImplicitDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedImplicitDeclaration_clearMemoryPool ( );
-void SgUntypedImplicitDeclaration_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedImplicitDeclaration_initializeStorageClassArray( SgUntypedImplicitDeclarationStorageClass *storageArray );
-void SgUntypedImplicitDeclaration_resetValidFreepointers( );
-unsigned long SgUntypedImplicitDeclaration_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedVariableDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedVariableDeclaration* SgUntypedVariableDeclaration_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedVariableDeclaration_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedVariableDeclaration* SgUntypedVariableDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedVariableDeclaration* SgUntypedVariableDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedVariableDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedVariableDeclaration_clearMemoryPool ( );
-void SgUntypedVariableDeclaration_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedVariableDeclaration_initializeStorageClassArray( SgUntypedVariableDeclarationStorageClass *storageArray );
-void SgUntypedVariableDeclaration_resetValidFreepointers( );
-unsigned long SgUntypedVariableDeclaration_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedFunctionDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedFunctionDeclaration* SgUntypedFunctionDeclaration_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedFunctionDeclaration_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedFunctionDeclaration* SgUntypedFunctionDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedFunctionDeclaration* SgUntypedFunctionDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedFunctionDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedFunctionDeclaration_clearMemoryPool ( );
-void SgUntypedFunctionDeclaration_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedFunctionDeclaration_initializeStorageClassArray( SgUntypedFunctionDeclarationStorageClass *storageArray );
-void SgUntypedFunctionDeclaration_resetValidFreepointers( );
-unsigned long SgUntypedFunctionDeclaration_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedProgramHeaderDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedProgramHeaderDeclaration* SgUntypedProgramHeaderDeclaration_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedProgramHeaderDeclaration_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedProgramHeaderDeclaration* SgUntypedProgramHeaderDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedProgramHeaderDeclaration* SgUntypedProgramHeaderDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedProgramHeaderDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedProgramHeaderDeclaration_clearMemoryPool ( );
-void SgUntypedProgramHeaderDeclaration_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedProgramHeaderDeclaration_initializeStorageClassArray( SgUntypedProgramHeaderDeclarationStorageClass *storageArray );
-void SgUntypedProgramHeaderDeclaration_resetValidFreepointers( );
-unsigned long SgUntypedProgramHeaderDeclaration_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedSubroutineDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedSubroutineDeclaration* SgUntypedSubroutineDeclaration_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedSubroutineDeclaration_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedSubroutineDeclaration* SgUntypedSubroutineDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedSubroutineDeclaration* SgUntypedSubroutineDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedSubroutineDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedSubroutineDeclaration_clearMemoryPool ( );
-void SgUntypedSubroutineDeclaration_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedSubroutineDeclaration_initializeStorageClassArray( SgUntypedSubroutineDeclarationStorageClass *storageArray );
-void SgUntypedSubroutineDeclaration_resetValidFreepointers( );
-unsigned long SgUntypedSubroutineDeclaration_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedModuleDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedModuleDeclaration* SgUntypedModuleDeclaration_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedModuleDeclaration_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedModuleDeclaration* SgUntypedModuleDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedModuleDeclaration* SgUntypedModuleDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedModuleDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedModuleDeclaration_clearMemoryPool ( );
-void SgUntypedModuleDeclaration_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedModuleDeclaration_initializeStorageClassArray( SgUntypedModuleDeclarationStorageClass *storageArray );
-void SgUntypedModuleDeclaration_resetValidFreepointers( );
-unsigned long SgUntypedModuleDeclaration_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedAssignmentStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedAssignmentStatement* SgUntypedAssignmentStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedAssignmentStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedAssignmentStatement* SgUntypedAssignmentStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedAssignmentStatement* SgUntypedAssignmentStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedAssignmentStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedAssignmentStatement_clearMemoryPool ( );
-void SgUntypedAssignmentStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedAssignmentStatement_initializeStorageClassArray( SgUntypedAssignmentStatementStorageClass *storageArray );
-void SgUntypedAssignmentStatement_resetValidFreepointers( );
-unsigned long SgUntypedAssignmentStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedFunctionCallStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedFunctionCallStatement* SgUntypedFunctionCallStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedFunctionCallStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedFunctionCallStatement* SgUntypedFunctionCallStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedFunctionCallStatement* SgUntypedFunctionCallStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedFunctionCallStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedFunctionCallStatement_clearMemoryPool ( );
-void SgUntypedFunctionCallStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedFunctionCallStatement_initializeStorageClassArray( SgUntypedFunctionCallStatementStorageClass *storageArray );
-void SgUntypedFunctionCallStatement_resetValidFreepointers( );
-unsigned long SgUntypedFunctionCallStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedBlockStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedBlockStatement* SgUntypedBlockStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedBlockStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedBlockStatement* SgUntypedBlockStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedBlockStatement* SgUntypedBlockStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedBlockStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedBlockStatement_clearMemoryPool ( );
-void SgUntypedBlockStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedBlockStatement_initializeStorageClassArray( SgUntypedBlockStatementStorageClass *storageArray );
-void SgUntypedBlockStatement_resetValidFreepointers( );
-unsigned long SgUntypedBlockStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedNamedStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedNamedStatement* SgUntypedNamedStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedNamedStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedNamedStatement* SgUntypedNamedStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedNamedStatement* SgUntypedNamedStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedNamedStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedNamedStatement_clearMemoryPool ( );
-void SgUntypedNamedStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedNamedStatement_initializeStorageClassArray( SgUntypedNamedStatementStorageClass *storageArray );
-void SgUntypedNamedStatement_resetValidFreepointers( );
-unsigned long SgUntypedNamedStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedOtherStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedOtherStatement* SgUntypedOtherStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedOtherStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedOtherStatement* SgUntypedOtherStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedOtherStatement* SgUntypedOtherStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedOtherStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedOtherStatement_clearMemoryPool ( );
-void SgUntypedOtherStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedOtherStatement_initializeStorageClassArray( SgUntypedOtherStatementStorageClass *storageArray );
-void SgUntypedOtherStatement_resetValidFreepointers( );
-unsigned long SgUntypedOtherStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedScope_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedScope* SgUntypedScope_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedScope_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedScope* SgUntypedScope_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedScope* SgUntypedScope_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedScope_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedScope_clearMemoryPool ( );
-void SgUntypedScope_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedScope_initializeStorageClassArray( SgUntypedScopeStorageClass *storageArray );
-void SgUntypedScope_resetValidFreepointers( );
-unsigned long SgUntypedScope_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedFunctionScope_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedFunctionScope* SgUntypedFunctionScope_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedFunctionScope_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedFunctionScope* SgUntypedFunctionScope_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedFunctionScope* SgUntypedFunctionScope_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedFunctionScope_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedFunctionScope_clearMemoryPool ( );
-void SgUntypedFunctionScope_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedFunctionScope_initializeStorageClassArray( SgUntypedFunctionScopeStorageClass *storageArray );
-void SgUntypedFunctionScope_resetValidFreepointers( );
-unsigned long SgUntypedFunctionScope_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedModuleScope_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedModuleScope* SgUntypedModuleScope_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedModuleScope_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedModuleScope* SgUntypedModuleScope_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedModuleScope* SgUntypedModuleScope_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedModuleScope_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedModuleScope_clearMemoryPool ( );
-void SgUntypedModuleScope_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedModuleScope_initializeStorageClassArray( SgUntypedModuleScopeStorageClass *storageArray );
-void SgUntypedModuleScope_resetValidFreepointers( );
-unsigned long SgUntypedModuleScope_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedGlobalScope_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedGlobalScope* SgUntypedGlobalScope_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedGlobalScope_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedGlobalScope* SgUntypedGlobalScope_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedGlobalScope* SgUntypedGlobalScope_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedGlobalScope_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedGlobalScope_clearMemoryPool ( );
-void SgUntypedGlobalScope_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedGlobalScope_initializeStorageClassArray( SgUntypedGlobalScopeStorageClass *storageArray );
-void SgUntypedGlobalScope_resetValidFreepointers( );
-unsigned long SgUntypedGlobalScope_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedType_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedType* SgUntypedType_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedType_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedType* SgUntypedType_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedType* SgUntypedType_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedType_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedType_clearMemoryPool ( );
-void SgUntypedType_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedType_initializeStorageClassArray( SgUntypedTypeStorageClass *storageArray );
-void SgUntypedType_resetValidFreepointers( );
-unsigned long SgUntypedType_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedArrayType_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedArrayType* SgUntypedArrayType_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedArrayType_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedArrayType* SgUntypedArrayType_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedArrayType* SgUntypedArrayType_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedArrayType_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedArrayType_clearMemoryPool ( );
-void SgUntypedArrayType_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedArrayType_initializeStorageClassArray( SgUntypedArrayTypeStorageClass *storageArray );
-void SgUntypedArrayType_resetValidFreepointers( );
-unsigned long SgUntypedArrayType_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedAttribute_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedAttribute* SgUntypedAttribute_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedAttribute_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedAttribute* SgUntypedAttribute_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedAttribute* SgUntypedAttribute_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedAttribute_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedAttribute_clearMemoryPool ( );
-void SgUntypedAttribute_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedAttribute_initializeStorageClassArray( SgUntypedAttributeStorageClass *storageArray );
-void SgUntypedAttribute_resetValidFreepointers( );
-unsigned long SgUntypedAttribute_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedInitializedName_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedInitializedName* SgUntypedInitializedName_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedInitializedName_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedInitializedName* SgUntypedInitializedName_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedInitializedName* SgUntypedInitializedName_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedInitializedName_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedInitializedName_clearMemoryPool ( );
-void SgUntypedInitializedName_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedInitializedName_initializeStorageClassArray( SgUntypedInitializedNameStorageClass *storageArray );
-void SgUntypedInitializedName_resetValidFreepointers( );
-unsigned long SgUntypedInitializedName_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedFile_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedFile* SgUntypedFile_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedFile_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedFile* SgUntypedFile_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedFile* SgUntypedFile_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedFile_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedFile_clearMemoryPool ( );
-void SgUntypedFile_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedFile_initializeStorageClassArray( SgUntypedFileStorageClass *storageArray );
-void SgUntypedFile_resetValidFreepointers( );
-unsigned long SgUntypedFile_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedStatementList_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedStatementList* SgUntypedStatementList_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedStatementList_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedStatementList* SgUntypedStatementList_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedStatementList* SgUntypedStatementList_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedStatementList_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedStatementList_clearMemoryPool ( );
-void SgUntypedStatementList_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedStatementList_initializeStorageClassArray( SgUntypedStatementListStorageClass *storageArray );
-void SgUntypedStatementList_resetValidFreepointers( );
-unsigned long SgUntypedStatementList_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedDeclarationStatementList_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedDeclarationStatementList* SgUntypedDeclarationStatementList_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedDeclarationStatementList_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedDeclarationStatementList* SgUntypedDeclarationStatementList_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedDeclarationStatementList* SgUntypedDeclarationStatementList_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedDeclarationStatementList_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedDeclarationStatementList_clearMemoryPool ( );
-void SgUntypedDeclarationStatementList_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedDeclarationStatementList_initializeStorageClassArray( SgUntypedDeclarationStatementListStorageClass *storageArray );
-void SgUntypedDeclarationStatementList_resetValidFreepointers( );
-unsigned long SgUntypedDeclarationStatementList_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedFunctionDeclarationList_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedFunctionDeclarationList* SgUntypedFunctionDeclarationList_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedFunctionDeclarationList_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedFunctionDeclarationList* SgUntypedFunctionDeclarationList_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedFunctionDeclarationList* SgUntypedFunctionDeclarationList_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedFunctionDeclarationList_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedFunctionDeclarationList_clearMemoryPool ( );
-void SgUntypedFunctionDeclarationList_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedFunctionDeclarationList_initializeStorageClassArray( SgUntypedFunctionDeclarationListStorageClass *storageArray );
-void SgUntypedFunctionDeclarationList_resetValidFreepointers( );
-unsigned long SgUntypedFunctionDeclarationList_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUntypedInitializedNameList_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUntypedInitializedNameList* SgUntypedInitializedNameList_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUntypedInitializedNameList_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUntypedInitializedNameList* SgUntypedInitializedNameList_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUntypedInitializedNameList* SgUntypedInitializedNameList_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUntypedInitializedNameList_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUntypedInitializedNameList_clearMemoryPool ( );
-void SgUntypedInitializedNameList_extendMemoryPoolForFileIO ( );
-unsigned long SgUntypedInitializedNameList_initializeStorageClassArray( SgUntypedInitializedNameListStorageClass *storageArray );
-void SgUntypedInitializedNameList_resetValidFreepointers( );
-unsigned long SgUntypedInitializedNameList_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgLambdaCapture_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgLambdaCapture* SgLambdaCapture_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgLambdaCapture_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgLambdaCapture* SgLambdaCapture_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgLambdaCapture* SgLambdaCapture_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgLambdaCapture_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgLambdaCapture_clearMemoryPool ( );
-void SgLambdaCapture_extendMemoryPoolForFileIO ( );
-unsigned long SgLambdaCapture_initializeStorageClassArray( SgLambdaCaptureStorageClass *storageArray );
-void SgLambdaCapture_resetValidFreepointers( );
-unsigned long SgLambdaCapture_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgLambdaCaptureList_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgLambdaCaptureList* SgLambdaCaptureList_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgLambdaCaptureList_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgLambdaCaptureList* SgLambdaCaptureList_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgLambdaCaptureList* SgLambdaCaptureList_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgLambdaCaptureList_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgLambdaCaptureList_clearMemoryPool ( );
-void SgLambdaCaptureList_extendMemoryPoolForFileIO ( );
-unsigned long SgLambdaCaptureList_initializeStorageClassArray( SgLambdaCaptureListStorageClass *storageArray );
-void SgLambdaCaptureList_resetValidFreepointers( );
-unsigned long SgLambdaCaptureList_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -8516,7 +5893,7 @@ void SgStatement_resetValidFreepointers( );
 unsigned long SgStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -8559,7 +5936,7 @@ void SgScopeStatement_resetValidFreepointers( );
 unsigned long SgScopeStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -8602,7 +5979,7 @@ void SgGlobal_resetValidFreepointers( );
 unsigned long SgGlobal_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -8645,7 +6022,7 @@ void SgBasicBlock_resetValidFreepointers( );
 unsigned long SgBasicBlock_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -8688,7 +6065,7 @@ void SgIfStmt_resetValidFreepointers( );
 unsigned long SgIfStmt_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -8731,7 +6108,7 @@ void SgForStatement_resetValidFreepointers( );
 unsigned long SgForStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -8774,7 +6151,7 @@ void SgFunctionDefinition_resetValidFreepointers( );
 unsigned long SgFunctionDefinition_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -8817,7 +6194,7 @@ void SgTemplateFunctionDefinition_resetValidFreepointers( );
 unsigned long SgTemplateFunctionDefinition_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -8860,7 +6237,7 @@ void SgClassDefinition_resetValidFreepointers( );
 unsigned long SgClassDefinition_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -8903,7 +6280,7 @@ void SgTemplateInstantiationDefn_resetValidFreepointers( );
 unsigned long SgTemplateInstantiationDefn_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -8946,7 +6323,7 @@ void SgTemplateClassDefinition_resetValidFreepointers( );
 unsigned long SgTemplateClassDefinition_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -8989,7 +6366,7 @@ void SgWhileStmt_resetValidFreepointers( );
 unsigned long SgWhileStmt_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -9032,7 +6409,7 @@ void SgDoWhileStmt_resetValidFreepointers( );
 unsigned long SgDoWhileStmt_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -9075,7 +6452,7 @@ void SgSwitchStatement_resetValidFreepointers( );
 unsigned long SgSwitchStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -9118,7 +6495,7 @@ void SgCatchOptionStmt_resetValidFreepointers( );
 unsigned long SgCatchOptionStmt_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -9161,7 +6538,7 @@ void SgNamespaceDefinitionStatement_resetValidFreepointers( );
 unsigned long SgNamespaceDefinitionStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -9204,7 +6581,7 @@ void SgBlockDataStatement_resetValidFreepointers( );
 unsigned long SgBlockDataStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -9247,7 +6624,7 @@ void SgAssociateStatement_resetValidFreepointers( );
 unsigned long SgAssociateStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -9290,7 +6667,7 @@ void SgFortranDo_resetValidFreepointers( );
 unsigned long SgFortranDo_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -9333,7 +6710,7 @@ void SgFortranNonblockedDo_resetValidFreepointers( );
 unsigned long SgFortranNonblockedDo_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -9376,7 +6753,7 @@ void SgForAllStatement_resetValidFreepointers( );
 unsigned long SgForAllStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -9419,7 +6796,7 @@ void SgUpcForAllStatement_resetValidFreepointers( );
 unsigned long SgUpcForAllStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -9462,7 +6839,7 @@ void SgCAFWithTeamStatement_resetValidFreepointers( );
 unsigned long SgCAFWithTeamStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -9505,7 +6882,7 @@ void SgJavaForEachStatement_resetValidFreepointers( );
 unsigned long SgJavaForEachStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -9548,93 +6925,7 @@ void SgJavaLabelStatement_resetValidFreepointers( );
 unsigned long SgJavaLabelStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgMatlabForStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgMatlabForStatement* SgMatlabForStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgMatlabForStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgMatlabForStatement* SgMatlabForStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgMatlabForStatement* SgMatlabForStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgMatlabForStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgMatlabForStatement_clearMemoryPool ( );
-void SgMatlabForStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgMatlabForStatement_initializeStorageClassArray( SgMatlabForStatementStorageClass *storageArray );
-void SgMatlabForStatement_resetValidFreepointers( );
-unsigned long SgMatlabForStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgFunctionParameterScope_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgFunctionParameterScope* SgFunctionParameterScope_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgFunctionParameterScope_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgFunctionParameterScope* SgFunctionParameterScope_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgFunctionParameterScope* SgFunctionParameterScope_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgFunctionParameterScope_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgFunctionParameterScope_clearMemoryPool ( );
-void SgFunctionParameterScope_extendMemoryPoolForFileIO ( );
-unsigned long SgFunctionParameterScope_initializeStorageClassArray( SgFunctionParameterScopeStorageClass *storageArray );
-void SgFunctionParameterScope_resetValidFreepointers( );
-unsigned long SgFunctionParameterScope_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -9677,7 +6968,7 @@ void SgFunctionTypeTable_resetValidFreepointers( );
 unsigned long SgFunctionTypeTable_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -9720,7 +7011,7 @@ void SgDeclarationStatement_resetValidFreepointers( );
 unsigned long SgDeclarationStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -9763,7 +7054,7 @@ void SgFunctionParameterList_resetValidFreepointers( );
 unsigned long SgFunctionParameterList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -9806,50 +7097,7 @@ void SgVariableDeclaration_resetValidFreepointers( );
 unsigned long SgVariableDeclaration_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgTemplateVariableDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgTemplateVariableDeclaration* SgTemplateVariableDeclaration_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgTemplateVariableDeclaration_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgTemplateVariableDeclaration* SgTemplateVariableDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgTemplateVariableDeclaration* SgTemplateVariableDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgTemplateVariableDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgTemplateVariableDeclaration_clearMemoryPool ( );
-void SgTemplateVariableDeclaration_extendMemoryPoolForFileIO ( );
-unsigned long SgTemplateVariableDeclaration_initializeStorageClassArray( SgTemplateVariableDeclarationStorageClass *storageArray );
-void SgTemplateVariableDeclaration_resetValidFreepointers( );
-unsigned long SgTemplateVariableDeclaration_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -9892,7 +7140,7 @@ void SgVariableDefinition_resetValidFreepointers( );
 unsigned long SgVariableDefinition_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -9935,7 +7183,7 @@ void SgClinkageDeclarationStatement_resetValidFreepointers( );
 unsigned long SgClinkageDeclarationStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -9978,7 +7226,7 @@ void SgClinkageStartStatement_resetValidFreepointers( );
 unsigned long SgClinkageStartStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -10021,7 +7269,7 @@ void SgClinkageEndStatement_resetValidFreepointers( );
 unsigned long SgClinkageEndStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -10064,7 +7312,7 @@ void SgEnumDeclaration_resetValidFreepointers( );
 unsigned long SgEnumDeclaration_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -10107,7 +7355,7 @@ void SgAsmStmt_resetValidFreepointers( );
 unsigned long SgAsmStmt_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -10150,7 +7398,7 @@ void SgAttributeSpecificationStatement_resetValidFreepointers( );
 unsigned long SgAttributeSpecificationStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -10193,7 +7441,7 @@ void SgFormatStatement_resetValidFreepointers( );
 unsigned long SgFormatStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -10236,695 +7484,7 @@ void SgTemplateDeclaration_resetValidFreepointers( );
 unsigned long SgTemplateDeclaration_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgTemplateInstantiationDirectiveStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgTemplateInstantiationDirectiveStatement* SgTemplateInstantiationDirectiveStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgTemplateInstantiationDirectiveStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgTemplateInstantiationDirectiveStatement* SgTemplateInstantiationDirectiveStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgTemplateInstantiationDirectiveStatement* SgTemplateInstantiationDirectiveStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgTemplateInstantiationDirectiveStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgTemplateInstantiationDirectiveStatement_clearMemoryPool ( );
-void SgTemplateInstantiationDirectiveStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgTemplateInstantiationDirectiveStatement_initializeStorageClassArray( SgTemplateInstantiationDirectiveStatementStorageClass *storageArray );
-void SgTemplateInstantiationDirectiveStatement_resetValidFreepointers( );
-unsigned long SgTemplateInstantiationDirectiveStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUseStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUseStatement* SgUseStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUseStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUseStatement* SgUseStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUseStatement* SgUseStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUseStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUseStatement_clearMemoryPool ( );
-void SgUseStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgUseStatement_initializeStorageClassArray( SgUseStatementStorageClass *storageArray );
-void SgUseStatement_resetValidFreepointers( );
-unsigned long SgUseStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgParameterStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgParameterStatement* SgParameterStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgParameterStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgParameterStatement* SgParameterStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgParameterStatement* SgParameterStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgParameterStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgParameterStatement_clearMemoryPool ( );
-void SgParameterStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgParameterStatement_initializeStorageClassArray( SgParameterStatementStorageClass *storageArray );
-void SgParameterStatement_resetValidFreepointers( );
-unsigned long SgParameterStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgNamespaceDeclarationStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgNamespaceDeclarationStatement* SgNamespaceDeclarationStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgNamespaceDeclarationStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgNamespaceDeclarationStatement* SgNamespaceDeclarationStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgNamespaceDeclarationStatement* SgNamespaceDeclarationStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgNamespaceDeclarationStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgNamespaceDeclarationStatement_clearMemoryPool ( );
-void SgNamespaceDeclarationStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgNamespaceDeclarationStatement_initializeStorageClassArray( SgNamespaceDeclarationStatementStorageClass *storageArray );
-void SgNamespaceDeclarationStatement_resetValidFreepointers( );
-unsigned long SgNamespaceDeclarationStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgEquivalenceStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgEquivalenceStatement* SgEquivalenceStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgEquivalenceStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgEquivalenceStatement* SgEquivalenceStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgEquivalenceStatement* SgEquivalenceStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgEquivalenceStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgEquivalenceStatement_clearMemoryPool ( );
-void SgEquivalenceStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgEquivalenceStatement_initializeStorageClassArray( SgEquivalenceStatementStorageClass *storageArray );
-void SgEquivalenceStatement_resetValidFreepointers( );
-unsigned long SgEquivalenceStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgInterfaceStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgInterfaceStatement* SgInterfaceStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgInterfaceStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgInterfaceStatement* SgInterfaceStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgInterfaceStatement* SgInterfaceStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgInterfaceStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgInterfaceStatement_clearMemoryPool ( );
-void SgInterfaceStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgInterfaceStatement_initializeStorageClassArray( SgInterfaceStatementStorageClass *storageArray );
-void SgInterfaceStatement_resetValidFreepointers( );
-unsigned long SgInterfaceStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgNamespaceAliasDeclarationStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgNamespaceAliasDeclarationStatement* SgNamespaceAliasDeclarationStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgNamespaceAliasDeclarationStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgNamespaceAliasDeclarationStatement* SgNamespaceAliasDeclarationStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgNamespaceAliasDeclarationStatement* SgNamespaceAliasDeclarationStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgNamespaceAliasDeclarationStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgNamespaceAliasDeclarationStatement_clearMemoryPool ( );
-void SgNamespaceAliasDeclarationStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgNamespaceAliasDeclarationStatement_initializeStorageClassArray( SgNamespaceAliasDeclarationStatementStorageClass *storageArray );
-void SgNamespaceAliasDeclarationStatement_resetValidFreepointers( );
-unsigned long SgNamespaceAliasDeclarationStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgCommonBlock_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgCommonBlock* SgCommonBlock_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgCommonBlock_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgCommonBlock* SgCommonBlock_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgCommonBlock* SgCommonBlock_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgCommonBlock_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgCommonBlock_clearMemoryPool ( );
-void SgCommonBlock_extendMemoryPoolForFileIO ( );
-unsigned long SgCommonBlock_initializeStorageClassArray( SgCommonBlockStorageClass *storageArray );
-void SgCommonBlock_resetValidFreepointers( );
-unsigned long SgCommonBlock_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgTypedefDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgTypedefDeclaration* SgTypedefDeclaration_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgTypedefDeclaration_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgTypedefDeclaration* SgTypedefDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgTypedefDeclaration* SgTypedefDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgTypedefDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgTypedefDeclaration_clearMemoryPool ( );
-void SgTypedefDeclaration_extendMemoryPoolForFileIO ( );
-unsigned long SgTypedefDeclaration_initializeStorageClassArray( SgTypedefDeclarationStorageClass *storageArray );
-void SgTypedefDeclaration_resetValidFreepointers( );
-unsigned long SgTypedefDeclaration_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgTemplateTypedefDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgTemplateTypedefDeclaration* SgTemplateTypedefDeclaration_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgTemplateTypedefDeclaration_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgTemplateTypedefDeclaration* SgTemplateTypedefDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgTemplateTypedefDeclaration* SgTemplateTypedefDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgTemplateTypedefDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgTemplateTypedefDeclaration_clearMemoryPool ( );
-void SgTemplateTypedefDeclaration_extendMemoryPoolForFileIO ( );
-unsigned long SgTemplateTypedefDeclaration_initializeStorageClassArray( SgTemplateTypedefDeclarationStorageClass *storageArray );
-void SgTemplateTypedefDeclaration_resetValidFreepointers( );
-unsigned long SgTemplateTypedefDeclaration_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgTemplateInstantiationTypedefDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgTemplateInstantiationTypedefDeclaration* SgTemplateInstantiationTypedefDeclaration_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgTemplateInstantiationTypedefDeclaration_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgTemplateInstantiationTypedefDeclaration* SgTemplateInstantiationTypedefDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgTemplateInstantiationTypedefDeclaration* SgTemplateInstantiationTypedefDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgTemplateInstantiationTypedefDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgTemplateInstantiationTypedefDeclaration_clearMemoryPool ( );
-void SgTemplateInstantiationTypedefDeclaration_extendMemoryPoolForFileIO ( );
-unsigned long SgTemplateInstantiationTypedefDeclaration_initializeStorageClassArray( SgTemplateInstantiationTypedefDeclarationStorageClass *storageArray );
-void SgTemplateInstantiationTypedefDeclaration_resetValidFreepointers( );
-unsigned long SgTemplateInstantiationTypedefDeclaration_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgStatementFunctionStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgStatementFunctionStatement* SgStatementFunctionStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgStatementFunctionStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgStatementFunctionStatement* SgStatementFunctionStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgStatementFunctionStatement* SgStatementFunctionStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgStatementFunctionStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgStatementFunctionStatement_clearMemoryPool ( );
-void SgStatementFunctionStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgStatementFunctionStatement_initializeStorageClassArray( SgStatementFunctionStatementStorageClass *storageArray );
-void SgStatementFunctionStatement_resetValidFreepointers( );
-unsigned long SgStatementFunctionStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgCtorInitializerList_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgCtorInitializerList* SgCtorInitializerList_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgCtorInitializerList_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgCtorInitializerList* SgCtorInitializerList_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgCtorInitializerList* SgCtorInitializerList_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgCtorInitializerList_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgCtorInitializerList_clearMemoryPool ( );
-void SgCtorInitializerList_extendMemoryPoolForFileIO ( );
-unsigned long SgCtorInitializerList_initializeStorageClassArray( SgCtorInitializerListStorageClass *storageArray );
-void SgCtorInitializerList_resetValidFreepointers( );
-unsigned long SgCtorInitializerList_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgPragmaDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgPragmaDeclaration* SgPragmaDeclaration_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgPragmaDeclaration_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgPragmaDeclaration* SgPragmaDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgPragmaDeclaration* SgPragmaDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgPragmaDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgPragmaDeclaration_clearMemoryPool ( );
-void SgPragmaDeclaration_extendMemoryPoolForFileIO ( );
-unsigned long SgPragmaDeclaration_initializeStorageClassArray( SgPragmaDeclarationStorageClass *storageArray );
-void SgPragmaDeclaration_resetValidFreepointers( );
-unsigned long SgPragmaDeclaration_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUsingDirectiveStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUsingDirectiveStatement* SgUsingDirectiveStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUsingDirectiveStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUsingDirectiveStatement* SgUsingDirectiveStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUsingDirectiveStatement* SgUsingDirectiveStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUsingDirectiveStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUsingDirectiveStatement_clearMemoryPool ( );
-void SgUsingDirectiveStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgUsingDirectiveStatement_initializeStorageClassArray( SgUsingDirectiveStatementStorageClass *storageArray );
-void SgUsingDirectiveStatement_resetValidFreepointers( );
-unsigned long SgUsingDirectiveStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgClassDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgClassDeclaration* SgClassDeclaration_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgClassDeclaration_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgClassDeclaration* SgClassDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgClassDeclaration* SgClassDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgClassDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgClassDeclaration_clearMemoryPool ( );
-void SgClassDeclaration_extendMemoryPoolForFileIO ( );
-unsigned long SgClassDeclaration_initializeStorageClassArray( SgClassDeclarationStorageClass *storageArray );
-void SgClassDeclaration_resetValidFreepointers( );
-unsigned long SgClassDeclaration_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -10967,394 +7527,7 @@ void SgTemplateClassDeclaration_resetValidFreepointers( );
 unsigned long SgTemplateClassDeclaration_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgTemplateInstantiationDecl_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgTemplateInstantiationDecl* SgTemplateInstantiationDecl_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgTemplateInstantiationDecl_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgTemplateInstantiationDecl* SgTemplateInstantiationDecl_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgTemplateInstantiationDecl* SgTemplateInstantiationDecl_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgTemplateInstantiationDecl_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgTemplateInstantiationDecl_clearMemoryPool ( );
-void SgTemplateInstantiationDecl_extendMemoryPoolForFileIO ( );
-unsigned long SgTemplateInstantiationDecl_initializeStorageClassArray( SgTemplateInstantiationDeclStorageClass *storageArray );
-void SgTemplateInstantiationDecl_resetValidFreepointers( );
-unsigned long SgTemplateInstantiationDecl_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgDerivedTypeStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgDerivedTypeStatement* SgDerivedTypeStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgDerivedTypeStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgDerivedTypeStatement* SgDerivedTypeStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgDerivedTypeStatement* SgDerivedTypeStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgDerivedTypeStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgDerivedTypeStatement_clearMemoryPool ( );
-void SgDerivedTypeStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgDerivedTypeStatement_initializeStorageClassArray( SgDerivedTypeStatementStorageClass *storageArray );
-void SgDerivedTypeStatement_resetValidFreepointers( );
-unsigned long SgDerivedTypeStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgModuleStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgModuleStatement* SgModuleStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgModuleStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgModuleStatement* SgModuleStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgModuleStatement* SgModuleStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgModuleStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgModuleStatement_clearMemoryPool ( );
-void SgModuleStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgModuleStatement_initializeStorageClassArray( SgModuleStatementStorageClass *storageArray );
-void SgModuleStatement_resetValidFreepointers( );
-unsigned long SgModuleStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgJavaPackageDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgJavaPackageDeclaration* SgJavaPackageDeclaration_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgJavaPackageDeclaration_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgJavaPackageDeclaration* SgJavaPackageDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgJavaPackageDeclaration* SgJavaPackageDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgJavaPackageDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgJavaPackageDeclaration_clearMemoryPool ( );
-void SgJavaPackageDeclaration_extendMemoryPoolForFileIO ( );
-unsigned long SgJavaPackageDeclaration_initializeStorageClassArray( SgJavaPackageDeclarationStorageClass *storageArray );
-void SgJavaPackageDeclaration_resetValidFreepointers( );
-unsigned long SgJavaPackageDeclaration_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgImplicitStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgImplicitStatement* SgImplicitStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgImplicitStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgImplicitStatement* SgImplicitStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgImplicitStatement* SgImplicitStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgImplicitStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgImplicitStatement_clearMemoryPool ( );
-void SgImplicitStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgImplicitStatement_initializeStorageClassArray( SgImplicitStatementStorageClass *storageArray );
-void SgImplicitStatement_resetValidFreepointers( );
-unsigned long SgImplicitStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgUsingDeclarationStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgUsingDeclarationStatement* SgUsingDeclarationStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgUsingDeclarationStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgUsingDeclarationStatement* SgUsingDeclarationStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgUsingDeclarationStatement* SgUsingDeclarationStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgUsingDeclarationStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgUsingDeclarationStatement_clearMemoryPool ( );
-void SgUsingDeclarationStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgUsingDeclarationStatement_initializeStorageClassArray( SgUsingDeclarationStatementStorageClass *storageArray );
-void SgUsingDeclarationStatement_resetValidFreepointers( );
-unsigned long SgUsingDeclarationStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgNamelistStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgNamelistStatement* SgNamelistStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgNamelistStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgNamelistStatement* SgNamelistStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgNamelistStatement* SgNamelistStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgNamelistStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgNamelistStatement_clearMemoryPool ( );
-void SgNamelistStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgNamelistStatement_initializeStorageClassArray( SgNamelistStatementStorageClass *storageArray );
-void SgNamelistStatement_resetValidFreepointers( );
-unsigned long SgNamelistStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgImportStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgImportStatement* SgImportStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgImportStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgImportStatement* SgImportStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgImportStatement* SgImportStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgImportStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgImportStatement_clearMemoryPool ( );
-void SgImportStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgImportStatement_initializeStorageClassArray( SgImportStatementStorageClass *storageArray );
-void SgImportStatement_resetValidFreepointers( );
-unsigned long SgImportStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgFunctionDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgFunctionDeclaration* SgFunctionDeclaration_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgFunctionDeclaration_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgFunctionDeclaration* SgFunctionDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgFunctionDeclaration* SgFunctionDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgFunctionDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgFunctionDeclaration_clearMemoryPool ( );
-void SgFunctionDeclaration_extendMemoryPoolForFileIO ( );
-unsigned long SgFunctionDeclaration_initializeStorageClassArray( SgFunctionDeclarationStorageClass *storageArray );
-void SgFunctionDeclaration_resetValidFreepointers( );
-unsigned long SgFunctionDeclaration_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -11397,50 +7570,7 @@ void SgTemplateFunctionDeclaration_resetValidFreepointers( );
 unsigned long SgTemplateFunctionDeclaration_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgMemberFunctionDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgMemberFunctionDeclaration* SgMemberFunctionDeclaration_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgMemberFunctionDeclaration_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgMemberFunctionDeclaration* SgMemberFunctionDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgMemberFunctionDeclaration* SgMemberFunctionDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgMemberFunctionDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgMemberFunctionDeclaration_clearMemoryPool ( );
-void SgMemberFunctionDeclaration_extendMemoryPoolForFileIO ( );
-unsigned long SgMemberFunctionDeclaration_initializeStorageClassArray( SgMemberFunctionDeclarationStorageClass *storageArray );
-void SgMemberFunctionDeclaration_resetValidFreepointers( );
-unsigned long SgMemberFunctionDeclaration_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -11483,7 +7613,996 @@ void SgTemplateMemberFunctionDeclaration_resetValidFreepointers( );
 unsigned long SgTemplateMemberFunctionDeclaration_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgTemplateInstantiationDirectiveStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgTemplateInstantiationDirectiveStatement* SgTemplateInstantiationDirectiveStatement_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgTemplateInstantiationDirectiveStatement_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgTemplateInstantiationDirectiveStatement* SgTemplateInstantiationDirectiveStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgTemplateInstantiationDirectiveStatement* SgTemplateInstantiationDirectiveStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgTemplateInstantiationDirectiveStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgTemplateInstantiationDirectiveStatement_clearMemoryPool ( );
+void SgTemplateInstantiationDirectiveStatement_extendMemoryPoolForFileIO ( );
+unsigned long SgTemplateInstantiationDirectiveStatement_initializeStorageClassArray( SgTemplateInstantiationDirectiveStatementStorageClass *storageArray );
+void SgTemplateInstantiationDirectiveStatement_resetValidFreepointers( );
+unsigned long SgTemplateInstantiationDirectiveStatement_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgUseStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgUseStatement* SgUseStatement_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgUseStatement_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgUseStatement* SgUseStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgUseStatement* SgUseStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgUseStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgUseStatement_clearMemoryPool ( );
+void SgUseStatement_extendMemoryPoolForFileIO ( );
+unsigned long SgUseStatement_initializeStorageClassArray( SgUseStatementStorageClass *storageArray );
+void SgUseStatement_resetValidFreepointers( );
+unsigned long SgUseStatement_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgParameterStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgParameterStatement* SgParameterStatement_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgParameterStatement_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgParameterStatement* SgParameterStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgParameterStatement* SgParameterStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgParameterStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgParameterStatement_clearMemoryPool ( );
+void SgParameterStatement_extendMemoryPoolForFileIO ( );
+unsigned long SgParameterStatement_initializeStorageClassArray( SgParameterStatementStorageClass *storageArray );
+void SgParameterStatement_resetValidFreepointers( );
+unsigned long SgParameterStatement_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgNamespaceDeclarationStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgNamespaceDeclarationStatement* SgNamespaceDeclarationStatement_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgNamespaceDeclarationStatement_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgNamespaceDeclarationStatement* SgNamespaceDeclarationStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgNamespaceDeclarationStatement* SgNamespaceDeclarationStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgNamespaceDeclarationStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgNamespaceDeclarationStatement_clearMemoryPool ( );
+void SgNamespaceDeclarationStatement_extendMemoryPoolForFileIO ( );
+unsigned long SgNamespaceDeclarationStatement_initializeStorageClassArray( SgNamespaceDeclarationStatementStorageClass *storageArray );
+void SgNamespaceDeclarationStatement_resetValidFreepointers( );
+unsigned long SgNamespaceDeclarationStatement_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgEquivalenceStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgEquivalenceStatement* SgEquivalenceStatement_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgEquivalenceStatement_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgEquivalenceStatement* SgEquivalenceStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgEquivalenceStatement* SgEquivalenceStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgEquivalenceStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgEquivalenceStatement_clearMemoryPool ( );
+void SgEquivalenceStatement_extendMemoryPoolForFileIO ( );
+unsigned long SgEquivalenceStatement_initializeStorageClassArray( SgEquivalenceStatementStorageClass *storageArray );
+void SgEquivalenceStatement_resetValidFreepointers( );
+unsigned long SgEquivalenceStatement_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgInterfaceStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgInterfaceStatement* SgInterfaceStatement_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgInterfaceStatement_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgInterfaceStatement* SgInterfaceStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgInterfaceStatement* SgInterfaceStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgInterfaceStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgInterfaceStatement_clearMemoryPool ( );
+void SgInterfaceStatement_extendMemoryPoolForFileIO ( );
+unsigned long SgInterfaceStatement_initializeStorageClassArray( SgInterfaceStatementStorageClass *storageArray );
+void SgInterfaceStatement_resetValidFreepointers( );
+unsigned long SgInterfaceStatement_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgNamespaceAliasDeclarationStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgNamespaceAliasDeclarationStatement* SgNamespaceAliasDeclarationStatement_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgNamespaceAliasDeclarationStatement_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgNamespaceAliasDeclarationStatement* SgNamespaceAliasDeclarationStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgNamespaceAliasDeclarationStatement* SgNamespaceAliasDeclarationStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgNamespaceAliasDeclarationStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgNamespaceAliasDeclarationStatement_clearMemoryPool ( );
+void SgNamespaceAliasDeclarationStatement_extendMemoryPoolForFileIO ( );
+unsigned long SgNamespaceAliasDeclarationStatement_initializeStorageClassArray( SgNamespaceAliasDeclarationStatementStorageClass *storageArray );
+void SgNamespaceAliasDeclarationStatement_resetValidFreepointers( );
+unsigned long SgNamespaceAliasDeclarationStatement_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgCommonBlock_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgCommonBlock* SgCommonBlock_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgCommonBlock_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgCommonBlock* SgCommonBlock_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgCommonBlock* SgCommonBlock_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgCommonBlock_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgCommonBlock_clearMemoryPool ( );
+void SgCommonBlock_extendMemoryPoolForFileIO ( );
+unsigned long SgCommonBlock_initializeStorageClassArray( SgCommonBlockStorageClass *storageArray );
+void SgCommonBlock_resetValidFreepointers( );
+unsigned long SgCommonBlock_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgTypedefDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgTypedefDeclaration* SgTypedefDeclaration_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgTypedefDeclaration_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgTypedefDeclaration* SgTypedefDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgTypedefDeclaration* SgTypedefDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgTypedefDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgTypedefDeclaration_clearMemoryPool ( );
+void SgTypedefDeclaration_extendMemoryPoolForFileIO ( );
+unsigned long SgTypedefDeclaration_initializeStorageClassArray( SgTypedefDeclarationStorageClass *storageArray );
+void SgTypedefDeclaration_resetValidFreepointers( );
+unsigned long SgTypedefDeclaration_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgStatementFunctionStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgStatementFunctionStatement* SgStatementFunctionStatement_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgStatementFunctionStatement_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgStatementFunctionStatement* SgStatementFunctionStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgStatementFunctionStatement* SgStatementFunctionStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgStatementFunctionStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgStatementFunctionStatement_clearMemoryPool ( );
+void SgStatementFunctionStatement_extendMemoryPoolForFileIO ( );
+unsigned long SgStatementFunctionStatement_initializeStorageClassArray( SgStatementFunctionStatementStorageClass *storageArray );
+void SgStatementFunctionStatement_resetValidFreepointers( );
+unsigned long SgStatementFunctionStatement_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgCtorInitializerList_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgCtorInitializerList* SgCtorInitializerList_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgCtorInitializerList_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgCtorInitializerList* SgCtorInitializerList_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgCtorInitializerList* SgCtorInitializerList_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgCtorInitializerList_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgCtorInitializerList_clearMemoryPool ( );
+void SgCtorInitializerList_extendMemoryPoolForFileIO ( );
+unsigned long SgCtorInitializerList_initializeStorageClassArray( SgCtorInitializerListStorageClass *storageArray );
+void SgCtorInitializerList_resetValidFreepointers( );
+unsigned long SgCtorInitializerList_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgPragmaDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgPragmaDeclaration* SgPragmaDeclaration_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgPragmaDeclaration_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgPragmaDeclaration* SgPragmaDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgPragmaDeclaration* SgPragmaDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgPragmaDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgPragmaDeclaration_clearMemoryPool ( );
+void SgPragmaDeclaration_extendMemoryPoolForFileIO ( );
+unsigned long SgPragmaDeclaration_initializeStorageClassArray( SgPragmaDeclarationStorageClass *storageArray );
+void SgPragmaDeclaration_resetValidFreepointers( );
+unsigned long SgPragmaDeclaration_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgUsingDirectiveStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgUsingDirectiveStatement* SgUsingDirectiveStatement_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgUsingDirectiveStatement_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgUsingDirectiveStatement* SgUsingDirectiveStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgUsingDirectiveStatement* SgUsingDirectiveStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgUsingDirectiveStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgUsingDirectiveStatement_clearMemoryPool ( );
+void SgUsingDirectiveStatement_extendMemoryPoolForFileIO ( );
+unsigned long SgUsingDirectiveStatement_initializeStorageClassArray( SgUsingDirectiveStatementStorageClass *storageArray );
+void SgUsingDirectiveStatement_resetValidFreepointers( );
+unsigned long SgUsingDirectiveStatement_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgClassDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgClassDeclaration* SgClassDeclaration_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgClassDeclaration_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgClassDeclaration* SgClassDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgClassDeclaration* SgClassDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgClassDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgClassDeclaration_clearMemoryPool ( );
+void SgClassDeclaration_extendMemoryPoolForFileIO ( );
+unsigned long SgClassDeclaration_initializeStorageClassArray( SgClassDeclarationStorageClass *storageArray );
+void SgClassDeclaration_resetValidFreepointers( );
+unsigned long SgClassDeclaration_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgTemplateInstantiationDecl_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgTemplateInstantiationDecl* SgTemplateInstantiationDecl_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgTemplateInstantiationDecl_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgTemplateInstantiationDecl* SgTemplateInstantiationDecl_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgTemplateInstantiationDecl* SgTemplateInstantiationDecl_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgTemplateInstantiationDecl_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgTemplateInstantiationDecl_clearMemoryPool ( );
+void SgTemplateInstantiationDecl_extendMemoryPoolForFileIO ( );
+unsigned long SgTemplateInstantiationDecl_initializeStorageClassArray( SgTemplateInstantiationDeclStorageClass *storageArray );
+void SgTemplateInstantiationDecl_resetValidFreepointers( );
+unsigned long SgTemplateInstantiationDecl_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgDerivedTypeStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgDerivedTypeStatement* SgDerivedTypeStatement_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgDerivedTypeStatement_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgDerivedTypeStatement* SgDerivedTypeStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgDerivedTypeStatement* SgDerivedTypeStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgDerivedTypeStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgDerivedTypeStatement_clearMemoryPool ( );
+void SgDerivedTypeStatement_extendMemoryPoolForFileIO ( );
+unsigned long SgDerivedTypeStatement_initializeStorageClassArray( SgDerivedTypeStatementStorageClass *storageArray );
+void SgDerivedTypeStatement_resetValidFreepointers( );
+unsigned long SgDerivedTypeStatement_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgModuleStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgModuleStatement* SgModuleStatement_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgModuleStatement_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgModuleStatement* SgModuleStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgModuleStatement* SgModuleStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgModuleStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgModuleStatement_clearMemoryPool ( );
+void SgModuleStatement_extendMemoryPoolForFileIO ( );
+unsigned long SgModuleStatement_initializeStorageClassArray( SgModuleStatementStorageClass *storageArray );
+void SgModuleStatement_resetValidFreepointers( );
+unsigned long SgModuleStatement_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgImplicitStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgImplicitStatement* SgImplicitStatement_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgImplicitStatement_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgImplicitStatement* SgImplicitStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgImplicitStatement* SgImplicitStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgImplicitStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgImplicitStatement_clearMemoryPool ( );
+void SgImplicitStatement_extendMemoryPoolForFileIO ( );
+unsigned long SgImplicitStatement_initializeStorageClassArray( SgImplicitStatementStorageClass *storageArray );
+void SgImplicitStatement_resetValidFreepointers( );
+unsigned long SgImplicitStatement_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgUsingDeclarationStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgUsingDeclarationStatement* SgUsingDeclarationStatement_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgUsingDeclarationStatement_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgUsingDeclarationStatement* SgUsingDeclarationStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgUsingDeclarationStatement* SgUsingDeclarationStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgUsingDeclarationStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgUsingDeclarationStatement_clearMemoryPool ( );
+void SgUsingDeclarationStatement_extendMemoryPoolForFileIO ( );
+unsigned long SgUsingDeclarationStatement_initializeStorageClassArray( SgUsingDeclarationStatementStorageClass *storageArray );
+void SgUsingDeclarationStatement_resetValidFreepointers( );
+unsigned long SgUsingDeclarationStatement_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgNamelistStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgNamelistStatement* SgNamelistStatement_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgNamelistStatement_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgNamelistStatement* SgNamelistStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgNamelistStatement* SgNamelistStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgNamelistStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgNamelistStatement_clearMemoryPool ( );
+void SgNamelistStatement_extendMemoryPoolForFileIO ( );
+unsigned long SgNamelistStatement_initializeStorageClassArray( SgNamelistStatementStorageClass *storageArray );
+void SgNamelistStatement_resetValidFreepointers( );
+unsigned long SgNamelistStatement_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgImportStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgImportStatement* SgImportStatement_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgImportStatement_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgImportStatement* SgImportStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgImportStatement* SgImportStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgImportStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgImportStatement_clearMemoryPool ( );
+void SgImportStatement_extendMemoryPoolForFileIO ( );
+unsigned long SgImportStatement_initializeStorageClassArray( SgImportStatementStorageClass *storageArray );
+void SgImportStatement_resetValidFreepointers( );
+unsigned long SgImportStatement_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgFunctionDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgFunctionDeclaration* SgFunctionDeclaration_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgFunctionDeclaration_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgFunctionDeclaration* SgFunctionDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgFunctionDeclaration* SgFunctionDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgFunctionDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgFunctionDeclaration_clearMemoryPool ( );
+void SgFunctionDeclaration_extendMemoryPoolForFileIO ( );
+unsigned long SgFunctionDeclaration_initializeStorageClassArray( SgFunctionDeclarationStorageClass *storageArray );
+void SgFunctionDeclaration_resetValidFreepointers( );
+unsigned long SgFunctionDeclaration_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgMemberFunctionDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgMemberFunctionDeclaration* SgMemberFunctionDeclaration_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgMemberFunctionDeclaration_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgMemberFunctionDeclaration* SgMemberFunctionDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgMemberFunctionDeclaration* SgMemberFunctionDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgMemberFunctionDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgMemberFunctionDeclaration_clearMemoryPool ( );
+void SgMemberFunctionDeclaration_extendMemoryPoolForFileIO ( );
+unsigned long SgMemberFunctionDeclaration_initializeStorageClassArray( SgMemberFunctionDeclarationStorageClass *storageArray );
+void SgMemberFunctionDeclaration_resetValidFreepointers( );
+unsigned long SgMemberFunctionDeclaration_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -11526,7 +8645,7 @@ void SgTemplateInstantiationMemberFunctionDecl_resetValidFreepointers( );
 unsigned long SgTemplateInstantiationMemberFunctionDecl_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -11569,7 +8688,7 @@ void SgTemplateInstantiationFunctionDecl_resetValidFreepointers( );
 unsigned long SgTemplateInstantiationFunctionDecl_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -11612,7 +8731,7 @@ void SgProgramHeaderStatement_resetValidFreepointers( );
 unsigned long SgProgramHeaderStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -11655,7 +8774,7 @@ void SgProcedureHeaderStatement_resetValidFreepointers( );
 unsigned long SgProcedureHeaderStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -11698,7 +8817,7 @@ void SgEntryStatement_resetValidFreepointers( );
 unsigned long SgEntryStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -11741,7 +8860,7 @@ void SgContainsStatement_resetValidFreepointers( );
 unsigned long SgContainsStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -11784,7 +8903,7 @@ void SgC_PreprocessorDirectiveStatement_resetValidFreepointers( );
 unsigned long SgC_PreprocessorDirectiveStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -11827,7 +8946,7 @@ void SgIncludeDirectiveStatement_resetValidFreepointers( );
 unsigned long SgIncludeDirectiveStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -11870,7 +8989,7 @@ void SgDefineDirectiveStatement_resetValidFreepointers( );
 unsigned long SgDefineDirectiveStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -11913,7 +9032,7 @@ void SgUndefDirectiveStatement_resetValidFreepointers( );
 unsigned long SgUndefDirectiveStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -11956,7 +9075,7 @@ void SgIfdefDirectiveStatement_resetValidFreepointers( );
 unsigned long SgIfdefDirectiveStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -11999,7 +9118,7 @@ void SgIfndefDirectiveStatement_resetValidFreepointers( );
 unsigned long SgIfndefDirectiveStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -12042,7 +9161,7 @@ void SgIfDirectiveStatement_resetValidFreepointers( );
 unsigned long SgIfDirectiveStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -12085,7 +9204,7 @@ void SgDeadIfDirectiveStatement_resetValidFreepointers( );
 unsigned long SgDeadIfDirectiveStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -12128,7 +9247,7 @@ void SgElseDirectiveStatement_resetValidFreepointers( );
 unsigned long SgElseDirectiveStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -12171,7 +9290,7 @@ void SgElseifDirectiveStatement_resetValidFreepointers( );
 unsigned long SgElseifDirectiveStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -12214,7 +9333,7 @@ void SgEndifDirectiveStatement_resetValidFreepointers( );
 unsigned long SgEndifDirectiveStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -12257,7 +9376,7 @@ void SgLineDirectiveStatement_resetValidFreepointers( );
 unsigned long SgLineDirectiveStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -12300,7 +9419,7 @@ void SgWarningDirectiveStatement_resetValidFreepointers( );
 unsigned long SgWarningDirectiveStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -12343,7 +9462,7 @@ void SgErrorDirectiveStatement_resetValidFreepointers( );
 unsigned long SgErrorDirectiveStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -12386,7 +9505,7 @@ void SgEmptyDirectiveStatement_resetValidFreepointers( );
 unsigned long SgEmptyDirectiveStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -12429,7 +9548,7 @@ void SgIncludeNextDirectiveStatement_resetValidFreepointers( );
 unsigned long SgIncludeNextDirectiveStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -12472,7 +9591,7 @@ void SgIdentDirectiveStatement_resetValidFreepointers( );
 unsigned long SgIdentDirectiveStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -12515,7 +9634,7 @@ void SgLinemarkerDirectiveStatement_resetValidFreepointers( );
 unsigned long SgLinemarkerDirectiveStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -12558,7 +9677,7 @@ void SgOmpThreadprivateStatement_resetValidFreepointers( );
 unsigned long SgOmpThreadprivateStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -12601,7 +9720,7 @@ void SgFortranIncludeLine_resetValidFreepointers( );
 unsigned long SgFortranIncludeLine_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -12644,50 +9763,7 @@ void SgJavaImportStatement_resetValidFreepointers( );
 unsigned long SgJavaImportStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgJavaPackageStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgJavaPackageStatement* SgJavaPackageStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgJavaPackageStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgJavaPackageStatement* SgJavaPackageStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgJavaPackageStatement* SgJavaPackageStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgJavaPackageStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgJavaPackageStatement_clearMemoryPool ( );
-void SgJavaPackageStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgJavaPackageStatement_initializeStorageClassArray( SgJavaPackageStatementStorageClass *storageArray );
-void SgJavaPackageStatement_resetValidFreepointers( );
-unsigned long SgJavaPackageStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -12730,93 +9806,7 @@ void SgStmtDeclarationStatement_resetValidFreepointers( );
 unsigned long SgStmtDeclarationStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgStaticAssertionDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgStaticAssertionDeclaration* SgStaticAssertionDeclaration_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgStaticAssertionDeclaration_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgStaticAssertionDeclaration* SgStaticAssertionDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgStaticAssertionDeclaration* SgStaticAssertionDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgStaticAssertionDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgStaticAssertionDeclaration_clearMemoryPool ( );
-void SgStaticAssertionDeclaration_extendMemoryPoolForFileIO ( );
-unsigned long SgStaticAssertionDeclaration_initializeStorageClassArray( SgStaticAssertionDeclarationStorageClass *storageArray );
-void SgStaticAssertionDeclaration_resetValidFreepointers( );
-unsigned long SgStaticAssertionDeclaration_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgMicrosoftAttributeDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgMicrosoftAttributeDeclaration* SgMicrosoftAttributeDeclaration_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgMicrosoftAttributeDeclaration_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgMicrosoftAttributeDeclaration* SgMicrosoftAttributeDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgMicrosoftAttributeDeclaration* SgMicrosoftAttributeDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgMicrosoftAttributeDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgMicrosoftAttributeDeclaration_clearMemoryPool ( );
-void SgMicrosoftAttributeDeclaration_extendMemoryPoolForFileIO ( );
-unsigned long SgMicrosoftAttributeDeclaration_initializeStorageClassArray( SgMicrosoftAttributeDeclarationStorageClass *storageArray );
-void SgMicrosoftAttributeDeclaration_resetValidFreepointers( );
-unsigned long SgMicrosoftAttributeDeclaration_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -12859,7 +9849,7 @@ void SgExprStatement_resetValidFreepointers( );
 unsigned long SgExprStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -12902,7 +9892,7 @@ void SgLabelStatement_resetValidFreepointers( );
 unsigned long SgLabelStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -12945,7 +9935,7 @@ void SgCaseOptionStmt_resetValidFreepointers( );
 unsigned long SgCaseOptionStmt_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -12988,7 +9978,7 @@ void SgTryStmt_resetValidFreepointers( );
 unsigned long SgTryStmt_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13031,7 +10021,7 @@ void SgDefaultOptionStmt_resetValidFreepointers( );
 unsigned long SgDefaultOptionStmt_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13074,7 +10064,7 @@ void SgBreakStmt_resetValidFreepointers( );
 unsigned long SgBreakStmt_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13117,7 +10107,7 @@ void SgContinueStmt_resetValidFreepointers( );
 unsigned long SgContinueStmt_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13160,7 +10150,7 @@ void SgReturnStmt_resetValidFreepointers( );
 unsigned long SgReturnStmt_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13203,7 +10193,7 @@ void SgGotoStatement_resetValidFreepointers( );
 unsigned long SgGotoStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13246,7 +10236,7 @@ void SgSpawnStmt_resetValidFreepointers( );
 unsigned long SgSpawnStmt_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13289,7 +10279,7 @@ void SgNullStatement_resetValidFreepointers( );
 unsigned long SgNullStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13332,7 +10322,7 @@ void SgVariantStatement_resetValidFreepointers( );
 unsigned long SgVariantStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13375,7 +10365,7 @@ void SgForInitStatement_resetValidFreepointers( );
 unsigned long SgForInitStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13418,7 +10408,7 @@ void SgCatchStatementSeq_resetValidFreepointers( );
 unsigned long SgCatchStatementSeq_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13461,7 +10451,7 @@ void SgStopOrPauseStatement_resetValidFreepointers( );
 unsigned long SgStopOrPauseStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13504,7 +10494,7 @@ void SgIOStatement_resetValidFreepointers( );
 unsigned long SgIOStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13547,7 +10537,7 @@ void SgPrintStatement_resetValidFreepointers( );
 unsigned long SgPrintStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13590,7 +10580,7 @@ void SgReadStatement_resetValidFreepointers( );
 unsigned long SgReadStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13633,7 +10623,7 @@ void SgWriteStatement_resetValidFreepointers( );
 unsigned long SgWriteStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13676,7 +10666,7 @@ void SgOpenStatement_resetValidFreepointers( );
 unsigned long SgOpenStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13719,7 +10709,7 @@ void SgCloseStatement_resetValidFreepointers( );
 unsigned long SgCloseStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13762,7 +10752,7 @@ void SgInquireStatement_resetValidFreepointers( );
 unsigned long SgInquireStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13805,7 +10795,7 @@ void SgFlushStatement_resetValidFreepointers( );
 unsigned long SgFlushStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13848,7 +10838,7 @@ void SgBackspaceStatement_resetValidFreepointers( );
 unsigned long SgBackspaceStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13891,7 +10881,7 @@ void SgRewindStatement_resetValidFreepointers( );
 unsigned long SgRewindStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13934,7 +10924,7 @@ void SgEndfileStatement_resetValidFreepointers( );
 unsigned long SgEndfileStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -13977,7 +10967,7 @@ void SgWaitStatement_resetValidFreepointers( );
 unsigned long SgWaitStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14020,7 +11010,7 @@ void SgWhereStatement_resetValidFreepointers( );
 unsigned long SgWhereStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14063,7 +11053,7 @@ void SgElseWhereStatement_resetValidFreepointers( );
 unsigned long SgElseWhereStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14106,7 +11096,7 @@ void SgNullifyStatement_resetValidFreepointers( );
 unsigned long SgNullifyStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14149,7 +11139,7 @@ void SgArithmeticIfStatement_resetValidFreepointers( );
 unsigned long SgArithmeticIfStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14192,7 +11182,7 @@ void SgAssignStatement_resetValidFreepointers( );
 unsigned long SgAssignStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14235,7 +11225,7 @@ void SgComputedGotoStatement_resetValidFreepointers( );
 unsigned long SgComputedGotoStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14278,7 +11268,7 @@ void SgAssignedGotoStatement_resetValidFreepointers( );
 unsigned long SgAssignedGotoStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14321,7 +11311,7 @@ void SgAllocateStatement_resetValidFreepointers( );
 unsigned long SgAllocateStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14364,7 +11354,7 @@ void SgDeallocateStatement_resetValidFreepointers( );
 unsigned long SgDeallocateStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14407,7 +11397,7 @@ void SgUpcNotifyStatement_resetValidFreepointers( );
 unsigned long SgUpcNotifyStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14450,7 +11440,7 @@ void SgUpcWaitStatement_resetValidFreepointers( );
 unsigned long SgUpcWaitStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14493,7 +11483,7 @@ void SgUpcBarrierStatement_resetValidFreepointers( );
 unsigned long SgUpcBarrierStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14536,7 +11526,7 @@ void SgUpcFenceStatement_resetValidFreepointers( );
 unsigned long SgUpcFenceStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14579,7 +11569,7 @@ void SgOmpBarrierStatement_resetValidFreepointers( );
 unsigned long SgOmpBarrierStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14622,7 +11612,7 @@ void SgOmpTaskwaitStatement_resetValidFreepointers( );
 unsigned long SgOmpTaskwaitStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14665,7 +11655,7 @@ void SgOmpFlushStatement_resetValidFreepointers( );
 unsigned long SgOmpFlushStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14708,7 +11698,7 @@ void SgOmpBodyStatement_resetValidFreepointers( );
 unsigned long SgOmpBodyStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14751,7 +11741,7 @@ void SgOmpAtomicStatement_resetValidFreepointers( );
 unsigned long SgOmpAtomicStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14794,7 +11784,7 @@ void SgOmpMasterStatement_resetValidFreepointers( );
 unsigned long SgOmpMasterStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14837,7 +11827,7 @@ void SgOmpOrderedStatement_resetValidFreepointers( );
 unsigned long SgOmpOrderedStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14880,7 +11870,7 @@ void SgOmpCriticalStatement_resetValidFreepointers( );
 unsigned long SgOmpCriticalStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14923,7 +11913,7 @@ void SgOmpSectionStatement_resetValidFreepointers( );
 unsigned long SgOmpSectionStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -14966,7 +11956,7 @@ void SgOmpWorkshareStatement_resetValidFreepointers( );
 unsigned long SgOmpWorkshareStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -15009,7 +11999,7 @@ void SgOmpClauseBodyStatement_resetValidFreepointers( );
 unsigned long SgOmpClauseBodyStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -15052,7 +12042,7 @@ void SgOmpParallelStatement_resetValidFreepointers( );
 unsigned long SgOmpParallelStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -15095,7 +12085,7 @@ void SgOmpSingleStatement_resetValidFreepointers( );
 unsigned long SgOmpSingleStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -15138,7 +12128,7 @@ void SgOmpTaskStatement_resetValidFreepointers( );
 unsigned long SgOmpTaskStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -15181,7 +12171,7 @@ void SgOmpForStatement_resetValidFreepointers( );
 unsigned long SgOmpForStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -15224,7 +12214,7 @@ void SgOmpDoStatement_resetValidFreepointers( );
 unsigned long SgOmpDoStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -15267,136 +12257,7 @@ void SgOmpSectionsStatement_resetValidFreepointers( );
 unsigned long SgOmpSectionsStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgOmpTargetStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgOmpTargetStatement* SgOmpTargetStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgOmpTargetStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgOmpTargetStatement* SgOmpTargetStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgOmpTargetStatement* SgOmpTargetStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgOmpTargetStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgOmpTargetStatement_clearMemoryPool ( );
-void SgOmpTargetStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgOmpTargetStatement_initializeStorageClassArray( SgOmpTargetStatementStorageClass *storageArray );
-void SgOmpTargetStatement_resetValidFreepointers( );
-unsigned long SgOmpTargetStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgOmpTargetDataStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgOmpTargetDataStatement* SgOmpTargetDataStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgOmpTargetDataStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgOmpTargetDataStatement* SgOmpTargetDataStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgOmpTargetDataStatement* SgOmpTargetDataStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgOmpTargetDataStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgOmpTargetDataStatement_clearMemoryPool ( );
-void SgOmpTargetDataStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgOmpTargetDataStatement_initializeStorageClassArray( SgOmpTargetDataStatementStorageClass *storageArray );
-void SgOmpTargetDataStatement_resetValidFreepointers( );
-unsigned long SgOmpTargetDataStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgOmpSimdStatement_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgOmpSimdStatement* SgOmpSimdStatement_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgOmpSimdStatement_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgOmpSimdStatement* SgOmpSimdStatement_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgOmpSimdStatement* SgOmpSimdStatement_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgOmpSimdStatement_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgOmpSimdStatement_clearMemoryPool ( );
-void SgOmpSimdStatement_extendMemoryPoolForFileIO ( );
-unsigned long SgOmpSimdStatement_initializeStorageClassArray( SgOmpSimdStatementStorageClass *storageArray );
-void SgOmpSimdStatement_resetValidFreepointers( );
-unsigned long SgOmpSimdStatement_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -15439,7 +12300,7 @@ void SgSequenceStatement_resetValidFreepointers( );
 unsigned long SgSequenceStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -15482,7 +12343,7 @@ void SgWithStatement_resetValidFreepointers( );
 unsigned long SgWithStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -15525,7 +12386,7 @@ void SgPythonPrintStmt_resetValidFreepointers( );
 unsigned long SgPythonPrintStmt_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -15568,7 +12429,7 @@ void SgPassStatement_resetValidFreepointers( );
 unsigned long SgPassStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -15611,7 +12472,7 @@ void SgAssertStmt_resetValidFreepointers( );
 unsigned long SgAssertStmt_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -15654,7 +12515,7 @@ void SgExecStatement_resetValidFreepointers( );
 unsigned long SgExecStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -15697,7 +12558,7 @@ void SgPythonGlobalStmt_resetValidFreepointers( );
 unsigned long SgPythonGlobalStmt_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -15740,7 +12601,7 @@ void SgJavaThrowStatement_resetValidFreepointers( );
 unsigned long SgJavaThrowStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -15783,222 +12644,7 @@ void SgJavaSynchronizedStatement_resetValidFreepointers( );
 unsigned long SgJavaSynchronizedStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgAsyncStmt_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgAsyncStmt* SgAsyncStmt_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgAsyncStmt_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgAsyncStmt* SgAsyncStmt_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgAsyncStmt* SgAsyncStmt_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgAsyncStmt_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgAsyncStmt_clearMemoryPool ( );
-void SgAsyncStmt_extendMemoryPoolForFileIO ( );
-unsigned long SgAsyncStmt_initializeStorageClassArray( SgAsyncStmtStorageClass *storageArray );
-void SgAsyncStmt_resetValidFreepointers( );
-unsigned long SgAsyncStmt_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgFinishStmt_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgFinishStmt* SgFinishStmt_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgFinishStmt_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgFinishStmt* SgFinishStmt_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgFinishStmt* SgFinishStmt_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgFinishStmt_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgFinishStmt_clearMemoryPool ( );
-void SgFinishStmt_extendMemoryPoolForFileIO ( );
-unsigned long SgFinishStmt_initializeStorageClassArray( SgFinishStmtStorageClass *storageArray );
-void SgFinishStmt_resetValidFreepointers( );
-unsigned long SgFinishStmt_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgAtStmt_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgAtStmt* SgAtStmt_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgAtStmt_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgAtStmt* SgAtStmt_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgAtStmt* SgAtStmt_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgAtStmt_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgAtStmt_clearMemoryPool ( );
-void SgAtStmt_extendMemoryPoolForFileIO ( );
-unsigned long SgAtStmt_initializeStorageClassArray( SgAtStmtStorageClass *storageArray );
-void SgAtStmt_resetValidFreepointers( );
-unsigned long SgAtStmt_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgAtomicStmt_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgAtomicStmt* SgAtomicStmt_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgAtomicStmt_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgAtomicStmt* SgAtomicStmt_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgAtomicStmt* SgAtomicStmt_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgAtomicStmt_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgAtomicStmt_clearMemoryPool ( );
-void SgAtomicStmt_extendMemoryPoolForFileIO ( );
-unsigned long SgAtomicStmt_initializeStorageClassArray( SgAtomicStmtStorageClass *storageArray );
-void SgAtomicStmt_resetValidFreepointers( );
-unsigned long SgAtomicStmt_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgWhenStmt_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgWhenStmt* SgWhenStmt_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgWhenStmt_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgWhenStmt* SgWhenStmt_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgWhenStmt* SgWhenStmt_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgWhenStmt_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgWhenStmt_clearMemoryPool ( );
-void SgWhenStmt_extendMemoryPoolForFileIO ( );
-unsigned long SgWhenStmt_initializeStorageClassArray( SgWhenStmtStorageClass *storageArray );
-void SgWhenStmt_resetValidFreepointers( );
-unsigned long SgWhenStmt_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -16041,7 +12687,7 @@ void SgExpression_resetValidFreepointers( );
 unsigned long SgExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -16084,7 +12730,7 @@ void SgUnaryOp_resetValidFreepointers( );
 unsigned long SgUnaryOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -16127,7 +12773,7 @@ void SgExpressionRoot_resetValidFreepointers( );
 unsigned long SgExpressionRoot_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -16170,7 +12816,7 @@ void SgMinusOp_resetValidFreepointers( );
 unsigned long SgMinusOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -16213,7 +12859,7 @@ void SgUnaryAddOp_resetValidFreepointers( );
 unsigned long SgUnaryAddOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -16256,7 +12902,7 @@ void SgNotOp_resetValidFreepointers( );
 unsigned long SgNotOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -16299,7 +12945,7 @@ void SgPointerDerefExp_resetValidFreepointers( );
 unsigned long SgPointerDerefExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -16342,7 +12988,7 @@ void SgAddressOfOp_resetValidFreepointers( );
 unsigned long SgAddressOfOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -16385,7 +13031,7 @@ void SgMinusMinusOp_resetValidFreepointers( );
 unsigned long SgMinusMinusOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -16428,7 +13074,7 @@ void SgPlusPlusOp_resetValidFreepointers( );
 unsigned long SgPlusPlusOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -16471,7 +13117,7 @@ void SgBitComplementOp_resetValidFreepointers( );
 unsigned long SgBitComplementOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -16514,7 +13160,7 @@ void SgCastExp_resetValidFreepointers( );
 unsigned long SgCastExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -16557,7 +13203,7 @@ void SgThrowOp_resetValidFreepointers( );
 unsigned long SgThrowOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -16600,7 +13246,7 @@ void SgRealPartOp_resetValidFreepointers( );
 unsigned long SgRealPartOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -16643,7 +13289,7 @@ void SgImagPartOp_resetValidFreepointers( );
 unsigned long SgImagPartOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -16686,7 +13332,7 @@ void SgConjugateOp_resetValidFreepointers( );
 unsigned long SgConjugateOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -16729,50 +13375,7 @@ void SgUserDefinedUnaryOp_resetValidFreepointers( );
 unsigned long SgUserDefinedUnaryOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgMatrixTransposeOp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgMatrixTransposeOp* SgMatrixTransposeOp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgMatrixTransposeOp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgMatrixTransposeOp* SgMatrixTransposeOp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgMatrixTransposeOp* SgMatrixTransposeOp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgMatrixTransposeOp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgMatrixTransposeOp_clearMemoryPool ( );
-void SgMatrixTransposeOp_extendMemoryPoolForFileIO ( );
-unsigned long SgMatrixTransposeOp_initializeStorageClassArray( SgMatrixTransposeOpStorageClass *storageArray );
-void SgMatrixTransposeOp_resetValidFreepointers( );
-unsigned long SgMatrixTransposeOp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -16815,7 +13418,7 @@ void SgBinaryOp_resetValidFreepointers( );
 unsigned long SgBinaryOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -16858,7 +13461,7 @@ void SgArrowExp_resetValidFreepointers( );
 unsigned long SgArrowExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -16901,7 +13504,7 @@ void SgDotExp_resetValidFreepointers( );
 unsigned long SgDotExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -16944,7 +13547,7 @@ void SgDotStarOp_resetValidFreepointers( );
 unsigned long SgDotStarOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -16987,7 +13590,7 @@ void SgArrowStarOp_resetValidFreepointers( );
 unsigned long SgArrowStarOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17030,7 +13633,7 @@ void SgEqualityOp_resetValidFreepointers( );
 unsigned long SgEqualityOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17073,7 +13676,7 @@ void SgLessThanOp_resetValidFreepointers( );
 unsigned long SgLessThanOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17116,7 +13719,7 @@ void SgGreaterThanOp_resetValidFreepointers( );
 unsigned long SgGreaterThanOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17159,7 +13762,7 @@ void SgNotEqualOp_resetValidFreepointers( );
 unsigned long SgNotEqualOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17202,7 +13805,7 @@ void SgLessOrEqualOp_resetValidFreepointers( );
 unsigned long SgLessOrEqualOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17245,7 +13848,7 @@ void SgGreaterOrEqualOp_resetValidFreepointers( );
 unsigned long SgGreaterOrEqualOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17288,7 +13891,7 @@ void SgAddOp_resetValidFreepointers( );
 unsigned long SgAddOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17331,7 +13934,7 @@ void SgSubtractOp_resetValidFreepointers( );
 unsigned long SgSubtractOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17374,7 +13977,7 @@ void SgMultiplyOp_resetValidFreepointers( );
 unsigned long SgMultiplyOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17417,7 +14020,7 @@ void SgDivideOp_resetValidFreepointers( );
 unsigned long SgDivideOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17460,7 +14063,7 @@ void SgIntegerDivideOp_resetValidFreepointers( );
 unsigned long SgIntegerDivideOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17503,7 +14106,7 @@ void SgModOp_resetValidFreepointers( );
 unsigned long SgModOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17546,7 +14149,7 @@ void SgAndOp_resetValidFreepointers( );
 unsigned long SgAndOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17589,7 +14192,7 @@ void SgOrOp_resetValidFreepointers( );
 unsigned long SgOrOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17632,7 +14235,7 @@ void SgBitXorOp_resetValidFreepointers( );
 unsigned long SgBitXorOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17675,7 +14278,7 @@ void SgBitAndOp_resetValidFreepointers( );
 unsigned long SgBitAndOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17718,7 +14321,7 @@ void SgBitOrOp_resetValidFreepointers( );
 unsigned long SgBitOrOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17761,7 +14364,7 @@ void SgCommaOpExp_resetValidFreepointers( );
 unsigned long SgCommaOpExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17804,7 +14407,7 @@ void SgLshiftOp_resetValidFreepointers( );
 unsigned long SgLshiftOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17847,7 +14450,7 @@ void SgRshiftOp_resetValidFreepointers( );
 unsigned long SgRshiftOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17890,7 +14493,7 @@ void SgPntrArrRefExp_resetValidFreepointers( );
 unsigned long SgPntrArrRefExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17933,7 +14536,7 @@ void SgScopeOp_resetValidFreepointers( );
 unsigned long SgScopeOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -17976,7 +14579,7 @@ void SgAssignOp_resetValidFreepointers( );
 unsigned long SgAssignOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18019,7 +14622,7 @@ void SgExponentiationOp_resetValidFreepointers( );
 unsigned long SgExponentiationOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18062,7 +14665,7 @@ void SgJavaUnsignedRshiftOp_resetValidFreepointers( );
 unsigned long SgJavaUnsignedRshiftOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18105,7 +14708,7 @@ void SgConcatenationOp_resetValidFreepointers( );
 unsigned long SgConcatenationOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18148,7 +14751,7 @@ void SgPointerAssignOp_resetValidFreepointers( );
 unsigned long SgPointerAssignOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18191,7 +14794,7 @@ void SgUserDefinedBinaryOp_resetValidFreepointers( );
 unsigned long SgUserDefinedBinaryOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18234,7 +14837,7 @@ void SgCompoundAssignOp_resetValidFreepointers( );
 unsigned long SgCompoundAssignOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18277,7 +14880,7 @@ void SgPlusAssignOp_resetValidFreepointers( );
 unsigned long SgPlusAssignOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18320,7 +14923,7 @@ void SgMinusAssignOp_resetValidFreepointers( );
 unsigned long SgMinusAssignOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18363,7 +14966,7 @@ void SgAndAssignOp_resetValidFreepointers( );
 unsigned long SgAndAssignOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18406,7 +15009,7 @@ void SgIorAssignOp_resetValidFreepointers( );
 unsigned long SgIorAssignOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18449,7 +15052,7 @@ void SgMultAssignOp_resetValidFreepointers( );
 unsigned long SgMultAssignOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18492,7 +15095,7 @@ void SgDivAssignOp_resetValidFreepointers( );
 unsigned long SgDivAssignOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18535,7 +15138,7 @@ void SgModAssignOp_resetValidFreepointers( );
 unsigned long SgModAssignOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18578,7 +15181,7 @@ void SgXorAssignOp_resetValidFreepointers( );
 unsigned long SgXorAssignOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18621,7 +15224,7 @@ void SgLshiftAssignOp_resetValidFreepointers( );
 unsigned long SgLshiftAssignOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18664,7 +15267,7 @@ void SgRshiftAssignOp_resetValidFreepointers( );
 unsigned long SgRshiftAssignOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18707,7 +15310,7 @@ void SgJavaUnsignedRshiftAssignOp_resetValidFreepointers( );
 unsigned long SgJavaUnsignedRshiftAssignOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18750,7 +15353,7 @@ void SgIntegerDivideAssignOp_resetValidFreepointers( );
 unsigned long SgIntegerDivideAssignOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18793,7 +15396,7 @@ void SgExponentiationAssignOp_resetValidFreepointers( );
 unsigned long SgExponentiationAssignOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18836,7 +15439,7 @@ void SgMembershipOp_resetValidFreepointers( );
 unsigned long SgMembershipOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18879,7 +15482,7 @@ void SgNonMembershipOp_resetValidFreepointers( );
 unsigned long SgNonMembershipOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18922,7 +15525,7 @@ void SgIsOp_resetValidFreepointers( );
 unsigned long SgIsOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -18965,437 +15568,7 @@ void SgIsNotOp_resetValidFreepointers( );
 unsigned long SgIsNotOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgDotDotExp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgDotDotExp* SgDotDotExp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgDotDotExp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgDotDotExp* SgDotDotExp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgDotDotExp* SgDotDotExp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgDotDotExp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgDotDotExp_clearMemoryPool ( );
-void SgDotDotExp_extendMemoryPoolForFileIO ( );
-unsigned long SgDotDotExp_initializeStorageClassArray( SgDotDotExpStorageClass *storageArray );
-void SgDotDotExp_resetValidFreepointers( );
-unsigned long SgDotDotExp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgElementwiseOp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgElementwiseOp* SgElementwiseOp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgElementwiseOp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgElementwiseOp* SgElementwiseOp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgElementwiseOp* SgElementwiseOp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgElementwiseOp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgElementwiseOp_clearMemoryPool ( );
-void SgElementwiseOp_extendMemoryPoolForFileIO ( );
-unsigned long SgElementwiseOp_initializeStorageClassArray( SgElementwiseOpStorageClass *storageArray );
-void SgElementwiseOp_resetValidFreepointers( );
-unsigned long SgElementwiseOp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgElementwiseMultiplyOp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgElementwiseMultiplyOp* SgElementwiseMultiplyOp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgElementwiseMultiplyOp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgElementwiseMultiplyOp* SgElementwiseMultiplyOp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgElementwiseMultiplyOp* SgElementwiseMultiplyOp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgElementwiseMultiplyOp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgElementwiseMultiplyOp_clearMemoryPool ( );
-void SgElementwiseMultiplyOp_extendMemoryPoolForFileIO ( );
-unsigned long SgElementwiseMultiplyOp_initializeStorageClassArray( SgElementwiseMultiplyOpStorageClass *storageArray );
-void SgElementwiseMultiplyOp_resetValidFreepointers( );
-unsigned long SgElementwiseMultiplyOp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgElementwisePowerOp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgElementwisePowerOp* SgElementwisePowerOp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgElementwisePowerOp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgElementwisePowerOp* SgElementwisePowerOp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgElementwisePowerOp* SgElementwisePowerOp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgElementwisePowerOp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgElementwisePowerOp_clearMemoryPool ( );
-void SgElementwisePowerOp_extendMemoryPoolForFileIO ( );
-unsigned long SgElementwisePowerOp_initializeStorageClassArray( SgElementwisePowerOpStorageClass *storageArray );
-void SgElementwisePowerOp_resetValidFreepointers( );
-unsigned long SgElementwisePowerOp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgElementwiseLeftDivideOp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgElementwiseLeftDivideOp* SgElementwiseLeftDivideOp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgElementwiseLeftDivideOp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgElementwiseLeftDivideOp* SgElementwiseLeftDivideOp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgElementwiseLeftDivideOp* SgElementwiseLeftDivideOp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgElementwiseLeftDivideOp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgElementwiseLeftDivideOp_clearMemoryPool ( );
-void SgElementwiseLeftDivideOp_extendMemoryPoolForFileIO ( );
-unsigned long SgElementwiseLeftDivideOp_initializeStorageClassArray( SgElementwiseLeftDivideOpStorageClass *storageArray );
-void SgElementwiseLeftDivideOp_resetValidFreepointers( );
-unsigned long SgElementwiseLeftDivideOp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgElementwiseDivideOp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgElementwiseDivideOp* SgElementwiseDivideOp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgElementwiseDivideOp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgElementwiseDivideOp* SgElementwiseDivideOp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgElementwiseDivideOp* SgElementwiseDivideOp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgElementwiseDivideOp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgElementwiseDivideOp_clearMemoryPool ( );
-void SgElementwiseDivideOp_extendMemoryPoolForFileIO ( );
-unsigned long SgElementwiseDivideOp_initializeStorageClassArray( SgElementwiseDivideOpStorageClass *storageArray );
-void SgElementwiseDivideOp_resetValidFreepointers( );
-unsigned long SgElementwiseDivideOp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgElementwiseAddOp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgElementwiseAddOp* SgElementwiseAddOp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgElementwiseAddOp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgElementwiseAddOp* SgElementwiseAddOp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgElementwiseAddOp* SgElementwiseAddOp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgElementwiseAddOp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgElementwiseAddOp_clearMemoryPool ( );
-void SgElementwiseAddOp_extendMemoryPoolForFileIO ( );
-unsigned long SgElementwiseAddOp_initializeStorageClassArray( SgElementwiseAddOpStorageClass *storageArray );
-void SgElementwiseAddOp_resetValidFreepointers( );
-unsigned long SgElementwiseAddOp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgElementwiseSubtractOp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgElementwiseSubtractOp* SgElementwiseSubtractOp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgElementwiseSubtractOp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgElementwiseSubtractOp* SgElementwiseSubtractOp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgElementwiseSubtractOp* SgElementwiseSubtractOp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgElementwiseSubtractOp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgElementwiseSubtractOp_clearMemoryPool ( );
-void SgElementwiseSubtractOp_extendMemoryPoolForFileIO ( );
-unsigned long SgElementwiseSubtractOp_initializeStorageClassArray( SgElementwiseSubtractOpStorageClass *storageArray );
-void SgElementwiseSubtractOp_resetValidFreepointers( );
-unsigned long SgElementwiseSubtractOp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgPowerOp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgPowerOp* SgPowerOp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgPowerOp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgPowerOp* SgPowerOp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgPowerOp* SgPowerOp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgPowerOp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgPowerOp_clearMemoryPool ( );
-void SgPowerOp_extendMemoryPoolForFileIO ( );
-unsigned long SgPowerOp_initializeStorageClassArray( SgPowerOpStorageClass *storageArray );
-void SgPowerOp_resetValidFreepointers( );
-unsigned long SgPowerOp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgLeftDivideOp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgLeftDivideOp* SgLeftDivideOp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgLeftDivideOp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgLeftDivideOp* SgLeftDivideOp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgLeftDivideOp* SgLeftDivideOp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgLeftDivideOp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgLeftDivideOp_clearMemoryPool ( );
-void SgLeftDivideOp_extendMemoryPoolForFileIO ( );
-unsigned long SgLeftDivideOp_initializeStorageClassArray( SgLeftDivideOpStorageClass *storageArray );
-void SgLeftDivideOp_resetValidFreepointers( );
-unsigned long SgLeftDivideOp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -19438,7 +15611,7 @@ void SgExprListExp_resetValidFreepointers( );
 unsigned long SgExprListExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -19481,7 +15654,7 @@ void SgListExp_resetValidFreepointers( );
 unsigned long SgListExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -19524,50 +15697,7 @@ void SgTupleExp_resetValidFreepointers( );
 unsigned long SgTupleExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgMatrixExp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgMatrixExp* SgMatrixExp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgMatrixExp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgMatrixExp* SgMatrixExp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgMatrixExp* SgMatrixExp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgMatrixExp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgMatrixExp_clearMemoryPool ( );
-void SgMatrixExp_extendMemoryPoolForFileIO ( );
-unsigned long SgMatrixExp_initializeStorageClassArray( SgMatrixExpStorageClass *storageArray );
-void SgMatrixExp_resetValidFreepointers( );
-unsigned long SgMatrixExp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -19610,7 +15740,7 @@ void SgVarRefExp_resetValidFreepointers( );
 unsigned long SgVarRefExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -19653,7 +15783,7 @@ void SgClassNameRefExp_resetValidFreepointers( );
 unsigned long SgClassNameRefExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -19696,7 +15826,7 @@ void SgFunctionRefExp_resetValidFreepointers( );
 unsigned long SgFunctionRefExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -19739,7 +15869,7 @@ void SgMemberFunctionRefExp_resetValidFreepointers( );
 unsigned long SgMemberFunctionRefExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -19782,7 +15912,7 @@ void SgValueExp_resetValidFreepointers( );
 unsigned long SgValueExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -19825,7 +15955,7 @@ void SgBoolValExp_resetValidFreepointers( );
 unsigned long SgBoolValExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -19868,7 +15998,7 @@ void SgStringVal_resetValidFreepointers( );
 unsigned long SgStringVal_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -19911,7 +16041,7 @@ void SgShortVal_resetValidFreepointers( );
 unsigned long SgShortVal_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -19954,7 +16084,7 @@ void SgCharVal_resetValidFreepointers( );
 unsigned long SgCharVal_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -19997,7 +16127,7 @@ void SgUnsignedCharVal_resetValidFreepointers( );
 unsigned long SgUnsignedCharVal_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -20040,7 +16170,7 @@ void SgWcharVal_resetValidFreepointers( );
 unsigned long SgWcharVal_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -20083,7 +16213,7 @@ void SgUnsignedShortVal_resetValidFreepointers( );
 unsigned long SgUnsignedShortVal_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -20126,7 +16256,7 @@ void SgIntVal_resetValidFreepointers( );
 unsigned long SgIntVal_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -20169,7 +16299,7 @@ void SgEnumVal_resetValidFreepointers( );
 unsigned long SgEnumVal_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -20212,7 +16342,7 @@ void SgUnsignedIntVal_resetValidFreepointers( );
 unsigned long SgUnsignedIntVal_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -20255,7 +16385,7 @@ void SgLongIntVal_resetValidFreepointers( );
 unsigned long SgLongIntVal_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -20298,7 +16428,7 @@ void SgLongLongIntVal_resetValidFreepointers( );
 unsigned long SgLongLongIntVal_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -20341,7 +16471,7 @@ void SgUnsignedLongLongIntVal_resetValidFreepointers( );
 unsigned long SgUnsignedLongLongIntVal_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -20384,7 +16514,7 @@ void SgUnsignedLongVal_resetValidFreepointers( );
 unsigned long SgUnsignedLongVal_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -20427,7 +16557,7 @@ void SgFloatVal_resetValidFreepointers( );
 unsigned long SgFloatVal_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -20470,7 +16600,7 @@ void SgDoubleVal_resetValidFreepointers( );
 unsigned long SgDoubleVal_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -20513,7 +16643,7 @@ void SgLongDoubleVal_resetValidFreepointers( );
 unsigned long SgLongDoubleVal_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -20556,7 +16686,7 @@ void SgComplexVal_resetValidFreepointers( );
 unsigned long SgComplexVal_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -20599,7 +16729,7 @@ void SgUpcThreads_resetValidFreepointers( );
 unsigned long SgUpcThreads_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -20642,93 +16772,7 @@ void SgUpcMythread_resetValidFreepointers( );
 unsigned long SgUpcMythread_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgTemplateParameterVal_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgTemplateParameterVal* SgTemplateParameterVal_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgTemplateParameterVal_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgTemplateParameterVal* SgTemplateParameterVal_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgTemplateParameterVal* SgTemplateParameterVal_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgTemplateParameterVal_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgTemplateParameterVal_clearMemoryPool ( );
-void SgTemplateParameterVal_extendMemoryPoolForFileIO ( );
-unsigned long SgTemplateParameterVal_initializeStorageClassArray( SgTemplateParameterValStorageClass *storageArray );
-void SgTemplateParameterVal_resetValidFreepointers( );
-unsigned long SgTemplateParameterVal_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgNullptrValExp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgNullptrValExp* SgNullptrValExp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgNullptrValExp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgNullptrValExp* SgNullptrValExp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgNullptrValExp* SgNullptrValExp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgNullptrValExp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgNullptrValExp_clearMemoryPool ( );
-void SgNullptrValExp_extendMemoryPoolForFileIO ( );
-unsigned long SgNullptrValExp_initializeStorageClassArray( SgNullptrValExpStorageClass *storageArray );
-void SgNullptrValExp_resetValidFreepointers( );
-unsigned long SgNullptrValExp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -20771,7 +16815,7 @@ void SgCallExpression_resetValidFreepointers( );
 unsigned long SgCallExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -20814,50 +16858,7 @@ void SgFunctionCallExp_resetValidFreepointers( );
 unsigned long SgFunctionCallExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgCudaKernelCallExp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgCudaKernelCallExp* SgCudaKernelCallExp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgCudaKernelCallExp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgCudaKernelCallExp* SgCudaKernelCallExp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgCudaKernelCallExp* SgCudaKernelCallExp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgCudaKernelCallExp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgCudaKernelCallExp_clearMemoryPool ( );
-void SgCudaKernelCallExp_extendMemoryPoolForFileIO ( );
-unsigned long SgCudaKernelCallExp_initializeStorageClassArray( SgCudaKernelCallExpStorageClass *storageArray );
-void SgCudaKernelCallExp_resetValidFreepointers( );
-unsigned long SgCudaKernelCallExp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -20900,7 +16901,7 @@ void SgSizeOfOp_resetValidFreepointers( );
 unsigned long SgSizeOfOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -20943,7 +16944,7 @@ void SgUpcLocalsizeofExpression_resetValidFreepointers( );
 unsigned long SgUpcLocalsizeofExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -20986,7 +16987,7 @@ void SgUpcBlocksizeofExpression_resetValidFreepointers( );
 unsigned long SgUpcBlocksizeofExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21029,7 +17030,7 @@ void SgUpcElemsizeofExpression_resetValidFreepointers( );
 unsigned long SgUpcElemsizeofExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21072,7 +17073,7 @@ void SgJavaInstanceOfOp_resetValidFreepointers( );
 unsigned long SgJavaInstanceOfOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21115,7 +17116,7 @@ void SgSuperExp_resetValidFreepointers( );
 unsigned long SgSuperExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21158,7 +17159,7 @@ void SgTypeIdOp_resetValidFreepointers( );
 unsigned long SgTypeIdOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21201,7 +17202,7 @@ void SgConditionalExp_resetValidFreepointers( );
 unsigned long SgConditionalExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21244,7 +17245,7 @@ void SgNewExp_resetValidFreepointers( );
 unsigned long SgNewExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21287,7 +17288,7 @@ void SgDeleteExp_resetValidFreepointers( );
 unsigned long SgDeleteExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21330,7 +17331,7 @@ void SgThisExp_resetValidFreepointers( );
 unsigned long SgThisExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21373,7 +17374,7 @@ void SgRefExp_resetValidFreepointers( );
 unsigned long SgRefExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21416,7 +17417,7 @@ void SgInitializer_resetValidFreepointers( );
 unsigned long SgInitializer_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21459,7 +17460,7 @@ void SgAggregateInitializer_resetValidFreepointers( );
 unsigned long SgAggregateInitializer_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21502,7 +17503,7 @@ void SgCompoundInitializer_resetValidFreepointers( );
 unsigned long SgCompoundInitializer_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21545,7 +17546,7 @@ void SgConstructorInitializer_resetValidFreepointers( );
 unsigned long SgConstructorInitializer_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21588,7 +17589,7 @@ void SgAssignInitializer_resetValidFreepointers( );
 unsigned long SgAssignInitializer_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21631,7 +17632,7 @@ void SgDesignatedInitializer_resetValidFreepointers( );
 unsigned long SgDesignatedInitializer_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21674,7 +17675,7 @@ void SgVarArgStartOp_resetValidFreepointers( );
 unsigned long SgVarArgStartOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21717,7 +17718,7 @@ void SgVarArgOp_resetValidFreepointers( );
 unsigned long SgVarArgOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21760,7 +17761,7 @@ void SgVarArgEndOp_resetValidFreepointers( );
 unsigned long SgVarArgEndOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21803,7 +17804,7 @@ void SgVarArgCopyOp_resetValidFreepointers( );
 unsigned long SgVarArgCopyOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21846,7 +17847,7 @@ void SgVarArgStartOneOperandOp_resetValidFreepointers( );
 unsigned long SgVarArgStartOneOperandOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21889,7 +17890,7 @@ void SgNullExpression_resetValidFreepointers( );
 unsigned long SgNullExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21932,7 +17933,7 @@ void SgVariantExpression_resetValidFreepointers( );
 unsigned long SgVariantExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -21975,7 +17976,7 @@ void SgSubscriptExpression_resetValidFreepointers( );
 unsigned long SgSubscriptExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22018,7 +18019,7 @@ void SgColonShapeExp_resetValidFreepointers( );
 unsigned long SgColonShapeExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22061,7 +18062,7 @@ void SgAsteriskShapeExp_resetValidFreepointers( );
 unsigned long SgAsteriskShapeExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22104,7 +18105,7 @@ void SgImpliedDo_resetValidFreepointers( );
 unsigned long SgImpliedDo_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22147,7 +18148,7 @@ void SgIOItemExpression_resetValidFreepointers( );
 unsigned long SgIOItemExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22190,7 +18191,7 @@ void SgStatementExpression_resetValidFreepointers( );
 unsigned long SgStatementExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22233,7 +18234,7 @@ void SgAsmOp_resetValidFreepointers( );
 unsigned long SgAsmOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22276,7 +18277,7 @@ void SgLabelRefExp_resetValidFreepointers( );
 unsigned long SgLabelRefExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22319,7 +18320,7 @@ void SgActualArgumentExpression_resetValidFreepointers( );
 unsigned long SgActualArgumentExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22362,7 +18363,7 @@ void SgUnknownArrayOrFunctionReference_resetValidFreepointers( );
 unsigned long SgUnknownArrayOrFunctionReference_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22405,7 +18406,7 @@ void SgPseudoDestructorRefExp_resetValidFreepointers( );
 unsigned long SgPseudoDestructorRefExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22448,7 +18449,50 @@ void SgCAFCoExpression_resetValidFreepointers( );
 unsigned long SgCAFCoExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgCudaKernelCallExp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgCudaKernelCallExp* SgCudaKernelCallExp_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgCudaKernelCallExp_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgCudaKernelCallExp* SgCudaKernelCallExp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgCudaKernelCallExp* SgCudaKernelCallExp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgCudaKernelCallExp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgCudaKernelCallExp_clearMemoryPool ( );
+void SgCudaKernelCallExp_extendMemoryPoolForFileIO ( );
+unsigned long SgCudaKernelCallExp_initializeStorageClassArray( SgCudaKernelCallExpStorageClass *storageArray );
+void SgCudaKernelCallExp_resetValidFreepointers( );
+unsigned long SgCudaKernelCallExp_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22491,7 +18535,7 @@ void SgCudaKernelExecConfig_resetValidFreepointers( );
 unsigned long SgCudaKernelExecConfig_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22534,7 +18578,7 @@ void SgLambdaRefExp_resetValidFreepointers( );
 unsigned long SgLambdaRefExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22577,7 +18621,7 @@ void SgDictionaryExp_resetValidFreepointers( );
 unsigned long SgDictionaryExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22620,7 +18664,7 @@ void SgKeyDatumPair_resetValidFreepointers( );
 unsigned long SgKeyDatumPair_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22663,7 +18707,7 @@ void SgComprehension_resetValidFreepointers( );
 unsigned long SgComprehension_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22706,7 +18750,7 @@ void SgListComprehension_resetValidFreepointers( );
 unsigned long SgListComprehension_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22749,7 +18793,7 @@ void SgSetComprehension_resetValidFreepointers( );
 unsigned long SgSetComprehension_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22792,7 +18836,7 @@ void SgDictionaryComprehension_resetValidFreepointers( );
 unsigned long SgDictionaryComprehension_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22835,7 +18879,7 @@ void SgNaryOp_resetValidFreepointers( );
 unsigned long SgNaryOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22878,7 +18922,7 @@ void SgNaryBooleanOp_resetValidFreepointers( );
 unsigned long SgNaryBooleanOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22921,7 +18965,7 @@ void SgNaryComparisonOp_resetValidFreepointers( );
 unsigned long SgNaryComparisonOp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -22964,7 +19008,7 @@ void SgStringConversion_resetValidFreepointers( );
 unsigned long SgStringConversion_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -23007,7 +19051,7 @@ void SgYieldExpression_resetValidFreepointers( );
 unsigned long SgYieldExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -23017,13 +19061,13 @@ unsigned long SgYieldExpression_getNumberOfLastValidPointer();
      This can be removed and should be replaced by a function that evaluates to an increasing 
      value so that each block in a memory pool is larger than the last (e.g. factor of 2).
 */
-extern int SgTemplateFunctionRefExp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+extern int SgToken_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
 
 /*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
 
 \internal This is part of the support for memory pools withn ROSE.
 */
-extern SgTemplateFunctionRefExp* SgTemplateFunctionRefExp_Current_Link;              // = NULL;
+extern SgToken* SgToken_Current_Link;              // = NULL;
 
 // DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
 // This is was one of the things on the todo list (above).
@@ -23032,842 +19076,25 @@ extern SgTemplateFunctionRefExp* SgTemplateFunctionRefExp_Current_Link;         
 
 \internal This is part of the support for memory pools within ROSE.
 */
-extern std::vector < unsigned char* > SgTemplateFunctionRefExp_Memory_Block_List;
+extern std::vector < unsigned char* > SgToken_Memory_Block_List;
 /* */
 
 // DQ (4/6/2006): Newer code from Jochen
 // Methods to find the pointer to a global and local index
-SgTemplateFunctionRefExp* SgTemplateFunctionRefExp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgTemplateFunctionRefExp* SgTemplateFunctionRefExp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+SgToken* SgToken_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgToken* SgToken_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
 
 // Methods for computing the total size of the memory pool. It actually returns the
 // size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgTemplateFunctionRefExp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgTemplateFunctionRefExp_clearMemoryPool ( );
-void SgTemplateFunctionRefExp_extendMemoryPoolForFileIO ( );
-unsigned long SgTemplateFunctionRefExp_initializeStorageClassArray( SgTemplateFunctionRefExpStorageClass *storageArray );
-void SgTemplateFunctionRefExp_resetValidFreepointers( );
-unsigned long SgTemplateFunctionRefExp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgTemplateMemberFunctionRefExp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgTemplateMemberFunctionRefExp* SgTemplateMemberFunctionRefExp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgTemplateMemberFunctionRefExp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgTemplateMemberFunctionRefExp* SgTemplateMemberFunctionRefExp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgTemplateMemberFunctionRefExp* SgTemplateMemberFunctionRefExp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgTemplateMemberFunctionRefExp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgTemplateMemberFunctionRefExp_clearMemoryPool ( );
-void SgTemplateMemberFunctionRefExp_extendMemoryPoolForFileIO ( );
-unsigned long SgTemplateMemberFunctionRefExp_initializeStorageClassArray( SgTemplateMemberFunctionRefExpStorageClass *storageArray );
-void SgTemplateMemberFunctionRefExp_resetValidFreepointers( );
-unsigned long SgTemplateMemberFunctionRefExp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgAlignOfOp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgAlignOfOp* SgAlignOfOp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgAlignOfOp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgAlignOfOp* SgAlignOfOp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgAlignOfOp* SgAlignOfOp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgAlignOfOp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgAlignOfOp_clearMemoryPool ( );
-void SgAlignOfOp_extendMemoryPoolForFileIO ( );
-unsigned long SgAlignOfOp_initializeStorageClassArray( SgAlignOfOpStorageClass *storageArray );
-void SgAlignOfOp_resetValidFreepointers( );
-unsigned long SgAlignOfOp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgRangeExp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgRangeExp* SgRangeExp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgRangeExp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgRangeExp* SgRangeExp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgRangeExp* SgRangeExp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgRangeExp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgRangeExp_clearMemoryPool ( );
-void SgRangeExp_extendMemoryPoolForFileIO ( );
-unsigned long SgRangeExp_initializeStorageClassArray( SgRangeExpStorageClass *storageArray );
-void SgRangeExp_resetValidFreepointers( );
-unsigned long SgRangeExp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgMagicColonExp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgMagicColonExp* SgMagicColonExp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgMagicColonExp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgMagicColonExp* SgMagicColonExp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgMagicColonExp* SgMagicColonExp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgMagicColonExp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgMagicColonExp_clearMemoryPool ( );
-void SgMagicColonExp_extendMemoryPoolForFileIO ( );
-unsigned long SgMagicColonExp_initializeStorageClassArray( SgMagicColonExpStorageClass *storageArray );
-void SgMagicColonExp_resetValidFreepointers( );
-unsigned long SgMagicColonExp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgTypeTraitBuiltinOperator_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgTypeTraitBuiltinOperator* SgTypeTraitBuiltinOperator_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgTypeTraitBuiltinOperator_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgTypeTraitBuiltinOperator* SgTypeTraitBuiltinOperator_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgTypeTraitBuiltinOperator* SgTypeTraitBuiltinOperator_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgTypeTraitBuiltinOperator_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgTypeTraitBuiltinOperator_clearMemoryPool ( );
-void SgTypeTraitBuiltinOperator_extendMemoryPoolForFileIO ( );
-unsigned long SgTypeTraitBuiltinOperator_initializeStorageClassArray( SgTypeTraitBuiltinOperatorStorageClass *storageArray );
-void SgTypeTraitBuiltinOperator_resetValidFreepointers( );
-unsigned long SgTypeTraitBuiltinOperator_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgCompoundLiteralExp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgCompoundLiteralExp* SgCompoundLiteralExp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgCompoundLiteralExp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgCompoundLiteralExp* SgCompoundLiteralExp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgCompoundLiteralExp* SgCompoundLiteralExp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgCompoundLiteralExp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgCompoundLiteralExp_clearMemoryPool ( );
-void SgCompoundLiteralExp_extendMemoryPoolForFileIO ( );
-unsigned long SgCompoundLiteralExp_initializeStorageClassArray( SgCompoundLiteralExpStorageClass *storageArray );
-void SgCompoundLiteralExp_resetValidFreepointers( );
-unsigned long SgCompoundLiteralExp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgJavaAnnotation_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgJavaAnnotation* SgJavaAnnotation_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgJavaAnnotation_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgJavaAnnotation* SgJavaAnnotation_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgJavaAnnotation* SgJavaAnnotation_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgJavaAnnotation_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgJavaAnnotation_clearMemoryPool ( );
-void SgJavaAnnotation_extendMemoryPoolForFileIO ( );
-unsigned long SgJavaAnnotation_initializeStorageClassArray( SgJavaAnnotationStorageClass *storageArray );
-void SgJavaAnnotation_resetValidFreepointers( );
-unsigned long SgJavaAnnotation_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgJavaMarkerAnnotation_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgJavaMarkerAnnotation* SgJavaMarkerAnnotation_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgJavaMarkerAnnotation_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgJavaMarkerAnnotation* SgJavaMarkerAnnotation_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgJavaMarkerAnnotation* SgJavaMarkerAnnotation_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgJavaMarkerAnnotation_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgJavaMarkerAnnotation_clearMemoryPool ( );
-void SgJavaMarkerAnnotation_extendMemoryPoolForFileIO ( );
-unsigned long SgJavaMarkerAnnotation_initializeStorageClassArray( SgJavaMarkerAnnotationStorageClass *storageArray );
-void SgJavaMarkerAnnotation_resetValidFreepointers( );
-unsigned long SgJavaMarkerAnnotation_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgJavaSingleMemberAnnotation_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgJavaSingleMemberAnnotation* SgJavaSingleMemberAnnotation_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgJavaSingleMemberAnnotation_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgJavaSingleMemberAnnotation* SgJavaSingleMemberAnnotation_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgJavaSingleMemberAnnotation* SgJavaSingleMemberAnnotation_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgJavaSingleMemberAnnotation_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgJavaSingleMemberAnnotation_clearMemoryPool ( );
-void SgJavaSingleMemberAnnotation_extendMemoryPoolForFileIO ( );
-unsigned long SgJavaSingleMemberAnnotation_initializeStorageClassArray( SgJavaSingleMemberAnnotationStorageClass *storageArray );
-void SgJavaSingleMemberAnnotation_resetValidFreepointers( );
-unsigned long SgJavaSingleMemberAnnotation_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgJavaNormalAnnotation_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgJavaNormalAnnotation* SgJavaNormalAnnotation_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgJavaNormalAnnotation_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgJavaNormalAnnotation* SgJavaNormalAnnotation_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgJavaNormalAnnotation* SgJavaNormalAnnotation_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgJavaNormalAnnotation_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgJavaNormalAnnotation_clearMemoryPool ( );
-void SgJavaNormalAnnotation_extendMemoryPoolForFileIO ( );
-unsigned long SgJavaNormalAnnotation_initializeStorageClassArray( SgJavaNormalAnnotationStorageClass *storageArray );
-void SgJavaNormalAnnotation_resetValidFreepointers( );
-unsigned long SgJavaNormalAnnotation_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgJavaTypeExpression_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgJavaTypeExpression* SgJavaTypeExpression_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgJavaTypeExpression_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgJavaTypeExpression* SgJavaTypeExpression_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgJavaTypeExpression* SgJavaTypeExpression_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgJavaTypeExpression_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgJavaTypeExpression_clearMemoryPool ( );
-void SgJavaTypeExpression_extendMemoryPoolForFileIO ( );
-unsigned long SgJavaTypeExpression_initializeStorageClassArray( SgJavaTypeExpressionStorageClass *storageArray );
-void SgJavaTypeExpression_resetValidFreepointers( );
-unsigned long SgJavaTypeExpression_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgTypeExpression_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgTypeExpression* SgTypeExpression_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgTypeExpression_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgTypeExpression* SgTypeExpression_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgTypeExpression* SgTypeExpression_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgTypeExpression_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgTypeExpression_clearMemoryPool ( );
-void SgTypeExpression_extendMemoryPoolForFileIO ( );
-unsigned long SgTypeExpression_initializeStorageClassArray( SgTypeExpressionStorageClass *storageArray );
-void SgTypeExpression_resetValidFreepointers( );
-unsigned long SgTypeExpression_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgClassExp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgClassExp* SgClassExp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgClassExp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgClassExp* SgClassExp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgClassExp* SgClassExp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgClassExp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgClassExp_clearMemoryPool ( );
-void SgClassExp_extendMemoryPoolForFileIO ( );
-unsigned long SgClassExp_initializeStorageClassArray( SgClassExpStorageClass *storageArray );
-void SgClassExp_resetValidFreepointers( );
-unsigned long SgClassExp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgFunctionParameterRefExp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgFunctionParameterRefExp* SgFunctionParameterRefExp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgFunctionParameterRefExp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgFunctionParameterRefExp* SgFunctionParameterRefExp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgFunctionParameterRefExp* SgFunctionParameterRefExp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgFunctionParameterRefExp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgFunctionParameterRefExp_clearMemoryPool ( );
-void SgFunctionParameterRefExp_extendMemoryPoolForFileIO ( );
-unsigned long SgFunctionParameterRefExp_initializeStorageClassArray( SgFunctionParameterRefExpStorageClass *storageArray );
-void SgFunctionParameterRefExp_resetValidFreepointers( );
-unsigned long SgFunctionParameterRefExp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgLambdaExp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgLambdaExp* SgLambdaExp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgLambdaExp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgLambdaExp* SgLambdaExp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgLambdaExp* SgLambdaExp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgLambdaExp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgLambdaExp_clearMemoryPool ( );
-void SgLambdaExp_extendMemoryPoolForFileIO ( );
-unsigned long SgLambdaExp_initializeStorageClassArray( SgLambdaExpStorageClass *storageArray );
-void SgLambdaExp_resetValidFreepointers( );
-unsigned long SgLambdaExp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgHereExp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgHereExp* SgHereExp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgHereExp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgHereExp* SgHereExp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgHereExp* SgHereExp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgHereExp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgHereExp_clearMemoryPool ( );
-void SgHereExp_extendMemoryPoolForFileIO ( );
-unsigned long SgHereExp_initializeStorageClassArray( SgHereExpStorageClass *storageArray );
-void SgHereExp_resetValidFreepointers( );
-unsigned long SgHereExp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgAtExp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgAtExp* SgAtExp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgAtExp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgAtExp* SgAtExp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgAtExp* SgAtExp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgAtExp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgAtExp_clearMemoryPool ( );
-void SgAtExp_extendMemoryPoolForFileIO ( );
-unsigned long SgAtExp_initializeStorageClassArray( SgAtExpStorageClass *storageArray );
-void SgAtExp_resetValidFreepointers( );
-unsigned long SgAtExp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgFinishExp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgFinishExp* SgFinishExp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgFinishExp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgFinishExp* SgFinishExp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgFinishExp* SgFinishExp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgFinishExp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgFinishExp_clearMemoryPool ( );
-void SgFinishExp_extendMemoryPoolForFileIO ( );
-unsigned long SgFinishExp_initializeStorageClassArray( SgFinishExpStorageClass *storageArray );
-void SgFinishExp_resetValidFreepointers( );
-unsigned long SgFinishExp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgNoexceptOp_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgNoexceptOp* SgNoexceptOp_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgNoexceptOp_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgNoexceptOp* SgNoexceptOp_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgNoexceptOp* SgNoexceptOp_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgNoexceptOp_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgNoexceptOp_clearMemoryPool ( );
-void SgNoexceptOp_extendMemoryPoolForFileIO ( );
-unsigned long SgNoexceptOp_initializeStorageClassArray( SgNoexceptOpStorageClass *storageArray );
-void SgNoexceptOp_resetValidFreepointers( );
-unsigned long SgNoexceptOp_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+unsigned long SgToken_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgToken_clearMemoryPool ( );
+void SgToken_extendMemoryPoolForFileIO ( );
+unsigned long SgToken_initializeStorageClassArray( SgTokenStorageClass *storageArray );
+void SgToken_resetValidFreepointers( );
+unsigned long SgToken_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -23910,7 +19137,7 @@ void SgSymbol_resetValidFreepointers( );
 unsigned long SgSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -23953,50 +19180,7 @@ void SgVariableSymbol_resetValidFreepointers( );
 unsigned long SgVariableSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgTemplateVariableSymbol_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgTemplateVariableSymbol* SgTemplateVariableSymbol_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgTemplateVariableSymbol_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgTemplateVariableSymbol* SgTemplateVariableSymbol_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgTemplateVariableSymbol* SgTemplateVariableSymbol_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgTemplateVariableSymbol_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgTemplateVariableSymbol_clearMemoryPool ( );
-void SgTemplateVariableSymbol_extendMemoryPoolForFileIO ( );
-unsigned long SgTemplateVariableSymbol_initializeStorageClassArray( SgTemplateVariableSymbolStorageClass *storageArray );
-void SgTemplateVariableSymbol_resetValidFreepointers( );
-unsigned long SgTemplateVariableSymbol_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -24039,7 +19223,7 @@ void SgFunctionSymbol_resetValidFreepointers( );
 unsigned long SgFunctionSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -24082,93 +19266,7 @@ void SgMemberFunctionSymbol_resetValidFreepointers( );
 unsigned long SgMemberFunctionSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgTemplateMemberFunctionSymbol_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgTemplateMemberFunctionSymbol* SgTemplateMemberFunctionSymbol_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgTemplateMemberFunctionSymbol_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgTemplateMemberFunctionSymbol* SgTemplateMemberFunctionSymbol_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgTemplateMemberFunctionSymbol* SgTemplateMemberFunctionSymbol_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgTemplateMemberFunctionSymbol_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgTemplateMemberFunctionSymbol_clearMemoryPool ( );
-void SgTemplateMemberFunctionSymbol_extendMemoryPoolForFileIO ( );
-unsigned long SgTemplateMemberFunctionSymbol_initializeStorageClassArray( SgTemplateMemberFunctionSymbolStorageClass *storageArray );
-void SgTemplateMemberFunctionSymbol_resetValidFreepointers( );
-unsigned long SgTemplateMemberFunctionSymbol_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgTemplateFunctionSymbol_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgTemplateFunctionSymbol* SgTemplateFunctionSymbol_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgTemplateFunctionSymbol_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgTemplateFunctionSymbol* SgTemplateFunctionSymbol_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgTemplateFunctionSymbol* SgTemplateFunctionSymbol_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgTemplateFunctionSymbol_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgTemplateFunctionSymbol_clearMemoryPool ( );
-void SgTemplateFunctionSymbol_extendMemoryPoolForFileIO ( );
-unsigned long SgTemplateFunctionSymbol_initializeStorageClassArray( SgTemplateFunctionSymbolStorageClass *storageArray );
-void SgTemplateFunctionSymbol_resetValidFreepointers( );
-unsigned long SgTemplateFunctionSymbol_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -24211,7 +19309,7 @@ void SgRenameSymbol_resetValidFreepointers( );
 unsigned long SgRenameSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -24254,7 +19352,7 @@ void SgFunctionTypeSymbol_resetValidFreepointers( );
 unsigned long SgFunctionTypeSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -24297,50 +19395,7 @@ void SgClassSymbol_resetValidFreepointers( );
 unsigned long SgClassSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgTemplateClassSymbol_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgTemplateClassSymbol* SgTemplateClassSymbol_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgTemplateClassSymbol_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgTemplateClassSymbol* SgTemplateClassSymbol_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgTemplateClassSymbol* SgTemplateClassSymbol_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgTemplateClassSymbol_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgTemplateClassSymbol_clearMemoryPool ( );
-void SgTemplateClassSymbol_extendMemoryPoolForFileIO ( );
-unsigned long SgTemplateClassSymbol_initializeStorageClassArray( SgTemplateClassSymbolStorageClass *storageArray );
-void SgTemplateClassSymbol_resetValidFreepointers( );
-unsigned long SgTemplateClassSymbol_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -24383,7 +19438,7 @@ void SgTemplateSymbol_resetValidFreepointers( );
 unsigned long SgTemplateSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -24426,7 +19481,7 @@ void SgEnumSymbol_resetValidFreepointers( );
 unsigned long SgEnumSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -24469,7 +19524,7 @@ void SgEnumFieldSymbol_resetValidFreepointers( );
 unsigned long SgEnumFieldSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -24512,50 +19567,7 @@ void SgTypedefSymbol_resetValidFreepointers( );
 unsigned long SgTypedefSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgTemplateTypedefSymbol_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgTemplateTypedefSymbol* SgTemplateTypedefSymbol_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgTemplateTypedefSymbol_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgTemplateTypedefSymbol* SgTemplateTypedefSymbol_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgTemplateTypedefSymbol* SgTemplateTypedefSymbol_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgTemplateTypedefSymbol_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgTemplateTypedefSymbol_clearMemoryPool ( );
-void SgTemplateTypedefSymbol_extendMemoryPoolForFileIO ( );
-unsigned long SgTemplateTypedefSymbol_initializeStorageClassArray( SgTemplateTypedefSymbolStorageClass *storageArray );
-void SgTemplateTypedefSymbol_resetValidFreepointers( );
-unsigned long SgTemplateTypedefSymbol_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -24598,7 +19610,7 @@ void SgLabelSymbol_resetValidFreepointers( );
 unsigned long SgLabelSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -24641,7 +19653,7 @@ void SgDefaultSymbol_resetValidFreepointers( );
 unsigned long SgDefaultSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -24684,7 +19696,7 @@ void SgNamespaceSymbol_resetValidFreepointers( );
 unsigned long SgNamespaceSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -24727,7 +19739,7 @@ void SgIntrinsicSymbol_resetValidFreepointers( );
 unsigned long SgIntrinsicSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -24770,7 +19782,7 @@ void SgModuleSymbol_resetValidFreepointers( );
 unsigned long SgModuleSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -24813,7 +19825,7 @@ void SgInterfaceSymbol_resetValidFreepointers( );
 unsigned long SgInterfaceSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -24856,7 +19868,7 @@ void SgCommonSymbol_resetValidFreepointers( );
 unsigned long SgCommonSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -24899,7 +19911,7 @@ void SgAliasSymbol_resetValidFreepointers( );
 unsigned long SgAliasSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -24942,7 +19954,7 @@ void SgAsmBinaryAddressSymbol_resetValidFreepointers( );
 unsigned long SgAsmBinaryAddressSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -24985,7 +19997,7 @@ void SgAsmBinaryDataSymbol_resetValidFreepointers( );
 unsigned long SgAsmBinaryDataSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -25028,7 +20040,7 @@ void SgJavaLabelSymbol_resetValidFreepointers( );
 unsigned long SgJavaLabelSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -25071,7 +20083,7 @@ void SgAsmNode_resetValidFreepointers( );
 unsigned long SgAsmNode_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -25114,93 +20126,7 @@ void SgAsmStatement_resetValidFreepointers( );
 unsigned long SgAsmStatement_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgAsmSynthesizedDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgAsmSynthesizedDeclaration* SgAsmSynthesizedDeclaration_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgAsmSynthesizedDeclaration_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgAsmSynthesizedDeclaration* SgAsmSynthesizedDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgAsmSynthesizedDeclaration* SgAsmSynthesizedDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgAsmSynthesizedDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgAsmSynthesizedDeclaration_clearMemoryPool ( );
-void SgAsmSynthesizedDeclaration_extendMemoryPoolForFileIO ( );
-unsigned long SgAsmSynthesizedDeclaration_initializeStorageClassArray( SgAsmSynthesizedDeclarationStorageClass *storageArray );
-void SgAsmSynthesizedDeclaration_resetValidFreepointers( );
-unsigned long SgAsmSynthesizedDeclaration_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgAsmSynthesizedDataStructureDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgAsmSynthesizedDataStructureDeclaration* SgAsmSynthesizedDataStructureDeclaration_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgAsmSynthesizedDataStructureDeclaration_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgAsmSynthesizedDataStructureDeclaration* SgAsmSynthesizedDataStructureDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgAsmSynthesizedDataStructureDeclaration* SgAsmSynthesizedDataStructureDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgAsmSynthesizedDataStructureDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgAsmSynthesizedDataStructureDeclaration_clearMemoryPool ( );
-void SgAsmSynthesizedDataStructureDeclaration_extendMemoryPoolForFileIO ( );
-unsigned long SgAsmSynthesizedDataStructureDeclaration_initializeStorageClassArray( SgAsmSynthesizedDataStructureDeclarationStorageClass *storageArray );
-void SgAsmSynthesizedDataStructureDeclaration_resetValidFreepointers( );
-unsigned long SgAsmSynthesizedDataStructureDeclaration_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -25243,50 +20169,7 @@ void SgAsmFunction_resetValidFreepointers( );
 unsigned long SgAsmFunction_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgAsmSynthesizedFieldDeclaration_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgAsmSynthesizedFieldDeclaration* SgAsmSynthesizedFieldDeclaration_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgAsmSynthesizedFieldDeclaration_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgAsmSynthesizedFieldDeclaration* SgAsmSynthesizedFieldDeclaration_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgAsmSynthesizedFieldDeclaration* SgAsmSynthesizedFieldDeclaration_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgAsmSynthesizedFieldDeclaration_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgAsmSynthesizedFieldDeclaration_clearMemoryPool ( );
-void SgAsmSynthesizedFieldDeclaration_extendMemoryPoolForFileIO ( );
-unsigned long SgAsmSynthesizedFieldDeclaration_initializeStorageClassArray( SgAsmSynthesizedFieldDeclarationStorageClass *storageArray );
-void SgAsmSynthesizedFieldDeclaration_resetValidFreepointers( );
-unsigned long SgAsmSynthesizedFieldDeclaration_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -25329,7 +20212,7 @@ void SgAsmBlock_resetValidFreepointers( );
 unsigned long SgAsmBlock_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -25372,7 +20255,7 @@ void SgAsmInstruction_resetValidFreepointers( );
 unsigned long SgAsmInstruction_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -25382,13 +20265,13 @@ unsigned long SgAsmInstruction_getNumberOfLastValidPointer();
      This can be removed and should be replaced by a function that evaluates to an increasing 
      value so that each block in a memory pool is larger than the last (e.g. factor of 2).
 */
-extern int SgAsmX86Instruction_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+extern int SgAsmx86Instruction_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
 
 /*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
 
 \internal This is part of the support for memory pools withn ROSE.
 */
-extern SgAsmX86Instruction* SgAsmX86Instruction_Current_Link;              // = NULL;
+extern SgAsmx86Instruction* SgAsmx86Instruction_Current_Link;              // = NULL;
 
 // DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
 // This is was one of the things on the todo list (above).
@@ -25397,25 +20280,25 @@ extern SgAsmX86Instruction* SgAsmX86Instruction_Current_Link;              // = 
 
 \internal This is part of the support for memory pools within ROSE.
 */
-extern std::vector < unsigned char* > SgAsmX86Instruction_Memory_Block_List;
+extern std::vector < unsigned char* > SgAsmx86Instruction_Memory_Block_List;
 /* */
 
 // DQ (4/6/2006): Newer code from Jochen
 // Methods to find the pointer to a global and local index
-SgAsmX86Instruction* SgAsmX86Instruction_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgAsmX86Instruction* SgAsmX86Instruction_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+SgAsmx86Instruction* SgAsmx86Instruction_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgAsmx86Instruction* SgAsmx86Instruction_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
 
 // Methods for computing the total size of the memory pool. It actually returns the
 // size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgAsmX86Instruction_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgAsmX86Instruction_clearMemoryPool ( );
-void SgAsmX86Instruction_extendMemoryPoolForFileIO ( );
-unsigned long SgAsmX86Instruction_initializeStorageClassArray( SgAsmX86InstructionStorageClass *storageArray );
-void SgAsmX86Instruction_resetValidFreepointers( );
-unsigned long SgAsmX86Instruction_getNumberOfLastValidPointer();
+unsigned long SgAsmx86Instruction_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgAsmx86Instruction_clearMemoryPool ( );
+void SgAsmx86Instruction_extendMemoryPoolForFileIO ( );
+unsigned long SgAsmx86Instruction_initializeStorageClassArray( SgAsmx86InstructionStorageClass *storageArray );
+void SgAsmx86Instruction_resetValidFreepointers( );
+unsigned long SgAsmx86Instruction_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -25458,7 +20341,7 @@ void SgAsmArmInstruction_resetValidFreepointers( );
 unsigned long SgAsmArmInstruction_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -25501,93 +20384,7 @@ void SgAsmPowerpcInstruction_resetValidFreepointers( );
 unsigned long SgAsmPowerpcInstruction_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgAsmMipsInstruction_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgAsmMipsInstruction* SgAsmMipsInstruction_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgAsmMipsInstruction_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgAsmMipsInstruction* SgAsmMipsInstruction_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgAsmMipsInstruction* SgAsmMipsInstruction_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgAsmMipsInstruction_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgAsmMipsInstruction_clearMemoryPool ( );
-void SgAsmMipsInstruction_extendMemoryPoolForFileIO ( );
-unsigned long SgAsmMipsInstruction_initializeStorageClassArray( SgAsmMipsInstructionStorageClass *storageArray );
-void SgAsmMipsInstruction_resetValidFreepointers( );
-unsigned long SgAsmMipsInstruction_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgAsmM68kInstruction_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgAsmM68kInstruction* SgAsmM68kInstruction_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgAsmM68kInstruction_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgAsmM68kInstruction* SgAsmM68kInstruction_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgAsmM68kInstruction* SgAsmM68kInstruction_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgAsmM68kInstruction_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgAsmM68kInstruction_clearMemoryPool ( );
-void SgAsmM68kInstruction_extendMemoryPoolForFileIO ( );
-unsigned long SgAsmM68kInstruction_initializeStorageClassArray( SgAsmM68kInstructionStorageClass *storageArray );
-void SgAsmM68kInstruction_resetValidFreepointers( );
-unsigned long SgAsmM68kInstruction_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -25630,7 +20427,7 @@ void SgAsmStaticData_resetValidFreepointers( );
 unsigned long SgAsmStaticData_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -25673,7 +20470,7 @@ void SgAsmExpression_resetValidFreepointers( );
 unsigned long SgAsmExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -25716,50 +20513,7 @@ void SgAsmValueExpression_resetValidFreepointers( );
 unsigned long SgAsmValueExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgAsmConstantExpression_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgAsmConstantExpression* SgAsmConstantExpression_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgAsmConstantExpression_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgAsmConstantExpression* SgAsmConstantExpression_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgAsmConstantExpression* SgAsmConstantExpression_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgAsmConstantExpression_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgAsmConstantExpression_clearMemoryPool ( );
-void SgAsmConstantExpression_extendMemoryPoolForFileIO ( );
-unsigned long SgAsmConstantExpression_initializeStorageClassArray( SgAsmConstantExpressionStorageClass *storageArray );
-void SgAsmConstantExpression_resetValidFreepointers( );
-unsigned long SgAsmConstantExpression_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -25802,7 +20556,7 @@ void SgAsmIntegerValueExpression_resetValidFreepointers( );
 unsigned long SgAsmIntegerValueExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -25812,13 +20566,13 @@ unsigned long SgAsmIntegerValueExpression_getNumberOfLastValidPointer();
      This can be removed and should be replaced by a function that evaluates to an increasing 
      value so that each block in a memory pool is larger than the last (e.g. factor of 2).
 */
-extern int SgAsmFloatValueExpression_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+extern int SgAsmByteValueExpression_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
 
 /*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
 
 \internal This is part of the support for memory pools withn ROSE.
 */
-extern SgAsmFloatValueExpression* SgAsmFloatValueExpression_Current_Link;              // = NULL;
+extern SgAsmByteValueExpression* SgAsmByteValueExpression_Current_Link;              // = NULL;
 
 // DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
 // This is was one of the things on the todo list (above).
@@ -25827,25 +20581,283 @@ extern SgAsmFloatValueExpression* SgAsmFloatValueExpression_Current_Link;       
 
 \internal This is part of the support for memory pools within ROSE.
 */
-extern std::vector < unsigned char* > SgAsmFloatValueExpression_Memory_Block_List;
+extern std::vector < unsigned char* > SgAsmByteValueExpression_Memory_Block_List;
 /* */
 
 // DQ (4/6/2006): Newer code from Jochen
 // Methods to find the pointer to a global and local index
-SgAsmFloatValueExpression* SgAsmFloatValueExpression_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgAsmFloatValueExpression* SgAsmFloatValueExpression_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+SgAsmByteValueExpression* SgAsmByteValueExpression_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgAsmByteValueExpression* SgAsmByteValueExpression_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
 
 // Methods for computing the total size of the memory pool. It actually returns the
 // size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgAsmFloatValueExpression_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgAsmFloatValueExpression_clearMemoryPool ( );
-void SgAsmFloatValueExpression_extendMemoryPoolForFileIO ( );
-unsigned long SgAsmFloatValueExpression_initializeStorageClassArray( SgAsmFloatValueExpressionStorageClass *storageArray );
-void SgAsmFloatValueExpression_resetValidFreepointers( );
-unsigned long SgAsmFloatValueExpression_getNumberOfLastValidPointer();
+unsigned long SgAsmByteValueExpression_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgAsmByteValueExpression_clearMemoryPool ( );
+void SgAsmByteValueExpression_extendMemoryPoolForFileIO ( );
+unsigned long SgAsmByteValueExpression_initializeStorageClassArray( SgAsmByteValueExpressionStorageClass *storageArray );
+void SgAsmByteValueExpression_resetValidFreepointers( );
+unsigned long SgAsmByteValueExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgAsmWordValueExpression_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgAsmWordValueExpression* SgAsmWordValueExpression_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgAsmWordValueExpression_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgAsmWordValueExpression* SgAsmWordValueExpression_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgAsmWordValueExpression* SgAsmWordValueExpression_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgAsmWordValueExpression_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgAsmWordValueExpression_clearMemoryPool ( );
+void SgAsmWordValueExpression_extendMemoryPoolForFileIO ( );
+unsigned long SgAsmWordValueExpression_initializeStorageClassArray( SgAsmWordValueExpressionStorageClass *storageArray );
+void SgAsmWordValueExpression_resetValidFreepointers( );
+unsigned long SgAsmWordValueExpression_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgAsmDoubleWordValueExpression_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgAsmDoubleWordValueExpression* SgAsmDoubleWordValueExpression_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgAsmDoubleWordValueExpression_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgAsmDoubleWordValueExpression* SgAsmDoubleWordValueExpression_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgAsmDoubleWordValueExpression* SgAsmDoubleWordValueExpression_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgAsmDoubleWordValueExpression_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgAsmDoubleWordValueExpression_clearMemoryPool ( );
+void SgAsmDoubleWordValueExpression_extendMemoryPoolForFileIO ( );
+unsigned long SgAsmDoubleWordValueExpression_initializeStorageClassArray( SgAsmDoubleWordValueExpressionStorageClass *storageArray );
+void SgAsmDoubleWordValueExpression_resetValidFreepointers( );
+unsigned long SgAsmDoubleWordValueExpression_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgAsmQuadWordValueExpression_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgAsmQuadWordValueExpression* SgAsmQuadWordValueExpression_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgAsmQuadWordValueExpression_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgAsmQuadWordValueExpression* SgAsmQuadWordValueExpression_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgAsmQuadWordValueExpression* SgAsmQuadWordValueExpression_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgAsmQuadWordValueExpression_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgAsmQuadWordValueExpression_clearMemoryPool ( );
+void SgAsmQuadWordValueExpression_extendMemoryPoolForFileIO ( );
+unsigned long SgAsmQuadWordValueExpression_initializeStorageClassArray( SgAsmQuadWordValueExpressionStorageClass *storageArray );
+void SgAsmQuadWordValueExpression_resetValidFreepointers( );
+unsigned long SgAsmQuadWordValueExpression_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgAsmSingleFloatValueExpression_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgAsmSingleFloatValueExpression* SgAsmSingleFloatValueExpression_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgAsmSingleFloatValueExpression_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgAsmSingleFloatValueExpression* SgAsmSingleFloatValueExpression_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgAsmSingleFloatValueExpression* SgAsmSingleFloatValueExpression_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgAsmSingleFloatValueExpression_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgAsmSingleFloatValueExpression_clearMemoryPool ( );
+void SgAsmSingleFloatValueExpression_extendMemoryPoolForFileIO ( );
+unsigned long SgAsmSingleFloatValueExpression_initializeStorageClassArray( SgAsmSingleFloatValueExpressionStorageClass *storageArray );
+void SgAsmSingleFloatValueExpression_resetValidFreepointers( );
+unsigned long SgAsmSingleFloatValueExpression_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgAsmDoubleFloatValueExpression_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgAsmDoubleFloatValueExpression* SgAsmDoubleFloatValueExpression_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgAsmDoubleFloatValueExpression_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgAsmDoubleFloatValueExpression* SgAsmDoubleFloatValueExpression_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgAsmDoubleFloatValueExpression* SgAsmDoubleFloatValueExpression_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgAsmDoubleFloatValueExpression_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgAsmDoubleFloatValueExpression_clearMemoryPool ( );
+void SgAsmDoubleFloatValueExpression_extendMemoryPoolForFileIO ( );
+unsigned long SgAsmDoubleFloatValueExpression_initializeStorageClassArray( SgAsmDoubleFloatValueExpressionStorageClass *storageArray );
+void SgAsmDoubleFloatValueExpression_resetValidFreepointers( );
+unsigned long SgAsmDoubleFloatValueExpression_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgAsmVectorValueExpression_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgAsmVectorValueExpression* SgAsmVectorValueExpression_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgAsmVectorValueExpression_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgAsmVectorValueExpression* SgAsmVectorValueExpression_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgAsmVectorValueExpression* SgAsmVectorValueExpression_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgAsmVectorValueExpression_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgAsmVectorValueExpression_clearMemoryPool ( );
+void SgAsmVectorValueExpression_extendMemoryPoolForFileIO ( );
+unsigned long SgAsmVectorValueExpression_initializeStorageClassArray( SgAsmVectorValueExpressionStorageClass *storageArray );
+void SgAsmVectorValueExpression_resetValidFreepointers( );
+unsigned long SgAsmVectorValueExpression_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -25888,7 +20900,7 @@ void SgAsmBinaryExpression_resetValidFreepointers( );
 unsigned long SgAsmBinaryExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -25931,7 +20943,7 @@ void SgAsmBinaryAdd_resetValidFreepointers( );
 unsigned long SgAsmBinaryAdd_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -25974,7 +20986,7 @@ void SgAsmBinarySubtract_resetValidFreepointers( );
 unsigned long SgAsmBinarySubtract_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26017,7 +21029,7 @@ void SgAsmBinaryMultiply_resetValidFreepointers( );
 unsigned long SgAsmBinaryMultiply_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26060,7 +21072,7 @@ void SgAsmBinaryDivide_resetValidFreepointers( );
 unsigned long SgAsmBinaryDivide_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26103,7 +21115,7 @@ void SgAsmBinaryMod_resetValidFreepointers( );
 unsigned long SgAsmBinaryMod_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26146,7 +21158,7 @@ void SgAsmBinaryAddPreupdate_resetValidFreepointers( );
 unsigned long SgAsmBinaryAddPreupdate_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26189,7 +21201,7 @@ void SgAsmBinarySubtractPreupdate_resetValidFreepointers( );
 unsigned long SgAsmBinarySubtractPreupdate_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26232,7 +21244,7 @@ void SgAsmBinaryAddPostupdate_resetValidFreepointers( );
 unsigned long SgAsmBinaryAddPostupdate_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26275,7 +21287,7 @@ void SgAsmBinarySubtractPostupdate_resetValidFreepointers( );
 unsigned long SgAsmBinarySubtractPostupdate_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26318,7 +21330,7 @@ void SgAsmBinaryLsl_resetValidFreepointers( );
 unsigned long SgAsmBinaryLsl_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26361,7 +21373,7 @@ void SgAsmBinaryLsr_resetValidFreepointers( );
 unsigned long SgAsmBinaryLsr_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26404,7 +21416,7 @@ void SgAsmBinaryAsr_resetValidFreepointers( );
 unsigned long SgAsmBinaryAsr_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26447,7 +21459,7 @@ void SgAsmBinaryRor_resetValidFreepointers( );
 unsigned long SgAsmBinaryRor_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26490,7 +21502,7 @@ void SgAsmUnaryExpression_resetValidFreepointers( );
 unsigned long SgAsmUnaryExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26533,7 +21545,7 @@ void SgAsmUnaryPlus_resetValidFreepointers( );
 unsigned long SgAsmUnaryPlus_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26576,7 +21588,7 @@ void SgAsmUnaryMinus_resetValidFreepointers( );
 unsigned long SgAsmUnaryMinus_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26619,7 +21631,7 @@ void SgAsmUnaryRrx_resetValidFreepointers( );
 unsigned long SgAsmUnaryRrx_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26662,7 +21674,7 @@ void SgAsmUnaryArmSpecialRegisterList_resetValidFreepointers( );
 unsigned long SgAsmUnaryArmSpecialRegisterList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26705,7 +21717,7 @@ void SgAsmMemoryReferenceExpression_resetValidFreepointers( );
 unsigned long SgAsmMemoryReferenceExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26748,7 +21760,7 @@ void SgAsmRegisterReferenceExpression_resetValidFreepointers( );
 unsigned long SgAsmRegisterReferenceExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26758,13 +21770,13 @@ unsigned long SgAsmRegisterReferenceExpression_getNumberOfLastValidPointer();
      This can be removed and should be replaced by a function that evaluates to an increasing 
      value so that each block in a memory pool is larger than the last (e.g. factor of 2).
 */
-extern int SgAsmDirectRegisterExpression_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+extern int SgAsmx86RegisterReferenceExpression_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
 
 /*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
 
 \internal This is part of the support for memory pools withn ROSE.
 */
-extern SgAsmDirectRegisterExpression* SgAsmDirectRegisterExpression_Current_Link;              // = NULL;
+extern SgAsmx86RegisterReferenceExpression* SgAsmx86RegisterReferenceExpression_Current_Link;              // = NULL;
 
 // DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
 // This is was one of the things on the todo list (above).
@@ -26773,25 +21785,25 @@ extern SgAsmDirectRegisterExpression* SgAsmDirectRegisterExpression_Current_Link
 
 \internal This is part of the support for memory pools within ROSE.
 */
-extern std::vector < unsigned char* > SgAsmDirectRegisterExpression_Memory_Block_List;
+extern std::vector < unsigned char* > SgAsmx86RegisterReferenceExpression_Memory_Block_List;
 /* */
 
 // DQ (4/6/2006): Newer code from Jochen
 // Methods to find the pointer to a global and local index
-SgAsmDirectRegisterExpression* SgAsmDirectRegisterExpression_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgAsmDirectRegisterExpression* SgAsmDirectRegisterExpression_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+SgAsmx86RegisterReferenceExpression* SgAsmx86RegisterReferenceExpression_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgAsmx86RegisterReferenceExpression* SgAsmx86RegisterReferenceExpression_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
 
 // Methods for computing the total size of the memory pool. It actually returns the
 // size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgAsmDirectRegisterExpression_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgAsmDirectRegisterExpression_clearMemoryPool ( );
-void SgAsmDirectRegisterExpression_extendMemoryPoolForFileIO ( );
-unsigned long SgAsmDirectRegisterExpression_initializeStorageClassArray( SgAsmDirectRegisterExpressionStorageClass *storageArray );
-void SgAsmDirectRegisterExpression_resetValidFreepointers( );
-unsigned long SgAsmDirectRegisterExpression_getNumberOfLastValidPointer();
+unsigned long SgAsmx86RegisterReferenceExpression_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgAsmx86RegisterReferenceExpression_clearMemoryPool ( );
+void SgAsmx86RegisterReferenceExpression_extendMemoryPoolForFileIO ( );
+unsigned long SgAsmx86RegisterReferenceExpression_initializeStorageClassArray( SgAsmx86RegisterReferenceExpressionStorageClass *storageArray );
+void SgAsmx86RegisterReferenceExpression_resetValidFreepointers( );
+unsigned long SgAsmx86RegisterReferenceExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26801,13 +21813,13 @@ unsigned long SgAsmDirectRegisterExpression_getNumberOfLastValidPointer();
      This can be removed and should be replaced by a function that evaluates to an increasing 
      value so that each block in a memory pool is larger than the last (e.g. factor of 2).
 */
-extern int SgAsmIndirectRegisterExpression_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+extern int SgAsmArmRegisterReferenceExpression_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
 
 /*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
 
 \internal This is part of the support for memory pools withn ROSE.
 */
-extern SgAsmIndirectRegisterExpression* SgAsmIndirectRegisterExpression_Current_Link;              // = NULL;
+extern SgAsmArmRegisterReferenceExpression* SgAsmArmRegisterReferenceExpression_Current_Link;              // = NULL;
 
 // DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
 // This is was one of the things on the todo list (above).
@@ -26816,25 +21828,68 @@ extern SgAsmIndirectRegisterExpression* SgAsmIndirectRegisterExpression_Current_
 
 \internal This is part of the support for memory pools within ROSE.
 */
-extern std::vector < unsigned char* > SgAsmIndirectRegisterExpression_Memory_Block_List;
+extern std::vector < unsigned char* > SgAsmArmRegisterReferenceExpression_Memory_Block_List;
 /* */
 
 // DQ (4/6/2006): Newer code from Jochen
 // Methods to find the pointer to a global and local index
-SgAsmIndirectRegisterExpression* SgAsmIndirectRegisterExpression_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgAsmIndirectRegisterExpression* SgAsmIndirectRegisterExpression_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+SgAsmArmRegisterReferenceExpression* SgAsmArmRegisterReferenceExpression_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgAsmArmRegisterReferenceExpression* SgAsmArmRegisterReferenceExpression_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
 
 // Methods for computing the total size of the memory pool. It actually returns the
 // size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgAsmIndirectRegisterExpression_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgAsmIndirectRegisterExpression_clearMemoryPool ( );
-void SgAsmIndirectRegisterExpression_extendMemoryPoolForFileIO ( );
-unsigned long SgAsmIndirectRegisterExpression_initializeStorageClassArray( SgAsmIndirectRegisterExpressionStorageClass *storageArray );
-void SgAsmIndirectRegisterExpression_resetValidFreepointers( );
-unsigned long SgAsmIndirectRegisterExpression_getNumberOfLastValidPointer();
+unsigned long SgAsmArmRegisterReferenceExpression_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgAsmArmRegisterReferenceExpression_clearMemoryPool ( );
+void SgAsmArmRegisterReferenceExpression_extendMemoryPoolForFileIO ( );
+unsigned long SgAsmArmRegisterReferenceExpression_initializeStorageClassArray( SgAsmArmRegisterReferenceExpressionStorageClass *storageArray );
+void SgAsmArmRegisterReferenceExpression_resetValidFreepointers( );
+unsigned long SgAsmArmRegisterReferenceExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgAsmPowerpcRegisterReferenceExpression_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgAsmPowerpcRegisterReferenceExpression* SgAsmPowerpcRegisterReferenceExpression_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgAsmPowerpcRegisterReferenceExpression_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgAsmPowerpcRegisterReferenceExpression* SgAsmPowerpcRegisterReferenceExpression_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgAsmPowerpcRegisterReferenceExpression* SgAsmPowerpcRegisterReferenceExpression_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgAsmPowerpcRegisterReferenceExpression_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgAsmPowerpcRegisterReferenceExpression_clearMemoryPool ( );
+void SgAsmPowerpcRegisterReferenceExpression_extendMemoryPoolForFileIO ( );
+unsigned long SgAsmPowerpcRegisterReferenceExpression_initializeStorageClassArray( SgAsmPowerpcRegisterReferenceExpressionStorageClass *storageArray );
+void SgAsmPowerpcRegisterReferenceExpression_resetValidFreepointers( );
+unsigned long SgAsmPowerpcRegisterReferenceExpression_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26877,7 +21932,7 @@ void SgAsmControlFlagsExpression_resetValidFreepointers( );
 unsigned long SgAsmControlFlagsExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26920,7 +21975,7 @@ void SgAsmCommonSubExpression_resetValidFreepointers( );
 unsigned long SgAsmCommonSubExpression_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -26963,93 +22018,7 @@ void SgAsmExprListExp_resetValidFreepointers( );
 unsigned long SgAsmExprListExp_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgAsmRegisterNames_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgAsmRegisterNames* SgAsmRegisterNames_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgAsmRegisterNames_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgAsmRegisterNames* SgAsmRegisterNames_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgAsmRegisterNames* SgAsmRegisterNames_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgAsmRegisterNames_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgAsmRegisterNames_clearMemoryPool ( );
-void SgAsmRegisterNames_extendMemoryPoolForFileIO ( );
-unsigned long SgAsmRegisterNames_initializeStorageClassArray( SgAsmRegisterNamesStorageClass *storageArray );
-void SgAsmRegisterNames_resetValidFreepointers( );
-unsigned long SgAsmRegisterNames_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgAsmRiscOperation_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgAsmRiscOperation* SgAsmRiscOperation_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgAsmRiscOperation_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgAsmRiscOperation* SgAsmRiscOperation_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgAsmRiscOperation* SgAsmRiscOperation_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgAsmRiscOperation_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgAsmRiscOperation_clearMemoryPool ( );
-void SgAsmRiscOperation_extendMemoryPoolForFileIO ( );
-unsigned long SgAsmRiscOperation_initializeStorageClassArray( SgAsmRiscOperationStorageClass *storageArray );
-void SgAsmRiscOperation_resetValidFreepointers( );
-unsigned long SgAsmRiscOperation_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -27092,7 +22061,7 @@ void SgAsmInterpretation_resetValidFreepointers( );
 unsigned long SgAsmInterpretation_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -27135,7 +22104,7 @@ void SgAsmOperandList_resetValidFreepointers( );
 unsigned long SgAsmOperandList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -27178,7 +22147,7 @@ void SgAsmType_resetValidFreepointers( );
 unsigned long SgAsmType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -27188,13 +22157,13 @@ unsigned long SgAsmType_getNumberOfLastValidPointer();
      This can be removed and should be replaced by a function that evaluates to an increasing 
      value so that each block in a memory pool is larger than the last (e.g. factor of 2).
 */
-extern int SgAsmScalarType_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+extern int SgAsmTypeByte_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
 
 /*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
 
 \internal This is part of the support for memory pools withn ROSE.
 */
-extern SgAsmScalarType* SgAsmScalarType_Current_Link;              // = NULL;
+extern SgAsmTypeByte* SgAsmTypeByte_Current_Link;              // = NULL;
 
 // DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
 // This is was one of the things on the todo list (above).
@@ -27203,25 +22172,25 @@ extern SgAsmScalarType* SgAsmScalarType_Current_Link;              // = NULL;
 
 \internal This is part of the support for memory pools within ROSE.
 */
-extern std::vector < unsigned char* > SgAsmScalarType_Memory_Block_List;
+extern std::vector < unsigned char* > SgAsmTypeByte_Memory_Block_List;
 /* */
 
 // DQ (4/6/2006): Newer code from Jochen
 // Methods to find the pointer to a global and local index
-SgAsmScalarType* SgAsmScalarType_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgAsmScalarType* SgAsmScalarType_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+SgAsmTypeByte* SgAsmTypeByte_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgAsmTypeByte* SgAsmTypeByte_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
 
 // Methods for computing the total size of the memory pool. It actually returns the
 // size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgAsmScalarType_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgAsmScalarType_clearMemoryPool ( );
-void SgAsmScalarType_extendMemoryPoolForFileIO ( );
-unsigned long SgAsmScalarType_initializeStorageClassArray( SgAsmScalarTypeStorageClass *storageArray );
-void SgAsmScalarType_resetValidFreepointers( );
-unsigned long SgAsmScalarType_getNumberOfLastValidPointer();
+unsigned long SgAsmTypeByte_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgAsmTypeByte_clearMemoryPool ( );
+void SgAsmTypeByte_extendMemoryPoolForFileIO ( );
+unsigned long SgAsmTypeByte_initializeStorageClassArray( SgAsmTypeByteStorageClass *storageArray );
+void SgAsmTypeByte_resetValidFreepointers( );
+unsigned long SgAsmTypeByte_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -27231,13 +22200,13 @@ unsigned long SgAsmScalarType_getNumberOfLastValidPointer();
      This can be removed and should be replaced by a function that evaluates to an increasing 
      value so that each block in a memory pool is larger than the last (e.g. factor of 2).
 */
-extern int SgAsmIntegerType_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+extern int SgAsmTypeWord_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
 
 /*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
 
 \internal This is part of the support for memory pools withn ROSE.
 */
-extern SgAsmIntegerType* SgAsmIntegerType_Current_Link;              // = NULL;
+extern SgAsmTypeWord* SgAsmTypeWord_Current_Link;              // = NULL;
 
 // DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
 // This is was one of the things on the todo list (above).
@@ -27246,25 +22215,25 @@ extern SgAsmIntegerType* SgAsmIntegerType_Current_Link;              // = NULL;
 
 \internal This is part of the support for memory pools within ROSE.
 */
-extern std::vector < unsigned char* > SgAsmIntegerType_Memory_Block_List;
+extern std::vector < unsigned char* > SgAsmTypeWord_Memory_Block_List;
 /* */
 
 // DQ (4/6/2006): Newer code from Jochen
 // Methods to find the pointer to a global and local index
-SgAsmIntegerType* SgAsmIntegerType_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgAsmIntegerType* SgAsmIntegerType_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+SgAsmTypeWord* SgAsmTypeWord_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgAsmTypeWord* SgAsmTypeWord_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
 
 // Methods for computing the total size of the memory pool. It actually returns the
 // size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgAsmIntegerType_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgAsmIntegerType_clearMemoryPool ( );
-void SgAsmIntegerType_extendMemoryPoolForFileIO ( );
-unsigned long SgAsmIntegerType_initializeStorageClassArray( SgAsmIntegerTypeStorageClass *storageArray );
-void SgAsmIntegerType_resetValidFreepointers( );
-unsigned long SgAsmIntegerType_getNumberOfLastValidPointer();
+unsigned long SgAsmTypeWord_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgAsmTypeWord_clearMemoryPool ( );
+void SgAsmTypeWord_extendMemoryPoolForFileIO ( );
+unsigned long SgAsmTypeWord_initializeStorageClassArray( SgAsmTypeWordStorageClass *storageArray );
+void SgAsmTypeWord_resetValidFreepointers( );
+unsigned long SgAsmTypeWord_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -27274,13 +22243,13 @@ unsigned long SgAsmIntegerType_getNumberOfLastValidPointer();
      This can be removed and should be replaced by a function that evaluates to an increasing 
      value so that each block in a memory pool is larger than the last (e.g. factor of 2).
 */
-extern int SgAsmFloatType_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+extern int SgAsmTypeDoubleWord_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
 
 /*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
 
 \internal This is part of the support for memory pools withn ROSE.
 */
-extern SgAsmFloatType* SgAsmFloatType_Current_Link;              // = NULL;
+extern SgAsmTypeDoubleWord* SgAsmTypeDoubleWord_Current_Link;              // = NULL;
 
 // DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
 // This is was one of the things on the todo list (above).
@@ -27289,25 +22258,25 @@ extern SgAsmFloatType* SgAsmFloatType_Current_Link;              // = NULL;
 
 \internal This is part of the support for memory pools within ROSE.
 */
-extern std::vector < unsigned char* > SgAsmFloatType_Memory_Block_List;
+extern std::vector < unsigned char* > SgAsmTypeDoubleWord_Memory_Block_List;
 /* */
 
 // DQ (4/6/2006): Newer code from Jochen
 // Methods to find the pointer to a global and local index
-SgAsmFloatType* SgAsmFloatType_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgAsmFloatType* SgAsmFloatType_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+SgAsmTypeDoubleWord* SgAsmTypeDoubleWord_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgAsmTypeDoubleWord* SgAsmTypeDoubleWord_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
 
 // Methods for computing the total size of the memory pool. It actually returns the
 // size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgAsmFloatType_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgAsmFloatType_clearMemoryPool ( );
-void SgAsmFloatType_extendMemoryPoolForFileIO ( );
-unsigned long SgAsmFloatType_initializeStorageClassArray( SgAsmFloatTypeStorageClass *storageArray );
-void SgAsmFloatType_resetValidFreepointers( );
-unsigned long SgAsmFloatType_getNumberOfLastValidPointer();
+unsigned long SgAsmTypeDoubleWord_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgAsmTypeDoubleWord_clearMemoryPool ( );
+void SgAsmTypeDoubleWord_extendMemoryPoolForFileIO ( );
+unsigned long SgAsmTypeDoubleWord_initializeStorageClassArray( SgAsmTypeDoubleWordStorageClass *storageArray );
+void SgAsmTypeDoubleWord_resetValidFreepointers( );
+unsigned long SgAsmTypeDoubleWord_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -27317,13 +22286,13 @@ unsigned long SgAsmFloatType_getNumberOfLastValidPointer();
      This can be removed and should be replaced by a function that evaluates to an increasing 
      value so that each block in a memory pool is larger than the last (e.g. factor of 2).
 */
-extern int SgAsmVectorType_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+extern int SgAsmTypeQuadWord_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
 
 /*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
 
 \internal This is part of the support for memory pools withn ROSE.
 */
-extern SgAsmVectorType* SgAsmVectorType_Current_Link;              // = NULL;
+extern SgAsmTypeQuadWord* SgAsmTypeQuadWord_Current_Link;              // = NULL;
 
 // DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
 // This is was one of the things on the todo list (above).
@@ -27332,25 +22301,283 @@ extern SgAsmVectorType* SgAsmVectorType_Current_Link;              // = NULL;
 
 \internal This is part of the support for memory pools within ROSE.
 */
-extern std::vector < unsigned char* > SgAsmVectorType_Memory_Block_List;
+extern std::vector < unsigned char* > SgAsmTypeQuadWord_Memory_Block_List;
 /* */
 
 // DQ (4/6/2006): Newer code from Jochen
 // Methods to find the pointer to a global and local index
-SgAsmVectorType* SgAsmVectorType_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgAsmVectorType* SgAsmVectorType_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+SgAsmTypeQuadWord* SgAsmTypeQuadWord_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgAsmTypeQuadWord* SgAsmTypeQuadWord_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
 
 // Methods for computing the total size of the memory pool. It actually returns the
 // size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgAsmVectorType_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgAsmVectorType_clearMemoryPool ( );
-void SgAsmVectorType_extendMemoryPoolForFileIO ( );
-unsigned long SgAsmVectorType_initializeStorageClassArray( SgAsmVectorTypeStorageClass *storageArray );
-void SgAsmVectorType_resetValidFreepointers( );
-unsigned long SgAsmVectorType_getNumberOfLastValidPointer();
+unsigned long SgAsmTypeQuadWord_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgAsmTypeQuadWord_clearMemoryPool ( );
+void SgAsmTypeQuadWord_extendMemoryPoolForFileIO ( );
+unsigned long SgAsmTypeQuadWord_initializeStorageClassArray( SgAsmTypeQuadWordStorageClass *storageArray );
+void SgAsmTypeQuadWord_resetValidFreepointers( );
+unsigned long SgAsmTypeQuadWord_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgAsmTypeDoubleQuadWord_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgAsmTypeDoubleQuadWord* SgAsmTypeDoubleQuadWord_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgAsmTypeDoubleQuadWord_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgAsmTypeDoubleQuadWord* SgAsmTypeDoubleQuadWord_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgAsmTypeDoubleQuadWord* SgAsmTypeDoubleQuadWord_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgAsmTypeDoubleQuadWord_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgAsmTypeDoubleQuadWord_clearMemoryPool ( );
+void SgAsmTypeDoubleQuadWord_extendMemoryPoolForFileIO ( );
+unsigned long SgAsmTypeDoubleQuadWord_initializeStorageClassArray( SgAsmTypeDoubleQuadWordStorageClass *storageArray );
+void SgAsmTypeDoubleQuadWord_resetValidFreepointers( );
+unsigned long SgAsmTypeDoubleQuadWord_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgAsmType80bitFloat_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgAsmType80bitFloat* SgAsmType80bitFloat_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgAsmType80bitFloat_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgAsmType80bitFloat* SgAsmType80bitFloat_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgAsmType80bitFloat* SgAsmType80bitFloat_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgAsmType80bitFloat_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgAsmType80bitFloat_clearMemoryPool ( );
+void SgAsmType80bitFloat_extendMemoryPoolForFileIO ( );
+unsigned long SgAsmType80bitFloat_initializeStorageClassArray( SgAsmType80bitFloatStorageClass *storageArray );
+void SgAsmType80bitFloat_resetValidFreepointers( );
+unsigned long SgAsmType80bitFloat_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgAsmType128bitFloat_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgAsmType128bitFloat* SgAsmType128bitFloat_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgAsmType128bitFloat_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgAsmType128bitFloat* SgAsmType128bitFloat_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgAsmType128bitFloat* SgAsmType128bitFloat_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgAsmType128bitFloat_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgAsmType128bitFloat_clearMemoryPool ( );
+void SgAsmType128bitFloat_extendMemoryPoolForFileIO ( );
+unsigned long SgAsmType128bitFloat_initializeStorageClassArray( SgAsmType128bitFloatStorageClass *storageArray );
+void SgAsmType128bitFloat_resetValidFreepointers( );
+unsigned long SgAsmType128bitFloat_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgAsmTypeSingleFloat_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgAsmTypeSingleFloat* SgAsmTypeSingleFloat_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgAsmTypeSingleFloat_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgAsmTypeSingleFloat* SgAsmTypeSingleFloat_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgAsmTypeSingleFloat* SgAsmTypeSingleFloat_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgAsmTypeSingleFloat_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgAsmTypeSingleFloat_clearMemoryPool ( );
+void SgAsmTypeSingleFloat_extendMemoryPoolForFileIO ( );
+unsigned long SgAsmTypeSingleFloat_initializeStorageClassArray( SgAsmTypeSingleFloatStorageClass *storageArray );
+void SgAsmTypeSingleFloat_resetValidFreepointers( );
+unsigned long SgAsmTypeSingleFloat_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgAsmTypeDoubleFloat_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgAsmTypeDoubleFloat* SgAsmTypeDoubleFloat_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgAsmTypeDoubleFloat_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgAsmTypeDoubleFloat* SgAsmTypeDoubleFloat_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgAsmTypeDoubleFloat* SgAsmTypeDoubleFloat_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgAsmTypeDoubleFloat_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgAsmTypeDoubleFloat_clearMemoryPool ( );
+void SgAsmTypeDoubleFloat_extendMemoryPoolForFileIO ( );
+unsigned long SgAsmTypeDoubleFloat_initializeStorageClassArray( SgAsmTypeDoubleFloatStorageClass *storageArray );
+void SgAsmTypeDoubleFloat_resetValidFreepointers( );
+unsigned long SgAsmTypeDoubleFloat_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+
+#include <semaphore.h>
+// DQ (9/21/2005): Static variables supporting memory pools
+/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
+
+\internal This is part of the support for memory pools within ROSE.
+     This can be removed and should be replaced by a function that evaluates to an increasing 
+     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
+*/
+extern int SgAsmTypeVector_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
+
+/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
+
+\internal This is part of the support for memory pools withn ROSE.
+*/
+extern SgAsmTypeVector* SgAsmTypeVector_Current_Link;              // = NULL;
+
+// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
+// This is was one of the things on the todo list (above).
+
+/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
+
+\internal This is part of the support for memory pools within ROSE.
+*/
+extern std::vector < unsigned char* > SgAsmTypeVector_Memory_Block_List;
+/* */
+
+// DQ (4/6/2006): Newer code from Jochen
+// Methods to find the pointer to a global and local index
+SgAsmTypeVector* SgAsmTypeVector_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
+SgAsmTypeVector* SgAsmTypeVector_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
+
+// Methods for computing the total size of the memory pool. It actually returns the
+// size of the whole blocks allocated, no matter they contain valid pointers or not
+unsigned long SgAsmTypeVector_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
+void SgAsmTypeVector_clearMemoryPool ( );
+void SgAsmTypeVector_extendMemoryPoolForFileIO ( );
+unsigned long SgAsmTypeVector_initializeStorageClassArray( SgAsmTypeVectorStorageClass *storageArray );
+void SgAsmTypeVector_resetValidFreepointers( );
+unsigned long SgAsmTypeVector_getNumberOfLastValidPointer();
+
+
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -27393,7 +22620,7 @@ void SgAsmExecutableFileFormat_resetValidFreepointers( );
 unsigned long SgAsmExecutableFileFormat_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -27436,7 +22663,7 @@ void SgAsmGenericDLL_resetValidFreepointers( );
 unsigned long SgAsmGenericDLL_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -27479,7 +22706,7 @@ void SgAsmGenericFormat_resetValidFreepointers( );
 unsigned long SgAsmGenericFormat_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -27522,7 +22749,7 @@ void SgAsmGenericDLLList_resetValidFreepointers( );
 unsigned long SgAsmGenericDLLList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -27565,7 +22792,7 @@ void SgAsmElfEHFrameEntryFD_resetValidFreepointers( );
 unsigned long SgAsmElfEHFrameEntryFD_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -27608,7 +22835,7 @@ void SgAsmGenericFile_resetValidFreepointers( );
 unsigned long SgAsmGenericFile_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -27651,7 +22878,7 @@ void SgAsmGenericSection_resetValidFreepointers( );
 unsigned long SgAsmGenericSection_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -27694,7 +22921,7 @@ void SgAsmGenericHeader_resetValidFreepointers( );
 unsigned long SgAsmGenericHeader_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -27737,7 +22964,7 @@ void SgAsmPEFileHeader_resetValidFreepointers( );
 unsigned long SgAsmPEFileHeader_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -27780,7 +23007,7 @@ void SgAsmLEFileHeader_resetValidFreepointers( );
 unsigned long SgAsmLEFileHeader_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -27823,7 +23050,7 @@ void SgAsmNEFileHeader_resetValidFreepointers( );
 unsigned long SgAsmNEFileHeader_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -27866,7 +23093,7 @@ void SgAsmDOSFileHeader_resetValidFreepointers( );
 unsigned long SgAsmDOSFileHeader_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -27909,7 +23136,7 @@ void SgAsmElfFileHeader_resetValidFreepointers( );
 unsigned long SgAsmElfFileHeader_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -27952,7 +23179,7 @@ void SgAsmElfSection_resetValidFreepointers( );
 unsigned long SgAsmElfSection_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -27995,7 +23222,7 @@ void SgAsmElfSymbolSection_resetValidFreepointers( );
 unsigned long SgAsmElfSymbolSection_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28038,7 +23265,7 @@ void SgAsmElfRelocSection_resetValidFreepointers( );
 unsigned long SgAsmElfRelocSection_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28081,7 +23308,7 @@ void SgAsmElfDynamicSection_resetValidFreepointers( );
 unsigned long SgAsmElfDynamicSection_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28124,7 +23351,7 @@ void SgAsmElfStringSection_resetValidFreepointers( );
 unsigned long SgAsmElfStringSection_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28167,7 +23394,7 @@ void SgAsmElfNoteSection_resetValidFreepointers( );
 unsigned long SgAsmElfNoteSection_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28210,7 +23437,7 @@ void SgAsmElfEHFrameSection_resetValidFreepointers( );
 unsigned long SgAsmElfEHFrameSection_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28253,7 +23480,7 @@ void SgAsmElfSymverSection_resetValidFreepointers( );
 unsigned long SgAsmElfSymverSection_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28296,7 +23523,7 @@ void SgAsmElfSymverDefinedSection_resetValidFreepointers( );
 unsigned long SgAsmElfSymverDefinedSection_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28339,7 +23566,7 @@ void SgAsmElfSymverNeededSection_resetValidFreepointers( );
 unsigned long SgAsmElfSymverNeededSection_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28382,7 +23609,7 @@ void SgAsmElfSectionTable_resetValidFreepointers( );
 unsigned long SgAsmElfSectionTable_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28425,7 +23652,7 @@ void SgAsmElfSegmentTable_resetValidFreepointers( );
 unsigned long SgAsmElfSegmentTable_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28468,7 +23695,7 @@ void SgAsmPESection_resetValidFreepointers( );
 unsigned long SgAsmPESection_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28511,7 +23738,7 @@ void SgAsmPEImportSection_resetValidFreepointers( );
 unsigned long SgAsmPEImportSection_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28554,7 +23781,7 @@ void SgAsmPEExportSection_resetValidFreepointers( );
 unsigned long SgAsmPEExportSection_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28597,7 +23824,7 @@ void SgAsmPEStringSection_resetValidFreepointers( );
 unsigned long SgAsmPEStringSection_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28640,7 +23867,7 @@ void SgAsmPESectionTable_resetValidFreepointers( );
 unsigned long SgAsmPESectionTable_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28683,7 +23910,7 @@ void SgAsmDOSExtendedHeader_resetValidFreepointers( );
 unsigned long SgAsmDOSExtendedHeader_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28726,7 +23953,7 @@ void SgAsmCoffSymbolTable_resetValidFreepointers( );
 unsigned long SgAsmCoffSymbolTable_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28769,7 +23996,7 @@ void SgAsmNESection_resetValidFreepointers( );
 unsigned long SgAsmNESection_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28812,7 +24039,7 @@ void SgAsmNESectionTable_resetValidFreepointers( );
 unsigned long SgAsmNESectionTable_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28855,7 +24082,7 @@ void SgAsmNENameTable_resetValidFreepointers( );
 unsigned long SgAsmNENameTable_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28898,7 +24125,7 @@ void SgAsmNEModuleTable_resetValidFreepointers( );
 unsigned long SgAsmNEModuleTable_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28941,7 +24168,7 @@ void SgAsmNEStringTable_resetValidFreepointers( );
 unsigned long SgAsmNEStringTable_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -28984,7 +24211,7 @@ void SgAsmNEEntryTable_resetValidFreepointers( );
 unsigned long SgAsmNEEntryTable_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29027,7 +24254,7 @@ void SgAsmNERelocTable_resetValidFreepointers( );
 unsigned long SgAsmNERelocTable_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29070,7 +24297,7 @@ void SgAsmLESection_resetValidFreepointers( );
 unsigned long SgAsmLESection_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29113,7 +24340,7 @@ void SgAsmLESectionTable_resetValidFreepointers( );
 unsigned long SgAsmLESectionTable_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29156,7 +24383,7 @@ void SgAsmLENameTable_resetValidFreepointers( );
 unsigned long SgAsmLENameTable_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29199,7 +24426,7 @@ void SgAsmLEPageTable_resetValidFreepointers( );
 unsigned long SgAsmLEPageTable_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29242,7 +24469,7 @@ void SgAsmLEEntryTable_resetValidFreepointers( );
 unsigned long SgAsmLEEntryTable_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29285,7 +24512,7 @@ void SgAsmLERelocTable_resetValidFreepointers( );
 unsigned long SgAsmLERelocTable_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29328,7 +24555,7 @@ void SgAsmGenericSymbol_resetValidFreepointers( );
 unsigned long SgAsmGenericSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29371,7 +24598,7 @@ void SgAsmCoffSymbol_resetValidFreepointers( );
 unsigned long SgAsmCoffSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29414,7 +24641,7 @@ void SgAsmElfSymbol_resetValidFreepointers( );
 unsigned long SgAsmElfSymbol_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29457,7 +24684,7 @@ void SgAsmGenericStrtab_resetValidFreepointers( );
 unsigned long SgAsmGenericStrtab_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29500,7 +24727,7 @@ void SgAsmElfStrtab_resetValidFreepointers( );
 unsigned long SgAsmElfStrtab_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29543,7 +24770,7 @@ void SgAsmCoffStrtab_resetValidFreepointers( );
 unsigned long SgAsmCoffStrtab_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29586,7 +24813,7 @@ void SgAsmGenericSymbolList_resetValidFreepointers( );
 unsigned long SgAsmGenericSymbolList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29629,7 +24856,7 @@ void SgAsmGenericSectionList_resetValidFreepointers( );
 unsigned long SgAsmGenericSectionList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29672,7 +24899,7 @@ void SgAsmGenericHeaderList_resetValidFreepointers( );
 unsigned long SgAsmGenericHeaderList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29715,7 +24942,7 @@ void SgAsmGenericString_resetValidFreepointers( );
 unsigned long SgAsmGenericString_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29758,7 +24985,7 @@ void SgAsmBasicString_resetValidFreepointers( );
 unsigned long SgAsmBasicString_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29801,7 +25028,7 @@ void SgAsmStoredString_resetValidFreepointers( );
 unsigned long SgAsmStoredString_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29844,7 +25071,7 @@ void SgAsmElfSectionTableEntry_resetValidFreepointers( );
 unsigned long SgAsmElfSectionTableEntry_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29887,7 +25114,7 @@ void SgAsmElfSegmentTableEntry_resetValidFreepointers( );
 unsigned long SgAsmElfSegmentTableEntry_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29930,7 +25157,7 @@ void SgAsmElfSymbolList_resetValidFreepointers( );
 unsigned long SgAsmElfSymbolList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -29973,7 +25200,7 @@ void SgAsmElfRelocEntry_resetValidFreepointers( );
 unsigned long SgAsmElfRelocEntry_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30016,7 +25243,7 @@ void SgAsmElfRelocEntryList_resetValidFreepointers( );
 unsigned long SgAsmElfRelocEntryList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30059,7 +25286,7 @@ void SgAsmPEExportEntry_resetValidFreepointers( );
 unsigned long SgAsmPEExportEntry_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30102,7 +25329,7 @@ void SgAsmPEExportEntryList_resetValidFreepointers( );
 unsigned long SgAsmPEExportEntryList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30145,7 +25372,7 @@ void SgAsmElfDynamicEntry_resetValidFreepointers( );
 unsigned long SgAsmElfDynamicEntry_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30188,7 +25415,7 @@ void SgAsmElfDynamicEntryList_resetValidFreepointers( );
 unsigned long SgAsmElfDynamicEntryList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30231,7 +25458,7 @@ void SgAsmElfSegmentTableEntryList_resetValidFreepointers( );
 unsigned long SgAsmElfSegmentTableEntryList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30274,7 +25501,7 @@ void SgAsmStringStorage_resetValidFreepointers( );
 unsigned long SgAsmStringStorage_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30317,7 +25544,7 @@ void SgAsmElfNoteEntry_resetValidFreepointers( );
 unsigned long SgAsmElfNoteEntry_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30360,7 +25587,7 @@ void SgAsmElfNoteEntryList_resetValidFreepointers( );
 unsigned long SgAsmElfNoteEntryList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30403,7 +25630,7 @@ void SgAsmElfSymverEntry_resetValidFreepointers( );
 unsigned long SgAsmElfSymverEntry_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30446,7 +25673,7 @@ void SgAsmElfSymverEntryList_resetValidFreepointers( );
 unsigned long SgAsmElfSymverEntryList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30489,7 +25716,7 @@ void SgAsmElfSymverDefinedEntry_resetValidFreepointers( );
 unsigned long SgAsmElfSymverDefinedEntry_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30532,7 +25759,7 @@ void SgAsmElfSymverDefinedEntryList_resetValidFreepointers( );
 unsigned long SgAsmElfSymverDefinedEntryList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30575,7 +25802,7 @@ void SgAsmElfSymverDefinedAux_resetValidFreepointers( );
 unsigned long SgAsmElfSymverDefinedAux_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30618,7 +25845,7 @@ void SgAsmElfSymverDefinedAuxList_resetValidFreepointers( );
 unsigned long SgAsmElfSymverDefinedAuxList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30661,7 +25888,7 @@ void SgAsmElfSymverNeededEntry_resetValidFreepointers( );
 unsigned long SgAsmElfSymverNeededEntry_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30704,7 +25931,7 @@ void SgAsmElfSymverNeededEntryList_resetValidFreepointers( );
 unsigned long SgAsmElfSymverNeededEntryList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30747,7 +25974,7 @@ void SgAsmElfSymverNeededAux_resetValidFreepointers( );
 unsigned long SgAsmElfSymverNeededAux_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30790,7 +26017,7 @@ void SgAsmElfSymverNeededAuxList_resetValidFreepointers( );
 unsigned long SgAsmElfSymverNeededAuxList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30833,7 +26060,7 @@ void SgAsmPEImportDirectory_resetValidFreepointers( );
 unsigned long SgAsmPEImportDirectory_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30876,7 +26103,7 @@ void SgAsmPESectionTableEntry_resetValidFreepointers( );
 unsigned long SgAsmPESectionTableEntry_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30919,7 +26146,7 @@ void SgAsmPEExportDirectory_resetValidFreepointers( );
 unsigned long SgAsmPEExportDirectory_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -30962,7 +26189,7 @@ void SgAsmPERVASizePair_resetValidFreepointers( );
 unsigned long SgAsmPERVASizePair_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31005,7 +26232,7 @@ void SgAsmCoffSymbolList_resetValidFreepointers( );
 unsigned long SgAsmCoffSymbolList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31048,7 +26275,7 @@ void SgAsmPERVASizePairList_resetValidFreepointers( );
 unsigned long SgAsmPERVASizePairList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31091,7 +26318,7 @@ void SgAsmElfEHFrameEntryCI_resetValidFreepointers( );
 unsigned long SgAsmElfEHFrameEntryCI_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31134,7 +26361,7 @@ void SgAsmPEImportDirectoryList_resetValidFreepointers( );
 unsigned long SgAsmPEImportDirectoryList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31177,7 +26404,7 @@ void SgAsmNEEntryPoint_resetValidFreepointers( );
 unsigned long SgAsmNEEntryPoint_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31220,7 +26447,7 @@ void SgAsmNERelocEntry_resetValidFreepointers( );
 unsigned long SgAsmNERelocEntry_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31263,7 +26490,7 @@ void SgAsmNESectionTableEntry_resetValidFreepointers( );
 unsigned long SgAsmNESectionTableEntry_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31306,7 +26533,7 @@ void SgAsmElfEHFrameEntryCIList_resetValidFreepointers( );
 unsigned long SgAsmElfEHFrameEntryCIList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31349,7 +26576,7 @@ void SgAsmLEPageTableEntry_resetValidFreepointers( );
 unsigned long SgAsmLEPageTableEntry_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31392,7 +26619,7 @@ void SgAsmLEEntryPoint_resetValidFreepointers( );
 unsigned long SgAsmLEEntryPoint_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31435,7 +26662,7 @@ void SgAsmLESectionTableEntry_resetValidFreepointers( );
 unsigned long SgAsmLESectionTableEntry_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31478,7 +26705,7 @@ void SgAsmElfEHFrameEntryFDList_resetValidFreepointers( );
 unsigned long SgAsmElfEHFrameEntryFDList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31521,7 +26748,7 @@ void SgAsmDwarfInformation_resetValidFreepointers( );
 unsigned long SgAsmDwarfInformation_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31564,7 +26791,7 @@ void SgAsmDwarfMacro_resetValidFreepointers( );
 unsigned long SgAsmDwarfMacro_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31607,7 +26834,7 @@ void SgAsmDwarfMacroList_resetValidFreepointers( );
 unsigned long SgAsmDwarfMacroList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31650,7 +26877,7 @@ void SgAsmDwarfLine_resetValidFreepointers( );
 unsigned long SgAsmDwarfLine_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31693,7 +26920,7 @@ void SgAsmDwarfLineList_resetValidFreepointers( );
 unsigned long SgAsmDwarfLineList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31736,7 +26963,7 @@ void SgAsmDwarfCompilationUnitList_resetValidFreepointers( );
 unsigned long SgAsmDwarfCompilationUnitList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31779,7 +27006,7 @@ void SgAsmDwarfConstruct_resetValidFreepointers( );
 unsigned long SgAsmDwarfConstruct_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31822,7 +27049,7 @@ void SgAsmDwarfArrayType_resetValidFreepointers( );
 unsigned long SgAsmDwarfArrayType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31865,7 +27092,7 @@ void SgAsmDwarfClassType_resetValidFreepointers( );
 unsigned long SgAsmDwarfClassType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31908,7 +27135,7 @@ void SgAsmDwarfEntryPoint_resetValidFreepointers( );
 unsigned long SgAsmDwarfEntryPoint_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31951,7 +27178,7 @@ void SgAsmDwarfEnumerationType_resetValidFreepointers( );
 unsigned long SgAsmDwarfEnumerationType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -31994,7 +27221,7 @@ void SgAsmDwarfFormalParameter_resetValidFreepointers( );
 unsigned long SgAsmDwarfFormalParameter_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32037,7 +27264,7 @@ void SgAsmDwarfImportedDeclaration_resetValidFreepointers( );
 unsigned long SgAsmDwarfImportedDeclaration_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32080,7 +27307,7 @@ void SgAsmDwarfLabel_resetValidFreepointers( );
 unsigned long SgAsmDwarfLabel_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32123,7 +27350,7 @@ void SgAsmDwarfLexicalBlock_resetValidFreepointers( );
 unsigned long SgAsmDwarfLexicalBlock_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32166,7 +27393,7 @@ void SgAsmDwarfMember_resetValidFreepointers( );
 unsigned long SgAsmDwarfMember_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32209,7 +27436,7 @@ void SgAsmDwarfPointerType_resetValidFreepointers( );
 unsigned long SgAsmDwarfPointerType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32252,7 +27479,7 @@ void SgAsmDwarfReferenceType_resetValidFreepointers( );
 unsigned long SgAsmDwarfReferenceType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32295,7 +27522,7 @@ void SgAsmDwarfCompilationUnit_resetValidFreepointers( );
 unsigned long SgAsmDwarfCompilationUnit_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32338,7 +27565,7 @@ void SgAsmDwarfStringType_resetValidFreepointers( );
 unsigned long SgAsmDwarfStringType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32381,7 +27608,7 @@ void SgAsmDwarfStructureType_resetValidFreepointers( );
 unsigned long SgAsmDwarfStructureType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32424,7 +27651,7 @@ void SgAsmDwarfSubroutineType_resetValidFreepointers( );
 unsigned long SgAsmDwarfSubroutineType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32467,7 +27694,7 @@ void SgAsmDwarfTypedef_resetValidFreepointers( );
 unsigned long SgAsmDwarfTypedef_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32510,7 +27737,7 @@ void SgAsmDwarfUnionType_resetValidFreepointers( );
 unsigned long SgAsmDwarfUnionType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32553,7 +27780,7 @@ void SgAsmDwarfUnspecifiedParameters_resetValidFreepointers( );
 unsigned long SgAsmDwarfUnspecifiedParameters_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32596,7 +27823,7 @@ void SgAsmDwarfVariant_resetValidFreepointers( );
 unsigned long SgAsmDwarfVariant_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32639,7 +27866,7 @@ void SgAsmDwarfCommonBlock_resetValidFreepointers( );
 unsigned long SgAsmDwarfCommonBlock_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32682,7 +27909,7 @@ void SgAsmDwarfCommonInclusion_resetValidFreepointers( );
 unsigned long SgAsmDwarfCommonInclusion_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32725,7 +27952,7 @@ void SgAsmDwarfInheritance_resetValidFreepointers( );
 unsigned long SgAsmDwarfInheritance_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32768,7 +27995,7 @@ void SgAsmDwarfInlinedSubroutine_resetValidFreepointers( );
 unsigned long SgAsmDwarfInlinedSubroutine_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32811,7 +28038,7 @@ void SgAsmDwarfModule_resetValidFreepointers( );
 unsigned long SgAsmDwarfModule_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32854,7 +28081,7 @@ void SgAsmDwarfPtrToMemberType_resetValidFreepointers( );
 unsigned long SgAsmDwarfPtrToMemberType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32897,7 +28124,7 @@ void SgAsmDwarfSetType_resetValidFreepointers( );
 unsigned long SgAsmDwarfSetType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32940,7 +28167,7 @@ void SgAsmDwarfSubrangeType_resetValidFreepointers( );
 unsigned long SgAsmDwarfSubrangeType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -32983,7 +28210,7 @@ void SgAsmDwarfWithStmt_resetValidFreepointers( );
 unsigned long SgAsmDwarfWithStmt_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33026,7 +28253,7 @@ void SgAsmDwarfAccessDeclaration_resetValidFreepointers( );
 unsigned long SgAsmDwarfAccessDeclaration_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33069,7 +28296,7 @@ void SgAsmDwarfBaseType_resetValidFreepointers( );
 unsigned long SgAsmDwarfBaseType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33112,7 +28339,7 @@ void SgAsmDwarfCatchBlock_resetValidFreepointers( );
 unsigned long SgAsmDwarfCatchBlock_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33155,7 +28382,7 @@ void SgAsmDwarfConstType_resetValidFreepointers( );
 unsigned long SgAsmDwarfConstType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33198,7 +28425,7 @@ void SgAsmDwarfConstant_resetValidFreepointers( );
 unsigned long SgAsmDwarfConstant_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33241,7 +28468,7 @@ void SgAsmDwarfEnumerator_resetValidFreepointers( );
 unsigned long SgAsmDwarfEnumerator_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33284,7 +28511,7 @@ void SgAsmDwarfFileType_resetValidFreepointers( );
 unsigned long SgAsmDwarfFileType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33327,7 +28554,7 @@ void SgAsmDwarfFriend_resetValidFreepointers( );
 unsigned long SgAsmDwarfFriend_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33370,7 +28597,7 @@ void SgAsmDwarfNamelist_resetValidFreepointers( );
 unsigned long SgAsmDwarfNamelist_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33413,7 +28640,7 @@ void SgAsmDwarfNamelistItem_resetValidFreepointers( );
 unsigned long SgAsmDwarfNamelistItem_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33456,7 +28683,7 @@ void SgAsmDwarfPackedType_resetValidFreepointers( );
 unsigned long SgAsmDwarfPackedType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33499,7 +28726,7 @@ void SgAsmDwarfSubprogram_resetValidFreepointers( );
 unsigned long SgAsmDwarfSubprogram_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33542,7 +28769,7 @@ void SgAsmDwarfTemplateTypeParameter_resetValidFreepointers( );
 unsigned long SgAsmDwarfTemplateTypeParameter_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33585,7 +28812,7 @@ void SgAsmDwarfTemplateValueParameter_resetValidFreepointers( );
 unsigned long SgAsmDwarfTemplateValueParameter_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33628,7 +28855,7 @@ void SgAsmDwarfThrownType_resetValidFreepointers( );
 unsigned long SgAsmDwarfThrownType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33671,7 +28898,7 @@ void SgAsmDwarfTryBlock_resetValidFreepointers( );
 unsigned long SgAsmDwarfTryBlock_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33714,7 +28941,7 @@ void SgAsmDwarfVariantPart_resetValidFreepointers( );
 unsigned long SgAsmDwarfVariantPart_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33757,7 +28984,7 @@ void SgAsmDwarfVariable_resetValidFreepointers( );
 unsigned long SgAsmDwarfVariable_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33800,7 +29027,7 @@ void SgAsmDwarfVolatileType_resetValidFreepointers( );
 unsigned long SgAsmDwarfVolatileType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33843,7 +29070,7 @@ void SgAsmDwarfDwarfProcedure_resetValidFreepointers( );
 unsigned long SgAsmDwarfDwarfProcedure_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33886,7 +29113,7 @@ void SgAsmDwarfRestrictType_resetValidFreepointers( );
 unsigned long SgAsmDwarfRestrictType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33929,7 +29156,7 @@ void SgAsmDwarfInterfaceType_resetValidFreepointers( );
 unsigned long SgAsmDwarfInterfaceType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -33972,7 +29199,7 @@ void SgAsmDwarfNamespace_resetValidFreepointers( );
 unsigned long SgAsmDwarfNamespace_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -34015,7 +29242,7 @@ void SgAsmDwarfImportedModule_resetValidFreepointers( );
 unsigned long SgAsmDwarfImportedModule_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -34058,7 +29285,7 @@ void SgAsmDwarfUnspecifiedType_resetValidFreepointers( );
 unsigned long SgAsmDwarfUnspecifiedType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -34101,7 +29328,7 @@ void SgAsmDwarfPartialUnit_resetValidFreepointers( );
 unsigned long SgAsmDwarfPartialUnit_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -34144,7 +29371,7 @@ void SgAsmDwarfImportedUnit_resetValidFreepointers( );
 unsigned long SgAsmDwarfImportedUnit_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -34187,7 +29414,7 @@ void SgAsmDwarfMutableType_resetValidFreepointers( );
 unsigned long SgAsmDwarfMutableType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -34230,7 +29457,7 @@ void SgAsmDwarfCondition_resetValidFreepointers( );
 unsigned long SgAsmDwarfCondition_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -34273,7 +29500,7 @@ void SgAsmDwarfSharedType_resetValidFreepointers( );
 unsigned long SgAsmDwarfSharedType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -34316,7 +29543,7 @@ void SgAsmDwarfFormatLabel_resetValidFreepointers( );
 unsigned long SgAsmDwarfFormatLabel_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -34359,7 +29586,7 @@ void SgAsmDwarfFunctionTemplate_resetValidFreepointers( );
 unsigned long SgAsmDwarfFunctionTemplate_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -34402,7 +29629,7 @@ void SgAsmDwarfClassTemplate_resetValidFreepointers( );
 unsigned long SgAsmDwarfClassTemplate_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -34445,7 +29672,7 @@ void SgAsmDwarfUpcSharedType_resetValidFreepointers( );
 unsigned long SgAsmDwarfUpcSharedType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -34488,7 +29715,7 @@ void SgAsmDwarfUpcStrictType_resetValidFreepointers( );
 unsigned long SgAsmDwarfUpcStrictType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -34531,7 +29758,7 @@ void SgAsmDwarfUpcRelaxedType_resetValidFreepointers( );
 unsigned long SgAsmDwarfUpcRelaxedType_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -34574,7 +29801,7 @@ void SgAsmDwarfUnknownConstruct_resetValidFreepointers( );
 unsigned long SgAsmDwarfUnknownConstruct_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -34617,7 +29844,7 @@ void SgAsmDwarfConstructList_resetValidFreepointers( );
 unsigned long SgAsmDwarfConstructList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -34660,7 +29887,7 @@ void SgAsmPEImportItem_resetValidFreepointers( );
 unsigned long SgAsmPEImportItem_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -34703,7 +29930,7 @@ void SgAsmPEImportItemList_resetValidFreepointers( );
 unsigned long SgAsmPEImportItemList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -34746,7 +29973,7 @@ void SgAsmInterpretationList_resetValidFreepointers( );
 unsigned long SgAsmInterpretationList_getNumberOfLastValidPointer();
 
 
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
 
 #include <semaphore.h>
 // DQ (9/21/2005): Static variables supporting memory pools
@@ -34787,49 +30014,6 @@ void SgAsmGenericFileList_extendMemoryPoolForFileIO ( );
 unsigned long SgAsmGenericFileList_initializeStorageClassArray( SgAsmGenericFileListStorageClass *storageArray );
 void SgAsmGenericFileList_resetValidFreepointers( );
 unsigned long SgAsmGenericFileList_getNumberOfLastValidPointer();
-
-
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarMemoryPoolSupport.macro" */
-
-#include <semaphore.h>
-// DQ (9/21/2005): Static variables supporting memory pools
-/*! \brief \b FOR \b INTERNAL \b USE Number of objects allocated within each block of objects forming a memory pool for this IR node.
-
-\internal This is part of the support for memory pools within ROSE.
-     This can be removed and should be replaced by a function that evaluates to an increasing 
-     value so that each block in a memory pool is larger than the last (e.g. factor of 2).
-*/
-extern int SgAterm_CLASS_ALLOCATION_POOL_SIZE;        // = DEFAULT_CLASS_ALLOCATION_POOL_SIZE;
-
-/*! \brief \b FOR \b INTERNAL \b USE Current object (within a block) which will be returned from the new operator
-
-\internal This is part of the support for memory pools withn ROSE.
-*/
-extern SgAterm* SgAterm_Current_Link;              // = NULL;
-
-// DQ (12/15/2005): This is Jochen's implementation of the memory allocation pools.
-// This is was one of the things on the todo list (above).
-
-/*! \brief \b FOR \b INTERNAL \b USE This is the STL vector containing the pointers to the blocks in an IR node's memory pool.
-
-\internal This is part of the support for memory pools within ROSE.
-*/
-extern std::vector < unsigned char* > SgAterm_Memory_Block_List;
-/* */
-
-// DQ (4/6/2006): Newer code from Jochen
-// Methods to find the pointer to a global and local index
-SgAterm* SgAterm_getPointerFromGlobalIndex ( unsigned long globalIndex ) ;
-SgAterm* SgAterm_getPointerFromGlobalIndex ( AstSpecificDataManagingClass* astInPool, unsigned long globalIndex ) ;
-
-// Methods for computing the total size of the memory pool. It actually returns the
-// size of the whole blocks allocated, no matter they contain valid pointers or not
-unsigned long SgAterm_getNumberOfValidNodesAndSetGlobalIndexInFreepointer( unsigned long );
-void SgAterm_clearMemoryPool ( );
-void SgAterm_extendMemoryPoolForFileIO ( );
-unsigned long SgAterm_initializeStorageClassArray( SgAtermStorageClass *storageArray );
-void SgAterm_resetValidFreepointers( );
-unsigned long SgAterm_getNumberOfLastValidPointer();
 
 
 

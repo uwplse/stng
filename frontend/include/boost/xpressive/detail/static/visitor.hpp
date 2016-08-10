@@ -42,12 +42,12 @@ namespace boost { namespace xpressive { namespace detail
             return -(int)(++this->self_->hidden_mark_count_);
         }
 
-        void mark_number(int mark_nbr)
+        void mark_number(int mark_number)
         {
-            if(0 < mark_nbr)
+            if(0 < mark_number)
             {
                 this->self_->mark_count_ =
-                    (std::max)(this->self_->mark_count_, (std::size_t)mark_nbr);
+                    (std::max)(this->self_->mark_count_, (std::size_t)mark_number);
             }
         }
 

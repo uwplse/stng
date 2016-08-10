@@ -14,7 +14,6 @@
 #if !defined(BOOST_LAMBDA_EXCEPTIONS_HPP)
 #define BOOST_LAMBDA_EXCEPTIONS_HPP
 
-#include "boost/lambda/core.hpp"
 #include "boost/lambda/detail/control_constructs_common.hpp"
 
 namespace boost { 

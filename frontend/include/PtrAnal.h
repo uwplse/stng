@@ -1,6 +1,6 @@
 #ifndef PTR_ANAL_H
 #define PTR_ANAL_H
-#include <boost/unordered_map.hpp>
+#include <ext/hash_map>
 #include <ProcessAstTree.h>
 #include <AstInterface.h>
 #include <StmtInfoCollect.h>
@@ -53,8 +53,8 @@ private:
     public:
       size_t operator()(void * p) const { return (size_t) p; }
    };
-  typedef boost::unordered_map<void*, VarRef, PtrAnal::hash> NameMap;
-  typedef boost::unordered_map<void*, std::pair<size_t,size_t>, PtrAnal::hash> StmtMap;
+  typedef __gnu_cxx::hash_map<void*, VarRef, PtrAnal::hash> NameMap;
+  typedef __gnu_cxx::hash_map<void*, std::pair<size_t,size_t>, PtrAnal::hash> StmtMap;
 
   std::list<std::string> fdefined;
   NameMap namemap;

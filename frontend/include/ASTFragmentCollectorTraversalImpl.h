@@ -105,7 +105,7 @@ initializeNodeListToCorrectSize ()
           treeFragementListArray.push_back(tempList);
         }
 
-  // printf ("treeFragementListArray.size() = %" PRIuPTR " \n",treeFragementListArray.size());
+  // printf ("treeFragementListArray.size() = %zu \n",treeFragementListArray.size());
      ROSE_ASSERT ( unsigned(ASTNodeCollection::LAST_INTERMEDIATE_SOURCE_CODE_PLACEMENT_TAG) == 
                    treeFragementListArray.size() );
    }
@@ -134,7 +134,7 @@ operator+= ( const AST_FragmentIdentificationSynthesizedAttributeType & X )
              {
 #if 0
             // If not empty then what is there
-               printf ("treeFragementListArray[d].size() = %" PRIuPTR " \n",i,treeFragementListArray[i].size());
+               printf ("treeFragementListArray[d].size() = %zu \n",i,treeFragementListArray[i].size());
                if (treeFragementListArray[i].size() != 0)
                   {
                     list<SgStatement*>::iterator j;
@@ -148,7 +148,7 @@ operator+= ( const AST_FragmentIdentificationSynthesizedAttributeType & X )
                ROSE_ASSERT(treeFragementListArray[i].size() == 0);
             // Since the existing list is empty we can just use the assignment operator to fill it
                treeFragementListArray[i] = X.treeFragementListArray[i];
-//             printf ("In operator+=(): treeFragementListArray[%d].size() = %" PRIuPTR " \n",i,treeFragementListArray[i].size());
+//             printf ("In operator+=(): treeFragementListArray[%d].size() = %zu \n",i,treeFragementListArray[i].size());
              }
         }
 
@@ -186,7 +186,7 @@ display ( std::string s ) const
           std::string positionName = ASTNodeCollection::markerStrings[i][0] + "/" + 
                                 ASTNodeCollection::markerStrings[i][1];
           ROSE_ASSERT (positionName.c_str() != NULL);
-          printf ("     treeFragementListArray[%2d:%80s].size() = %" PRIuPTR " \n",
+          printf ("     treeFragementListArray[%2d:%80s].size() = %zu \n",
                i,positionName.c_str(),treeFragementListArray[i].size());
 
 #if 1
@@ -493,7 +493,7 @@ evaluateInheritedAttribute (
           SgFile* file = dynamic_cast<SgFile*>(astNode);
           ROSE_ASSERT(file != NULL);
 
-       // returnAttribute.currentFileName             = rose::getFileName(file);
+       // returnAttribute.currentFileName             = ROSE::getFileName(file);
           returnAttribute.currentFileName             = file->getFileName();
           returnAttribute.treeFragmentFromCorrectFile = true;
         }
@@ -511,8 +511,8 @@ evaluateInheritedAttribute (
        // figure that out, except to test the symbol tables for declarations of the same name.
           if (statementNode != NULL)
              {
-            // DQ (5/26/2005): Modified to use minimalist Sage III interface (trying to remove several rose::xxx() member functions)
-            // std::string nodeFileName = rose::getFileName(statementNode);
+            // DQ (5/26/2005): Modified to use minimalist Sage III interface (trying to remove several ROSE::xxx() member functions)
+            // std::string nodeFileName = ROSE::getFileName(statementNode);
                std::string nodeFileName = statementNode->get_file_info()->get_filename();
 #if 0
                printf ("nodeFileName = %s returnAttribute.currentFileName = %s \n",
@@ -579,12 +579,12 @@ evaluateSynthesizedAttribute (
      if (isSgStatement(astNode) != NULL)
         {
           SgStatement* statement = isSgStatement(astNode);
-          printf ("rose::getLineNumber(statement) = %d \n",rose::getLineNumber(statement));
+          printf ("ROSE::getLineNumber(statement) = %d \n",ROSE::getLineNumber(statement));
           printf ("statement->sage_class_name() = %s \n",statement->sage_class_name());
           printf ("statement->unparseToString() = %s \n",statement->unparseToString().c_str());
 
        // We can't assert this since a SgGlobal is defined to have a linenumber == 0
-       // ROSE_ASSERT (rose::getLineNumber(statement) > 0);
+       // ROSE_ASSERT (ROSE::getLineNumber(statement) > 0);
         }
 #endif
 

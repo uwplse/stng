@@ -15,7 +15,7 @@
 #include <cstddef>
 #include <algorithm>
 #include <utility>
-#include <boost/assert.hpp>
+#include <cassert>
 #include <boost/static_assert.hpp>
 #include <boost/shared_array.hpp>
 #include <boost/property_map/property_map.hpp>
@@ -92,8 +92,6 @@ namespace boost {
     public:
     typedef typename Container::size_type size_type;
     typedef Value value_type;
-    typedef typename boost::property_traits<DistanceMap>::value_type key_type;
-    typedef DistanceMap key_map;
 
     d_ary_heap_indirect(DistanceMap distance,
                         IndexInHeapPropertyMap index_in_heap,
@@ -166,10 +164,6 @@ namespace boost {
       verify_heap();
     }
 
-    DistanceMap keys() const {
-      return distance;
-    }
-
     private:
     Compare compare;
     Container data;
@@ -213,7 +207,7 @@ namespace boost {
 #if 0
       for (size_t i = 1; i < data.size(); ++i) {
         if (compare_indirect(data[i], data[parent(i)])) {
-          BOOST_ASSERT (!"Element is smaller than its parent");
+          assert (!"Element is smaller than its parent");
         }
       }
 #endif

@@ -32,7 +32,6 @@
 #include "boost/variant/detail/make_variant_list.hpp"
 #include "boost/variant/detail/over_sequence.hpp"
 #include "boost/variant/detail/visitation_impl.hpp"
-#include "boost/variant/detail/hash_variant.hpp"
 
 #include "boost/variant/detail/generic_result_type.hpp"
 #include "boost/variant/detail/has_nothrow_move.hpp"
@@ -41,7 +40,6 @@
 #include "boost/detail/reference_content.hpp"
 #include "boost/aligned_storage.hpp"
 #include "boost/blank.hpp"
-#include "boost/math/common_factor_ct.hpp"
 #include "boost/static_assert.hpp"
 #include "boost/preprocessor/cat.hpp"
 #include "boost/preprocessor/repeat.hpp"
@@ -55,14 +53,11 @@
 #include "boost/variant/recursive_wrapper_fwd.hpp"
 #include "boost/variant/static_visitor.hpp"
 
-#include "boost/mpl/assert.hpp"
+#include "boost/mpl/eval_if.hpp"
 #include "boost/mpl/begin_end.hpp"
 #include "boost/mpl/bool.hpp"
-#include "boost/mpl/deref.hpp"
 #include "boost/mpl/empty.hpp"
-#include "boost/mpl/eval_if.hpp"
 #include "boost/mpl/find_if.hpp"
-#include "boost/mpl/fold.hpp"
 #include "boost/mpl/front.hpp"
 #include "boost/mpl/identity.hpp"
 #include "boost/mpl/if.hpp"
@@ -73,7 +68,7 @@
 #include "boost/mpl/logical.hpp"
 #include "boost/mpl/max_element.hpp"
 #include "boost/mpl/next.hpp"
-#include "boost/mpl/not.hpp"
+#include "boost/mpl/deref.hpp"
 #include "boost/mpl/pair.hpp"
 #include "boost/mpl/protect.hpp"
 #include "boost/mpl/push_front.hpp"
@@ -81,6 +76,7 @@
 #include "boost/mpl/size_t.hpp"
 #include "boost/mpl/sizeof.hpp"
 #include "boost/mpl/transform.hpp"
+#include "boost/mpl/assert.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
 // Implementation Macros:
@@ -131,19 +127,6 @@ public: // metafunction result
     typedef typename mpl::deref<max_it>::type
         type;
 
-};
-
-struct add_alignment
-{
-    template <typename State, typename Item>
-    struct apply
-        : mpl::size_t<
-              ::boost::math::static_lcm<
-                  BOOST_MPL_AUX_VALUE_WKND(State)::value
-                , ::boost::alignment_of<Item>::value
-                >::value
-            >
-    {};
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -250,10 +233,8 @@ private: // helpers, for metafunction result (below)
 
 #if !BOOST_WORKAROUND(__BORLANDC__, BOOST_TESTED_AT(0x0551))
 
-    typedef typename mpl::fold<
-          types
-        , mpl::size_t<1>
-        , add_alignment
+    typedef typename max_value<
+          types, alignment_of<mpl::_1>
         >::type max_alignment;
 
 #else // borland
@@ -312,8 +293,7 @@ public: // visitor interfaces
     {
         operand.~T();
 
-#if BOOST_WORKAROUND(__BORLANDC__, BOOST_TESTED_AT(0x0551)) || \
-    BOOST_WORKAROUND(BOOST_MSVC, BOOST_TESTED_AT(1600))
+#if BOOST_WORKAROUND(__BORLANDC__, BOOST_TESTED_AT(0x0551))
         operand; // suppresses warnings
 #endif
 
@@ -552,11 +532,6 @@ public: // visitor interface
 
 #endif // MSVC6 workaround
 
-#if BOOST_WORKAROUND(BOOST_MSVC, BOOST_TESTED_AT(1600))
-private:
-    // silence MSVC warning C4512: assignment operator could not be generated
-    direct_assigner& operator= (direct_assigner const&);
-#endif
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -568,7 +543,7 @@ private:
 // NOTE: This needs to be a friend of variant, as it needs access to
 // indicate_which, indicate_backup_which, etc.
 //
-template <typename Variant>
+template <typename Variant, typename RhsT>
 class backup_assigner
     : public static_visitor<>
 {
@@ -576,27 +551,18 @@ private: // representation
 
     Variant& lhs_;
     int rhs_which_;
-    const void* rhs_content_;
-    void (*copy_rhs_content_)(void*, const void*);
+    const RhsT& rhs_content_;
 
 public: // structors
 
-    template<class RhsT>
     backup_assigner(Variant& lhs, int rhs_which, const RhsT& rhs_content)
         : lhs_(lhs)
         , rhs_which_(rhs_which)
-        , rhs_content_(&rhs_content)
-        , copy_rhs_content_(&construct_impl<RhsT>)
+        , rhs_content_(rhs_content)
     {
     }
 
 private: // helpers, for visitor interface (below)
-
-    template<class RhsT>
-    static void construct_impl(void* addr, const void* obj)
-    {
-        new(addr) RhsT(*static_cast<const RhsT*>(obj));
-    }
 
     template <typename LhsT>
     void backup_assign_impl(
@@ -615,7 +581,7 @@ private: // helpers, for visitor interface (below)
         try
         {
             // ...and attempt to copy rhs content into lhs storage:
-            copy_rhs_content_(lhs_.storage_.address(), rhs_content_);
+            new(lhs_.storage_.address()) RhsT(rhs_content_);
         }
         catch (...)
         {
@@ -648,7 +614,7 @@ private: // helpers, for visitor interface (below)
         try
         {
             // ...and attempt to copy rhs content into lhs storage:
-            copy_rhs_content_(lhs_.storage_.address(), rhs_content_);
+            new(lhs_.storage_.address()) RhsT(rhs_content_);
         }
         catch (...)
         {
@@ -684,11 +650,6 @@ public: // visitor interface
         BOOST_VARIANT_AUX_RETURN_VOID;
     }
 
-#if BOOST_WORKAROUND(BOOST_MSVC, BOOST_TESTED_AT(1600))
-private:
-    // silence MSVC warning C4512: assignment operator could not be generated
-    backup_assigner& operator= (backup_assigner const&);
-#endif
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -725,9 +686,6 @@ public: // internal visitor interfaces
         // ...and swap:
         ::boost::detail::variant::move_swap( operand, other );
     }
-
-private:
-    swap_with& operator=(const swap_with&);
 
 };
 
@@ -789,9 +747,6 @@ public: // visitor interfaces
         // ...and compare lhs and rhs contents:
         return Comp()(lhs_content, rhs_content);
     }
-
-private:
-    comparer& operator=(const comparer&);
 
 };
 
@@ -944,11 +899,6 @@ public: // internal visitor interfaces, cont.
         return internal_visit( operand.get(), 1L );
     }
 
-#if BOOST_WORKAROUND(BOOST_MSVC, BOOST_TESTED_AT(1600))
-private:
-    // silence MSVC warning C4512: assignment operator could not be generated
-    invoke_visitor& operator= (invoke_visitor const&);
-#endif
 };
 
 }} // namespace detail::variant
@@ -1170,14 +1120,14 @@ private: // helpers, for representation (below)
     which_t which_;
     storage_t storage_;
 
-    void indicate_which(int which_arg)
+    void indicate_which(int which)
     {
-        which_ = static_cast<which_t>( which_arg );
+        which_ = static_cast<which_t>( which );
     }
 
-    void indicate_backup_which(int which_arg)
+    void indicate_backup_which(int which)
     {
-        which_ = static_cast<which_t>( -(which_arg + 1) );
+        which_ = static_cast<which_t>( -(which + 1) );
     }
 
 private: // helpers, for queries (below)
@@ -1458,7 +1408,7 @@ public: // structors, cont.
 private: // helpers, for modifiers (below)
 
 #   if !defined(BOOST_NO_MEMBER_TEMPLATE_FRIENDS)
-    template <typename Variant>
+    template <typename Variant, typename RhsT>
     friend class detail::variant::backup_assigner;
 #   endif
 
@@ -1571,7 +1521,7 @@ private: // helpers, for modifiers (below)
             , mpl::false_// has_fallback_type
             )
         {
-            detail::variant::backup_assigner<wknd_self_t>
+            detail::variant::backup_assigner<wknd_self_t, RhsT>
                 visitor(lhs_, rhs_which_, rhs_content);
             lhs_.internal_apply_visitor(visitor);
         }
@@ -1599,11 +1549,6 @@ private: // helpers, for modifiers (below)
             BOOST_VARIANT_AUX_RETURN_VOID;
         }
 
-#if BOOST_WORKAROUND(BOOST_MSVC, BOOST_TESTED_AT(1600))
-    private:
-        // silence MSVC warning C4512: assignment operator could not be generated
-        assigner& operator= (assigner const&);
-#endif
     };
 
     friend class assigner;

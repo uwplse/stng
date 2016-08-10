@@ -15,7 +15,6 @@
 #include <boost/pending/indirect_cmp.hpp>
 #include <boost/graph/breadth_first_search.hpp>
 #include <boost/iterator/reverse_iterator.hpp>
-#include <boost/concept/assert.hpp>
 
 /*
  * core_numbers
@@ -47,7 +46,7 @@ namespace boost {
     struct CoreNumbersVisitorConcept {
         void constraints()
         {
-            BOOST_CONCEPT_ASSERT(( CopyConstructibleConcept<Visitor> ));
+            function_requires< CopyConstructibleConcept<Visitor> >();
             vis.examine_vertex(u,g);
             vis.finish_vertex(u,g);
             vis.examine_edge(e,g);
@@ -87,7 +86,7 @@ namespace boost {
 
     template <class Visitors>
     core_numbers_visitor<Visitors> make_core_numbers_visitor(Visitors vis)
-    { return core_numbers_visitor<Visitors>(vis); }
+    { return core_numbers_visitor<Visitors>(vis); };
 
     typedef core_numbers_visitor<> default_core_numbers_visitor;
 
@@ -123,11 +122,11 @@ namespace boost {
         {
             typename graph_traits<Graph>::vertex_iterator vi,vi_end;
             typename graph_traits<Graph>::out_edge_iterator ei,ei_end;
-            for (boost::tie(vi,vi_end) = vertices(g); vi!=vi_end; ++vi) {
+            for (tie(vi,vi_end) = vertices(g); vi!=vi_end; ++vi) {
                 put(d,*vi,0);
             }
-            for (boost::tie(vi,vi_end) = vertices(g); vi!=vi_end; ++vi) {
-                for (boost::tie(ei,ei_end) = out_edges(*vi,g); ei!=ei_end; ++ei) {
+            for (tie(vi,vi_end) = vertices(g); vi!=vi_end; ++vi) {
+                for (tie(ei,ei_end) = out_edges(*vi,g); ei!=ei_end; ++ei) {
                     put(d,target(*ei,g),get(d,target(*ei,g))+get(wm,*ei));
                 }
             }
@@ -152,7 +151,7 @@ namespace boost {
                 Q.pop();
                 v_cn = get(c,v);
                 typename graph_traits<Graph>::out_edge_iterator oi,oi_end;
-                for (boost::tie(oi,oi_end) = out_edges(v,g); oi!=oi_end; ++oi) {
+                for (tie(oi,oi_end) = out_edges(v,g); oi!=oi_end; ++oi) {
                     vis.examine_edge(*oi,g);
                     vertex u = target(*oi,g);
                     // if c[u] > c[v], then u is still in the graph,
@@ -183,7 +182,7 @@ namespace boost {
                 IndexMap> MutableQueue;
             MutableQueue Q(num_vertices(g), icmp, im);
             typename graph_traits<Graph>::vertex_iterator vi,vi_end;
-            for (boost::tie(vi,vi_end) = vertices(g); vi!=vi_end; ++vi) {
+            for (tie(vi,vi_end) = vertices(g); vi!=vi_end; ++vi) {
                 Q.push(*vi);
             }
             return core_numbers_impl(g, c, wm, Q, vis);
@@ -207,14 +206,14 @@ namespace boost {
 
             // compute the maximum degree (degrees are in the coremap)
             typename graph_traits<Graph>::degree_size_type max_deg = 0;
-            for (boost::tie(vi,vi_end) = vertices(g); vi!=vi_end; ++vi) {
+            for (tie(vi,vi_end) = vertices(g); vi!=vi_end; ++vi) {
                 max_deg = (std::max<typename graph_traits<Graph>::degree_size_type>)(max_deg, get(c,*vi));
             }
 
             // store the vertices in bins by their degree
             // allocate two extra locations to ease boundary cases
             std::vector<size_type> bin(max_deg+2);
-            for (boost::tie(vi,vi_end) = vertices(g); vi!=vi_end; ++vi) {
+            for (tie(vi,vi_end) = vertices(g); vi!=vi_end; ++vi) {
                 ++bin[get(c,*vi)];
             }
 
@@ -230,7 +229,7 @@ namespace boost {
             // perform the bucket sort with pos and vert so that
             // pos[0] is the vertex of smallest degree
             std::vector<vertex> vert(num_vertices(g));
-            for (boost::tie(vi,vi_end) = vertices(g); vi!=vi_end; ++vi) {
+            for (tie(vi,vi_end) = vertices(g); vi!=vi_end; ++vi) {
                 vertex v=*vi;
                 size_type p=bin[get(c,v)];
                 put(pos,v,p);
@@ -248,7 +247,7 @@ namespace boost {
                 vis.examine_vertex(v,g);
                 v_cn = get(c,v);
                 typename graph_traits<Graph>::out_edge_iterator oi,oi_end;
-                for (boost::tie(oi,oi_end) = out_edges(v,g); oi!=oi_end; ++oi) {
+                for (tie(oi,oi_end) = out_edges(v,g); oi!=oi_end; ++oi) {
                     vis.examine_edge(*oi,g);
                     vertex u = target(*oi,g);
                     // if c[u] > c[v], then u is still in the graph,

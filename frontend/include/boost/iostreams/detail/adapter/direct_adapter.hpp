@@ -30,7 +30,6 @@
 #include <boost/preprocessor/repetition/enum_binary_params.hpp>
 #include <boost/preprocessor/repetition/enum_params.hpp>
 #include <boost/static_assert.hpp>
-#include <boost/throw_exception.hpp>
 #include <boost/type_traits/is_convertible.hpp>
 
 // Must come last.
@@ -210,7 +209,7 @@ inline std::streamsize direct_adapter<Direct>::write
     using namespace std;
     pointers& put = ptrs_.second();
     if (n > static_cast<std::streamsize>(put.end - put.ptr))
-        boost::throw_exception(write_area_exhausted());
+        throw write_area_exhausted();
     std::copy(s, s + n, put.ptr);
     put.ptr += n;
     return n;
@@ -225,7 +224,7 @@ inline std::streampos direct_adapter<Direct>::seek
     pointers& get = ptrs_.first();
     pointers& put = ptrs_.second();
     if (way == BOOST_IOS::cur && get.ptr != put.ptr)
-       boost::throw_exception(bad_seek());
+       throw bad_seek();
     ptrdiff_t next = 0;
     if ((which & BOOST_IOS::in) || !is_double::value) {
         if (way == BOOST_IOS::beg)
@@ -237,7 +236,7 @@ inline std::streampos direct_adapter<Direct>::seek
         if (next >= 0 && next <= get.end - get.beg)
             get.ptr = get.beg + next;
         else
-            boost::throw_exception(bad_seek());
+            throw bad_seek();
     }
     if ((which & BOOST_IOS::out) && is_double::value) {
         if (way == BOOST_IOS::beg)
@@ -249,7 +248,7 @@ inline std::streampos direct_adapter<Direct>::seek
         if (next >= 0 && next <= put.end - put.beg)
             put.ptr = put.beg + next;
         else
-            boost::throw_exception(bad_seek());
+            throw bad_seek();
     }
     return offset_to_position(next);
 }
