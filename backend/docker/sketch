@@ -1,0 +1,7 @@
+#!/bin/bash
+
+MAVEN_OPTS="-XX:MaxPermSize=256m -Xms40m -Xmx600m -ea -server" mvn -f /sketch/sketch-frontend/pom.xml \
+      -e compile exec:java \
+      -Dexec.mainClass=sketch.compiler.main.seq.SequentialSketchMain \
+      -Dexec.args="$*"
+
