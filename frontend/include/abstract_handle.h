@@ -16,18 +16,10 @@
 #include <utility>
 #include <limits.h>
 #include <map>
-#include "rosedll.h"
 
 #ifdef _MSC_VER
 // DQ (11/26/2009): Required for definition of PATH_MAX in MSVC.
 #include "rose_msvc.h"
-#endif
-
-// DQ (4/17/2016): This appears to be needed for ROSE to emulate Clang
-// in compiling ROSE files in tests/CompileTests/RoseExample_tests.
-#ifdef __clang__
-// Find value for PATH_MAX
-#include<linux/limits.h>
 #endif
 
 namespace AbstractHandle{
@@ -156,7 +148,7 @@ namespace AbstractHandle{
   //---------------- An abstract handle --------------------------
   // to specify a construct using a specifier
   // Can be used alone or with parent handles when relative specifiers are used
-  class ROSE_DLL_API abstract_handle 
+  class abstract_handle 
   {
   public:
     //Constructors

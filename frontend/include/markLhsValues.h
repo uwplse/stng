@@ -6,7 +6,7 @@
 
     \internal Nodes of specific operators are l-values and it is less clear in other cases.
  */
-ROSE_DLL_API void markLhsValues( SgNode* node );
+void markLhsValues( SgNode* node );
 
 /*! \brief Explicitly mark lhs operands of specific operators as lvalues.
 

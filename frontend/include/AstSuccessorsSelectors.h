@@ -4,7 +4,7 @@
 #ifndef ASTSUCCESSORSSELECTORS_H
 #define ASTSUCCESSORSSELECTORS_H
 
-class ROSE_DLL_API AstSuccessorsSelectors {
+class AstSuccessorsSelectors {
  public:
   typedef std::vector<SgNode*> SuccessorsContainer; // type is used in all AstProcessing classes
 

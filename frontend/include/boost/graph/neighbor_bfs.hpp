@@ -24,14 +24,13 @@
 #include <boost/graph/graph_concepts.hpp>
 #include <boost/graph/visitors.hpp>
 #include <boost/graph/named_function_params.hpp>
-#include <boost/concept/assert.hpp>
 
 namespace boost {
 
   template <class Visitor, class Graph>
   struct NeighborBFSVisitorConcept {
     void constraints() {
-      BOOST_CONCEPT_ASSERT(( CopyConstructibleConcept<Visitor> ));
+      function_requires< CopyConstructibleConcept<Visitor> >();
       vis.initialize_vertex(u, g);
       vis.discover_vertex(u, g);
       vis.examine_vertex(u, g);
@@ -134,13 +133,13 @@ namespace boost {
        Buffer& Q, BFSVisitor vis, ColorMap color)
 
     {
-      BOOST_CONCEPT_ASSERT(( BidirectionalGraphConcept<BidirectionalGraph> ));
+      function_requires< BidirectionalGraphConcept<BidirectionalGraph> >();
       typedef graph_traits<BidirectionalGraph> GTraits;
       typedef typename GTraits::vertex_descriptor Vertex;
       typedef typename GTraits::edge_descriptor Edge;
-      BOOST_CONCEPT_ASSERT(( 
-        NeighborBFSVisitorConcept<BFSVisitor, BidirectionalGraph> ));
-      BOOST_CONCEPT_ASSERT(( ReadWritePropertyMapConcept<ColorMap, Vertex> ));
+      function_requires< 
+        NeighborBFSVisitorConcept<BFSVisitor, BidirectionalGraph> >();
+      function_requires< ReadWritePropertyMapConcept<ColorMap, Vertex> >();
       typedef typename property_traits<ColorMap>::value_type ColorValue;
       typedef color_traits<ColorValue> Color;
       
@@ -153,7 +152,7 @@ namespace boost {
         vis.examine_vertex(u, g);
 
         typename GTraits::out_edge_iterator ei, ei_end;
-        for (boost::tie(ei, ei_end) = out_edges(u, g); ei != ei_end; ++ei) {
+        for (tie(ei, ei_end) = out_edges(u, g); ei != ei_end; ++ei) {
           Edge e = *ei;
           vis.examine_out_edge(e, g);
           Vertex v = target(e, g);
@@ -173,7 +172,7 @@ namespace boost {
         } // for out-edges
 
         typename GTraits::in_edge_iterator in_ei, in_ei_end;
-        for (boost::tie(in_ei, in_ei_end) = in_edges(u, g); 
+        for (tie(in_ei, in_ei_end) = in_edges(u, g); 
              in_ei != in_ei_end; ++in_ei) {
           Edge e = *in_ei;
           vis.examine_in_edge(e, g);
@@ -217,7 +216,7 @@ namespace boost {
       typedef typename property_traits<ColorMap>::value_type ColorValue;
       typedef color_traits<ColorValue> Color;
       typename boost::graph_traits<VertexListGraph>::vertex_iterator i, i_end;
-      for (boost::tie(i, i_end) = vertices(g); i != i_end; ++i) {
+      for (tie(i, i_end) = vertices(g); i != i_end; ++i) {
         put(color, *i, Color::white());
         vis.initialize_vertex(*i, g);
       }

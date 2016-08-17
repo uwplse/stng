@@ -1,5 +1,5 @@
 /*=============================================================================
-    Copyright (c) 2001-2011 Joel de Guzman
+    Copyright (c) 2001-2007 Joel de Guzman
 
     Distributed under the Boost Software License, Version 1.0. (See accompanying
     file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -7,86 +7,52 @@
 #if !defined(SPIRIT_AND_PREDICATE_MARCH_23_2007_0617PM)
 #define SPIRIT_AND_PREDICATE_MARCH_23_2007_0617PM
 
-#if defined(_MSC_VER)
-#pragma once
-#endif
-
-#include <boost/spirit/home/qi/domain.hpp>
-#include <boost/spirit/home/qi/meta_compiler.hpp>
-#include <boost/spirit/home/qi/parser.hpp>
-#include <boost/spirit/home/qi/detail/attributes.hpp>
-#include <boost/spirit/home/support/info.hpp>
-#include <boost/spirit/home/support/has_semantic_action.hpp>
-#include <boost/spirit/home/support/handles_container.hpp>
-#include <boost/fusion/include/at.hpp>
-
-namespace boost { namespace spirit
-{
-    ///////////////////////////////////////////////////////////////////////////
-    // Enablers
-    ///////////////////////////////////////////////////////////////////////////
-    template <>
-    struct use_operator<qi::domain, proto::tag::address_of> // enables &p
-      : mpl::true_ {};
-}}
+#include <boost/spirit/home/support/component.hpp>
+#include <boost/spirit/home/support/unused.hpp>
 
 namespace boost { namespace spirit { namespace qi
 {
-    template <typename Subject>
-    struct and_predicate : unary_parser<and_predicate<Subject> >
+    struct and_predicate
     {
-        typedef Subject subject_type;
-
-        template <typename Context, typename Iterator>
+        template <typename Component, typename Context, typename Iterator>
         struct attribute
         {
             typedef unused_type type;
         };
 
-        and_predicate(Subject const& subject)
-          : subject(subject) {}
-
-        template <typename Iterator, typename Context
+        template <
+            typename Component
+          , typename Iterator, typename Context
           , typename Skipper, typename Attribute>
-        bool parse(Iterator& first, Iterator const& last
+        static bool parse(
+            Component const& component
+          , Iterator& first, Iterator const& last
           , Context& context, Skipper const& skipper
-          , Attribute& /*attr*/) const
+          , Attribute& /*attr*/)
         {
+            typedef typename
+                result_of::subject<Component>::type::director
+            director;
+
             Iterator i = first;
-            return subject.parse(i, last, context, skipper, unused);
+            return director::parse(
+                subject(component), i, last, context, skipper, unused);
         }
 
-        template <typename Context>
-        info what(Context& context) const
+        template <typename Component, typename Context>
+        static std::string what(Component const& component, Context const& ctx)
         {
-            return info("and-predicate", subject.what(context));
+            std::string result = "and-predicate[";
+
+            typedef typename
+                result_of::subject<Component>::type::director
+            director;
+
+            result += director::what(subject(component), ctx);
+            result += "]";
+            return result;
         }
-
-        Subject subject;
     };
-
-    ///////////////////////////////////////////////////////////////////////////
-    // Parser generators: make_xxx function (objects)
-    ///////////////////////////////////////////////////////////////////////////
-    template <typename Elements, typename Modifiers>
-    struct make_composite<proto::tag::address_of, Elements, Modifiers>
-      : make_unary_composite<Elements, and_predicate>
-    {};
-}}}
-
-namespace boost { namespace spirit { namespace traits
-{
-    ///////////////////////////////////////////////////////////////////////////
-    template <typename Subject>
-    struct has_semantic_action<qi::and_predicate<Subject> >
-      : unary_has_semantic_action<Subject> {};
-
-    ///////////////////////////////////////////////////////////////////////////
-    template <typename Subject, typename Attribute, typename Context
-      , typename Iterator>
-    struct handles_container<qi::and_predicate<Subject>, Attribute, Context
-      , Iterator>
-      : unary_handles_container<Subject, Attribute, Context, Iterator> {};
 }}}
 
 #endif

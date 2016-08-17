@@ -49,7 +49,7 @@ public:
   edges forward, or in breadth-first-search order rooted at the exit
   node and following edges backward.
   */
-  enum ID_dir // NO_STRINGIFY
+  enum ID_dir 
   {
     FORWARD,
     BACKWARD
@@ -109,7 +109,7 @@ class ControlNode : public SimpleDirectedGraphNode {
 
 public:
 
-  enum Type // NO_STRINGIFY
+  enum Type 
   {
     SGNODE,
     EMPTY

@@ -1,4 +1,3 @@
-// See also, Sawyer::Container::BitVector ($ROSE/src/util/Sawyer/BitVector.h) which has a much richer API.
 #ifndef BITVECTOR_DATA_REPR_H
 #define BITVECTOR_DATA_REPR_H
 
@@ -6,9 +5,7 @@
 #include <FunctionObject.h>
 #include <DoublyLinkedList.h>
 #include <assert.h>
-#include <map>
 #include <sstream>
-#include "rosedll.h"
 
 class BitVectorReprImpl {
   unsigned* impl;
@@ -107,7 +104,7 @@ class BitVectorReprImpl {
     }
 };
 
-class ROSE_UTIL_API BitVectorRepr : public CountRefHandle<BitVectorReprImpl>
+class BitVectorRepr : public CountRefHandle<BitVectorReprImpl>
 {
  public:
   BitVectorRepr( BitVectorReprImpl* _impl)

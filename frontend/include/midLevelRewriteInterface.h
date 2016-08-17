@@ -6,7 +6,7 @@
 
 // class AbsoluteStringRewrite
 template <class ASTNodeCollection>
-class ROSE_DLL_API MidLevelRewrite
+class MidLevelRewrite
    {
   // Interface classification:
   //      Permits String Based Specification of Transformation: YES
@@ -129,8 +129,6 @@ class ROSE_DLL_API MidLevelRewrite
 
                     typedef std::list < DeclarationOrCommentListElement > ListOfStatementsType;
                     typedef std::stack< ListOfStatementsType > StackOfListsType;
-                 // Argument to evaluateSynthesizedAttribute()
-                    typedef typename AstReversePrefixInhSynProcessing<PrefixInheritedAttribute,PrefixSynthesizedAttribute>::SynthesizedAttributesList SynthesizedAttributesList;
 
                  // Keep track of the current scope separately and push the current 
                  // scope onto the stack of scopes.
@@ -201,7 +199,7 @@ class ROSE_DLL_API MidLevelRewrite
                     PrefixSynthesizedAttribute evaluateSynthesizedAttribute (
                          SgNode* astNode,
                          PrefixInheritedAttribute inputInheritedAttribute,
-                         SynthesizedAttributesList inputSynthesizedAttributeList );
+                         typename PrefixSuffixGenerationTraversal::SynthesizedAttributesList inputSynthesizedAttributeList );
              };
 
        // *****************************************************************
@@ -244,9 +242,6 @@ class ROSE_DLL_API MidLevelRewrite
             // are separated out of intermediate file's AST.
 
                public:
-                 // Argument to evaluateSynthesizedAttribute()
-                    typedef typename SgTopDownBottomUpProcessing<AST_FragmentIdentificationInheritedAttributeType, AST_FragmentIdentificationSynthesizedAttributeType>::SubTreeSynthesizedAttributes SubTreeSynthesizedAttributes;
-
                  // I don't think we need this data member for this traversal (but I'm trying to get
                  // everything to compile and having trouble linking, so we will see it this helps).
 //                  SgProject & project;
@@ -268,7 +263,7 @@ class ROSE_DLL_API MidLevelRewrite
                          evaluateSynthesizedAttribute (
                               SgNode* astNode,
                               AST_FragmentIdentificationInheritedAttributeType inheritedValue,
-                              SubTreeSynthesizedAttributes synthesizedAttributeList );
+                              typename AST_FragmentIdentificationTraversal::SubTreeSynthesizedAttributes synthesizedAttributeList );
              };
 
           class AST_FragmentIdentificationSynthesizedAttributeType

@@ -1,27 +1,19 @@
 // Author: Gergo Barany
+// $Id: AstSharedMemoryParallelProcessing.C,v 1.1 2008/01/08 02:56:38 dquinlan Exp $
+
 #ifndef ASTSHAREDMEMORYPARALLELPROCESSING_C
 #define ASTSHAREDMEMORYPARALLELPROCESSING_C
 
-#include "rosePublicConfig.h"
+// tps (01/08/2010) Added sage3basic since this doesnt compile under gcc4.1.2
+//#include "sage3basic.h"
+//#include "sage3.h"
 
-#ifdef _REENTRANT                                       // Does user want multi-thread support? (e.g., g++ -pthread)
-# ifdef ROSE_HAVE_PTHREAD_H                             // POSIX threads are available?
-#  include <pthread.h>
-# else
-   // This should all be switched to Boost Threads instead, which is more portable
-#  ifdef _MSC_VER
-#   pragma message ("POSIX threads are unavailable on this platform.")
-#  else
-#   warning "POSIX threads are unavailable on this platform."
-#  endif
-# endif
+// DQ (3/20/2009): Trying to fix error on Cygwin platform.
+#ifdef _MSC_VER
+#pragma message ("Error: pthread.h is unavailable on MSVC, we might want to use boost.thread library.")
+#else
+#include <pthread.h>
 #endif
-
-// Perhaps this code should be fixed so it works on a single thread when multi-thread support is disabled by the user.
-// Until then, I am commenting out this entire file when multi-threading support is not configured. [Robb P. Matzke 2015-03-14]
-#ifdef _REENTRANT                                       // Does the user want multi-threaded support? (e.g., g++ -pthread)
-
-
 
 #include "AstSharedMemoryParallelProcessing.h"
 
@@ -156,7 +148,7 @@ AstSharedMemoryParallelTopDownBottomUpProcessing<I, S>::traverseInParallel(
         begin = end;
     }
 
-#if defined(_REENTRANT) && defined(ROSE_HAVE_PTHREAD_H) // user wants multi-thread support and POSIX threads are available?
+#ifndef _MSC_VER
     // Start a thread for each of the parallelizable traversals with its share
     // of the initial inherited attributes.
     pthread_t *threads = new pthread_t[numberOfThreads];
@@ -180,7 +172,7 @@ AstSharedMemoryParallelTopDownBottomUpProcessing<I, S>::traverseInParallel(
     std::vector<SynthesizedAttributeTypeList *> finalResults(numberOfThreads);
     for (i = 0; i < numberOfThreads; i++)
         pthread_join(threads[i], (void **) &finalResults[i]);
-    delete[] threads;
+    delete threads;
 #endif
 
     // Flatten the nested list of traversal results.
@@ -382,7 +374,7 @@ AstSharedMemoryParallelTopDownProcessing<I>::traverseInParallel(
     std::vector<void *> finalResults(numberOfThreads);
     for (i = 0; i < numberOfThreads; i++)
         pthread_join(threads[i], &finalResults[i]);
-    delete[] threads;
+    delete threads;
 
     // Done!
 }
@@ -563,7 +555,7 @@ AstSharedMemoryParallelBottomUpProcessing<S>::traverseInParallel(SgNode *basenod
     std::vector<SynthesizedAttributeTypeList *> finalResults(numberOfThreads);
     for (i = 0; i < numberOfThreads; i++)
         pthread_join(threads[i], (void **) &finalResults[i]);
-    delete[] threads;
+    delete threads;
 
     // Flatten the nested list of traversal results.
     SynthesizedAttributeTypeList *flatFinalResults = new SynthesizedAttributeTypeList;
@@ -611,5 +603,4 @@ AstSharedMemoryParallelBottomUpProcessing<S>::set_synchronizationWindowSize(size
 #endif
 }
 
-#endif
 #endif

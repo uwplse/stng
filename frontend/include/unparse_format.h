@@ -59,7 +59,7 @@ typedef enum Format_Opt
      FORMAT_BEFORE_BASIC_BLOCK2,
      FORMAT_AFTER_BASIC_BLOCK2,
      FORMAT_BEFORE_NESTED_STATEMENT,
-     FORMAT_AFTER_NESTED_STATEMENT
+     FORMAT_AFTER_NESTED_STATEMENT,
    } FormatOpt;
 
 #include "unparseFormatHelp.h"
@@ -108,10 +108,6 @@ class UnparseFormat
        // DQ (2/16/2004): Make this part of the public interface (to control old-style K&R C function definitions)
           void insert_newline(int i = 1, int indent = -1);
 
-       // DQ (12/10/2014): Reset the chars_on_line to zero, used in token based unparsing to reset the 
-       // formatting for AST subtrees unparsed using the AST in conjunction with the token based unparsing.
-          void reset_chars_on_line();
-
           //   private:
           //Unparser* unp;
      public:
@@ -141,8 +137,6 @@ class UnparseFormat
        // DQ (6/6/2007): Debugging support for hidden list data held in scopes
           void outputHiddenListData ( Unparser* unp,SgScopeStatement* inputScope );
 
-       // DQ (9/30/2013): We need access to the std::ostream* os so that we can support token output without interpretation of line endings.
-         std::ostream* output_stream () { return os; }
    };
 
 #endif

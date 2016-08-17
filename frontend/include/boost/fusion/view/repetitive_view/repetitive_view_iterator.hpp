@@ -35,19 +35,15 @@ namespace boost { namespace fusion
         typedef typename convert_iterator<typename result_of::end<Sequence>::type>::type end_type;
         typedef single_pass_traversal_tag category;
 
-        explicit repetitive_view_iterator(Sequence& in_seq)
-            : seq(in_seq), pos(begin(in_seq)) {}
+        explicit repetitive_view_iterator(Sequence& seq)
+            : seq(seq), pos(begin(seq)) {}
 
-        repetitive_view_iterator(Sequence& in_seq, pos_type const& in_pos)
-            : seq(in_seq), pos(in_pos) {}
+        repetitive_view_iterator(Sequence& seq, pos_type const& pos)
+            : seq(seq), pos(pos) {}
 
         Sequence& seq;
         pos_type pos;
-        
 
-    private:
-        // silence MSVC warning C4512: assignment operator could not be generated
-        repetitive_view_iterator& operator= (repetitive_view_iterator const&);
     };
 }}
 

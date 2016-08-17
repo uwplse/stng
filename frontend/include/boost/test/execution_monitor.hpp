@@ -8,7 +8,7 @@
 //
 //  File        : $RCSfile$
 //
-//  Version     : $Revision: 57992 $
+//  Version     : $Revision: 49312 $
 //
 //  Description : defines abstract monitor interfaces and implements execution exception
 //  The original Boost Test Library included an implementation detail function
@@ -113,27 +113,18 @@ public:
         //  is unreasonable to continue execution.
     };
     
-    struct BOOST_TEST_DECL location {
-        explicit    location( char const* file_name = 0, size_t line_num = 0, char const* func = 0 );
-
-        const_string    m_file_name;
-        size_t          m_line_num;
-        const_string    m_function;
-    };
-
     // Constructor
-    execution_exception( error_code ec_, const_string what_msg_, location const& location_ ); // max length 256 inc '\0'
+    execution_exception( error_code ec_, const_string what_msg_ ) // max length 256 inc '\0'
+    : m_error_code( ec_ ), m_what( what_msg_ ) {}
 
-    // Access methods
-    error_code      code() const    { return m_error_code; }
-    const_string    what() const    { return m_what; }
-    location const& where() const   { return m_location; }
+    // access methods
+    error_code      code() const { return m_error_code; }
+    const_string    what() const { return m_what; }
 
 private:
     // Data members
     error_code      m_error_code;
     const_string    m_what;
-    location        m_location;
 }; // execution_exception
 
 // ************************************************************************** //

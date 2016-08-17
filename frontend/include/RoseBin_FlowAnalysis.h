@@ -55,11 +55,11 @@ class FindInstructionsVisitor: public std::binary_function<SgNode*, std::vector<
 };
 
 
-class FindInstructionsVisitorx86: public std::binary_function<SgNode*, std::vector<SgAsmX86Instruction *>* , void* >
+class FindInstructionsVisitorx86: public std::binary_function<SgNode*, std::vector<SgAsmx86Instruction *>* , void* >
 {
  public:
-  void* operator()(first_argument_type node, std::vector<SgAsmX86Instruction*>* insns ) const{
-    if (isSgAsmX86Instruction(node)) insns->push_back(isSgAsmX86Instruction(node));
+  void* operator()(first_argument_type node, std::vector<SgAsmx86Instruction*>* insns ) const{
+    if (isSgAsmx86Instruction(node)) insns->push_back(isSgAsmx86Instruction(node));
     return NULL;
   }
 };
@@ -107,7 +107,7 @@ class FindNodeVisitor: public std::binary_function<SgNode*, std::vector<SgLocate
 
 // ************************************************************************************
 
-class ROSE_DLL_API RoseBin_FlowAnalysis : public AstSimpleProcessing {//, public GraphAlgorithms {
+class RoseBin_FlowAnalysis : public AstSimpleProcessing {//, public GraphAlgorithms {
  public:
   //remove later!
    //typedef rose_hash::unordered_map <std::string, SgGraphNode*,rose_hash::hash_string,rose_hash::eqstr_string> nodeType;
@@ -174,7 +174,7 @@ class ROSE_DLL_API RoseBin_FlowAnalysis : public AstSimpleProcessing {//, public
 
   void initFunctionList(SgAsmNode* global);
   void process_jumps();
-  SgAsmInstruction* process_jumps_get_target(SgAsmX86Instruction* inst);
+  SgAsmInstruction* process_jumps_get_target(SgAsmx86Instruction* inst);
   void resolveFunctions(SgAsmNode* global);
   SgAsmInstruction* resolveFunction(SgAsmInstruction* inst, bool hasStopCondition);
   void convertBlocksToFunctions(SgAsmNode* globalNode);

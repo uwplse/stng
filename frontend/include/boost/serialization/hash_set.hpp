@@ -27,49 +27,6 @@
 namespace boost { 
 namespace serialization {
 
-namespace stl {
-
-// hash_set input
-template<class Archive, class Container>
-struct archive_input_hash_set
-{
-    inline void operator()(
-        Archive &ar, 
-        Container &s, 
-        const unsigned int v
-    ){
-        typedef BOOST_DEDUCED_TYPENAME Container::value_type type;
-        detail::stack_construct<Archive, type> t(ar, v);
-        // borland fails silently w/o full namespace
-        ar >> boost::serialization::make_nvp("item", t.reference());
-        std::pair<BOOST_DEDUCED_TYPENAME Container::const_iterator, bool> result = 
-            s.insert(t.reference());
-        if(result.second)
-            ar.reset_object_address(& (* result.first), & t.reference());
-    }
-};
-
-// hash_multiset input
-template<class Archive, class Container>
-struct archive_input_hash_multiset
-{
-    inline void operator()(
-        Archive &ar, 
-        Container &s, 
-        const unsigned int v
-    ){
-        typedef BOOST_DEDUCED_TYPENAME Container::value_type type;
-        detail::stack_construct<Archive, type> t(ar, v);
-        // borland fails silently w/o full namespace
-        ar >> boost::serialization::make_nvp("item", t.reference());
-        BOOST_DEDUCED_TYPENAME Container::const_iterator result 
-            = s.insert(t.reference());
-        ar.reset_object_address(& (* result), & t.reference());
-    }
-};
-
-} // stl
-
 template<
     class Archive, 
     class Key, 
@@ -111,7 +68,7 @@ inline void load(
         BOOST_STD_EXTENSION_NAMESPACE::hash_set<
             Key, HashFcn, EqualKey, Allocator
         >,
-        boost::serialization::stl::archive_input_hash_set<
+        boost::serialization::stl::archive_input_set<
             Archive, 
             BOOST_STD_EXTENSION_NAMESPACE::hash_set<
                 Key, HashFcn, EqualKey, Allocator
@@ -181,7 +138,7 @@ inline void load(
         BOOST_STD_EXTENSION_NAMESPACE::hash_multiset<
             Key, HashFcn, EqualKey, Allocator
         >,
-        boost::serialization::stl::archive_input_hash_multiset<
+        boost::serialization::stl::archive_input_multiset<
             Archive,
             BOOST_STD_EXTENSION_NAMESPACE::hash_multiset<
                 Key, HashFcn, EqualKey, Allocator

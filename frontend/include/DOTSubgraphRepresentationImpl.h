@@ -14,8 +14,6 @@
 #include <sstream>
 #include <typeinfo>
 #include <assert.h>
-#include "sage3basic.h"
-#include <inttypes.h>
 #include "DOTSubgraphRepresentation.h"
 
 // DQ (12/31/2005): This is OK if not declared in a header file
@@ -94,7 +92,7 @@ DOTSubgraphRepresentation<NodeType>::writeOutSubgraph( typename map<int,string>:
         {
           if ( (*i).subgraph == sid )
              {
-               (*dotout) << this->nodeName( (*i).node ) << " [label=\"BLA" <<  (*i).label  << "\" " <<  (*i).option  << "];" << endl;
+               (*dotout) << nodeName( (*i).node ) << " [label=\"BLA" <<  (*i).label  << "\" " <<  (*i).option  << "];" << endl;
                (*i).written = true;
              }
         }
@@ -120,9 +118,9 @@ DOTSubgraphRepresentation<NodeType>::writeOutSubgraph( typename map<int,string>:
 
           if( isinthis  )
              {
-               (*dotout) << this->nodeName( (*i).node1 )
+               (*dotout) << nodeName( (*i).node1 )
                          << " -> "
-                         << this->nodeName( (*i).node2 )
+                         << nodeName( (*i).node2 )
                          << " [label=\"" <<  (*i).label << "\" " <<  (*i).option  << " ];" << endl;
                (*i).written = true;
              }
@@ -162,7 +160,7 @@ DOTSubgraphRepresentation<NodeType>::writeDotoutStream( void )
   // clear flags
      resetWriteFlags();
 
-     printf ("DOTSubgraphRepresentation<NodeType>::writeDotoutStream(): mSubgraphNames.size() = %" PRIuPTR " \n",mSubgraphNames.size());
+     printf ("DOTSubgraphRepresentation<NodeType>::writeDotoutStream(): mSubgraphNames.size() = %zu \n",mSubgraphNames.size());
 
 	// write normally if there are no subgraphs
      if (mSubgraphNames.size() == 0) 
@@ -170,15 +168,15 @@ DOTSubgraphRepresentation<NodeType>::writeDotoutStream( void )
        // write nodes
           for (typename vector<NodeStorageType>::iterator i=mNodes.begin(); i!=mNodes.end(); i++)
              {
-               (*dotout) << this->nodeName( (*i).node ) << "[label=\"" <<  (*i).label  << "\" " <<  (*i).option  << "];" << endl;
+               (*dotout) << nodeName( (*i).node ) << "[label=\"" <<  (*i).label  << "\" " <<  (*i).option  << "];" << endl;
                (*i).written = true;
              }
        // write edges
           for (typename vector<EdgeStorageType>::iterator i=mEdges.begin(); i!=mEdges.end(); i++)
              {
-               (*dotout) << this->nodeName( (*i).node1 )
+               (*dotout) << nodeName( (*i).node1 )
                          << " -> "
-                         << this->nodeName( (*i).node2 )
+                         << nodeName( (*i).node2 )
                          << "[label=\"" <<  (*i).label << "\" " <<  (*i).option  << " ];" << endl;
                (*i).written = true;
              }
@@ -212,7 +210,7 @@ DOTSubgraphRepresentation<NodeType>::writeDotoutStream( void )
 			// write all components of this subgraph
 			for(typename vector<NodeStorageType>::iterator i=mNodes.begin(); i!=mNodes.end(); i++) {
 				if( (*i).subgraph == sid ) {
-				(*dotout) << this->nodeName( (*i).node ) << " [label=\"BLA" <<  (*i).label  << "\" " <<  (*i).option  << "];" << endl;
+				(*dotout) << nodeName( (*i).node ) << " [label=\"BLA" <<  (*i).label  << "\" " <<  (*i).option  << "];" << endl;
 				(*i).written = true; }
 			}
 			for(typename vector<EdgeStorageType>::iterator i=mEdges.begin(); i!=mEdges.end(); i++) {
@@ -228,9 +226,9 @@ DOTSubgraphRepresentation<NodeType>::writeDotoutStream( void )
 				}
 
 				if( isinthis  ) {
-				(*dotout) << this->nodeName( (*i).node1 )
+				(*dotout) << nodeName( (*i).node1 )
 					<< " -> "
-					<< this->nodeName( (*i).node2 )
+					<< nodeName( (*i).node2 )
 					<< " [label=\"" <<  (*i).label << "\" " <<  (*i).option  << " ];" << endl;
 				(*i).written = true; }
 			}
@@ -252,13 +250,13 @@ DOTSubgraphRepresentation<NodeType>::writeDotoutStream( void )
       // DQ (8/16/2004): These nodes will appear outside of the subgraph (as intended by the user)
 		// write everything that wasnt written yet
 		for(typename vector<NodeStorageType>::iterator i=mNodes.begin(); i!=mNodes.end(); i++) {
-			if(!(*i).written) (*dotout) << this->nodeName( (*i).node ) << "[label=\"BLA" <<  (*i).label  << "\" " <<  (*i).option  << "];" << endl;
+			if(!(*i).written) (*dotout) << nodeName( (*i).node ) << "[label=\"BLA" <<  (*i).label  << "\" " <<  (*i).option  << "];" << endl;
 		}
 		// write edges
 		for(typename vector<EdgeStorageType>::iterator i=mEdges.begin(); i!=mEdges.end(); i++) {
-			if(!(*i).written) (*dotout) << this->nodeName( (*i).node1 )
+			if(!(*i).written) (*dotout) << nodeName( (*i).node1 )
 				<< " -> "
-				<< this->nodeName( (*i).node2 )
+				<< nodeName( (*i).node2 )
 				<< "[label=\"" <<  (*i).label << "\" " <<  (*i).option  << " ];" << endl;
 		}
 		for(typename vector<NodeAdditionalStorage>::iterator i=mAdds.begin(); i!=mAdds.end(); i++) {

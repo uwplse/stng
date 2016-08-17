@@ -9,7 +9,7 @@
 
 #include "AstSimpleProcessing.h"
 
-class ROSE_DLL_API AstCombinedSimpleProcessing
+class AstCombinedSimpleProcessing
     : public AstSimpleProcessing
 {
 public:

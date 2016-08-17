@@ -5,7 +5,7 @@
  * Subject to the Boost Software License, Version 1.0. 
  * (See accompanying file LICENSE_1_0.txt or http://www.boost.org/LICENSE_1_0.txt)
  * Author: Jeff Garland, Bart Garst
- * $Date: 2012-05-26 15:33:09 -0400 (Sat, 26 May 2012) $
+ * $Date: 2008-11-12 14:37:53 -0500 (Wed, 12 Nov 2008) $
  */
 
 #include <map>
@@ -167,16 +167,6 @@ namespace boost {
       tz_db_base() {}
 
       //! Process csv data file, may throw exceptions
-      /*! May throw bad_field_count exceptions */
-      void load_from_stream(std::istream &in)
-      {
-        std::string  buff;
-        while( std::getline(in, buff)) {
-          parse_string(buff);
-        }
-      }
-
-      //! Process csv data file, may throw exceptions
       /*! May throw data_not_accessible, or bad_field_count exceptions */
       void load_from_file(const std::string& pathspec)
       {
@@ -188,7 +178,10 @@ namespace boost {
           boost::throw_exception(data_not_accessible(pathspec));
         }
         std::getline(ifs, buff); // first line is column headings
-        this->load_from_stream(ifs);
+
+        while( std::getline(ifs, buff)) {
+          parse_string(buff);
+        }
       }
 
       //! returns true if record successfully added to map

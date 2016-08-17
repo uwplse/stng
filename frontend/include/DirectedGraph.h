@@ -1,4 +1,3 @@
-// See also Sawyer::Container::Graph ($ROSE/src/util/Sawyer/Graph.h)
 
 #ifndef DIRECTED_GRAPH_IMPL
 #define DIRECTED_GRAPH_IMPL
@@ -6,7 +5,6 @@
 #include <DoublyLinkedList.h>
 #include <assert.h>
 #include <iostream>
-#include "rosedll.h"
 
 class DirectedEdgeInterface
 { public:
@@ -15,7 +13,7 @@ class DirectedEdgeInterface
 template <class Node, class Edge> class DirectedGraph;
 template <class Node, class Edge> class DirectedGraphEdge;
 template <class Node, class Edge>
-class ROSE_UTIL_API DirectedGraphNode 
+class DirectedGraphNode 
 { 
    DoublyLinkedListWrap <Edge*> edges[2];
    DoublyLinkedEntryWrap<Node*> *entry;
@@ -41,7 +39,7 @@ class ROSE_UTIL_API DirectedGraphNode
 };
 
 template <class Node, class Edge>
-class ROSE_UTIL_API DirectedGraphEdge
+class DirectedGraphEdge
 {
   Node* nodes[2];
   DoublyLinkedEntryWrap<Edge*> *entries[2];

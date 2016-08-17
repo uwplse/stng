@@ -11,10 +11,7 @@
 #include <deque>
 #include <boost/config.hpp>
 
-#include <boost/concept/assert.hpp>
-
 #include <boost/graph/graph_concepts.hpp>
-#include <boost/graph/lookup_edge.hpp>
 
 #include <boost/concept/detail/concept_def.hpp>
 namespace boost {
@@ -128,7 +125,9 @@ namespace detail
                             typename graph_traits<Graph>::vertex_descriptor v,
                             typename graph_traits<Graph>::undirected_category)
     {
-        return lookup_edge(u, v, g).second;
+        function_requires< AdjacencyMatrixConcept<Graph> >();
+
+        return edge(u, v, g).second;
     }
 
     template <typename Graph>
@@ -138,12 +137,13 @@ namespace detail
                             typename graph_traits<Graph>::vertex_descriptor v,
                             typename graph_traits<Graph>::directed_category)
     {
+        function_requires< AdjacencyMatrixConcept<Graph> >();
         // Note that this could alternate between using an || to determine
         // full connectivity. I believe that this should produce strongly
         // connected components. Note that using && instead of || will
         // change the results to a fully connected subgraph (i.e., symmetric
         // edges between all vertices s.t., if a->b, then b->a.
-        return lookup_edge(u, v, g).second && lookup_edge(v, u, g).second;
+        return edge(u, v, g).second && edge(v, u, g).second;
     }
 
     template <typename Graph, typename Container>
@@ -153,7 +153,7 @@ namespace detail
                                 const Container& in,
                                 Container& out)
     {
-        BOOST_CONCEPT_ASSERT(( GraphConcept<Graph> ));
+        function_requires< GraphConcept<Graph> >();
 
         typename graph_traits<Graph>::directed_category cat;
         typename Container::const_iterator i, end = in.end();
@@ -176,8 +176,8 @@ namespace detail
                         Visitor vis,
                         std::size_t min)
     {
-        BOOST_CONCEPT_ASSERT(( GraphConcept<Graph> ));
-        BOOST_CONCEPT_ASSERT(( CliqueVisitorConcept<Visitor,Clique,Graph> ));
+        function_requires< GraphConcept<Graph> >();
+        function_requires< CliqueVisitorConcept<Visitor,Clique,Graph> >();
         typedef typename graph_traits<Graph>::vertex_descriptor Vertex;
 
         // Is there vertex in nots that is connected to all vertices
@@ -189,7 +189,7 @@ namespace detail
             for(ni = nots.begin(); ni != nend; ++ni) {
                 for(ci = cands.begin(); ci != cend; ++ci) {
                     // if we don't find an edge, then we're okay.
-                    if(!lookup_edge(*ni, *ci, g).second) break;
+                    if(!edge(*ni, *ci, g).second) break;
                 }
                 // if we iterated all the way to the end, then *ni
                 // is connected to all *ci
@@ -224,7 +224,7 @@ namespace detail
 
         // otherwise, iterate over candidates and and test
         // for maxmimal cliquiness.
-        typename Container::iterator i, j;
+        typename Container::iterator i, j, end = cands.end();
         for(i = cands.begin(); i != cands.end(); ) {
             Vertex candidate = *i;
 
@@ -268,20 +268,21 @@ template <typename Graph, typename Visitor>
 inline void
 bron_kerbosch_all_cliques(const Graph& g, Visitor vis, std::size_t min)
 {
-    BOOST_CONCEPT_ASSERT(( IncidenceGraphConcept<Graph> ));
-    BOOST_CONCEPT_ASSERT(( VertexListGraphConcept<Graph> ));
-    BOOST_CONCEPT_ASSERT(( AdjacencyMatrixConcept<Graph> )); // Structural requirement only
+    function_requires< IncidenceGraphConcept<Graph> >();
+    function_requires< VertexListGraphConcept<Graph> >();
+    function_requires< VertexIndexGraphConcept<Graph> >();
+    function_requires< AdjacencyMatrixConcept<Graph> >(); // Structural requirement only
     typedef typename graph_traits<Graph>::vertex_descriptor Vertex;
     typedef typename graph_traits<Graph>::vertex_iterator VertexIterator;
     typedef std::vector<Vertex> VertexSet;
     typedef std::deque<Vertex> Clique;
-    BOOST_CONCEPT_ASSERT(( CliqueVisitorConcept<Visitor,Clique,Graph> ));
+    function_requires< CliqueVisitorConcept<Visitor,Clique,Graph> >();
 
     // NOTE: We're using a deque to implement the clique, because it provides
     // constant inserts and removals at the end and also a constant size.
 
     VertexIterator i, end;
-    boost::tie(i, end) = vertices(g);
+    tie(i, end) = vertices(g);
     VertexSet cands(i, end);    // start with all vertices as candidates
     VertexSet nots;             // start with no vertices visited
 

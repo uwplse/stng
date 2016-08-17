@@ -241,18 +241,6 @@ namespace boost { namespace mpl
     };
 
     template<typename Tag>
-    struct has_push_back_impl;
-
-    template<>
-    struct has_push_back_impl<mpl::string_tag>
-    {
-        template<typename Sequence>
-        struct apply
-          : mpl::true_
-        {};
-    };
-
-    template<typename Tag>
     struct pop_back_impl;
 
     template<>
@@ -277,18 +265,6 @@ namespace boost { namespace mpl
 
         BOOST_PP_REPEAT_FROM_TO(1, BOOST_PP_INC(BOOST_MPL_STRING_MAX_PARAMS), M0, ~)
         #undef M0
-    };
-
-    template<typename Tag>
-    struct has_pop_back_impl;
-
-    template<>
-    struct has_pop_back_impl<mpl::string_tag>
-    {
-        template<typename Sequence>
-        struct apply
-          : mpl::true_
-        {};
     };
 
     template<typename Tag>
@@ -366,18 +342,6 @@ namespace boost { namespace mpl
     };
 
     template<typename Tag>
-    struct has_push_front_impl;
-
-    template<>
-    struct has_push_front_impl<mpl::string_tag>
-    {
-        template<typename Sequence>
-        struct apply
-          : mpl::true_
-        {};
-    };
-
-    template<typename Tag>
     struct pop_front_impl;
 
     template<>
@@ -409,18 +373,6 @@ namespace boost { namespace mpl
                 >
             type;
         };
-    };
-
-    template<typename Tag>
-    struct has_pop_front_impl;
-
-    template<>
-    struct has_pop_front_impl<mpl::string_tag>
-    {
-        template<typename Sequence>
-        struct apply
-          : mpl::true_
-        {};
     };
 
     template<typename Tag>

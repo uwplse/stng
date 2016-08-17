@@ -207,14 +207,14 @@ class CustomMemoryPoolDOTGenerationData : public ROSE_VisitTraversal
 // we will represent it in a class and use multiple inheritance.
 // This is a copy of CustomDOTGeneration using a CustomMemoryPoolDOTGenerationData
 // instead of a CustomAstDOTGenerationData data member
-class ROSE_DLL_API CustomMemoryPoolDOTGeneration
+class CustomMemoryPoolDOTGeneration
    {
      public:
           typedef CustomAstDOTGenerationData::NodeType NodeType;
           typedef CustomAstDOTGenerationData::EdgeType EdgeType;
 
         // Liao, 10/23/2009, use flags to turn on/off filters, 0 : off, 1: on
-         class ROSE_DLL_API s_Filter_Flags
+         class s_Filter_Flags
          {
            public:
              int m_asmFileFormat;          /*asmFileFormatFilter()*/
@@ -227,11 +227,6 @@ class ROSE_DLL_API CustomMemoryPoolDOTGeneration
              int m_defaultColor;           /*defaultColorFilter()*/
              int m_edge;   /* edgeFilter ()*/
              int m_emptySymbolTable;  /*emptySymbolTableFilter()*/ 
-
-          // DQ (7/22/2012): Added support to ignore empty IR nodes.
-             int m_emptyBasicBlock;            /* emptyBasicBlockFilter() */
-             int m_emptyFunctionParameterList; /* emptyFunctionParameterListFilter() */              
-
              int m_expression; /* expressionFilter ()*/
 
              int m_fileInfo;               /* fileInfoFilter ()*/
@@ -263,7 +258,8 @@ class ROSE_DLL_API CustomMemoryPoolDOTGeneration
 
        // Store a DOT graph (really just a list of nodes and edges in a traversal)
           CustomMemoryPoolDOTGenerationData DOTgraph;
-          // Constructor
+          // Constructors
+          CustomMemoryPoolDOTGeneration();
           CustomMemoryPoolDOTGeneration(s_Filter_Flags* f = NULL);
       // ~CustomMemoryPoolDOTGeneration();
 
@@ -300,10 +296,6 @@ class ROSE_DLL_API CustomMemoryPoolDOTGeneration
 
        // DQ (3/2/2009): Ignore empty symbol tables
           void emptySymbolTableFilter(SgNode* n);
-
-      // DQ (7/22/2012): Ignore specific empty IR nodes.
-         void emptyBasicBlockFilter(SgNode* node);
-         void emptyFunctionParameterListFilter(SgNode* node);
 
        // DQ (3/2/2009): Ignore expression IR nodes
           void expressionFilter(SgNode* n);

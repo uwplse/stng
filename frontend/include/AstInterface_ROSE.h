@@ -50,7 +50,7 @@ class SgMemberFunctionDeclaration;
 class SgInitializedName;
 class SgFunctionDeclaration;
 class SgClassDefinition;
-class ROSE_DLL_API AstInterfaceImpl : public ObserveObject< AstObserver>
+class AstInterfaceImpl : public ObserveObject< AstObserver>
 {
   typedef AstInterfaceImpl _Self;
 

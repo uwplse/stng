@@ -2,7 +2,6 @@
 #define TYPED_FUSION
 
 #include <GraphAccess.h>
-#include "rosedll.h"
 
 class TypedFusionOperator 
 {
@@ -16,7 +15,7 @@ class TypedFusionOperator
     virtual ~TypedFusionOperator() {}
 };
  
-class ROSE_UTIL_API TypedFusion
+class TypedFusion
 {
  public:
    void operator()(GraphAccessInterface *dg, TypedFusionOperator &op, int fusetype);

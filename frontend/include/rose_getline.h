@@ -1,16 +1,6 @@
 #ifndef Rose_getline_H
 #define Rose_getline_H
 
-#include "rosedll.h"
-
-#ifdef _MSC_VER
-    #include <windows.h>
-    #undef max
-    typedef LONG_PTR ssize_t;
-#else
-    #include <unistd.h>
-#endif
-
 /** Reads a line of text from a stream.
  *
  *  This function reads an entire line from @p stream, storing the text (including the newline and a terminating null
@@ -35,6 +25,6 @@
  *  This is the recommended way to read lines from a stream.  The alternative standard functions are unreliable.
  *
  *  If an error occurs or end of file is reached without any bytes read, getline() returns -1. */
-ROSE_UTIL_API ssize_t rose_getline(char **lineptr, size_t *n, FILE *stream);
+ssize_t rose_getline(char **lineptr, size_t *n, FILE *stream);
 
 #endif

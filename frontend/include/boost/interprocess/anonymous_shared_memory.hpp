@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga 2005-2011. Distributed under the Boost
+// (C) Copyright Ion Gaztanaga 2005-2008. Distributed under the Boost
 // Software License, Version 1.0. (See accompanying file
 // LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
@@ -14,13 +14,13 @@
 #include <boost/interprocess/detail/config_begin.hpp>
 #include <boost/interprocess/detail/workaround.hpp>
 #include <boost/interprocess/creation_tags.hpp>
-#include <boost/move/move.hpp>
+#include <boost/interprocess/detail/move.hpp>
 #include <boost/interprocess/interprocess_fwd.hpp>
 #include <boost/interprocess/mapped_region.hpp>
 #include <cstddef>
 
 #if (!defined(BOOST_INTERPROCESS_WINDOWS))
-#  include <fcntl.h>        //open, O_CREAT, O_*...
+#  include <fcntl.h>        //open, O_CREAT, O_*... 
 #  include <sys/mman.h>     //mmap
 #  include <sys/stat.h>     //mode_t, S_IRWXG, S_IRWXO, S_IRWXU,
 #else
@@ -37,7 +37,7 @@ namespace interprocess {
 
 /// @cond
 
-namespace ipcdetail{
+namespace detail{
 
    class raw_mapped_region_creator
    {
@@ -92,16 +92,16 @@ anonymous_shared_memory(std::size_t size, void *address = 0)
                   , 0);
 
    if(address == MAP_FAILED){
-      if(fd != -1)  
+      if(fd != -1)   
          close(fd);
       error_info err = system_error_code();
       throw interprocess_exception(err);
    }
 
-   if(fd != -1)  
+   if(fd != -1)   
       close(fd);
 
-   return ipcdetail::raw_mapped_region_creator::create_posix_mapped_region(address, 0, size);
+   return detail::raw_mapped_region_creator::create_posix_mapped_region(address, 0, size);
 }
 #else
 {

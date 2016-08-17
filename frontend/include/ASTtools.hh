@@ -29,10 +29,10 @@ namespace ASTtools
   typedef std::set<const SgVariableSymbol *> VarSymSet_t;
 
   //! Search for the first surrounding scope that may contain a function def.
-  ROSE_DLL_API const SgScopeStatement* findFirstFuncDefScope (const SgStatement* s);
+  const SgScopeStatement* findFirstFuncDefScope (const SgStatement* s);
 
   //! Search for the first surrounding function definition.
-  ROSE_DLL_API const SgFunctionDefinition* findFirstFuncDef (const SgStatement* s);
+  const SgFunctionDefinition* findFirstFuncDef (const SgStatement* s);
 
   //! Returns 'true' if the specific function is a 'const' member function.
   bool isConstMemFunc (const SgFunctionDeclaration* decl);
@@ -44,7 +44,7 @@ namespace ASTtools
   bool isConstObj (const SgType* type);
 
   //! Collect variables suitable for using pointer dereferencing
-  ROSE_DLL_API void collectPointerDereferencingVarSyms(const SgStatement*s, VarSymSet_t& pdSyms);
+  void collectPointerDereferencingVarSyms(const SgStatement*s, VarSymSet_t& pdSyms);
 
   /*!
    *  \brief Returns 'true' <==> 's' is the conditional selector of some
@@ -131,16 +131,16 @@ namespace ASTtools
   std::string toStringFileLoc (const SgLocatedNode* n);
 
   //! Returns a newly allocated file info object for transformation nodes.
-  ROSE_DLL_API Sg_File_Info* newFileInfo (void);
+  Sg_File_Info* newFileInfo (void);
 
   //! Dump a symbol table.
-  ROSE_DLL_API void dumpSymTab (const SgScopeStatement* s, const std::string& tag,
+  void dumpSymTab (const SgScopeStatement* s, const std::string& tag,
                    std::ostream& o);
   //! Reset source position as transformation for the current node only
-  ROSE_DLL_API void setSourcePositionAsTransformation(SgNode* node);
+  void setSourcePositionAsTransformation(SgNode* node);
 
   //! Reset source position as transformation recursively 
-  ROSE_DLL_API void setSourcePositionAtRootAndAllChildrenAsTransformation(SgNode* node);
+  void setSourcePositionAtRootAndAllChildrenAsTransformation(SgNode* node);
 
 } // namespace ASTtools
 

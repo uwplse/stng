@@ -1,212 +1,253 @@
-#ifndef ROSE_TaintAnalysis_H
-#define ROSE_TaintAnalysis_H
+#ifndef _TAINTANALYSIS_H
+#define _TAINTANALYSIS_H
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Tainted flow analysis.
-//
-// The original version of this tainted flow analysis was written 2012-09 by someone other than the author of the
-// genericDataflow framework.  It is based on the sign analysis (sgnAnalysis.[Ch]) in this same directory since documentation
-// for the genericDataflow framework is fairly sparse: 5 pages in the tutorial, not counting the code listings) and no doxygen
-// documentation.
-//
-// This file contains two types of comments:
-//    1. Comments that try to document some of the things I've discovered through playing with the genericDataflow framework.
-//    2. Comments and suggestions about usability, consistency, applicability to binary analysis, etc.
-//
-// [RPM 2012-09]
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-// USABILITY: Names of header files aren't consistent across the genericDataflow files. E.g., in the "lattice" directory we
-// have "lattice.h" that defines the Lattice class, but "ConstrGraph.h" that defines "ConstrGraph" (and apparently no
-// documentation as to what "Constr" means).
-#include "lattice.h"
+#include "genericDataflowCommon.h"
+#include "VirtualCFGIterator.h"
+#include "cfgUtils.h"
+#include "CallGraphTraverse.h"
+#include "analysisCommon.h"
+#include "analysis.h"
 #include "dataflow.h"
-#include "liveDeadVarAnalysis.h"        // misspelled? Shouldn't it be liveDeadVarsAnalysis or LiveDeadVarsAnalysis?
+#include "latticeFull.h"
+#include "liveDeadVarAnalysis.h"
+#include "printAnalysisStates.h"
+#include "VariableStateTransfer.h"
 
+#include <set>
+#include "string_functions.h"
 
-// USABILITY: The abundant use of dynamic_cast makes it seem like something's wrong with the whole dataflow design.  And I
-//            couldn't find any documentation about when it's okay to cast from Lattice to one of its subclasses, so I've made
-//            the assumption throughout that when the dynamic_cast returns null, the node in question points to a variable or
-//            expression that the live/dead analysis has determined to be dead.
-//
-// USABILITY: No doxygen comments throughout genericDataflow framework?!?  But it looks like there's some doxygen-like stuff
-//            describing a few function parameters, so is it using some other documenting system?  I at least added the headers
-//            to the docs/Rose/rose.cfg file so doxygen picks up the structure.
-//
-// USABILITY: The genericDataflow framework always produces files named "index.html", "summary.html", and "detail.html" and
-//            a directory named "dbg_imgs" regardless of any debug settings.  These are apprently the result of the Dbg::init()
-//            call made from the main program, and this call is required (omitting it results in segmentation faults).  The
-//            file names are constant and therefore one should expect tests to clobber each other's outputs when run in
-//            parallel.  The contents of the files cannot be trusted.  Furthermore, since these are HTML files, an aborted test
-//            will generate only a partial HTML file which some browsers will choke on.
+extern int taintAnalysisDebugLevel;
 
+/*********************************************
+ *********************************************
+ Naive Taint Analysis Implementation
+ Author: Sriram Aananthakrishnan
+ email : sriram@cs.utah.edu
+ 
+ Taint Identification:
+  user code or library code are not taint sources
+  Taint source can be specified explicitly using SecureFunctionTraversal::addToUntrustedFunc()
 
-/******************************************************************************************************************************
- * Taint Lattice
- ******************************************************************************************************************************/
+ No support for pointers and references yet. It understands only variables
+ 3 ways to taint a var:
+ 1. x = taint_func() - handled
+ 2. pass ref: taint_func(var &x) - not handled
+ 3. pass ptrs: taint_func(var *x) - not handled
 
-/** A pointer to a vertex of the static taint lattice.
- *
- *  The taint lattice is static, consisting of only the vertices defined by the Vertex enum.  A TaintLattice object is
- *  slightly misnamed but follows existing convention: it's not really the whole lattice, but a pointer to one of the static
- *  latice's vertices. */
-class TaintLattice: public FiniteLattice {
-public:
+ taint flow into other variables handled
+ *********************************************
+ *********************************************/
 
-    /** The differet vertices of this static lattice.  They're defined in a particular order so that the meetUpdate() method
-     *  only needs to compute the maximum when merging two vertex pointers.  A value is considered to be tainted if it points
-     *  to the VERTEX_TAINTED or the VERTEX_TOP vertex of the static taint lattice. */
-    enum Vertex {
-        VERTEX_BOTTOM,                  /**< No information is known about the value of the variable. */
-        VERTEX_UNTAINTED,               /**< Value is not tainted. */
-        VERTEX_TAINTED,                 /**< Value is tainted. */
-        // no need for a top since that would imply that the value is tainted. I.e., VERTEX_TAINTED *is* our top.
-    };
+class TaintLattice : public FiniteLattice
+{      
+    public:
+    /*-----------------------------------
+    -------- Taint Lattice -------------
+    ------------------------------------
+    top
+    |
+    taintyes
+    |
+    taintno
+    |
+    bottom
+    ------------------------------------
+  */
+    
+// levels of taint lattice
+    typedef enum {
+        // no information about the variable
+        bottom,
 
-protected:
-    Vertex vertex;                      /**< The vertex of the static taint lattice to which this object points. */
+        // variable is tainted
+        taintyes,
 
-public:
+        // variable is not tainted
+        taintno,
 
-    /** Default initializer makes this object point to the lattice's bottom vertex. */
-    TaintLattice(): vertex(VERTEX_BOTTOM) {}
+        // either tainted or not tainted on different paths
+        top } latticeLevel;
 
-    /** Same as default constructor. */
-    virtual void initialize() ROSE_OVERRIDE {
-        *this = TaintLattice();
+    private:
+    // tells whether the variable is tainted or not
+    // only level is required for taint analysis
+    latticeLevel level;
+
+    public:
+    
+    // default constructor
+    TaintLattice()
+    {
+        level = bottom;
     }
 
-    /** Accessor for this node's vertex in the lattice.  The set_level() mutator also returns true if the new value is different
-     *  than the old value, and false if there was no change.
-     * @{ */
-    Vertex get_vertex() const { return vertex; }
-    bool set_vertex(Vertex v);
-    /** @} */
-
-
-    /** Returns a new copy of this vertex pointer. */
-    virtual Lattice *copy() const ROSE_OVERRIDE {
-        return new TaintLattice(*this);
+    // copy constructor
+    TaintLattice(const TaintLattice& that)
+    {
+        this->level = that.level;
     }
 
-    // USABILITY: The base class defines copy() without a const argument, so we must do the same here.
-    /** Assignment-like operator. Makes this object point to the same lattice vertex as the @p other object. The other object
-     *  must also be a TaintLattice object. */
-    virtual void copy(/*const*/ Lattice *other_) ROSE_OVERRIDE;
+    void initialize();
 
+    // overridden method to return copy of this lattice
+    Lattice* copy() const;
 
-    // USABILITY: The base class defines '==' with non-const argument and "this", so we must do the same here.
-    // USABILITY: This is not a real equality predicate since it's not reflexive.  In other words, (A==B) does not imply (B==A)
-    //            for all values of A and B.
-    /** Equality predicate, sort of. Beware that this is not true equality since it is not symmetric. */
-    virtual bool operator==(/*const*/ Lattice *other_) /*const*/ ROSE_OVERRIDE;
+    // overridden method to copy from lattice 'that
+    void copy(Lattice* that);
 
-    // USABILITY: The base class defines str() with non-const "this", so we must do the same here.  That means that if we want
-    //            to use this functionality from our own methods (that have const "this") we have to distill it out to some
-    //            other place.
-    // USABILITY: The "prefix" argument is pointless. Why not just use StringUtility::prefixLines() in the base class rather
-    //            than replicate this functionality all over the place?
-    /** String representation of the lattice vertex to which this object points.  The return value is the name of the vertex to
-     *  which this object points, sans "VERTEX_" prefix, and converted to lower case.  The @p prefix is prepended to the
-     *  returned string. */
-    virtual std::string str(/*const*/ std::string /*&*/prefix) /*const*/ ROSE_OVERRIDE {
-        return prefix + to_string();
-    }
+    // overridden to compute meet of this and that    
+    bool meetUpdate(Lattice* that);
 
-    // USABILITY: We define this only because of deficiencies with the "str" signature in the base class.  Otherwise our
-    //            printing method (operator<<) could just use str().  We're trying to avoid evil const_cast.
-    /** String representation of a lattice vertex.  Returns the name of the taint lattice vertex to which this object
-     *  points. The returned string is one of the Vertex enum constants sans the "VERTEX_" prefix and converted to lower case. */
-    std::string to_string() const;
+    // overridden comparison operator
+    bool operator==(Lattice* that);
 
-    // USABILITY: The base class defines meetUpdate() with a non-const argument, so we must do the same here.
-    /** Merges this lattice node with another and stores the result in this node.  Returns true iff this node changed. */
-    virtual bool meetUpdate(/*const*/ Lattice *other_) ROSE_OVERRIDE;
+    // get level
+    latticeLevel getLevel();
+    
+    // setlevel
+    void setTainted();
 
-    friend std::ostream& operator<<(std::ostream &o, const TaintLattice &lattice);
+    void setUntainted();
+
+    void setTop();
+
+    void setBottom();
+
+    void setLevel(latticeLevel);
+    
+    // debug print
+    std::string str(std::string indent="");
+
 };
 
-/******************************************************************************************************************************
- * Taint Flow Analysis
- ******************************************************************************************************************************/
+class TaintAnalysisTransfer : public VariableStateTransfer<TaintLattice>
+{
+    public:
+    bool evaluateAndSetTaint(TaintLattice*, TaintLattice*);
 
-class TaintAnalysis: public IntraFWDataflow {
-protected:
-    LiveDeadVarsAnalysis* ldv_analysis;
-    std::ostream *debug;
+    void visit(SgFunctionCallExp*);
+    void visit(SgIntVal*);
 
-public:
-    // USABILITY: Documentation as to why a live/dead analysis is used in SgnAnalysis would be nice. I tried doing it without
-    //            originally to make things simpler, but it seems that the FiniteVarsExprProductLattice depends on it even
-    //            though I saw commented out code and comments somewhere(?) that indicated otherwise.
-    TaintAnalysis(LiveDeadVarsAnalysis *ldv_analysis)
-        : ldv_analysis(ldv_analysis), debug(NULL) {}
+    // constants are untainted
+    // visit(SgValueExp*) can be used to mark untainted for all constants ?
+    void visit(SgValueExp*);
+    void visit(SgAssignOp*);
 
-    /** Accessor for debug settings.  If a non-null output stream is supplied, then debugging information will be sent to that
-     *  stream; otherwise debugging information is suppressed.  Debugging is disabled by default.
-     * @{ */
-    std::ostream *get_debug() const { return debug; }
-    void set_debug(std::ostream *os) { debug = os; }
-    /** @} */
+    // Can all the following compound assign op functions be replaced by visit(SgCompoundAssignOp*) ??
+    void visit(SgPlusAssignOp*);
+    void visit(SgMinusAssignOp*);
+    void visit(SgMultAssignOp*);
+    void visit(SgDivAssignOp*);
+    void visit(SgModAssignOp*);
+    void visit(SgAndAssignOp*);
+    void visit(SgExponentiationAssignOp*);
+    void visit(SgIntegerDivideAssignOp*);
+    void visit(SgIorAssignOp*);
+    void visit(SgLshiftAssignOp*);
+    void visit(SgRshiftAssignOp*);
+    void visit(SgXorAssignOp*);
 
-    // BINARIES:  The "Function" type is a wrapper around SgFunctionDeclaration and the data flow traversals depend on this
-    //            fact.  Binaries don't have SgFunctionDeclaration nodes (they have SgAsmFunction, which is a bit different).
-    //
-    // NOTE:      The "DataflowNode" is just a VirtualCFG::DataflowNode that contains a VirtualCFG::CFGNode pointer and a
-    //            "filter". I didn't find any documentation for how "filter" is used.
-    //
-    // USABILITY: The "initLattices" and "initFacts" are not documented. They're apparently only outputs for this function
-    //            since they seem to be empty on every call and are not const.  They're apparently not parallel arrays since
-    //            the examples I was looking at don't push the same number of items into each vector.
-    //
-    // USABILITY: Copied from src/midend/programAnalysis/genericDataflow/simpleAnalyses/sgnAnalysis.C.  I'm not sure what
-    //            it's doing yet since there's no doxygen documentation for FiniteVarsExprsProductLattice or any of its
-    //            members.
-    //
-    // BINARIES:  This might not work for binaries because FiniteVarsExprsProductLattice seems to do things in terms of
-    //            variables.  Variables are typically lacking from binary specimens and most existing binary analysis
-    //            describes things in terms of static register names or dynamic memory locations.
-    /** Generate initial lattice state.  Generates the initial lattice state for the given dataflow node, in the given
-     *  function, with the given node state. */
-    void genInitState(const Function& func, const DataflowNode& node, const NodeState& state,
-                      std::vector<Lattice*>& initLattices, std::vector<NodeFact*>& initFacts);
-
-    // USABILITY: Not documented in doxygen, so I'm more or less copying from the SgnAnalysis::transfer() method defined in
-    //            src/midend/programAnalysis/genericDataflow/sgnAnalysis.C.
-    /** Adjust a result vertex pointer.  This function has an opportunity to adjust the result lattice vertex pointer based on
-     *  input lattice vertices at a particular AST node at a particular time in the data flow.  For instance, if the AST node
-     *  is an SgAddOp binry operation then we can obtain the vertices to which the two operands point (say, VERTEX_TAINTED and
-     *  VERTEX_UNTAINTED) and adjust the result so it points to a particular vertex (say, VERTEX_TAINTED).
-     *
-     *  This method returns true if it changed where the result points, and false otherwise.  For example, if the result
-     *  originally pointed to VERTEX_BOTTOM but now points to VERTEX_TAINTED then we would return true. */
-    bool transfer(const Function& func, const DataflowNode& node_, NodeState& state, const std::vector<Lattice*>& dfInfo);
-
-protected:
-    /** Helps print lattice pointers. Like std::cout <<"lhs lattice is " <<lattice_info(lhs) <<"\n".  Convenient because the
-     * live/dead analysis causes some lattices to be missing (null). */
-    static std::string lattice_info(const TaintLattice *lattice) {
-        return lattice ? lattice->to_string() : "dead";
-    }
-
-    /** Make certain variables always tainted.
-     *
-     *  Variables whose names begin with the string "TAINTED" are assumed to be tainted regardless of their situation. This is
-     *  our currently kludgy way of introducing taint into a specimen -- the user modifies the specimen and introduces taint
-     *  with these specially named variables.  E.g.,
-     *
-     * @code
-     *   ORIGINAL                               MODIFIED
-     *   ------------------------------------   ------------------------------------
-     *   int specimen() {                       int specimen() {
-     *                                              extern int TAINTED;
-     *       int a = 2 * foo();                     int a = 2 * foo() + TAINTED;
-     *       return a;                              return a;
-     *   }                                      }
-     * @endcode
-     */
-    bool magic_tainted(SgNode *node, FiniteVarsExprsProductLattice *prodLat);
+    bool transferTaint(SgBinaryOp*);
+    
+    bool finish();
+    TaintAnalysisTransfer(const Function& func, const DataflowNode& n, NodeState& state, const std::vector<Lattice*>& dfInfo);
 };
 
+class FunctionsInFile;
+
+class TaintAnalysis : public IntraFWDataflow
+{
+    protected:
+    // required by FiniteVarsExprsProductLattice
+    // creates a lattice for every var
+    static map<varID, Lattice*> taintVars;
+    LiveDeadVarsAnalysis *ldva;
+    FunctionsInFile *functionsinfile;
+    
+
+    public:
+    TaintAnalysis(LiveDeadVarsAnalysis* ldva_arg) : IntraFWDataflow()
+    {
+        this->ldva=ldva_arg;
+    }
+
+    TaintAnalysis(LiveDeadVarsAnalysis *ldva_arg, FunctionsInFile *functionsinfile_arg) : IntraFWDataflow()
+    {
+        this->ldva = ldva_arg;
+        this->functionsinfile = functionsinfile_arg;
+    }
+
+    //TaintAnalysis() : IntraFWDataflow()
+    //{
+        //this->ldva = ldva_arg;
+    //}
+
+    // generates the initial lattice state for given the function func with dataflownode 
+    void genInitState(const Function& func, const DataflowNode& n, const NodeState& state,
+                      vector<Lattice*>& initLattices, vector<NodeFact*>& initFacts);
+
+    // transfer function that maps current state to next state
+    bool transfer(const Function& func, const DataflowNode& n, NodeState& state, const vector<Lattice*>& dfInfo);
+
+    // returns an instance of object that has transfer functions to map from current state to next state
+    boost::shared_ptr<IntraDFTransferVisitor> getTransferVisitor(const Function& func, const DataflowNode& node, NodeState& state, const std::vector<Lattice*>& dfInfo);
+  
+};
+
+// identify the type of each function
+// library or user defined
+class SecureFunctionType: public AstAttribute
+{
+    bool trusted;
+    public:
+    SecureFunctionType(bool trusted_arg) 
+    {
+        trusted = trusted_arg;
+    }
+
+    bool isSecure()
+    {
+        return trusted;
+    }    
+};
+
+class SecureFunctionTypeTraversal : public AstSimpleProcessing
+{
+    string sourcedir;
+    map<string, string> trustedlibs;
+    set<string> untrustedFunctions;
+
+    public:
+    SecureFunctionTypeTraversal(string _sourcedir)
+    {
+        sourcedir = _sourcedir;
+    }
+
+    // default constructor
+    SecureFunctionTypeTraversal()
+    {
+        sourcedir = "";
+    }
+
+    void visit(SgNode* n);
+
+    void addToTrustedLib(string location, string name) 
+    {
+        trustedlibs[location] = name;
+    }
+    void addToUntrustedFunc(string funcname)
+    {
+        untrustedFunctions.insert(funcname);
+    }
+};
+
+class SecureFunctionTypeTraversalTest : public AstSimpleProcessing
+{
+    public:
+    void visit(SgNode*);
+};
+
+
+void printTaintAnalysisStates(TaintAnalysis* ta, string indent="");
+                    
 #endif

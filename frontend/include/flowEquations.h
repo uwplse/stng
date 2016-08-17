@@ -3,10 +3,6 @@
 
 #include <vector>
 
-namespace rose {
-namespace BinaryAnalysis {
-namespace FindConstants {
-
 class Constraint;
 
 class Variable {
@@ -79,9 +75,5 @@ Variable::pushChanges() const
         users[i]->run();
     }
 }
-
-} // namespace
-} // namespace
-} // namespace
 
 #endif /* FLOWEQUATIONS_H */

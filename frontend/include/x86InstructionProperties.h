@@ -4,21 +4,22 @@
 #include <vector>
 #include <stdint.h>
 
-class SgAsmX86Instruction;
+class SgAsmx86Instruction;
 
-bool x86InstructionIsConditionalFlagControlTransfer(SgAsmX86Instruction* inst);
-bool x86InstructionIsConditionalFlagDataTransfer(SgAsmX86Instruction* inst);
-bool x86InstructionIsConditionalControlTransfer(SgAsmX86Instruction* inst);
-bool x86InstructionIsConditionalDataTransfer(SgAsmX86Instruction* inst);
-bool x86InstructionIsPrivileged(SgAsmX86Instruction*);
-bool x86InstructionIsFloatingPoint(SgAsmX86Instruction*);
+bool x86InstructionIsConditionalFlagControlTransfer(SgAsmx86Instruction* inst);
+bool x86InstructionIsConditionalFlagDataTransfer(SgAsmx86Instruction* inst);
+bool x86InstructionIsConditionalControlTransfer(SgAsmx86Instruction* inst);
+bool x86InstructionIsConditionalDataTransfer(SgAsmx86Instruction* inst);
+bool x86InstructionIsPrivileged(SgAsmx86Instruction*);
+bool x86InstructionIsFloatingPoint(SgAsmx86Instruction*);
 
-bool x86InstructionIsConditionalFlagBitAndByte(SgAsmX86Instruction* inst);
+bool x86InstructionIsConditionalFlagBitAndByte(SgAsmx86Instruction* inst);
 
-bool x86InstructionIsControlTransfer(SgAsmX86Instruction* inst);
-bool x86InstructionIsUnconditionalBranch(SgAsmX86Instruction* inst);
-bool x86InstructionIsConditionalBranch(SgAsmX86Instruction* inst);
-bool x86InstructionIsDataTransfer(SgAsmX86Instruction* inst);
+bool x86InstructionIsControlTransfer(SgAsmx86Instruction* inst);
+bool x86InstructionIsUnconditionalBranch(SgAsmx86Instruction* inst);
+bool x86InstructionIsConditionalBranch(SgAsmx86Instruction* inst);
+bool x86InstructionIsDataTransfer(SgAsmx86Instruction* inst);
+bool x86GetKnownBranchTarget(SgAsmx86Instruction* insn, uint64_t& addr);
 
 const char* gprToString(X86GeneralPurposeRegister n);
 const char* segregToString(X86SegmentRegister n);

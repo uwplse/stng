@@ -121,7 +121,8 @@ opaque<Pointee> opaque<Pointee>::instance;
 template <class Pointee>
 PyTypeObject opaque<Pointee>::type_object =
 {
-    PyVarObject_HEAD_INIT(NULL, 0)
+    PyObject_HEAD_INIT(0)
+    0,
     0,
     sizeof( BOOST_DEDUCED_TYPENAME opaque<Pointee>::python_instance ),
     0,

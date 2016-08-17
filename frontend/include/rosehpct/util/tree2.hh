@@ -356,7 +356,7 @@ namespace Trees
     if (tree == NULL)
       return;
 
-    this->visit (tree);
+    visit (tree);
     this->descending ();
     for (ChildIter_t i = tree->beginChild (); i != tree->endChild (); ++i)
       traverse (i->second);

@@ -5,10 +5,9 @@
 #ifndef THREAD_HEAP_ALLOC_HPP
 #define THREAD_HEAP_ALLOC_HPP
 #include <new>
-#include <boost/thread/win32/thread_primitives.hpp>
+#include "thread_primitives.hpp"
 #include <stdexcept>
 #include <boost/assert.hpp>
-#include <boost/throw_exception.hpp>
 
 #if defined( BOOST_USE_WINDOWS_H )
 # include <windows.h>
@@ -56,21 +55,21 @@ namespace boost
 {
     namespace detail
     {
-        inline void* allocate_raw_heap_memory(unsigned size)
+        inline BOOST_THREAD_DECL void* allocate_raw_heap_memory(unsigned size)
         {
             void* const heap_memory=detail::win32::HeapAlloc(detail::win32::GetProcessHeap(),0,size);
             if(!heap_memory)
             {
-                boost::throw_exception(std::bad_alloc());
+                throw std::bad_alloc();
             }
             return heap_memory;
         }
 
-        inline void free_raw_heap_memory(void* heap_memory)
+        inline BOOST_THREAD_DECL void free_raw_heap_memory(void* heap_memory)
         {
             BOOST_VERIFY(detail::win32::HeapFree(detail::win32::GetProcessHeap(),0,heap_memory)!=0);
         }
-
+            
         template<typename T>
         inline T* heap_new()
         {
@@ -87,7 +86,7 @@ namespace boost
             }
         }
 
-#ifndef BOOST_NO_RVALUE_REFERENCES
+#ifdef BOOST_HAS_RVALUE_REFS
         template<typename T,typename A1>
         inline T* heap_new(A1&& a1)
         {
@@ -226,7 +225,7 @@ namespace boost
         {
             return heap_new_impl<T,A1&>(a1);
         }
-
+        
         template<typename T,typename A1,typename A2>
         inline T* heap_new(A1 const& a1,A2 const& a2)
         {
@@ -372,8 +371,8 @@ namespace boost
         {
             return heap_new_impl<T,A1&,A2&,A3&,A4&>(a1,a2,a3,a4);
         }
-
-#endif
+        
+#endif        
         template<typename T>
         inline void heap_delete(T* data)
         {

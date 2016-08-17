@@ -16,8 +16,6 @@
 
 #include <assert.h>
 
-#include "rosedll.h"
-
 /*! \brief This is a mechanism for reporting the performance of processing of the AST, subtrees, 
            and IR nodes.  
 
@@ -44,10 +42,7 @@
 
 // using namespace std;
 
-// DQ (2/20/2013): Change the type to support better timer from Liao.
-// typedef clock_t RoseTimeType;
-typedef double RoseTimeType;
-
+typedef clock_t RoseTimeType;
 
 class ROSE_MemoryUsage
    {
@@ -169,7 +164,7 @@ class ProcessingPhase
 // Forward reference required from "void AstPerformance::generateReportToFile(SgProject*);"
 class SgProject;
 
-class ROSE_DLL_API AstPerformance
+class AstPerformance
    {
      public:
        // DQ (9/1/2006): Note that we don't have the project yet when this is called within "main()" to summarize the total time.
@@ -220,20 +215,14 @@ class ROSE_DLL_API AstPerformance
    };
 
 
-class ROSE_DLL_API TimingPerformance : public AstPerformance
+class TimingPerformance : public AstPerformance
    {
-     private:
           RoseTimeType timer;
 
   // Used for timing compilation within ROSE
      public:
           TimingPerformance ( std::string s , bool outputReport = false );
           virtual ~TimingPerformance();
-
-       // DQ (6/30/2013): Refactored this function to be something that can be called from the 
-       // destructor and also in the scope of the outer most scope timer before report generation 
-       // (so we can compute total elapsed time).
-          void endTimer();
 
        // virtual double performanceResolution();
           static double performanceResolution();

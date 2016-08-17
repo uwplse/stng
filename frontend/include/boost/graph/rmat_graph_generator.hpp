@@ -16,7 +16,6 @@
 #include <queue>
 #include <map>
 #include <boost/shared_ptr.hpp>
-#include <boost/assert.hpp>
 #include <boost/random/uniform_int.hpp>
 #include <boost/random/uniform_01.hpp>
 #include <boost/graph/graph_traits.hpp>
@@ -156,7 +155,7 @@ namespace boost {
     {
       this->gen.reset(new uniform_01<RandomGenerator>(gen));
 
-      BOOST_ASSERT(boost::test_tools::check_is_close(a + b + c + d, 1., boost::test_tools::fraction_tolerance(1.e-5)));
+      assert(boost::test_tools::check_is_close(a + b + c + d, 1., boost::test_tools::fraction_tolerance(1.e-5)));
 
       if (permute_vertices)
         generate_permutation_vector(gen, vertexPermutation, n);
@@ -165,7 +164,7 @@ namespace boost {
 
       // Generate the first edge
       vertices_size_type u, v;
-      boost::tie(u, v) = generate_edge(this->gen, n, SCALE, a, b, c, d);
+      tie(u, v) = generate_edge(this->gen, n, SCALE, a, b, c, d);
 
       if (permute_vertices)
         current = std::make_pair(vertexPermutation[u],
@@ -182,7 +181,7 @@ namespace boost {
     rmat_iterator& operator++()
     {
       vertices_size_type u, v;
-      boost::tie(u, v) = generate_edge(this->gen, n, SCALE, a, b, c, d);
+      tie(u, v) = generate_edge(this->gen, n, SCALE, a, b, c, d);
 
       if (permute_vertices)
         current = std::make_pair(vertexPermutation[u],
@@ -266,7 +265,7 @@ namespace boost {
         values(sort_pair<vertices_size_type>()), done(false)
 
     {
-      BOOST_ASSERT(boost::test_tools::check_is_close(a + b + c + d, 1., boost::test_tools::fraction_tolerance(1.e-5)));
+      assert(boost::test_tools::check_is_close(a + b + c + d, 1., boost::test_tools::fraction_tolerance(1.e-5)));
 
       this->gen.reset(new uniform_01<RandomGenerator>(gen));
 
@@ -280,7 +279,7 @@ namespace boost {
       for (edges_size_type i = 0; i < m; ++i) {
 
         vertices_size_type u, v;
-        boost::tie(u, v) = generate_edge(this->gen, n, SCALE, a, b, c, d);
+        tie(u, v) = generate_edge(this->gen, n, SCALE, a, b, c, d);
 
         if (permute_vertices) {
           if (ep(vertexPermutation[u], vertexPermutation[v]))
@@ -367,7 +366,7 @@ namespace boost {
       : gen(), done(false)
 
     {
-      BOOST_ASSERT(boost::test_tools::check_is_close(a + b + c + d, 1., boost::test_tools::fraction_tolerance(1.e-5)));
+      assert(boost::test_tools::check_is_close(a + b + c + d, 1., boost::test_tools::fraction_tolerance(1.e-5)));
 
       this->gen.reset(new uniform_01<RandomGenerator>(gen));
 
@@ -382,7 +381,7 @@ namespace boost {
       edges_size_type edges = 0;
       do {
         vertices_size_type u, v;
-        boost::tie(u, v) = generate_edge(this->gen, n, SCALE, a, b, c, d);
+        tie(u, v) = generate_edge(this->gen, n, SCALE, a, b, c, d);
 
         // Lowest vertex number always comes first
         // (this means we don't have to worry about i->j and j->i being in the edge list)
@@ -480,7 +479,7 @@ namespace boost {
         values(sort_pair<vertices_size_type>()), done(false)
 
     {
-      BOOST_ASSERT(boost::test_tools::check_is_close(a + b + c + d, 1., boost::test_tools::fraction_tolerance(1.e-5)));
+      assert(boost::test_tools::check_is_close(a + b + c + d, 1., boost::test_tools::fraction_tolerance(1.e-5)));
 
       this->gen.reset(new uniform_01<RandomGenerator>(gen));
 
@@ -496,7 +495,7 @@ namespace boost {
       do {
 
         vertices_size_type u, v;
-        boost::tie(u, v) = generate_edge(this->gen, n, SCALE, a, b, c, d);
+        tie(u, v) = generate_edge(this->gen, n, SCALE, a, b, c, d);
 
         if (bidirectional) {
           if (edge_map.find(std::make_pair(u, v)) == edge_map.end()) {

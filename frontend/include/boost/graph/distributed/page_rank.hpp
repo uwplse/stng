@@ -15,7 +15,6 @@
 #error "Parallel BGL files should not be included unless <boost/graph/use_mpi.hpp> has been included"
 #endif
 
-#include <boost/assert.hpp>
 #include <boost/graph/overloading.hpp>
 #include <boost/graph/page_rank.hpp>
 #include <boost/graph/distributed/concepts.hpp>
@@ -54,7 +53,7 @@ namespace detail {
                              1, MPI_DOUBLE,
                              get(owner, v), local(v), 
                              1, MPI_DOUBLE, MPI_SUM, to_win);
-        BOOST_ASSERT(MPI_SUCCESS == ret);
+        assert(MPI_SUCCESS == ret);
       }
     }
     MPI_Win_fence(0, to_win);
@@ -93,7 +92,6 @@ page_rank_impl(const Graph& g, RankMap rank_map, Done done,
     ::const_type vertex_owner_map;
   typename property_map<Graph, vertex_owner_t>::const_type
     owner = get(vertex_owner, g);
-  (void)owner;
 
   typedef typename boost::graph::parallel::process_group_type<Graph>
     ::type process_group_type;
@@ -102,14 +100,14 @@ page_rank_impl(const Graph& g, RankMap rank_map, Done done,
   process_group_type pg = process_group(g);
   process_id_type id = process_id(pg);
 
-  BOOST_ASSERT(me == id);
+  assert(me == id);
 
   rank_type initial_rank = rank_type(rank_type(1) / n);
   BGL_FORALL_VERTICES_T(v, g, Graph) put(rank_map, v, initial_rank);
 
 #ifdef WANT_MPI_ONESIDED
 
-  BOOST_ASSERT(sizeof(rank_type) == sizeof(double));
+  assert(sizeof(rank_type) == sizeof(double));
 
   bool to_map_2 = true;
   MPI_Win win, win2;
@@ -207,7 +205,7 @@ remove_dangling_links(MutableGraph& g
     old_n = num_vertices(g);
 
     typename graph_traits<MutableGraph>::vertex_iterator vi, vi_end;
-    for (boost::tie(vi, vi_end) = vertices(g); vi != vi_end; /* in loop */) {
+    for (tie(vi, vi_end) = vertices(g); vi != vi_end; /* in loop */) {
       typename graph_traits<MutableGraph>::vertex_descriptor v = *vi++;
       if (out_degree(v, g) == 0) {
         clear_vertex(v, g);

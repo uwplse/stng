@@ -21,7 +21,7 @@
      a similar transformation support class that is a part of the preprocessor source code
      representing that specific transformation.
  */
-class ROSE_DLL_API TransformationSupport
+class TransformationSupport
    {
      public:
 
@@ -213,17 +213,6 @@ class ROSE_DLL_API TransformationSupport
           static SgFunctionDefinition* getFunctionDefinition( const SgNode* astNode);
           static SgClassDefinition* getClassDefinition( const SgNode* astNode);
           static SgModuleStatement* getModuleStatement( const SgNode* astNode);
-
-       // DQ (7/25/2012): Modified to reflect new template design using different types of template IR nodes.
-       // static SgTemplateDeclaration* getTemplateDeclaration( const SgNode* astNode);
-          static SgDeclarationStatement* getTemplateDeclaration( const SgNode* astNode);
-
-       // DQ (8/19/2014): Iterate back through the parents and scopes to find the SgType that the current node is embedded into.
-      /*! \brief Find the associated type that might be a parent (through a parent chain) of the input SgNode.
-
-          \internal Returns NULL if a SgStatement, SgFile, or SgProject is found (SgSymbol should never be found).
-       */
-          static SgType* getAssociatedType( const SgNode* astNode );
 
        // DQ (5/11/2011): This function was moved to SgTemplateArgument a long time ago and is not longer available.
        // DQ (6/9/2007): This function traverses through the parents to the first scope (used for name qualification support of template arguments)

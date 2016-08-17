@@ -29,8 +29,8 @@ namespace detail{
 //
 // Implementation of Beta(a,b) using the Lanczos approximation:
 //
-template <class T, class Lanczos, class Policy>
-T beta_imp(T a, T b, const Lanczos&, const Policy& pol)
+template <class T, class L, class Policy>
+T beta_imp(T a, T b, const L&, const Policy& pol)
 {
    BOOST_MATH_STD_USING  // for ADL of std names
 
@@ -81,10 +81,10 @@ T beta_imp(T a, T b, const Lanczos&, const Policy& pol)
       std::swap(a, b);
 
    // Lanczos calculation:
-   T agh = a + Lanczos::g() - T(0.5);
-   T bgh = b + Lanczos::g() - T(0.5);
-   T cgh = c + Lanczos::g() - T(0.5);
-   result = Lanczos::lanczos_sum_expG_scaled(a) * Lanczos::lanczos_sum_expG_scaled(b) / Lanczos::lanczos_sum_expG_scaled(c);
+   T agh = a + L::g() - T(0.5);
+   T bgh = b + L::g() - T(0.5);
+   T cgh = c + L::g() - T(0.5);
+   result = L::lanczos_sum_expG_scaled(a) * L::lanczos_sum_expG_scaled(b) / L::lanczos_sum_expG_scaled(c);
    T ambh = a - T(0.5) - b;
    if((fabs(b * ambh) < (cgh * 100)) && (a > 100))
    {
@@ -107,7 +107,7 @@ T beta_imp(T a, T b, const Lanczos&, const Policy& pol)
    result *= prefix;
 
    return result;
-} // template <class T, class Lanczos> beta_imp(T a, T b, const Lanczos&)
+} // template <class T, class L> beta_imp(T a, T b, const L&)
 
 //
 // Generic implementation of Beta(a,b) without Lanczos approximation support
@@ -157,15 +157,15 @@ T beta_imp(T a, T b, const lanczos::undefined_lanczos& /* l */, const Policy& po
    // set integration limits:
    T la = (std::max)(T(10), a);
    T lb = (std::max)(T(10), b);
-   T lc = (std::max)(T(10), T(a+b));
+   T lc = (std::max)(T(10), a+b);
 
    // calculate the fraction parts:
    T sa = detail::lower_gamma_series(a, la, pol) / a;
-   sa += detail::upper_gamma_fraction(a, la, ::boost::math::policies::get_epsilon<T, Policy>());
+   sa += detail::upper_gamma_fraction(a, la, ::boost::math::policies::digits<T, Policy>());
    T sb = detail::lower_gamma_series(b, lb, pol) / b;
-   sb += detail::upper_gamma_fraction(b, lb, ::boost::math::policies::get_epsilon<T, Policy>());
+   sb += detail::upper_gamma_fraction(b, lb, ::boost::math::policies::digits<T, Policy>());
    T sc = detail::lower_gamma_series(c, lc, pol) / c;
-   sc += detail::upper_gamma_fraction(c, lc, ::boost::math::policies::get_epsilon<T, Policy>());
+   sc += detail::upper_gamma_fraction(c, lc, ::boost::math::policies::digits<T, Policy>());
 
    // and the exponent part:
    result = exp(lc - la - lb) * pow(la/lc, a) * pow(lb/lc, b);
@@ -191,12 +191,12 @@ T beta_imp(T a, T b, const lanczos::undefined_lanczos& /* l */, const Policy& po
 // powers are *hard* though, and using logarithms just leads to
 // horrendous cancellation errors.
 //
-template <class T, class Lanczos, class Policy>
+template <class T, class L, class Policy>
 T ibeta_power_terms(T a,
                         T b,
                         T x,
                         T y,
-                        const Lanczos&,
+                        const L&,
                         bool normalised,
                         const Policy& pol)
 {
@@ -214,10 +214,10 @@ T ibeta_power_terms(T a,
    T c = a + b;
 
    // combine power terms with Lanczos approximation:
-   T agh = a + Lanczos::g() - T(0.5);
-   T bgh = b + Lanczos::g() - T(0.5);
-   T cgh = c + Lanczos::g() - T(0.5);
-   result = Lanczos::lanczos_sum_expG_scaled(c) / (Lanczos::lanczos_sum_expG_scaled(a) * Lanczos::lanczos_sum_expG_scaled(b));
+   T agh = a + L::g() - T(0.5);
+   T bgh = b + L::g() - T(0.5);
+   T cgh = c + L::g() - T(0.5);
+   result = L::lanczos_sum_expG_scaled(c) / (L::lanczos_sum_expG_scaled(a) * L::lanczos_sum_expG_scaled(b));
 
    // l1 and l2 are the base of the exponents minus one:
    T l1 = (x * b - y * agh) / agh;
@@ -326,10 +326,6 @@ T ibeta_power_terms(T a,
       T b2 = (y * cgh) / bgh;
       l1 = a * log(b1);
       l2 = b * log(b2);
-      BOOST_MATH_INSTRUMENT_VARIABLE(b1);
-      BOOST_MATH_INSTRUMENT_VARIABLE(b2);
-      BOOST_MATH_INSTRUMENT_VARIABLE(l1);
-      BOOST_MATH_INSTRUMENT_VARIABLE(l2);
       if((l1 >= tools::log_max_value<T>())
          || (l1 <= tools::log_min_value<T>())
          || (l2 >= tools::log_max_value<T>())
@@ -388,8 +384,9 @@ T ibeta_power_terms(T a,
       return pow(x, a) * pow(y, b);
    }
 
-   T result= 0; // assignment here silences warnings later
+   T result;
 
+   T prefix = 1;
    T c = a + b;
 
    // integration limits for the gamma functions:
@@ -401,11 +398,11 @@ T ibeta_power_terms(T a,
    T lc = a + b + 5;
    // gamma function partials:
    T sa = detail::lower_gamma_series(a, la, pol) / a;
-   sa += detail::upper_gamma_fraction(a, la, ::boost::math::policies::get_epsilon<T, Policy>());
+   sa += detail::upper_gamma_fraction(a, la, ::boost::math::policies::digits<T, Policy>());
    T sb = detail::lower_gamma_series(b, lb, pol) / b;
-   sb += detail::upper_gamma_fraction(b, lb, ::boost::math::policies::get_epsilon<T, Policy>());
+   sb += detail::upper_gamma_fraction(b, lb, ::boost::math::policies::digits<T, Policy>());
    T sc = detail::lower_gamma_series(c, lc, pol) / c;
-   sc += detail::upper_gamma_fraction(c, lc, ::boost::math::policies::get_epsilon<T, Policy>());
+   sc += detail::upper_gamma_fraction(c, lc, ::boost::math::policies::digits<T, Policy>());
    // gamma function powers combined with incomplete beta powers:
 
    T b1 = (x * lc) / la;
@@ -465,8 +462,8 @@ private:
    int n;
 };
 
-template <class T, class Lanczos, class Policy>
-T ibeta_series(T a, T b, T x, T s0, const Lanczos&, bool normalised, T* p_derivative, T y, const Policy& pol)
+template <class T, class L, class Policy>
+T ibeta_series(T a, T b, T x, T s0, const L&, bool normalised, T* p_derivative, T y, const Policy& pol)
 {
    BOOST_MATH_STD_USING
 
@@ -479,10 +476,10 @@ T ibeta_series(T a, T b, T x, T s0, const Lanczos&, bool normalised, T* p_deriva
       T c = a + b;
 
       // incomplete beta power term, combined with the Lanczos approximation:
-      T agh = a + Lanczos::g() - T(0.5);
-      T bgh = b + Lanczos::g() - T(0.5);
-      T cgh = c + Lanczos::g() - T(0.5);
-      result = Lanczos::lanczos_sum_expG_scaled(c) / (Lanczos::lanczos_sum_expG_scaled(a) * Lanczos::lanczos_sum_expG_scaled(b));
+      T agh = a + L::g() - T(0.5);
+      T bgh = b + L::g() - T(0.5);
+      T cgh = c + L::g() - T(0.5);
+      result = L::lanczos_sum_expG_scaled(c) / (L::lanczos_sum_expG_scaled(a) * L::lanczos_sum_expG_scaled(b));
       if(a * b < bgh * 10)
          result *= exp((b - 0.5f) * boost::math::log1p(a / bgh, pol));
       else
@@ -505,8 +502,8 @@ T ibeta_series(T a, T b, T x, T s0, const Lanczos&, bool normalised, T* p_deriva
       return s0; // Safeguard: series can't cope with denorms.
    ibeta_series_t<T> s(a, b, x, result);
    boost::uintmax_t max_iter = policies::get_max_series_iterations<Policy>();
-   result = boost::math::tools::sum_series(s, boost::math::policies::get_epsilon<T, Policy>(), max_iter, s0);
-   policies::check_series_iterations<T>("boost::math::ibeta<%1%>(%1%, %1%, %1%) in ibeta_series (with lanczos)", max_iter, pol);
+   result = boost::math::tools::sum_series(s, boost::math::policies::digits<T, Policy>(), max_iter, s0);
+   policies::check_series_iterations("boost::math::ibeta<%1%>(%1%, %1%, %1%) in ibeta_series (with lanczos)", max_iter, pol);
    return result;
 }
 //
@@ -522,6 +519,7 @@ T ibeta_series(T a, T b, T x, T s0, const boost::math::lanczos::undefined_lanczo
 
    if(normalised)
    {
+      T prefix = 1;
       T c = a + b;
 
       // figure out integration limits for the gamma function:
@@ -534,11 +532,11 @@ T ibeta_series(T a, T b, T x, T s0, const boost::math::lanczos::undefined_lanczo
 
       // calculate the gamma parts:
       T sa = detail::lower_gamma_series(a, la, pol) / a;
-      sa += detail::upper_gamma_fraction(a, la, ::boost::math::policies::get_epsilon<T, Policy>());
+      sa += detail::upper_gamma_fraction(a, la, ::boost::math::policies::digits<T, Policy>());
       T sb = detail::lower_gamma_series(b, lb, pol) / b;
-      sb += detail::upper_gamma_fraction(b, lb, ::boost::math::policies::get_epsilon<T, Policy>());
+      sb += detail::upper_gamma_fraction(b, lb, ::boost::math::policies::digits<T, Policy>());
       T sc = detail::lower_gamma_series(c, lc, pol) / c;
-      sc += detail::upper_gamma_fraction(c, lc, ::boost::math::policies::get_epsilon<T, Policy>());
+      sc += detail::upper_gamma_fraction(c, lc, ::boost::math::policies::digits<T, Policy>());
 
       // and their combined power-terms:
       T b1 = (x * lc) / la;
@@ -584,8 +582,8 @@ T ibeta_series(T a, T b, T x, T s0, const boost::math::lanczos::undefined_lanczo
       return s0; // Safeguard: series can't cope with denorms.
    ibeta_series_t<T> s(a, b, x, result);
    boost::uintmax_t max_iter = policies::get_max_series_iterations<Policy>();
-   result = boost::math::tools::sum_series(s, boost::math::policies::get_epsilon<T, Policy>(), max_iter, s0);
-   policies::check_series_iterations<T>("boost::math::ibeta<%1%>(%1%, %1%, %1%) in ibeta_series (without lanczos)", max_iter, pol);
+   result = boost::math::tools::sum_series(s, boost::math::policies::digits<T, Policy>(), max_iter, s0);
+   policies::check_series_iterations("boost::math::ibeta<%1%>(%1%, %1%, %1%) in ibeta_series (without lanczos)", max_iter, pol);
    return result;
 }
 
@@ -636,7 +634,7 @@ inline T ibeta_fraction2(T a, T b, T x, T y, const Policy& pol, bool normalised,
       return result;
 
    ibeta_fraction2_t<T> f(a, b, x);
-   T fract = boost::math::tools::continued_fraction_b(f, boost::math::policies::get_epsilon<T, Policy>());
+   T fract = boost::math::tools::continued_fraction_b(f, boost::math::policies::digits<T, Policy>());
    return result / fract;
 }
 //
@@ -836,7 +834,7 @@ T beta_small_b_large_a_series(T a, T b, T x, T y, T s0, T mult, const Policy& po
       }
    }
    return sum;
-} // template <class T, class Lanczos>T beta_small_b_large_a_series(T a, T b, T x, T y, T s0, T mult, const Lanczos& l, bool normalised)
+} // template <class T, class L>T beta_small_b_large_a_series(T a, T b, T x, T y, T s0, T mult, const L& l, bool normalised)
 
 //
 // For integer arguments we can relate the incomplete beta to the
@@ -886,36 +884,21 @@ T ibeta_imp(T a, T b, T x, const Policy& pol, bool inv, bool normalised, T* p_de
    if(p_derivative)
       *p_derivative = -1; // value not set.
 
-   if((x < 0) || (x > 1))
-      policies::raise_domain_error<T>(function, "Parameter x outside the range [0,1] in the incomplete beta function (got x=%1%).", x, pol);
-
    if(normalised)
    {
-      if(a < 0)
-         policies::raise_domain_error<T>(function, "The argument a to the incomplete beta function must be >= zero (got a=%1%).", a, pol);
-      if(b < 0)
-         policies::raise_domain_error<T>(function, "The argument b to the incomplete beta function must be >= zero (got b=%1%).", b, pol);
       // extend to a few very special cases:
-      if(a == 0)
-      {
-         if(b == 0)
-            policies::raise_domain_error<T>(function, "The arguments a and b to the incomplete beta function cannot both be zero, with x=%1%.", x, pol);
-         if(b > 0)
-            return inv ? 0 : 1;
-      }
+      if((a == 0) && (b != 0))
+         return inv ? 0 : 1;
       else if(b == 0)
-      {
-         if(a > 0)
-            return inv ? 1 : 0;
-      }
+         return inv ? 1 : 0;
    }
-   else
-   {
-      if(a <= 0)
-         policies::raise_domain_error<T>(function, "The argument a to the incomplete beta function must be greater than zero (got a=%1%).", a, pol);
-      if(b <= 0)
-         policies::raise_domain_error<T>(function, "The argument b to the incomplete beta function must be greater than zero (got b=%1%).", b, pol);
-   }
+
+   if(a <= 0)
+      policies::raise_domain_error<T>(function, "The argument a to the incomplete beta function must be greater than zero (got a=%1%).", a, pol);
+   if(b <= 0)
+      policies::raise_domain_error<T>(function, "The argument b to the incomplete beta function must be greater than zero (got b=%1%).", b, pol);
+   if((x < 0) || (x > 1))
+      policies::raise_domain_error<T>(function, "Parameter x outside the range [0,1] in the incomplete beta function (got x=%1%).", x, pol);
 
    if(x == 0)
    {
@@ -1220,7 +1203,7 @@ T ibeta_imp(T a, T b, T x, const Policy& pol, bool inv, bool normalised, T* p_de
       }
    }
    return invert ? (normalised ? 1 : boost::math::beta(a, b, pol)) - fract : fract;
-} // template <class T, class Lanczos>T ibeta_imp(T a, T b, T x, const Lanczos& l, bool inv, bool normalised)
+} // template <class T, class L>T ibeta_imp(T a, T b, T x, const L& l, bool inv, bool normalised)
 
 template <class T, class Policy>
 inline T ibeta_imp(T a, T b, T x, const Policy& pol, bool inv, bool normalised)

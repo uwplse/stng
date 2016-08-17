@@ -1,21 +1,15 @@
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-#include "GenRepresentation.h"
+//#include "rose.h"
 #include "helpFunctions.h"
+#include "GenRepresentation.h"
 #include "ControlStructure.h" 
+#include "AttributeType.h"
 
+#define GENGEN_DEBUG TRUE
 
-#define GC_CONDITIONAL_PRINT(variableName) (*dotout) << "#ifdef CGRAPHPP_USE_GC \n if ( GC_base(classReference->" + variableName + ") != NULL)\n #endif \n"
+#define GC_CONDITIONAL_PRINT(variableName,AT) (*attribute) ( "\n#if CGRAPHPP_USE_GC \n if (GCpointerCheck("+variableName+")==1)\n #else \nif ((" + variableName + ")!=NULL)\n#endif\n", AT);
 #define METHOD_PREFIX "save"
-
-// DQ (12/30/2005): This is a Bad Bad thing to do (I can explain)
-// it hides names in the global namespace and causes errors in 
-// otherwise valid and useful code. Where it is needed it should
-// appear only in *.C files (and only ones not included for template 
-// instantiation reasons) else they effect user who use ROSE unexpectedly.
+//typedef MidLevelCollectionTypedefs::PlacementPositionEnum PlacementPositionEnum
 // using namespace std;
-
 typedef std::vector <SgNode *, std::allocator <SgNode * > > SgNodePtrVector;
 
 class
@@ -27,39 +21,50 @@ public:
   GenGeneration ();
 
   GenRepresentation* getPtrStaticGenRepresentation();
-  void graphTypedefTranslationTable();
-  void graphTypedefTranslationTable(map<SgTypedefDeclaration*, SgType*> mapSubset);
+  enum TypeDef 
+    {
+       UnknownListElement = 0,
+       an_class_type  = 1,
+       an_struct_type = 2,
+       an_union_type  = 3,
+       an_class_type_ptr   = 4,
+       an_struct_type_ptr  = 5,  
+       an_anonymous_class  = 6,
+       an_anonymous_struct = 7,
+       an_anonymous_union  = 8,
+       END_OF_LIST 
+    }; 
+
 
   void clear ();
-  void printClass (SgNode * node, string nodelabel, string option);
-  void printStruct (SgNode * node, string nodelabel, string option);
-  void writeToFile (string filename);
-  void writeStaticGraphToFile (string filename);
-  void printCSVariables (list < SgNode * >classFields, string className,
-                         SgClassDeclaration * sageClassDeclaration);
-  void printUnionVariables (list < SgNode * >unionFields,
-                            list < SgNode * >classFields,
-                            list < ControlStructureContainer * >pragmaList,
-                            string unionVariableName);
-  void printClassNotPrinted (list < SgNode * >classNotPrinted, string name);
-  list<SgNode * > queryClassNotPrinted (list < SgNode * >classFields,
-                                        set < SgNode * >printedClasses,
-                                        string variablePrefix = "");
-  SgVariableDeclaration*
-  queryFindUnionControlVariableDeclaration (SgNode * subTree,
-                                            string unionName);
-  string generateCodeFindActiveUnionVariableTypeName (SgVariableDeclaration *
-                                                      controlVariableDeclarataion);
-  map<SgTypedefDeclaration*,SgType*> 
-    buildTypedefTranslationTable(SgProject* project);
+  void printClass (SgNode * node, std::string nodelabel, std::string option);
+  void printStruct (SgNode * node, std::string nodelabel, std::string option);
+  void writeToFile (std::string filename);
+  void writeStaticGraphToFile (std::string filename);
+  void printGlobalScope(SgGlobal* sageGlobal, Rose_STL_Container<SgNode*> globalDeclarationLst);
+  void printType(SgType* sageType);
 
-  ostringstream* dotout; 
-  set <SgNode * > printedClasses;
-  string classPointerName;
-  string nameOfConstructedClass;
-  string method_prefix;
+  AttributeType* printCSVariables (AttributeType* inheritedAttribute,  SgClassDeclaration*, Rose_STL_Container< SgNode * >classFields, std::string className, std::string variablePrefix = "classReference->");
+  AttributeType* printClassAsVariable (AttributeType* inheritedAttribute,  SgClassDeclaration* sageClassDeclaration,
+  Rose_STL_Container<SgNode*> classFields, const std::string unionVariableName,  const std::string variablePrefix = "classReference->");
+  void printClassNotPrinted (Rose_STL_Container<SgNode*> classNotPrinted, std::string name, std::string variablePrefix = "classReference->");
+  Rose_STL_Container<SgNode*> queryClassNotPrinted (AttributeType* attribute, Rose_STL_Container<SgNode*> classFields,
+			std::set < SgNode * >printedClasses,
+			TypeDef classDeclType = UnknownListElement, std::string variablePrefix = "classReference->" );
+  SgVariableDeclaration*
+  queryFindUnionControlVariableDeclaration (SgNode * subTree, std::string unionName);
+  std::string generateCodeFindActiveUnionVariableTypeName (SgVariableDeclaration* controlVariableDeclarataion);
+
+  std::ostringstream* dotout;
+  std::ostringstream* header;
+  std::set <SgNode * > printedClasses;
+  std::string classPointerName,nameOfConstructedClass,method_prefix;
 private:
-  map<SgTypedefDeclaration*, SgType*> typedefTranslationTable; 
+  AttributeType* classTypePrint(AttributeType*, SgClassDeclaration*, SgVariableDeclaration*,
+                               std::string, GenRepresentation::TypeOfPrint);
+  AttributeType* classTypePrintAsVariable(AttributeType*, SgClassDeclaration*, SgVariableDeclaration*,
+                              Rose_STL_Container<SgNode*>, std::string, std::string, std::string, GenRepresentation::TypeOfPrint);	
+  std::set<void*> traversedTypes;
   GenRepresentation* staticDataGraph;
 };
 

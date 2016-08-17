@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga 2008-2011. Distributed under the Boost
+// (C) Copyright Ion Gaztanaga 2008-2009. Distributed under the Boost
 // Software License, Version 1.0. (See accompanying file
 // LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
@@ -16,14 +16,13 @@
 #endif
 
 #include <boost/interprocess/detail/config_begin.hpp>
-#include <boost/container/set.hpp>
-#include <boost/interprocess/containers/containers_fwd.hpp>
+#include <boost/interprocess/containers/container/set.hpp>
 
 namespace boost {
 namespace interprocess {
 
-using boost::container::set;
-using boost::container::multiset;
+using boost::interprocess_container::set;
+using boost::interprocess_container::multiset;
 
 }  //namespace interprocess {
 }  //namespace boost {

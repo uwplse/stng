@@ -5,7 +5,7 @@
 #include <map>
 #include <boost/unordered_set.hpp>
 
-class ROSE_DLL_API ClassHierarchyWrapper
+class ClassHierarchyWrapper
 {
 public:
     typedef boost::unordered_set<SgClassDefinition*> ClassDefSet;

@@ -54,7 +54,7 @@ AstDOTGenerationExtended<ExtraNodeInfo_t, ExtraNodeOptions_t, ExtraEdgeInfo_t, E
         // future from the kind and the tostring() function.
 #if 1
           string unparsedInstruction = unparseInstruction(genericInstruction);
-          string addressString       = rose::StringUtility::numberToString( (void*) genericInstruction->get_address() );
+          string addressString       = StringUtility::numberToString( (void*) genericInstruction->get_address() );
         // string name = genericInstruction->get_mnemonic();
           string name = unparsedInstruction + "\\n address: " + addressString;
 #else
@@ -72,7 +72,7 @@ AstDOTGenerationExtended<ExtraNodeInfo_t, ExtraNodeOptions_t, ExtraEdgeInfo_t, E
         if (genericExpression != NULL)
         {
 #ifdef ROSE_BUILD_BINARY_ANALYSIS_SUPPORT
-          string name = unparseExpression(genericExpression, NULL, NULL);
+          string name = unparseExpression(genericExpression);
           ROSE_ASSERT(name.empty() == false);
           nodelabel += string("\\n") + name;
 #else
@@ -134,9 +134,9 @@ AstDOTGenerationExtended<ExtraNodeInfo_t, ExtraNodeOptions_t, ExtraEdgeInfo_t, E
           if (asmDwarfLine != NULL)
                  {
                 // It does not work to embed the "\n" into the single sprintf parameter.
-                     name = "Addr: " + rose::StringUtility::addrToString(asmDwarfLine->get_address()) +
-                            "\\nline: " + rose::StringUtility::numberToString(asmDwarfLine->get_line()) +
-                            " col: " + rose::StringUtility::numberToString(asmDwarfLine->get_column());
+                     name = "Addr: " + StringUtility::addrToString(asmDwarfLine->get_address()) +
+                            "\\nline: " + StringUtility::numberToString(asmDwarfLine->get_line()) +
+                            " col: " + StringUtility::numberToString(asmDwarfLine->get_column());
                  }
 
           SgAsmDwarfConstruct* asmDwarfConstruct = isSgAsmDwarfConstruct(node);
@@ -302,11 +302,10 @@ AstDOTGenerationExtended<ExtraNodeInfo_t, ExtraNodeOptions_t, ExtraEdgeInfo_t, E
         if (astAttributeContainer != NULL)
         {
         // Loop over all the attributes at this IR node
-          AstAttributeMechanism::AttributeIdentifiers attrIdentifiers = astAttributeContainer->getAttributeIdentifiers();
-          for (AstAttributeMechanism::AttributeIdentifiers::iterator i = attrIdentifiers.begin(); i!=attrIdentifiers.end(); ++i)
+          for (AstAttributeMechanism::iterator i = astAttributeContainer->begin(); i != astAttributeContainer->end(); i++)
                  {
-                   std::string name = *i;
-                   AstAttribute* attribute = astAttributeContainer->operator[](name);
+                // std::string name = i->first;
+                   AstAttribute* attribute = i->second;
                    ROSE_ASSERT(attribute != NULL);
 
                 // This can return a non-empty list in user-defined attributes (derived from AstAttribute).
@@ -377,9 +376,9 @@ AstDOTGenerationExtended<ExtraNodeInfo_t, ExtraNodeOptions_t, ExtraEdgeInfo_t, E
                    string original_filename = file->getFileName();
 
                 // DQ (7/4/2008): Fix filenamePostfix to go before the "."
-                // string filename = string("./") + rose::utility_stripPathFromFileName(original_filename) + "."+filenamePostfix+"dot";
-//                 string filename = string("./") + rose::utility_stripPathFromFileName(original_filename) + filenamePostfix + ".dot";
-                   string filename = string("./") + rose::StringUtility::stripPathFromFileName(original_filename) + filenamePostfix + ".dot";
+                // string filename = string("./") + ROSE::stripPathFromFileName(original_filename) + "."+filenamePostfix+"dot";
+//                 string filename = string("./") + ROSE::stripPathFromFileName(original_filename) + filenamePostfix + ".dot";
+                   string filename = string("./") + StringUtility::stripPathFromFileName(original_filename) + filenamePostfix + ".dot";
 
                 // printf ("generated filename for dot file (from SgSourceFile or SgBinaryComposite) = %s file->get_parent() = %p \n",filename.c_str(),file->get_parent());
 

@@ -17,6 +17,11 @@
 #include <boost/smart_ptr/detail/shared_count.hpp>
 #include <boost/smart_ptr/shared_ptr.hpp>
 
+#ifdef BOOST_MSVC  // moved here to work around VC++ compiler crash
+# pragma warning(push)
+# pragma warning(disable:4284) // odd return type for operator->
+#endif
+
 namespace boost
 {
 
@@ -35,24 +40,8 @@ public:
     {
     }
 
-//  generated copy constructor, assignment, destructor are fine...
+//  generated copy constructor, assignment, destructor are fine
 
-#if defined( BOOST_HAS_RVALUE_REFS )
-
-// ... except in C++0x, move disables the implicit copy
-
-    weak_ptr( weak_ptr const & r ): px( r.px ), pn( r.pn ) // never throws
-    {
-    }
-
-    weak_ptr & operator=( weak_ptr const & r ) // never throws
-    {
-        px = r.px;
-        pn = r.pn;
-        return *this;
-    }
-
-#endif
 
 //
 //  The "obvious" converting constructor implementation:
@@ -74,7 +63,7 @@ public:
     template<class Y>
 #if !defined( BOOST_SP_NO_SP_CONVERTIBLE )
 
-    weak_ptr( weak_ptr<Y> const & r, typename boost::detail::sp_enable_if_convertible<Y,T>::type = boost::detail::sp_empty() )
+    weak_ptr( weak_ptr<Y> const & r, typename detail::sp_enable_if_convertible<Y,T>::type = detail::sp_empty() )
 
 #else
 
@@ -90,20 +79,20 @@ public:
     template<class Y>
 #if !defined( BOOST_SP_NO_SP_CONVERTIBLE )
 
-    weak_ptr( weak_ptr<Y> && r, typename boost::detail::sp_enable_if_convertible<Y,T>::type = boost::detail::sp_empty() )
+    weak_ptr( weak_ptr<Y> && r, typename detail::sp_enable_if_convertible<Y,T>::type = detail::sp_empty() )
 
 #else
 
     weak_ptr( weak_ptr<Y> && r )
 
 #endif
-    : px( r.lock().get() ), pn( static_cast< boost::detail::weak_count && >( r.pn ) ) // never throws
+    : px(r.lock().get()), pn(std::move(r.pn)) // never throws
     {
         r.px = 0;
     }
 
     // for better efficiency in the T == Y case
-    weak_ptr( weak_ptr && r ): px( r.px ), pn( static_cast< boost::detail::weak_count && >( r.pn ) ) // never throws
+    weak_ptr( weak_ptr && r ): px( r.px ), pn(std::move(r.pn)) // never throws
     {
         r.px = 0;
     }
@@ -111,7 +100,7 @@ public:
     // for better efficiency in the T == Y case
     weak_ptr & operator=( weak_ptr && r ) // never throws
     {
-        this_type( static_cast< weak_ptr && >( r ) ).swap( *this );
+        this_type( std::move( r ) ).swap( *this );
         return *this;
     }
 
@@ -121,7 +110,7 @@ public:
     template<class Y>
 #if !defined( BOOST_SP_NO_SP_CONVERTIBLE )
 
-    weak_ptr( shared_ptr<Y> const & r, typename boost::detail::sp_enable_if_convertible<Y,T>::type = boost::detail::sp_empty() )
+    weak_ptr( shared_ptr<Y> const & r, typename detail::sp_enable_if_convertible<Y,T>::type = detail::sp_empty() )
 
 #else
 
@@ -145,9 +134,9 @@ public:
 #if defined( BOOST_HAS_RVALUE_REFS )
 
     template<class Y>
-    weak_ptr & operator=( weak_ptr<Y> && r )
+    weak_ptr & operator=(weak_ptr<Y> && r)
     {
-        this_type( static_cast< weak_ptr<Y> && >( r ) ).swap( *this );
+        this_type( std::move( r ) ).swap( *this );
         return *this;
     }
 
@@ -200,12 +189,7 @@ public:
         pn = pn2;
     }
 
-    template<class Y> bool owner_before( weak_ptr<Y> const & rhs ) const
-    {
-        return pn < rhs.pn;
-    }
-
-    template<class Y> bool owner_before( shared_ptr<Y> const & rhs ) const
+    template<class Y> bool _internal_less(weak_ptr<Y> const & rhs) const
     {
         return pn < rhs.pn;
     }
@@ -229,7 +213,7 @@ private:
 
 template<class T, class U> inline bool operator<(weak_ptr<T> const & a, weak_ptr<U> const & b)
 {
-    return a.owner_before( b );
+    return a._internal_less(b);
 }
 
 template<class T> void swap(weak_ptr<T> & a, weak_ptr<T> & b)
@@ -238,5 +222,9 @@ template<class T> void swap(weak_ptr<T> & a, weak_ptr<T> & b)
 }
 
 } // namespace boost
+
+#ifdef BOOST_MSVC
+# pragma warning(pop)
+#endif    
 
 #endif  // #ifndef BOOST_SMART_PTR_WEAK_PTR_HPP_INCLUDED

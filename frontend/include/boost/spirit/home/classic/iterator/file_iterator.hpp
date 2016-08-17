@@ -166,7 +166,7 @@ public:
     file_iterator()
     {}
 
-    file_iterator(std::string const& fileName)
+    file_iterator(std::string fileName)
     :   base_t(adapted_t(fileName))
     {}
 

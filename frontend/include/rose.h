@@ -46,7 +46,7 @@ namespace ELF{
 #include "AstDOTGeneration.h"
 #include "AstDiagnostics.h"
 // #include "AstStatistics.h"
-#include "RoseAst.h"
+#include "Ast.h"
 
 #ifndef ROSE_USE_INTERNAL_FRONTEND_DEVELOPMENT
 // DQ (6/3/2007): added internal support for AST visualization
@@ -77,7 +77,10 @@ namespace ELF{
 // DQ (5/26/2007): Use the new AST merge mechanism.
 #include "merge.h"
 // JH (01/18/2006): adding the include file for the AST file I/O (by Jochen)
+#ifndef _MSC_VER
+// tps (11/23/2009) : Commented out right now to make progress in Windows
 #include "AST_FILE_IO.h"
+#endif
 // DQ (9/9/2007): Can't use astVisualization/ prefix since it then does not permit use from the install tree
 // DQ (5/27/2007): Added astVisualization/ prefix to the header file
 // DQ (2/22/2006): Added Andreas' work to graph the AST.
@@ -104,12 +107,10 @@ namespace ELF{
 // Required to be run before PRE!
 #include "constantFolding.h"
 
-// DQ (2/12/2013): This should be removed since it is now supported by the new name qualification.
-// It is also an error for ROSE compiling ROSE which perhaps shuld be invistigated further.
 // DQ (5/8/2007): Added Robert Preissl's support for hidden type and declartion lists.
-// #include "HiddenList.h"
-// #include "HiddenList_Output.h"
-// #include "HiddenList_Intersection.h"
+#include "HiddenList.h"
+#include "HiddenList_Output.h"
+#include "HiddenList_Intersection.h"
 
 // DQ (1/25/2008): Added cfgToDot.h as suggested by Jeremiah
 #include "cfgToDot.h"
@@ -197,8 +198,6 @@ namespace ELF{
 
 // DQ (4/20/2009): Added support to optionally get more information out about new delete operators.
 #define COMPILE_DEBUG_STATEMENTS 1
-
-#include "initialize.h" // Defines rose::initialize
 
 /******************************************************************************************************************************
  *                            THIS CHECK SHOULD BE THE LAST THING IN THIS FILE!

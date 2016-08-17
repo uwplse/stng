@@ -1,5 +1,5 @@
 /*=============================================================================
-    Copyright (c) 2001-2011 Joel de Guzman
+    Copyright (c) 2001-2006 Joel de Guzman
 
     Distributed under the Boost Software License, Version 1.0. (See accompanying 
     file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -22,7 +22,7 @@ namespace boost { namespace fusion
 
     // Special tags:
     struct iterator_facade_tag; // iterator facade tag
-    struct boost_array_iterator_tag; // boost::array iterator tag
+    struct array_iterator_tag; // boost::array iterator tag
     struct mpl_iterator_tag; // mpl sequence iterator tag
     struct std_pair_iterator_tag; // std::pair iterator tag
 
@@ -34,7 +34,10 @@ namespace boost { namespace fusion
             // default implementation
             template <typename First, typename Last>
             struct apply : distance_detail::linear_distance<First, Last> 
-            {};
+            {
+                BOOST_MPL_ASSERT_NOT((traits::is_random_access<First>));
+                BOOST_MPL_ASSERT_NOT((traits::is_random_access<Last>));
+            };
         };
 
         template <>
@@ -45,7 +48,7 @@ namespace boost { namespace fusion
         };
 
         template <>
-        struct distance_impl<boost_array_iterator_tag>;
+        struct distance_impl<array_iterator_tag>;
 
         template <>
         struct distance_impl<mpl_iterator_tag>;
@@ -58,8 +61,8 @@ namespace boost { namespace fusion
     {
         template <typename First, typename Last>
         struct distance
-          : extension::distance_impl<typename detail::tag_of<First>::type>::
-                template apply<First, Last>
+        : extension::distance_impl<typename detail::tag_of<First>::type>:: 
+        template apply<First, Last>
         {
             typedef typename extension::distance_impl<typename detail::tag_of<First>::type>:: 
             template apply<First, Last>::type distance_application;

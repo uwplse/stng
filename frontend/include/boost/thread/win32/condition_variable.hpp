@@ -4,24 +4,18 @@
 // accompanying file LICENSE_1_0.txt or copy at
 // http://www.boost.org/LICENSE_1_0.txt)
 // (C) Copyright 2007-8 Anthony Williams
-// (C) Copyright 2011-2012 Vicente J. Botet Escriba
 
 #include <boost/thread/mutex.hpp>
-#include <boost/thread/win32/thread_primitives.hpp>
+#include "thread_primitives.hpp"
 #include <limits.h>
 #include <boost/assert.hpp>
 #include <algorithm>
-#include <boost/thread/cv_status.hpp>
-#include <boost/thread/win32/thread_data.hpp>
+#include <boost/thread/thread.hpp>
 #include <boost/thread/thread_time.hpp>
-#include <boost/thread/win32/interlocked_read.hpp>
+#include "interlocked_read.hpp"
 #include <boost/thread/xtime.hpp>
 #include <vector>
 #include <boost/intrusive_ptr.hpp>
-#ifdef BOOST_THREAD_USES_CHRONO
-#include <boost/chrono/system_clocks.hpp>
-#include <boost/chrono/ceil.hpp>
-#endif
 
 #include <boost/config/abi_prefix.hpp>
 
@@ -32,7 +26,7 @@ namespace boost
         class basic_cv_list_entry;
         void intrusive_ptr_add_ref(basic_cv_list_entry * p);
         void intrusive_ptr_release(basic_cv_list_entry * p);
-
+        
         class basic_cv_list_entry
         {
         private:
@@ -42,8 +36,10 @@ namespace boost
             bool notified;
             long references;
 
+            basic_cv_list_entry(basic_cv_list_entry&);
+            void operator=(basic_cv_list_entry&);
+            
         public:
-            BOOST_THREAD_NO_COPYABLE(basic_cv_list_entry)
             explicit basic_cv_list_entry(detail::win32::handle_manager const& wake_sem_):
                 semaphore(detail::win32::create_anonymous_semaphore(0,LONG_MAX)),
                 wake_sem(wake_sem_.duplicate()),
@@ -59,7 +55,7 @@ namespace boost
             {
                 BOOST_INTERLOCKED_INCREMENT(&waiters);
             }
-
+            
             void remove_waiter()
             {
                 BOOST_INTERLOCKED_DECREMENT(&waiters);
@@ -101,7 +97,7 @@ namespace boost
         {
             BOOST_INTERLOCKED_INCREMENT(&p->references);
         }
-
+            
         inline void intrusive_ptr_release(basic_cv_list_entry * p)
         {
             if(!BOOST_INTERLOCKED_DECREMENT(&p->references))
@@ -129,14 +125,13 @@ namespace boost
                 detail::interlocked_write_release(&total_count,total_count-count_to_wake);
                 detail::win32::ReleaseSemaphore(wake_sem,count_to_wake,0);
             }
-
+            
             template<typename lock_type>
             struct relocker
             {
-                BOOST_THREAD_NO_COPYABLE(relocker)
                 lock_type& lock;
                 bool unlocked;
-
+                
                 relocker(lock_type& lock_):
                     lock(lock_),unlocked(false)
                 {}
@@ -151,10 +146,13 @@ namespace boost
                     {
                         lock.lock();
                     }
-
+                    
                 }
+            private:
+                relocker(relocker&);
+                void operator=(relocker&);
             };
-
+            
 
             entry_ptr get_wait_entry()
             {
@@ -179,16 +177,15 @@ namespace boost
                     return generations.back();
                 }
             }
-
+            
             struct entry_manager
             {
                 entry_ptr const entry;
-
-                BOOST_THREAD_NO_COPYABLE(entry_manager)
+                    
                 entry_manager(entry_ptr const& entry_):
                     entry(entry_)
                 {}
-
+                    
                 ~entry_manager()
                 {
                     entry->remove_waiter();
@@ -198,15 +195,19 @@ namespace boost
                 {
                     return entry.get();
                 }
-            };
 
+            private:
+                void operator=(entry_manager&);
+                entry_manager(entry_manager&);
+            };
+                
 
         protected:
             template<typename lock_type>
             bool do_wait(lock_type& lock,timeout wait_until)
             {
                 relocker<lock_type> locker(lock);
-
+                
                 entry_manager entry(get_wait_entry());
 
                 locker.unlock();
@@ -218,7 +219,7 @@ namespace boost
                     {
                         return false;
                     }
-
+                
                     woken=entry->woken();
                 }
                 return woken;
@@ -234,7 +235,7 @@ namespace boost
                 }
                 return true;
             }
-
+        
             basic_condition_variable(const basic_condition_variable& other);
             basic_condition_variable& operator=(const basic_condition_variable& other);
 
@@ -242,11 +243,11 @@ namespace boost
             basic_condition_variable():
                 total_count(0),active_generation_count(0),wake_sem(0)
             {}
-
+            
             ~basic_condition_variable()
             {}
 
-            void notify_one() BOOST_NOEXCEPT
+            void notify_one()
             {
                 if(detail::interlocked_read_acquire(&total_count))
                 {
@@ -266,8 +267,8 @@ namespace boost
                     generations.erase(std::remove_if(generations.begin(),generations.end(),&basic_cv_list_entry::no_waiters),generations.end());
                 }
             }
-
-            void notify_all() BOOST_NOEXCEPT
+        
+            void notify_all()
             {
                 if(detail::interlocked_read_acquire(&total_count))
                 {
@@ -287,21 +288,23 @@ namespace boost
                     wake_sem=detail::win32::handle(0);
                 }
             }
-
+        
         };
     }
 
     class condition_variable:
         private detail::basic_condition_variable
     {
+    private:
+        condition_variable(condition_variable&);
+        void operator=(condition_variable&);
     public:
-        BOOST_THREAD_NO_COPYABLE(condition_variable)
         condition_variable()
         {}
-
+        
         using detail::basic_condition_variable::notify_one;
         using detail::basic_condition_variable::notify_all;
-
+        
         void wait(unique_lock<mutex>& m)
         {
             do_wait(m,detail::timeout::sentinel());
@@ -312,7 +315,7 @@ namespace boost
         {
             while(!pred()) wait(m);
         }
-
+        
 
         bool timed_wait(unique_lock<mutex>& m,boost::system_time const& wait_until)
         {
@@ -344,71 +347,21 @@ namespace boost
         {
             return do_wait(m,wait_duration.total_milliseconds(),pred);
         }
-
-#ifdef BOOST_THREAD_USES_CHRONO
-
-        template <class Clock, class Duration>
-        cv_status
-        wait_until(
-                unique_lock<mutex>& lock,
-                const chrono::time_point<Clock, Duration>& t)
-        {
-          using namespace chrono;
-          do_wait(lock, ceil<milliseconds>(t-Clock::now()).count());
-          return Clock::now() < t ? cv_status::no_timeout :
-                                             cv_status::timeout;
-        }
-
-        template <class Rep, class Period>
-        cv_status
-        wait_for(
-                unique_lock<mutex>& lock,
-                const chrono::duration<Rep, Period>& d)
-        {
-          using namespace chrono;
-          steady_clock::time_point c_now = steady_clock::now();
-          do_wait(lock, ceil<milliseconds>(d).count());
-          return steady_clock::now() - c_now < d ? cv_status::no_timeout :
-                                                   cv_status::timeout;
-        }
-
-        template <class Clock, class Duration, class Predicate>
-        bool
-        wait_until(
-                unique_lock<mutex>& lock,
-                const chrono::time_point<Clock, Duration>& t,
-                Predicate pred)
-        {
-            while (!pred())
-            {
-                if (wait_until(lock, t) == cv_status::timeout)
-                    return pred();
-            }
-            return true;
-        }
-        template <class Rep, class Period, class Predicate>
-        bool
-        wait_for(
-                unique_lock<mutex>& lock,
-                const chrono::duration<Rep, Period>& d,
-                Predicate pred)
-        {
-            return wait_until(lock, chrono::steady_clock::now() + d, pred);
-        }
-#endif
     };
-
+    
     class condition_variable_any:
         private detail::basic_condition_variable
     {
+    private:
+        condition_variable_any(condition_variable_any&);
+        void operator=(condition_variable_any&);
     public:
-        BOOST_THREAD_NO_COPYABLE(condition_variable_any)
         condition_variable_any()
         {}
-
+        
         using detail::basic_condition_variable::notify_one;
         using detail::basic_condition_variable::notify_all;
-
+        
         template<typename lock_type>
         void wait(lock_type& m)
         {
@@ -420,7 +373,7 @@ namespace boost
         {
             while(!pred()) wait(m);
         }
-
+        
         template<typename lock_type>
         bool timed_wait(lock_type& m,boost::system_time const& wait_until)
         {
@@ -456,58 +409,6 @@ namespace boost
         {
             return do_wait(m,wait_duration.total_milliseconds(),pred);
         }
-#ifdef BOOST_THREAD_USES_CHRONO
-
-        template <class lock_type, class Clock, class Duration>
-        cv_status
-        wait_until(
-                lock_type& lock,
-                const chrono::time_point<Clock, Duration>& t)
-        {
-          using namespace chrono;
-          do_wait(lock, ceil<milliseconds>(t-Clock::now()).count());
-          return Clock::now() < t ? cv_status::no_timeout :
-                                             cv_status::timeout;
-        }
-
-        template <class lock_type,  class Rep, class Period>
-        cv_status
-        wait_for(
-                lock_type& lock,
-                const chrono::duration<Rep, Period>& d)
-        {
-          using namespace chrono;
-          steady_clock::time_point c_now = steady_clock::now();
-          do_wait(lock, ceil<milliseconds>(d).count());
-          return steady_clock::now() - c_now < d ? cv_status::no_timeout :
-                                                   cv_status::timeout;
-        }
-
-        template <class lock_type, class Clock, class Duration, class Predicate>
-        bool
-        wait_until(
-                lock_type& lock,
-                const chrono::time_point<Clock, Duration>& t,
-                Predicate pred)
-        {
-            while (!pred())
-            {
-                if (wait_until(lock, t) == cv_status::timeout)
-                    return pred();
-            }
-            return true;
-        }
-
-        template <class lock_type, class Rep, class Period, class Predicate>
-        bool
-        wait_for(
-                lock_type& lock,
-                const chrono::duration<Rep, Period>& d,
-                Predicate pred)
-        {
-            return wait_until(lock, chrono::steady_clock::now() + d, pred);
-        }
-#endif
     };
 
 }

@@ -10,7 +10,7 @@
 
 #include <vector>
 #include <list>
-#include <boost/next_prior.hpp>
+#include <boost/utility.hpp>   //for boost::next
 #include <boost/config.hpp>    //for std::min macros
 #include <boost/shared_ptr.hpp>
 #include <boost/tuple/tuple.hpp>
@@ -104,7 +104,7 @@ namespace boost
     }
     
     template <typename Vertex, typename Graph>
-    void finish_vertex(const Vertex& u, Graph&)
+    void finish_vertex(const Vertex& u, Graph& g)
     {
       typedef typename graph_traits<Graph>::vertices_size_type v_size_t;
 
@@ -346,7 +346,7 @@ namespace boost
       //   the walkup and consumed by the walkdown.
 
       vertex_iterator_t vi, vi_end;
-      for(boost::tie(vi,vi_end) = vertices(g); vi != vi_end; ++vi)
+      for(tie(vi,vi_end) = vertices(g); vi != vi_end; ++vi)
         {
           vertex_t v(*vi);
           vertex_t parent = dfs_parent[v];
@@ -471,7 +471,7 @@ namespace boost
       typedef typename face_vertex_iterator<both_sides>::type walkup_iterator_t;
       
       out_edge_iterator_t oi, oi_end;
-      for(boost::tie(oi,oi_end) = out_edges(v,g); oi != oi_end; ++oi)
+      for(tie(oi,oi_end) = out_edges(v,g); oi != oi_end; ++oi)
         {
           edge_t e(*oi);
           vertex_t e_source(source(e,g));
@@ -689,7 +689,7 @@ namespace boost
                             = face_handles[first_tail].first_vertex();
                           vertex_t second 
                             = face_handles[first_tail].second_vertex();
-                          boost::tie(first_side_vertex, first_tail) 
+                          tie(first_side_vertex, first_tail) 
                             = make_tuple(first_tail, 
                                          first == first_side_vertex ? 
                                          second : first
@@ -701,7 +701,7 @@ namespace boost
                             = face_handles[second_tail].first_vertex();
                           vertex_t second 
                             = face_handles[second_tail].second_vertex();
-                          boost::tie(second_side_vertex, second_tail) 
+                          tie(second_side_vertex, second_tail) 
                             = make_tuple(second_tail,
                                          first == second_side_vertex ? 
                                          second : first);
@@ -790,10 +790,10 @@ namespace boost
                 {
 
                   bottom_path_follows_first = next_bottom_follows_first;
-                  boost::tie(merge_point, 
-                             next_bottom_follows_first, 
-                             top_path_follows_first
-                             ) = merge_stack.back();
+                  tie(merge_point, 
+                      next_bottom_follows_first, 
+                      top_path_follows_first
+                      ) = merge_stack.back();
                   merge_stack.pop_back();
 
                   face_handle_t top_handle(face_handles[merge_point]);
@@ -889,7 +889,7 @@ namespace boost
     }          
 
 
-    void add_to_merge_points(vertex_t, graph::detail::no_old_handles) {}
+    void add_to_merge_points(vertex_t v, graph::detail::no_old_handles) {}
 
     void add_to_merge_points(vertex_t v, graph::detail::store_old_handles)
     {
@@ -897,7 +897,7 @@ namespace boost
     }
 
     
-    void add_to_embedded_edges(edge_t, graph::detail::no_old_handles) {}
+    void add_to_embedded_edges(edge_t e, graph::detail::no_old_handles) {}
 
     void add_to_embedded_edges(edge_t e, graph::detail::store_old_handles)
     {
@@ -918,7 +918,7 @@ namespace boost
       // planar embedding no matter what order we embed them in.
 
       vertex_iterator_t xi, xi_end;
-      for(boost::tie(xi,xi_end) = vertices(g); xi != xi_end; ++xi)
+      for(tie(xi,xi_end) = vertices(g); xi != xi_end; ++xi)
         {
           if (!separated_dfs_child_list[*xi]->empty())
             {
@@ -1058,10 +1058,10 @@ namespace boost
       bool seen_goal_edge = false;
       out_edge_iterator_t oi, oi_end;
       
-      for(boost::tie(oi,oi_end) = out_edges(v,g); oi != oi_end; ++oi)
+      for(tie(oi,oi_end) = out_edges(v,g); oi != oi_end; ++oi)
         forbidden_edge[*oi] = true;
       
-      for(boost::tie(oi,oi_end) = out_edges(v,g); oi != oi_end; ++oi)
+      for(tie(oi,oi_end) = out_edges(v,g); oi != oi_end; ++oi)
         {
           path_edges.clear();
           
@@ -1195,7 +1195,7 @@ namespace boost
       // Clear the short-circuit edges - these are needed for the planar 
       // testing/embedding algorithm to run in linear time, but they'll 
       // complicate the kuratowski subgraph isolation
-      for(boost::tie(vi,vi_end) = vertices(g); vi != vi_end; ++vi)
+      for(tie(vi,vi_end) = vertices(g); vi != vi_end; ++vi)
         {
           face_handles[*vi].reset_vertex_cache();
           dfs_child_handles[*vi].reset_vertex_cache();
@@ -1352,7 +1352,7 @@ namespace boost
 
       //Find external path to x and to y
 
-      for(boost::tie(ei, ei_end) = edges(g); ei != ei_end; ++ei)
+      for(tie(ei, ei_end) = edges(g); ei != ei_end; ++ei)
         {
           edge_t e(*ei);
           goal_edge[e] 
@@ -1376,7 +1376,7 @@ namespace boost
         }            
 
 
-      for(boost::tie(ei, ei_end) = edges(g); ei != ei_end; ++ei)
+      for(tie(ei, ei_end) = edges(g); ei != ei_end; ++ei)
         {
           edge_t e(*ei);
           goal_edge[e] 
@@ -1407,13 +1407,13 @@ namespace boost
         {
           chosen_case = detail::BM_CASE_A;
 
-          for(boost::tie(vi,vi_end) = vertices(g); vi != vi_end; ++vi)
+          for(tie(vi,vi_end) = vertices(g); vi != vi_end; ++vi)
             if (lower_face_vertex[*vi])
-              for(boost::tie(oei,oei_end) = out_edges(*vi,g); oei != oei_end; ++oei)
+              for(tie(oei,oei_end) = out_edges(*vi,g); oei != oei_end; ++oei)
                 if(!outer_face_edge[*oei])
                   goal_edge[*oei] = true;
           
-          for(boost::tie(ei,ei_end) = edges(g); ei != ei_end; ++ei)
+          for(tie(ei,ei_end) = edges(g); ei != ei_end; ++ei)
             forbidden_edge[*ei] = outer_face_edge[*ei];
           
           z = kuratowski_walkup
@@ -1424,7 +1424,7 @@ namespace boost
         {
           chosen_case = detail::BM_CASE_B;
 
-          for(boost::tie(ei, ei_end) = edges(g); ei != ei_end; ++ei)
+          for(tie(ei, ei_end) = edges(g); ei != ei_end; ++ei)
             {
               edge_t e(*ei);
               goal_edge[e] = false;
@@ -1442,7 +1442,7 @@ namespace boost
                                 );
               
 
-          for(boost::tie(ei, ei_end) = edges(g); ei != ei_end; ++ei)
+          for(tie(ei, ei_end) = edges(g); ei != ei_end; ++ei)
             {
               forbidden_edge[*ei] = outer_face_edge[*ei];
             }
@@ -1646,7 +1646,7 @@ namespace boost
           //First, get a list of all of v's embedded child edges
 
           out_edge_iterator_t v_edge_itr, v_edge_end;
-          for(boost::tie(v_edge_itr,v_edge_end) = out_edges(v,g); 
+          for(tie(v_edge_itr,v_edge_end) = out_edges(v,g); 
               v_edge_itr != v_edge_end; ++v_edge_itr
               )
             {
@@ -1711,7 +1711,7 @@ namespace boost
 
           //Finding z and w.
 
-          for(boost::tie(ei, ei_end) = edges(g); ei != ei_end; ++ei)
+          for(tie(ei, ei_end) = edges(g); ei != ei_end; ++ei)
             {
               edge_t e(*ei);
               goal_edge[e] = !outer_face_edge[e] && 
@@ -1729,14 +1729,14 @@ namespace boost
           if (chosen_case == detail::BM_CASE_E)
             {
 
-              for(boost::tie(ei, ei_end) = edges(g); ei != ei_end; ++ei)
+              for(tie(ei, ei_end) = edges(g); ei != ei_end; ++ei)
                 {
                   forbidden_edge[*ei] = outer_face_edge[*ei];
                   goal_edge[*ei] = !outer_face_edge[*ei] && 
                     (source(*ei,g) == w || target(*ei,g) == w);
                 }
 
-              for(boost::tie(oei, oei_end) = out_edges(w,g); oei != oei_end; ++oei)
+              for(tie(oei, oei_end) = out_edges(w,g); oei != oei_end; ++oei)
                 {
                   if (!outer_face_edge[*oei])
                     goal_edge[*oei] = true;
@@ -1800,7 +1800,7 @@ namespace boost
       while(child != parent)
         {
           is_in_subgraph[dfs_parent_edge[child]] = true;
-          boost::tie(parent, child) = std::make_pair( dfs_parent[parent], parent );
+          tie(parent, child) = std::make_pair( dfs_parent[parent], parent );
         }
 
 
@@ -1928,7 +1928,7 @@ namespace boost
         }
 
 
-      for(boost::tie(ei, ei_end) = edges(g); ei != ei_end; ++ei)
+      for(tie(ei, ei_end) = edges(g); ei != ei_end; ++ei)
         if (is_in_subgraph[*ei])
           *o_itr = *ei;
       
@@ -1940,7 +1940,7 @@ namespace boost
     void make_edge_permutation(EdgePermutation perm)
     {
       vertex_iterator_t vi, vi_end;
-      for(boost::tie(vi,vi_end) = vertices(g); vi != vi_end; ++vi)
+      for(tie(vi,vi_end) = vertices(g); vi != vi_end; ++vi)
         {
           vertex_t v(*vi);
           perm[v].clear();

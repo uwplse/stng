@@ -58,8 +58,8 @@ class RoseBin_CompareAnalysis : public AstSimpleProcessing{
   std::string resolveRegister(const RegisterDescriptor &reg);
 
   SgAsmValueExpression* valExp;     
-  SgAsmRegisterReferenceExpression* refExp_Left; 
-  SgAsmRegisterReferenceExpression* refExp_Right; 
+  SgAsmx86RegisterReferenceExpression* refExp_Left; 
+  SgAsmx86RegisterReferenceExpression* refExp_Right; 
 
   /**********************************************************
    * check if function calls match ----------------------------------------------------------------------------
@@ -151,7 +151,7 @@ class RoseBin_CompareAnalysis : public AstSimpleProcessing{
                                          bool &isVarDecl1,
                                          bool &isAssign0,
                                          bool &isAssign1,
-                                         SgAsmX86Instruction* mov
+                                         SgAsmx86Instruction* mov
                                          );
 
  public:

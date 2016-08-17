@@ -64,10 +64,10 @@ namespace boost {
             Range1T& Input,
             const Range2T& Search)
         {
-            return ::boost::algorithm::iter_find(
+            return iter_find(
                 Result,
                 Input,
-                ::boost::algorithm::first_finder(Search) );        
+                first_finder(Search) );        
         }
 
         //! Find all algorithm ( case insensitive ) 
@@ -100,10 +100,10 @@ namespace boost {
             const Range2T& Search,
             const std::locale& Loc=std::locale() )
         {
-            return ::boost::algorithm::iter_find(
+            return iter_find(
                 Result,
                 Input,
-                ::boost::algorithm::first_finder(Search, is_iequal(Loc) ) );        
+                first_finder(Search, is_iequal(Loc) ) );        
         }
 
 
@@ -143,10 +143,10 @@ namespace boost {
             PredicateT Pred,
             token_compress_mode_type eCompress=token_compress_off )
         {
-            return ::boost::algorithm::iter_split(
+            return iter_split(
                 Result,
                 Input,
-                ::boost::algorithm::token_finder( Pred, eCompress ) );         
+                token_finder( Pred, eCompress ) );         
         }
 
     } // namespace algorithm

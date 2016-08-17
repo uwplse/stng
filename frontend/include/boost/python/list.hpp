@@ -19,7 +19,7 @@ namespace detail
   {
       void append(object_cref); // append object to end
 
-      ssize_t count(object_cref value) const; // return number of occurrences of value
+      long count(object_cref value) const; // return number of occurrences of value
 
       void extend(object_cref sequence); // extend list by appending sequence elements
     
@@ -37,12 +37,8 @@ namespace detail
       void reverse(); // reverse *IN PLACE*
 
       void sort(); //  sort *IN PLACE*; if given, cmpfunc(x, y) -> -1, 0, 1
-#if PY_VERSION_HEX >= 0x03000000
-      void sort(args_proxy const &args, 
-                 kwds_proxy const &kwds);
-#else
       void sort(object_cref cmpfunc);
-#endif
+
 
    protected:
       list_base(); // new list
@@ -117,15 +113,13 @@ class list : public detail::list_base
         base::remove(object(value));
     }
 
-#if PY_VERSION_HEX <= 0x03000000
     void sort() { base::sort(); }
-
+    
     template <class T>
     void sort(T const& value)
     {
         base::sort(object(value));
     }
-#endif
     
  public: // implementation detail -- for internal use only
     BOOST_PYTHON_FORWARD_OBJECT_CONSTRUCTORS(list, base)

@@ -8,10 +8,7 @@
 #include "resetParentPointers.h"
 #include "processTemplateHandlingOptions.h"
 #include "fixupSymbolTables.h"
-
-// DQ (12/29/2011): This header file requires rose_config.h and we don't want all of ROSE to require this.
-// #include "markCompilerGenerated.h"
-
+#include "markCompilerGenerated.h"
 #include "markTemplateInstantiationsForOutput.h"
 #include "resetTemplateNames.h"
 #include "fixupDeclarations.h"
@@ -25,8 +22,6 @@
 #include "markBackendCompilerSpecificFunctions.h"
 #include "fixupNullPointers.h"
 #include "checkIsModifiedFlag.h"
-#include "checkIsFrontendSpecificFlag.h"
-#include "checkIsCompilerGeneratedFlag.h"
 #include "fixupNames.h"
 #include "fixupTypes.h"
 #include "fixupConstructorPreinitializationLists.h"
@@ -52,29 +47,6 @@
 // original expression trees.
 #include "fixupConstantFoldedValues.h"
 
-// DQ (5/1/2012): Added testing for marked transformations in the AST (should be none after EDG/ROSE translation).
-#include "detectTransformations.h"
-
-// DQ (8/12/2012): Fixup the SgModifiers used to hold type reference in EDG to types in instantiated templates that had not yet been seen).
-// This post processing effects test2012_190.C and test2007_141.C.
-#include "fixupTypeReferences.h"
-
-// DQ (10/5/2012): Fixup known macros that might expand into a recursive mess in the unparsed code.
-#include "fixupSelfReferentialMacros.h"
-
-// DQ (4/24/2013): Detect the correct function declaration to declare the use of default arguments.
-// This can only be a single function and it can't be any function (this is a moderately complex issue).
-#include "fixupFunctionDefaultArguments.h"
-
-// DQ (12/20/2012): Added support for testing the physical source position information.
-#include "checkPhysicalSourcePosition.h"
-
-// DQ (6/11/2013): This corrects where EDG can set the scope of a friend declaration to be different from the defining declaration.
-#include "fixupDeclarationScope.h"
-
-// DQ (11/14/2015): This corrects inconstancies in the setting of flags in the Sg_File_Info objects.
-#include "fixupFileInfoFlags.h"
-
 /*! \brief Postprocessing that is not likely to be handled in the EDG/Sage III translation.
  */
 void postProcessingSupport (SgNode* node);
@@ -91,18 +63,6 @@ void postProcessingSupport (SgNode* node);
        4) ...
 
  */
-ROSE_DLL_API void AstPostProcessing(SgNode* node);
-
-
-#if 0
-// DQ (4/26/2013): Test constructed to detect problems with where default arguments are marked.
-class PostProcessingTestFunctionCallArguments : public AstSimpleProcessing
-   {
-     public:
-          void visit (SgNode* node);
-   };
-
-void postProcessingTestFunctionCallArguments(SgNode* node);
-#endif
+void AstPostProcessing(SgNode* node);
 
 #endif

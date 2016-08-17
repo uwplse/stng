@@ -15,7 +15,7 @@
  *  DOT options and information like if the node should be filtered out in a graph.
  *  
  **************************************************************************************/
-class ROSE_DLL_API AstAttributeDOT:public AstAttribute
+class AstAttributeDOT:public AstAttribute
    {
      public:
           enum DOTStyles
@@ -80,7 +80,7 @@ class ROSE_DLL_API AstAttributeDOT:public AstAttribute
  *  string. It also contains information about which node in the AST we operate on.  
  **************************************************************************************/
 
-class ROSE_DLL_API DOTGraphNode : public AstAttributeDOT
+class DOTGraphNode : public AstAttributeDOT
    {
      public:
           enum DOTShapeTypes
@@ -127,7 +127,7 @@ class ROSE_DLL_API DOTGraphNode : public AstAttributeDOT
  *  string. It also contains information about which edge in the AST we operate on.  
  **************************************************************************************/
 
-class ROSE_DLL_API DOTGraphEdge : public AstAttributeDOT
+class DOTGraphEdge : public AstAttributeDOT
    {
      public:
           enum DOTArrowTypes

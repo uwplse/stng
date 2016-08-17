@@ -41,7 +41,7 @@ class RewriteArrayModOp : public TransformAstTree
   bool operator()(AstInterface& fa, const AstNodePtr& head, AstNodePtr& result);
 };
 
-class ROSE_DLL_API RewriteToArrayAst : public TransformAstTree
+class RewriteToArrayAst : public TransformAstTree
 {
   ArrayInterface& anal;
 
@@ -50,7 +50,7 @@ class ROSE_DLL_API RewriteToArrayAst : public TransformAstTree
   bool operator()(AstInterface& fa, const AstNodePtr& head, AstNodePtr& result);
 };
 
-class ROSE_DLL_API RewriteFromArrayAst : public TransformAstTree
+class RewriteFromArrayAst : public TransformAstTree
 {
   ArrayInterface& anal;
  public:

@@ -22,9 +22,9 @@
 #include "boost/iterator/iterator_concepts.hpp"
 
 namespace boost {
-namespace multi_array_concepts {
-
 namespace detail {
+namespace multi_array {
+
   //
   // idgen_helper -
   //   This is a helper for generating index_gen instantiations with
@@ -56,8 +56,6 @@ namespace detail {
     }
   };
 
-} // namespace detail
-
 
   template <typename Array, std::size_t NumDims >
   struct ConstMultiArrayConcept
@@ -72,10 +70,10 @@ namespace detail {
       // RG - a( CollectionArchetype) when available...
       a[ id ];
       // Test slicing, keeping only the first dimension, losing the rest
-      detail::idgen_helper<NumDims-1>::call(a,idgen[range],id);
+      idgen_helper<NumDims-1>::call(a,idgen[range],id);
 
       // Test slicing, keeping all dimensions.
-      detail::idgen_helper<NumDims-1>::call(a,idgen[range],range);
+      idgen_helper<NumDims-1>::call(a,idgen[range],range);
 
       st = a.size();
       st = a.num_dimensions();
@@ -131,16 +129,15 @@ namespace detail {
       function_requires< boost_concepts::WritableIteratorConcept<iterator> >();
       function_requires< boost_concepts::ForwardTraversalConcept<const_iterator> >();
       function_requires< boost_concepts::ReadableIteratorConcept<const_iterator> >();
-      function_requires< boost::OutputIterator<iterator,value_type> >();
       
       // RG - a( CollectionArchetype) when available...
       value_type vt = a[ id ];
 
       // Test slicing, keeping only the first dimension, losing the rest
-      detail::idgen_helper<NumDims-1>::call(a,idgen[range],id);
+      idgen_helper<NumDims-1>::call(a,idgen[range],id);
 
       // Test slicing, keeping all dimensions.
-      detail::idgen_helper<NumDims-1>::call(a,idgen[range],range);
+      idgen_helper<NumDims-1>::call(a,idgen[range],range);
 
       st = a.size();
       st = a.num_dimensions();
@@ -161,10 +158,10 @@ namespace detail {
       //      value_type vt = a[ id ];
 
       // Test slicing, keeping only the first dimension, losing the rest
-      detail::idgen_helper<NumDims-1>::call(a,idgen[range],id);
+      idgen_helper<NumDims-1>::call(a,idgen[range],id);
 
       // Test slicing, keeping all dimensions.
-      detail::idgen_helper<NumDims-1>::call(a,idgen[range],range);
+      idgen_helper<NumDims-1>::call(a,idgen[range],range);
 
       st = a.size();
       st = a.num_dimensions();
@@ -211,14 +208,7 @@ namespace detail {
 
 
 } // namespace multi_array
-
-namespace detail {
-  namespace multi_array { // Old locations for these
-    using boost::multi_array_concepts::ConstMultiArrayConcept;
-    using boost::multi_array_concepts::MutableMultiArrayConcept;
-  }
-}
-
+} // namespace detail
 } // namespace boost
 
 

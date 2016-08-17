@@ -1,8 +1,8 @@
 //
-// detail/null_thread.hpp
-// ~~~~~~~~~~~~~~~~~~~~~~
+// null_thread.hpp
+// ~~~~~~~~~~~~~~~
 //
-// Copyright (c) 2003-2012 Christopher M. Kohlhoff (chris at kohlhoff dot com)
+// Copyright (c) 2003-2008 Christopher M. Kohlhoff (chris at kohlhoff dot com)
 //
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -15,15 +15,21 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include <boost/asio/detail/config.hpp>
-
-#if !defined(BOOST_HAS_THREADS) || defined(BOOST_ASIO_DISABLE_THREADS)
-
-#include <boost/asio/detail/noncopyable.hpp>
-#include <boost/asio/detail/throw_error.hpp>
-#include <boost/asio/error.hpp>
+#include <boost/asio/detail/push_options.hpp>
 
 #include <boost/asio/detail/push_options.hpp>
+#include <boost/config.hpp>
+#include <boost/system/system_error.hpp>
+#include <boost/asio/detail/pop_options.hpp>
+
+#if !defined(BOOST_HAS_THREADS)
+
+#include <boost/asio/detail/push_options.hpp>
+#include <boost/throw_exception.hpp>
+#include <boost/asio/detail/pop_options.hpp>
+
+#include <boost/asio/error.hpp>
+#include <boost/asio/detail/noncopyable.hpp>
 
 namespace boost {
 namespace asio {
@@ -35,10 +41,11 @@ class null_thread
 public:
   // Constructor.
   template <typename Function>
-  null_thread(Function, unsigned int = 0)
+  null_thread(Function f)
   {
-    boost::asio::detail::throw_error(
+    boost::system::system_error e(
         boost::asio::error::operation_not_supported, "thread");
+    boost::throw_exception(e);
   }
 
   // Destructor.
@@ -56,8 +63,8 @@ public:
 } // namespace asio
 } // namespace boost
 
-#include <boost/asio/detail/pop_options.hpp>
+#endif // !defined(BOOST_HAS_THREADS)
 
-#endif // !defined(BOOST_HAS_THREADS) || defined(BOOST_ASIO_DISABLE_THREADS)
+#include <boost/asio/detail/pop_options.hpp>
 
 #endif // BOOST_ASIO_DETAIL_NULL_THREAD_HPP

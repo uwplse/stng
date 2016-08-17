@@ -14,7 +14,7 @@
 
 #include "DefUseAnalysisAbstract.h"
 
-class ROSE_DLL_API LivenessAnalysis : public DefUseAnalysisAbstract {
+class LivenessAnalysis : public DefUseAnalysisAbstract {
  private:
   SgProject* project;
   bool DEBUG_MODE;

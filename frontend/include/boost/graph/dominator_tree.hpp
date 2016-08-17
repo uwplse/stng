@@ -13,7 +13,6 @@
 #include <deque>
 #include <set>
 #include <boost/graph/depth_first_search.hpp>
-#include <boost/concept/assert.hpp>
 
 // Dominator tree computation
 
@@ -119,7 +118,7 @@ namespace boost {
 
         // For each predecessor of n
         typename graph_traits<Graph>::in_edge_iterator inItr, inEnd;
-        for (boost::tie(inItr, inEnd) = in_edges(n, g); inItr != inEnd; ++inItr)
+        for (tie(inItr, inEnd) = in_edges(n, g); inItr != inEnd; ++inItr)
           {
             const Vertex v = source(*inItr, g);
             // To deal with unreachable nodes
@@ -237,7 +236,7 @@ namespace boost {
   lengauer_tarjan_dominator_tree_without_dfs
     (const Graph& g,
      const typename graph_traits<Graph>::vertex_descriptor& entry,
-     const IndexMap& /*indexMap*/,
+     const IndexMap& indexMap,
      TimeMap dfnumMap, PredMap parentMap, VertexVector& verticesByDFNum,
      DomTreePredMap domTreePredMap)
   {
@@ -245,7 +244,7 @@ namespace boost {
     typedef typename graph_traits<Graph>::vertex_descriptor Vertex;
     typedef typename graph_traits<Graph>::vertices_size_type VerticesSizeType;
 
-    BOOST_CONCEPT_ASSERT(( BidirectionalGraphConcept<Graph> ));
+    function_requires< BidirectionalGraphConcept<Graph> >();
 
     const VerticesSizeType numOfVertices = num_vertices(g);
     if (numOfVertices == 0) return;
@@ -300,7 +299,7 @@ namespace boost {
     // Typedefs and concept check
     typedef typename graph_traits<Graph>::vertices_size_type VerticesSizeType;
 
-    BOOST_CONCEPT_ASSERT(( BidirectionalGraphConcept<Graph> ));
+    function_requires< BidirectionalGraphConcept<Graph> >();
 
     // 1. Depth first visit
     const VerticesSizeType numOfVertices = num_vertices(g);
@@ -389,7 +388,7 @@ namespace boost {
       iterator_property_map<typename std::vector< std::set<Vertex> >::iterator,
                             IndexMap> vertexSetMap;
 
-    BOOST_CONCEPT_ASSERT(( BidirectionalGraphConcept<Graph> ));
+    function_requires<BidirectionalGraphConcept<Graph> >();
 
     // 1. Finding dominator
     // 1.1. Initialize
@@ -397,7 +396,7 @@ namespace boost {
     if (numOfVertices == 0) return;
 
     vertexItr vi, viend;
-    boost::tie(vi, viend) = vertices(g);
+    tie(vi, viend) = vertices(g);
     const std::set<Vertex> N(vi, viend);
 
     bool change = true;
@@ -410,14 +409,14 @@ namespace boost {
     while (change)
       {
         change = false;
-        for (boost::tie(vi, viend) = vertices(g); vi != viend; ++vi)
+        for (tie(vi, viend) = vertices(g); vi != viend; ++vi)
           {
             if (*vi == entry) continue;
 
             std::set<Vertex> T(N);
 
             typename graph_traits<Graph>::in_edge_iterator inItr, inEnd;
-            for (boost::tie(inItr, inEnd) = in_edges(*vi, g); inItr != inEnd; ++inItr)
+            for (tie(inItr, inEnd) = in_edges(*vi, g); inItr != inEnd; ++inItr)
               {
                 const Vertex p = source(*inItr, g);
 
@@ -435,16 +434,16 @@ namespace boost {
                 change = true;
                 get(domMap, *vi).swap(T);
               }
-          } // end of for (boost::tie(vi, viend) = vertices(g)
+          } // end of for (tie(vi, viend) = vertices(g)
       } // end of while(change)
 
     // 2. Build dominator tree
-    for (boost::tie(vi, viend) = vertices(g); vi != viend; ++vi)
+    for (tie(vi, viend) = vertices(g); vi != viend; ++vi)
       get(domMap, *vi).erase(*vi);
 
     Graph domTree(numOfVertices);
 
-    for (boost::tie(vi, viend) = vertices(g); vi != viend; ++vi)
+    for (tie(vi, viend) = vertices(g); vi != viend; ++vi)
       {
         if (*vi == entry) continue;
 
@@ -465,7 +464,7 @@ namespace boost {
           }
       }
 
-    for (boost::tie(vi, viend) = vertices(g); vi != viend; ++vi)
+    for (tie(vi, viend) = vertices(g); vi != viend; ++vi)
       {
         if (*vi != entry && get(domMap, *vi).size() == 1)
           {

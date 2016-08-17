@@ -1,8 +1,3 @@
-
-#if 0
-// DQ (5/21/2013): I think that we can and should remove this file.
-// for the moment I will comment out the whole file.
-
 // Header-File for Datastructures needed to compute Hidden-Lists
 // Robert Preissl
 // Last modified : April 16, 2007
@@ -10,8 +5,6 @@
 #ifndef DEBUG_HIDDENLIST_H_
 #define DEBUG_HIDDENLIST_H_
 
-#ifndef USE_ROSE
-  // DQ (2/11/2013): This fails for ROSE compilign "rose.h" header file (ROSE compiling ROSE).
 
  #include <iostream>
  #include <set>
@@ -998,11 +991,6 @@ extern double accumulatedUpdateScopeWithClassCalls;
 
 } // end of namespace: Hidden_List_Computation
 
-// DQ (2/12/2013): endif for USE_ROSE
-#endif 
 
 #endif /*DEBUG_HIDDENLIST_H_*/
 
-// DQ (5/21/2013): I think that we can and should remove this file.
-// for the moment I will comment out the whole file.
-#endif

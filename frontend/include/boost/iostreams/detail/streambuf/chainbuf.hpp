@@ -31,7 +31,7 @@ namespace boost { namespace iostreams { namespace detail {
 // Template name: chainbuf.
 // Description: Stream buffer which operates by delegating to the first
 //      linked_streambuf in a chain.
-// Template parameters:
+// Template paramters:
 //      Chain - The chain type.
 //
 template<typename Chain, typename Mode, typename Access>

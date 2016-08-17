@@ -21,10 +21,7 @@
 #include <boost/mpl/vector.hpp>
 #include <boost/operators.hpp>
 #include <boost/call_traits.hpp>
-
-#ifndef BOOST_BIMAP_DISABLE_SERIALIZATION
-  #include <boost/serialization/nvp.hpp>
-#endif // BOOST_BIMAP_DISABLE_SERIALIZATION
+#include <boost/serialization/nvp.hpp>
 
 #include <boost/functional/hash/hash.hpp>
 

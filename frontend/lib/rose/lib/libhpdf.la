@@ -32,4 +32,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/home/akcheung/roseBuild/lib'
+libdir='/home/demo/opt/rose-inst/lib'

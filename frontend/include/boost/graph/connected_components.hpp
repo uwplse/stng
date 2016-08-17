@@ -17,7 +17,6 @@
 #include <boost/graph/graph_concepts.hpp>
 #include <boost/graph/overloading.hpp>
 #include <boost/static_assert.hpp>
-#include <boost/concept/assert.hpp>
 
 namespace boost {
 
@@ -65,7 +64,7 @@ namespace boost {
     if (num_vertices(g) == 0) return 0;
 
     typedef typename graph_traits<Graph>::vertex_descriptor Vertex;
-    BOOST_CONCEPT_ASSERT(( WritablePropertyMapConcept<ComponentMap, Vertex> ));
+    function_requires< WritablePropertyMapConcept<ComponentMap, Vertex> >();
     typedef typename boost::graph_traits<Graph>::directed_category directed;
     BOOST_STATIC_ASSERT((boost::is_same<directed, undirected_tag>::value));
 
@@ -85,7 +84,7 @@ namespace boost {
     if (num_vertices(g) == 0) return 0;
 
     typedef typename graph_traits<Graph>::vertex_descriptor Vertex;
-    BOOST_CONCEPT_ASSERT(( WritablePropertyMapConcept<ComponentMap, Vertex> ));
+    function_requires< WritablePropertyMapConcept<ComponentMap, Vertex> >();
     typedef typename boost::graph_traits<Graph>::directed_category directed;
     // BOOST_STATIC_ASSERT((boost::is_same<directed, undirected_tag>::value));
 

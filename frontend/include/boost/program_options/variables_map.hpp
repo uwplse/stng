@@ -16,11 +16,6 @@
 #include <map>
 #include <set>
 
-#if defined(BOOST_MSVC)
-#   pragma warning (push)
-#   pragma warning (disable:4251) // 'boost::program_options::variable_value::v' : class 'boost::any' needs to have dll-interface to be used by clients of class 'boost::program_options::variable_value
-#endif
-
 namespace boost { namespace program_options {
 
     template<class charT>
@@ -58,8 +53,8 @@ namespace boost { namespace program_options {
     class BOOST_PROGRAM_OPTIONS_DECL variable_value {
     public:
         variable_value() : m_defaulted(false) {}
-        variable_value(const boost::any& xv, bool xdefaulted) 
-        : v(xv), m_defaulted(xdefaulted) 
+        variable_value(const boost::any& v, bool defaulted) 
+        : v(v), m_defaulted(defaulted) 
         {}
 
         /** If stored value if of type T, returns that value. Otherwise,
@@ -97,8 +92,7 @@ namespace boost { namespace program_options {
         friend BOOST_PROGRAM_OPTIONS_DECL
         void store(const basic_parsed_options<char>& options, 
               variables_map& m, bool);
-
-        friend BOOST_PROGRAM_OPTIONS_DECL class variables_map;
+        friend BOOST_PROGRAM_OPTIONS_DECL void notify(variables_map& m);
     };
 
     /** Implements string->string mapping with convenient value casting
@@ -154,11 +148,6 @@ namespace boost { namespace program_options {
         const variable_value& operator[](const std::string& name) const
         { return abstract_variables_map::operator[](name); }
 
-        // Override to clear some extra fields.
-        void clear(); 
-        
-        void notify();
-
     private:
         /** Implementation of abstract_variables_map::get
             which does 'find' in *this. */
@@ -172,12 +161,6 @@ namespace boost { namespace program_options {
         void store(const basic_parsed_options<char>& options, 
                           variables_map& xm,
                           bool utf8);
-        
-        /** Names of required options, filled by parser which has
-            access to options_description.
-            The map values are the "canonical" names for each corresponding option.
-            This is useful in creating diagnostic messages when the option is absent. */
-        std::map<std::string, std::string> m_required;
     };
 
 
@@ -212,9 +195,5 @@ namespace boost { namespace program_options {
     }
 
 }}
-
-#if defined(BOOST_MSVC)
-#   pragma warning (pop)
-#endif
 
 #endif

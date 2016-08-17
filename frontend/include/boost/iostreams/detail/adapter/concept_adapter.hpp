@@ -17,17 +17,14 @@
 #include <boost/iostreams/detail/dispatch.hpp>
 #include <boost/iostreams/detail/error.hpp>
 #include <boost/iostreams/detail/streambuf.hpp>        // pubsync.
-#include <boost/iostreams/detail/config/unreachable_return.hpp>
 #include <boost/iostreams/device/null.hpp>
 #include <boost/iostreams/traits.hpp>
 #include <boost/iostreams/operations.hpp>
 #include <boost/mpl/if.hpp>
 #include <boost/static_assert.hpp>
-#include <boost/throw_exception.hpp>
 
 // Must come last.
 #include <boost/iostreams/detail/config/disable_warnings.hpp>  // MSVC.
-
 
 namespace boost { namespace iostreams { namespace detail {
 
@@ -103,11 +100,11 @@ public:
     void close(BOOST_IOS::openmode which, Device* dev)
     { any_impl::close(t_, dev, which); }
 
-    template<typename Device>
-    bool flush( Device* dev )
-    {
-        bool result = any_impl::flush(t_, dev);
-        if (dev && dev->BOOST_IOSTREAMS_PUBSYNC() == -1)
+    bool flush( BOOST_IOSTREAMS_BASIC_STREAMBUF(char_type,
+                BOOST_IOSTREAMS_CHAR_TRAITS(char_type))* sb )
+    { 
+        bool result = any_impl::flush(t_, sb);
+        if (sb && sb->BOOST_IOSTREAMS_PUBSYNC() == -1)
             result = false;
         return result;
     }
@@ -140,8 +137,7 @@ struct device_wrapper_impl<any_tag> {
     seek( Device&, stream_offset, BOOST_IOS::seekdir, 
           BOOST_IOS::openmode, any_tag )
     { 
-        boost::throw_exception(cant_seek());
-        BOOST_IOSTREAMS_UNREACHABLE_RETURN(0)
+        throw cant_seek(); 
     }
 
     template<typename Device>
@@ -175,8 +171,7 @@ struct device_wrapper_impl<input> : device_wrapper_impl<any_tag>  {
     static std::streamsize 
     write( Device&, Dummy*, const typename char_type_of<Device>::type*,
            std::streamsize )
-    { boost::throw_exception(cant_write());
-      BOOST_IOSTREAMS_UNREACHABLE_RETURN(0) }
+    { throw cant_write(); }
 };
 
 template<>
@@ -184,8 +179,7 @@ struct device_wrapper_impl<output> {
     template<typename Device, typename Dummy>
     static std::streamsize
     read(Device&, Dummy*, typename char_type_of<Device>::type*, std::streamsize)
-    { boost::throw_exception(cant_read());
-      BOOST_IOSTREAMS_UNREACHABLE_RETURN(0) }
+    { throw cant_read(); }
 
     template<typename Device, typename Dummy>
     static std::streamsize 
@@ -211,8 +205,7 @@ struct flt_wrapper_impl<any_tag> {
     static std::streampos
     seek( Filter&, Device*, stream_offset,
           BOOST_IOS::seekdir, BOOST_IOS::openmode, any_tag )
-    { boost::throw_exception(cant_seek());
-      BOOST_IOSTREAMS_UNREACHABLE_RETURN(0) }
+    { throw cant_seek(); }
 
     template<typename Filter, typename Device>
     static std::streampos
@@ -259,8 +252,7 @@ struct flt_wrapper_impl<input> {
     static std::streamsize 
     write( Filter&, Sink*, const typename char_type_of<Filter>::type*, 
            std::streamsize )
-    { boost::throw_exception(cant_write());
-      BOOST_IOSTREAMS_UNREACHABLE_RETURN(0) }
+    { throw cant_write(); }
 };
 
 template<>
@@ -268,8 +260,7 @@ struct flt_wrapper_impl<output> {
     template<typename Filter, typename Source>
     static std::streamsize
     read(Filter&, Source*, typename char_type_of<Filter>::type*,std::streamsize)
-    { boost::throw_exception(cant_read());
-      BOOST_IOSTREAMS_UNREACHABLE_RETURN(0) }
+    { throw cant_read(); }
 
     template<typename Filter, typename Sink>
     static std::streamsize 

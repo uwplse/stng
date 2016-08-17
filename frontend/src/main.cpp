@@ -158,7 +158,7 @@ main (int argc, char* argv[])
       SgFile * file = *it;
       // get_filenameString returns the filename including its full path
       boost::filesystem::path currentPath(file->get_file_info()->get_filenameString());
-      std::string newPath = outDir + "/" + currentPath.filename().generic_string();
+      std::string newPath = outDir + "/" + currentPath.filename(); //.generic_string();
       
       file->set_unparse_output_filename(newPath);
     }

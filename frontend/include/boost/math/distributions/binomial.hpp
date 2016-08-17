@@ -203,7 +203,7 @@ namespace boost
         //
         // Error checks:
         BOOST_MATH_STD_USING  // ADL of std names
-        RealType result = 0;
+        RealType result;
         RealType trials = dist.trials();
         RealType success_fraction = dist.success_fraction();
         if(false == binomial_detail::check_dist_and_prob(
@@ -233,10 +233,6 @@ namespace boost
         { // p <= pdf(dist, 0) == cdf(dist, 0)
           return 0; // So the only reasonable result is zero.
         } // And root finder would fail otherwise.
-        if(success_fraction == 1)
-        {  // our formulae break down in this case:
-           return p > 0.5f ? trials : 0;
-        }
 
         // Solve for quantile numerically:
         //
@@ -321,7 +317,7 @@ namespace boost
       {
         static const char* function = "boost::math::binomial_distribution<%1%>::find_lower_bound_on_p";
         // Error checks:
-        RealType result = 0;
+        RealType result;
         if(false == binomial_detail::check_dist_and_k(
            function, trials, RealType(0), successes, &result, Policy())
             &&
@@ -346,7 +342,7 @@ namespace boost
       {
         static const char* function = "boost::math::binomial_distribution<%1%>::find_upper_bound_on_p";
         // Error checks:
-        RealType result = 0;
+        RealType result;
         if(false == binomial_detail::check_dist_and_k(
            function, trials, RealType(0), successes, &result, Policy())
             &&
@@ -373,7 +369,7 @@ namespace boost
       {
         static const char* function = "boost::math::binomial_distribution<%1%>::find_minimum_number_of_trials";
         // Error checks:
-        RealType result = 0;
+        RealType result;
         if(false == binomial_detail::check_dist_and_k(
            function, k, p, k, &result, Policy())
             &&
@@ -392,7 +388,7 @@ namespace boost
       {
         static const char* function = "boost::math::binomial_distribution<%1%>::find_maximum_number_of_trials";
         // Error checks:
-        RealType result = 0;
+        RealType result;
         if(false == binomial_detail::check_dist_and_k(
            function, k, p, k, &result, Policy())
             &&
@@ -425,7 +421,7 @@ namespace boost
       const std::pair<RealType, RealType> support(const binomial_distribution<RealType, Policy>& dist)
       { // Range of supported values for random variable k.
         // This is range where cdf rises from 0 to 1, and outside it, the pdf is zero.
-        return std::pair<RealType, RealType>(static_cast<RealType>(0),  dist.trials());
+        return std::pair<RealType, RealType>(0,  dist.trials());
       }
 
       template <class RealType, class Policy>
@@ -450,7 +446,7 @@ namespace boost
         RealType n = dist.trials();
 
         // Error check:
-        RealType result = 0; // initialization silences some compiler warnings
+        RealType result;
         if(false == binomial_detail::check_dist_and_k(
            "boost::math::pdf(binomial_distribution<%1%> const&, %1%)",
            n,
@@ -528,7 +524,7 @@ namespace boost
         RealType p = dist.success_fraction();
 
         // Error check:
-        RealType result = 0;
+        RealType result;
         if(false == binomial_detail::check_dist_and_k(
            "boost::math::cdf(binomial_distribution<%1%> const&, %1%)",
            n,
@@ -602,7 +598,7 @@ namespace boost
         RealType p = dist.success_fraction();
 
         // Error checks:
-        RealType result = 0;
+        RealType result;
         if(false == binomial_detail::check_dist_and_k(
            "boost::math::cdf(binomial_distribution<%1%> const&, %1%)",
            n,

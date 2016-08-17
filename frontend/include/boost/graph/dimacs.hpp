@@ -17,7 +17,6 @@
 #include <exception>
 #include <vector>
 #include <queue>
-#include <boost/assert.hpp>
 
 namespace boost { namespace graph {
 
@@ -55,27 +54,27 @@ public:
                           num_edges( 0 ), seen_edges( 0 ), want_weights(false) {}
 
   edge_type edge_deref() {
-    BOOST_ASSERT( !read_edges.empty() );
+    assert( !read_edges.empty() );
     return read_edges.front();
    }
 
   inline edge_type* edge_ref() {
-    BOOST_ASSERT( !read_edges.empty() );
+    assert( !read_edges.empty() );
     return &read_edges.front();
   }
 
   inline edge_weight_type edge_weight_deref() {
-    BOOST_ASSERT( !read_edge_weights.empty() );
+    assert( !read_edge_weights.empty() );
     return read_edge_weights.front();
   }
 
   inline dimacs_basic_reader incr( incr_mode mode ) {
     if( mode == edge ) {
-      BOOST_ASSERT( !read_edges.empty() );
+      assert( !read_edges.empty() );
       read_edges.pop();
     }
     else if( mode == edge_weight ) {
-      BOOST_ASSERT( !read_edge_weights.empty() );
+      assert( !read_edge_weights.empty() );
       read_edge_weights.pop();
     }
 
@@ -101,8 +100,8 @@ public:
               read_edge_weights.push( weight );
           }
       }
-      BOOST_ASSERT( read_edges.size() < 100 );
-      BOOST_ASSERT( read_edge_weights.size() < 100 );
+      assert( read_edges.size() < 100 );
+      assert( read_edge_weights.size() < 100 );
     }
 
     // the 1000000 just happens to be about how many edges can be read in 

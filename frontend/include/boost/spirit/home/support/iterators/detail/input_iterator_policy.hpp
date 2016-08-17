@@ -1,5 +1,5 @@
-//  Copyright (c) 2001 Daniel C. Nuffer
-//  Copyright (c) 2001-2011 Hartmut Kaiser
+//  Copyright (c) 2001, Daniel C. Nuffer
+//  Copyright (c) 2001-2008, Hartmut Kaiser
 // 
 //  Distributed under the Boost Software License, Version 1.0. (See accompanying
 //  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -12,15 +12,14 @@
 #include <boost/detail/iterator.hpp> // for boost::detail::iterator_traits
 #include <boost/assert.hpp>
 
-namespace boost { namespace spirit { namespace iterator_policies
+namespace boost { namespace spirit { namespace multi_pass_policies
 {
     namespace input_iterator_is_valid_test_
     {
-        ///////////////////////////////////////////////////////////////////////
         template <typename Token>
-        inline bool token_is_valid(Token const& c)
+        inline bool token_is_valid(Token const&)
         {
-            return c ? true : false;
+            return true;
         }
     }
 
@@ -34,7 +33,7 @@ namespace boost { namespace spirit { namespace iterator_policies
     {
         ///////////////////////////////////////////////////////////////////////
         template <typename T>
-        class unique // : public detail::default_input_policy
+        class unique : public detail::default_input_policy
         {
         private:
             typedef
@@ -46,7 +45,7 @@ namespace boost { namespace spirit { namespace iterator_policies
                 typename boost::detail::iterator_traits<T>::difference_type
             difference_type;
             typedef
-                typename boost::detail::iterator_traits<T>::difference_type
+                typename boost::detail::iterator_traits<T>::distance_type
             distance_type;
             typedef
                 typename boost::detail::iterator_traits<T>::pointer
@@ -58,32 +57,29 @@ namespace boost { namespace spirit { namespace iterator_policies
 
         protected:
             unique() {}
-            explicit unique(T x) {}
+            explicit unique(T x) : input(x) {}
 
-            void swap(unique&) {}
+            void swap(unique& x)
+            {
+                spirit::detail::swap(input, x.input);
+            }
 
         public:
             template <typename MultiPass>
-            static void destroy(MultiPass&) {}
-
-            template <typename MultiPass>
-            static typename MultiPass::reference get_input(MultiPass& mp)
+            static void advance_input(MultiPass& mp, value_type& t)
             {
-                return *mp.shared()->input_;
-            }
-
-            template <typename MultiPass>
-            static void advance_input(MultiPass& mp)
-            {
-                ++mp.shared()->input_;
+                // if mp.shared is NULL then this instance of the multi_pass 
+                // represents a end iterator, so no advance functionality is 
+                // needed
+                if (0 != mp.shared) 
+                    t = *++mp.input;
             }
 
             // test, whether we reached the end of the underlying stream
             template <typename MultiPass>
-            static bool input_at_eof(MultiPass const& mp) 
+            static bool input_at_eof(MultiPass const& mp, value_type const&) 
             {
-                static T const end_iter;
-                return mp.shared()->input_ == end_iter;
+                return mp.input == T();
             }
 
             template <typename MultiPass>
@@ -93,16 +89,17 @@ namespace boost { namespace spirit { namespace iterator_policies
                 return token_is_valid(t);
             }
 
-            // no unique data elements
+        protected:
+            T input;
         };
 
         ///////////////////////////////////////////////////////////////////////
         template <typename T>
         struct shared
         {
-            explicit shared(T const& input) : input_(input) {}
+            explicit shared(T) {}
 
-            T input_;
+            // no shared data elements
         };
     };
 

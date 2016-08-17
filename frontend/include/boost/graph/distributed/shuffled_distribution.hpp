@@ -9,7 +9,6 @@
 #error "Parallel BGL files should not be included unless <boost/graph/use_mpi.hpp> has been included"
 #endif
 
-# include <boost/assert.hpp>
 # include <boost/iterator/counting_iterator.hpp>
 # include <vector>
 
@@ -37,7 +36,7 @@ struct shuffled_distribution : BaseDistribution
     void assign_mapping(InputIterator first, InputIterator last)
     {
         mapping_.assign(first, last);
-        BOOST_ASSERT(mapping_.size() == n);
+        assert(mapping_.size() == n);
         reverse_mapping.resize(mapping_.size());
 
         for (std::vector<size_t>::iterator i(mapping_.begin());

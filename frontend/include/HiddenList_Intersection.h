@@ -1,7 +1,3 @@
-#if 0
-// DQ (5/21/2013): I think that we can and should remove this file.
-// for the moment I will comment out the whole file.
-
 // Header-File for the Hidden List Intersection Procedure
 // Robert Preissl
 // Last modified : April 16, 2007
@@ -11,9 +7,6 @@
 
 // DQ (5/8/2007): This header file is included in the HiddenList.h header file
 #include "HiddenList.h"
-
-#ifndef USE_ROSE
-  // DQ (2/11/2013): This fails for ROSE compilign "rose.h" header file (ROSE compiling ROSE).
 
 namespace Hidden_List_Computation {
 
@@ -54,11 +47,5 @@ void Intersection_with_FunctionDeclaration(
 
 } // end of namespace: Hidden_List_Computation
 
-#endif
 
 #endif /*DEBUG_HIDDENLIST_INTERSECTION_H_*/
-
-// DQ (5/21/2013): I think that we can and should remove this file.
-// for the moment I will comment out the whole file.
-#endif
-

@@ -109,12 +109,12 @@ namespace DominatorTreesAndDominanceFrontiers
                                         VirtualCFG::FilteredCFGNode < CFGFilterFunction > currentNode=dominatorTree.getCFGNodeFromID(i);
                                         // for each child
                                         std::vector < VirtualCFG::FilteredCFGEdge < CFGFilterFunction > >outEdges =
-                                                this->getDirectionModifiedOutEdges(currentNode);
+                                                getDirectionModifiedOutEdges(currentNode);
                                         // for all those children
                                         for (unsigned int edge = 0; edge < outEdges.size(); edge++)
                                         {
                                                 VirtualCFG::FilteredCFGNode < CFGFilterFunction > child =
-                                                    outEdges[edge].target();
+                                                        target(outEdges[edge]);
                                                 int imDom=dominatorTree.getImDomID(child);
                                                 int childID=dominatorTree.getID(child);
                                                 // if the current ID is the immdom of this child, put it in the domSet

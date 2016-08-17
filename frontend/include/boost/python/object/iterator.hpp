@@ -129,11 +129,7 @@ namespace detail
       return class_<range_>(name, no_init)
           .def("__iter__", identity_function())
           .def(
-#if PY_VERSION_HEX >= 0x03000000
-              "__next__"
-#else
               "next"
-#endif
             , make_function(
                 next_fn()
               , policies

@@ -1,4 +1,4 @@
-/* #line 1 "/home/akcheung/rose/src/ROSETTA/Grammar/grammarAST_FileIoHeader.code" */
+/* #line 1 "/home/demo/rose/src/ROSETTA/Grammar/grammarAST_FileIoHeader.code" */
 
 #ifndef AST_FILE_IO_HEADER
 #define AST_FILE_IO_HEADER
@@ -15,7 +15,7 @@
 
 typedef AstSpecificDataManagingClass AstData;
 
-class ROSE_DLL_API AST_FILE_IO
+class AST_FILE_IO
    {
      public:
 
@@ -41,7 +41,7 @@ class ROSE_DLL_API AST_FILE_IO
      of non terminals and terminals .
   */
      private:
-       enum { totalNumberOfIRNodes = 824}; 
+       enum { totalNumberOfIRNodes = 710}; 
        static unsigned long binarySearch( unsigned long globalIndex, int start = 0 , int end = totalNumberOfIRNodes );
        static unsigned long linearSearch( unsigned long globalIndex ) ;
        static std :: map < std::string, CONSTRUCTOR > registeredAttributes; 

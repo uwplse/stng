@@ -37,9 +37,6 @@ struct heterogeneous_system_impl;
 template<class T, class E>
 struct heterogeneous_system_dim;
 
-template<class T>
-struct base_unit_info;
-
 /// INTERNAL ONLY
 struct scaled_base_unit_tag {};
 
@@ -78,11 +75,11 @@ struct scaled_base_unit
 
     static std::string symbol()
     {
-        return(Scale::symbol() + base_unit_info<S>::symbol());
+        return(Scale::symbol() + S::symbol());
     }
     static std::string name()
     {
-        return(Scale::name() + base_unit_info<S>::name());
+        return(Scale::name() + S::name());
     }
 };
 

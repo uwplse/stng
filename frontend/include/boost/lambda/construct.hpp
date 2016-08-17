@@ -14,9 +14,6 @@
 #if !defined(BOOST_LAMBDA_CONSTRUCT_HPP)
 #define BOOST_LAMBDA_CONSTRUCT_HPP
 
-#include "boost/type_traits/remove_cv.hpp"
-#include "boost/type_traits/is_pointer.hpp"
-
 namespace boost { 
 namespace lambda {
 

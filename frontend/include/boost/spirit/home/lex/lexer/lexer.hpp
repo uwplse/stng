@@ -1,4 +1,4 @@
-//  Copyright (c) 2001-2011 Hartmut Kaiser
+//  Copyright (c) 2001-2009 Hartmut Kaiser
 // 
 //  Distributed under the Boost Software License, Version 1.0. (See accompanying 
 //  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -6,150 +6,136 @@
 #if !defined(BOOST_SPIRIT_LEX_LEXER_MAR_13_2007_0145PM)
 #define BOOST_SPIRIT_LEX_LEXER_MAR_13_2007_0145PM
 
-#if defined(_MSC_VER)
-#pragma once
+#if defined(_MSC_VER) && (_MSC_VER >= 1020)
+#pragma once      // MS compatible compilers support #pragma once
 #endif
 
-#include <boost/spirit/home/support/info.hpp>
-#include <boost/spirit/home/qi/skip_over.hpp>
-#include <boost/spirit/home/qi/parser.hpp>
-#include <boost/spirit/home/qi/detail/assign_to.hpp>
-#include <boost/spirit/home/lex/reference.hpp>
-#include <boost/spirit/home/lex/meta_compiler.hpp>
-#include <boost/spirit/home/lex/lexer_type.hpp>
+#include <boost/spirit/home/support/safe_bool.hpp>
+#include <boost/spirit/home/lex/lexer/lexer_fwd.hpp>
+#include <boost/spirit/home/lex/lexer/terminal_holder.hpp>
 #include <boost/spirit/home/lex/lexer/token_def.hpp>
-#include <boost/assert.hpp>
 #include <boost/noncopyable.hpp>
 #include <boost/detail/iterator.hpp>
 #include <boost/fusion/include/vector.hpp>
+#include <boost/assert.hpp>
 #include <boost/mpl/assert.hpp>
-#include <boost/range/iterator_range.hpp>
 #include <string>
+#include <boost/range/iterator_range.hpp>
 
 namespace boost { namespace spirit { namespace lex
 {
-    ///////////////////////////////////////////////////////////////////////////
     namespace detail
     {
         ///////////////////////////////////////////////////////////////////////
         template <typename LexerDef>
         struct lexer_def_
-          : proto::extends<
-                typename proto::terminal<
-                   lex::reference<lexer_def_<LexerDef> const> 
-                >::type
-              , lexer_def_<LexerDef> >
-          , qi::parser<lexer_def_<LexerDef> >
-          , lex::lexer_type<lexer_def_<LexerDef> >
+          : public proto::extends<
+                typename make_terminal_holder<
+                    lexer_def_<LexerDef> const*, lexer_def_<LexerDef>
+                >::type,
+                lexer_def_<LexerDef>
+            >
         {
         private:
             // avoid warnings about using 'this' in constructor
-            lexer_def_& this_() { return *this; }
+            lexer_def_& this_() { return *this; }    
 
+            // initialize proto base class
+            typedef 
+                terminal_holder<lexer_def_ const*, lexer_def_> 
+            terminal_holder_;
+            typedef typename proto::terminal<terminal_holder_>::type tag;
+            typedef proto::extends<tag, lexer_def_> base_type;
+
+            typedef typename LexerDef::id_type id_type;
+            
+            tag make_tag() const
+            {
+                tag xpr = {{ this }};
+                return xpr;
+            }
+            
             typedef typename LexerDef::char_type char_type;
             typedef typename LexerDef::string_type string_type;
-            typedef typename LexerDef::id_type id_type;
-
-            typedef lex::reference<lexer_def_ const> reference_;
-            typedef typename proto::terminal<reference_>::type terminal_type;
-            typedef proto::extends<terminal_type, lexer_def_> proto_base_type;
-
-            reference_ alias() const
-            {
-                return reference_(*this);
-            }
 
         public:
-            // Qi interface: metafunction calculating parser attribute type
-            template <typename Context, typename Iterator>
+            // Qi interface: metafunction calculating parser return type
+            template <typename Component, typename Context, typename Iterator>
             struct attribute
             {
                 //  the return value of a token set contains the matched token 
                 //  id, and the corresponding pair of iterators
                 typedef typename Iterator::base_iterator_type iterator_type;
                 typedef 
-                    fusion::vector2<id_type, iterator_range<iterator_type> > 
+                    fusion::vector<id_type, iterator_range<iterator_type> > 
                 type;
             };
-
+                
+        private:
             // Qi interface: parse functionality
-            template <typename Iterator, typename Context
-              , typename Skipper, typename Attribute>
-            bool parse(Iterator& first, Iterator const& last
-              , Context& /*context*/, Skipper const& skipper
-              , Attribute& attr) const
+            template <typename Iterator, typename Context, typename Skipper, 
+                typename Attribute>
+            bool parse(Iterator& first, Iterator const& last, 
+                Context& context, Skipper const& skipper, Attribute& attr) const
             {
-                qi::skip_over(first, last, skipper);   // always do a pre-skip
+                qi::skip(first, last, skipper);   // always do a pre-skip
 
                 if (first != last) {
                     typedef typename 
                         boost::detail::iterator_traits<Iterator>::value_type 
                     token_type;
 
-                    token_type const& t = *first;
-                    if (token_is_valid(t) && t.state() == first.get_state()) {
+                    token_type &t = *first;
+                    if (token_is_valid(t)) {
                     // any of the token definitions matched
-                        spirit::traits::assign_to(t, attr);
+                        qi::detail::assign_to(t, attr);
                         ++first;
                         return true;
                     }
                 }
                 return false;
             }
+            friend struct terminal_director;
 
-            // Qi interface: 'what' functionality
-            template <typename Context>
-            info what(Context& /*context*/) const
+            static std::string what()
             {
-                return info("lexer");
+                return "lexer";
             }
 
-        private:
             // allow to use the lexer.self.add("regex1", id1)("regex2", id2);
             // syntax
             struct adder
             {
                 adder(lexer_def_& def_) 
-                  : def(def_) {}
+                : def(def_)
+                {}
 
-                // Add a token definition based on a single character as given
-                // by the first parameter, the second parameter allows to 
-                // specify the token id to use for the new token. If no token
-                // id is given the character code is used.
-                adder const& operator()(char_type c
-                  , id_type token_id = id_type()) const
+                adder const&
+                operator()(char_type c, id_type token_id = 0) const
                 {
-                    if (id_type() == token_id)
+                    if (0 == token_id)
                         token_id = static_cast<id_type>(c);
-                    def.def.add_token (def.state.c_str(), c, token_id
-                        , def.targetstate.empty() ? 0 : def.targetstate.c_str());
+                    def.def.add_token (def.state.c_str(), lex::detail::escape(c), 
+                        token_id);
                     return *this;
                 }
-
-                // Add a token definition based on a character sequence as 
-                // given by the first parameter, the second parameter allows to 
-                // specify the token id to use for the new token. If no token
-                // id is given this function will generate a unique id to be 
-                // used as the token's id.
-                adder const& operator()(string_type const& s
-                  , id_type token_id = id_type()) const
+                adder const&
+                operator()(string_type const& s, id_type token_id = id_type()) const
                 {
-                    if (id_type() == token_id)
-                        token_id = def.def.get_next_id();
-                    def.def.add_token (def.state.c_str(), s, token_id
-                        , def.targetstate.empty() ? 0 : def.targetstate.c_str());
+                    if (0 == token_id)
+                        token_id = next_id<id_type>::get();
+                    def.def.add_token (def.state.c_str(), s, token_id);
                     return *this;
                 }
-
                 template <typename Attribute>
-                adder const& operator()(
-                    token_def<Attribute, char_type, id_type>& tokdef
-                  , id_type token_id = id_type()) const
+                adder const&
+                operator()(token_def<Attribute, char_type, id_type>& tokdef, 
+                    id_type token_id = id_type()) const
                 {
                     // make sure we have a token id
-                    if (id_type() == token_id) {
-                        if (id_type() == tokdef.id()) {
-                            token_id = def.def.get_next_id();
+                    if (0 == token_id) {
+                        if (0 == tokdef.id()) {
+                            token_id = next_id<id_type>::get();
                             tokdef.id(token_id);
                         }
                         else {
@@ -157,175 +143,132 @@ namespace boost { namespace spirit { namespace lex
                         }
                     }
                     else { 
-                    // the following assertion makes sure that the token_def
+                    // the following assertion makes sure, that the token_def
                     // instance has not been assigned a different id earlier
-                        BOOST_ASSERT(id_type() == tokdef.id() 
-                                  || token_id == tokdef.id());
+                        BOOST_ASSERT(0 == tokdef.id() || token_id == tokdef.id());
                         tokdef.id(token_id);
                     }
-
+                    
                     def.define(tokdef);
                     return *this;
                 }
-
-//                 template <typename F>
-//                 adder const& operator()(char_type c, id_type token_id, F act) const
-//                 {
-//                     if (id_type() == token_id)
-//                         token_id = def.def.get_next_id();
-//                     std::size_t unique_id = 
-//                         def.def.add_token (def.state.c_str(), s, token_id);
-//                     def.def.add_action(unique_id, def.state.c_str(), act);
-//                     return *this;
-//                 }
+                template <typename TokenSet>
+                adder const&
+                operator()(token_set<TokenSet>& tokset) const
+                {
+                    def.define(tokset);
+                    return *this;
+                }
 
                 lexer_def_& def;
-
-            private:
-                // silence MSVC warning C4512: assignment operator could not be generated
-                adder& operator= (adder const&);
             };
             friend struct adder;
-
+            
             // allow to use lexer.self.add_pattern("pattern1", "regex1")(...);
             // syntax
             struct pattern_adder
             {
                 pattern_adder(lexer_def_& def_) 
-                  : def(def_) {}
+                : def(def_)
+                {}
 
-                pattern_adder const& operator()(string_type const& p
-                  , string_type const& s) const
+                pattern_adder const&
+                operator()(string_type const& p, string_type const& s) const
                 {
                     def.def.add_pattern (def.state.c_str(), p, s);
                     return *this;
                 }
 
                 lexer_def_& def;
-
-            private:
-                // silence MSVC warning C4512: assignment operator could not be generated
-                pattern_adder& operator= (pattern_adder const&);
             };
             friend struct pattern_adder;
-
-        private:
-            // Helper function to invoke the necessary 2 step compilation
-            // process on token definition expressions
-            template <typename TokenExpr>
-            void compile2pass(TokenExpr const& expr) 
-            {
-                expr.collect(def, state, targetstate);
-                expr.add_actions(def);
-            }
-
+            
         public:
             ///////////////////////////////////////////////////////////////////
             template <typename Expr>
-            void define(Expr const& expr)
+            void define(Expr const& xpr)
             {
-                compile2pass(compile<lex::domain>(expr));
+                typedef typename
+                    result_of::as_component<lex::domain, Expr>::type
+                component;
+                typedef typename component::director director;
+                
+                component c = spirit::as_component(lex::domain(), xpr);
+                director::collect(c, def, state);
             }
 
-            lexer_def_(LexerDef& def_, string_type const& state_
-                  , string_type const& targetstate_ = string_type())
-              : proto_base_type(terminal_type::make(alias()))
-              , add(this_()), add_pattern(this_()), def(def_)
-              , state(state_), targetstate(targetstate_)
-            {}
+            lexer_def_(LexerDef& def_, string_type const& state_)
+              : base_type(make_tag()), add(this_()), add_pattern(this_()),
+                def(def_), state(state_)
+            {
+            }
 
             // allow to switch states
             lexer_def_ operator()(char_type const* state) const
             {
                 return lexer_def_(def, state);
             }
-            lexer_def_ operator()(char_type const* state
-              , char_type const* targetstate) const
+            lexer_def_ operator()(string_type const& state) const
             {
-                return lexer_def_(def, state, targetstate);
+                return lexer_def_(def, state);
             }
-            lexer_def_ operator()(string_type const& state
-              , string_type const& targetstate = string_type()) const
-            {
-                return lexer_def_(def, state, targetstate);
-            }
-
+            
             // allow to assign a token definition expression
             template <typename Expr>
             lexer_def_& operator= (Expr const& xpr)
             {
-                // Report invalid expression error as early as possible.
-                // If you got an error_invalid_expression error message here,
-                // then the expression (expr) is not a valid spirit lex 
-                // expression.
-                BOOST_SPIRIT_ASSERT_MATCH(lex::domain, Expr);
+                typedef 
+                    spirit::traits::is_component<lex::domain, Expr> 
+                is_component;
+
+                // report invalid expression error as early as possible
+                BOOST_MPL_ASSERT_MSG(
+                    is_component::value,
+                    xpr_is_not_convertible_to_a_token_definition, ());
 
                 def.clear(state.c_str());
                 define(xpr);
                 return *this;
             }
 
-            // explicitly tell the lexer that the given state will be defined
-            // (useful in conjunction with "*")
-            std::size_t add_state(char_type const* state = 0)
-            {
-                return def.add_state(state ? state : def.initial_state().c_str());
-            }
-
             adder add;
             pattern_adder add_pattern;
-
+            
         private:
             LexerDef& def;
             string_type state;
-            string_type targetstate;
-
-        private:
-            // silence MSVC warning C4512: assignment operator could not be generated
-            lexer_def_& operator= (lexer_def_ const&);
         };
-
-#if defined(BOOST_NO_RVALUE_REFERENCES)
+    
         // allow to assign a token definition expression
         template <typename LexerDef, typename Expr>
         inline lexer_def_<LexerDef>&
         operator+= (lexer_def_<LexerDef>& lexdef, Expr& xpr)
         {
-            // Report invalid expression error as early as possible.
-            // If you got an error_invalid_expression error message here,
-            // then the expression (expr) is not a valid spirit lex 
-            // expression.
-            BOOST_SPIRIT_ASSERT_MATCH(lex::domain, Expr);
+            typedef 
+                spirit::traits::is_component<lex::domain, Expr> 
+            is_component;
+
+            // report invalid expression error as early as possible
+            BOOST_MPL_ASSERT_MSG(
+                is_component::value,
+                xpr_is_not_convertible_to_a_token_definition, ());
 
             lexdef.define(xpr);
             return lexdef;
         }
-#else
-        // allow to assign a token definition expression
-        template <typename LexerDef, typename Expr>
-        inline lexer_def_<LexerDef>&
-        operator+= (lexer_def_<LexerDef>& lexdef, Expr&& xpr)
-        {
-            // Report invalid expression error as early as possible.
-            // If you got an error_invalid_expression error message here,
-            // then the expression (expr) is not a valid spirit lex 
-            // expression.
-            BOOST_SPIRIT_ASSERT_MATCH(lex::domain, Expr);
-
-            lexdef.define(xpr);
-            return lexdef;
-        }
-#endif
-
+        
         template <typename LexerDef, typename Expr>
         inline lexer_def_<LexerDef>& 
         operator+= (lexer_def_<LexerDef>& lexdef, Expr const& xpr)
         {
-            // Report invalid expression error as early as possible.
-            // If you got an error_invalid_expression error message here,
-            // then the expression (expr) is not a valid spirit lex 
-            // expression.
-            BOOST_SPIRIT_ASSERT_MATCH(lex::domain, Expr);
+            typedef 
+                spirit::traits::is_component<lex::domain, Expr> 
+            is_component;
+
+            // report invalid expression error as early as possible
+            BOOST_MPL_ASSERT_MSG(
+                is_component::value,
+                xpr_is_not_convertible_to_a_token_definition, ());
 
             lexdef.define(xpr);
             return lexdef;
@@ -333,73 +276,96 @@ namespace boost { namespace spirit { namespace lex
     }
 
     ///////////////////////////////////////////////////////////////////////////
-    //  The match_flags flags are used to influence different matching 
-    //  modes of the lexer
-    struct match_flags
+    //  This represents a lexer definition (helper for token and token set 
+    //  definitions
+    ///////////////////////////////////////////////////////////////////////////
+    template <typename Lexer>
+    class lexer_def : private noncopyable, public Lexer
     {
-        enum enum_type 
-        {
-            match_default = 0,          // no flags
-            match_not_dot_newline = 1,  // the regex '.' doesn't match newlines
-            match_icase = 2             // all matching operations are case insensitive
-        };
-    };
+    private:
+        typedef lexer_def self_type;
+        
+        // avoid warnings about using 'this' in constructor
+        lexer_def& this_() { return *this; }    
 
+    public:        
+        typedef Lexer lexer_type;
+        typedef typename Lexer::id_type id_type;
+        typedef detail::lexer_def_<self_type> token_set;
+        typedef typename Lexer::char_type char_type;
+        typedef std::basic_string<char_type> string_type;
+        
+        lexer_def() 
+          : self(this_(), Lexer::initial_state())  
+        {
+        }
+
+        token_set self;  // allow for easy token definition
+        
+        // this is just a dummy implementation to allow to use lexer_def 
+        // directly, without having to derive a separate class
+        void def(token_set& /*self*/) {}
+    };
+    
     ///////////////////////////////////////////////////////////////////////////
     //  This represents a lexer object
     ///////////////////////////////////////////////////////////////////////////
-
-    ///////////////////////////////////////////////////////////////////////////
-    // This is the first token id automatically assigned by the library 
-    // if needed
-    enum tokenids 
+    template <typename Definition>
+    class lexer : public safe_bool<lexer<Definition> >
     {
-        min_token_id = 0x10000
-    };
-
-    template <typename Lexer>
-    class lexer : public Lexer
-    {
-    private:
-        // avoid warnings about using 'this' in constructor
-        lexer& this_() { return *this; }
-
-        std::size_t next_token_id;   // has to be an integral type
-
     public:
-        typedef Lexer lexer_type;
-        typedef typename Lexer::id_type id_type;
-        typedef typename Lexer::char_type char_type;
-        typedef typename Lexer::iterator_type iterator_type;
-        typedef lexer base_type;
+        // operator_bool() is needed for the safe_bool base class
+        bool operator_bool() const { return token_def; }
 
-        typedef detail::lexer_def_<lexer> lexer_def;
-        typedef std::basic_string<char_type> string_type;
+        typedef typename Definition::lexer_type lexer_type;
+        typedef typename Definition::char_type char_type;
+        typedef typename Definition::iterator_type iterator_type;
+        typedef typename Definition::id_type id_type;
 
-        lexer(unsigned int flags = match_flags::match_default
-            , id_type first_id = id_type(min_token_id)) 
-          : lexer_type(flags)
-          , next_token_id(first_id)
-          , self(this_(), lexer_type::initial_state()) 
-        {}
+        lexer(Definition& token_def_)
+          : token_def(token_def_) 
+        {
+            // call initialization routine supplied by the target lexer
+            token_def.def(token_def.self);
+        }
 
         // access iterator interface
         template <typename Iterator>
-        iterator_type begin(Iterator& first, Iterator const& last
-                , char_type const* initial_state = 0) const
-            { return this->lexer_type::begin(first, last, initial_state); }
-        iterator_type end() const 
-            { return this->lexer_type::end(); }
-
+        iterator_type begin(Iterator& first, Iterator const& last) const
+            { return token_def.begin(first, last); }
+        iterator_type end() const { return token_def.end(); }
+    
         std::size_t map_state(char_type const* state)
-            { return this->lexer_type::add_state(state); }
-
-        //  create a unique token id
-        id_type get_next_id() { return id_type(next_token_id++); }
-
-        lexer_def self;  // allow for easy token definition
+            { return token_def.add_state(state); }
+        
+        Definition& get_definition() { return token_def; }
+        Definition  const& get_definition() const { return token_def; }
+        
+    private:
+        Definition& token_def;
     };
 
+    ///////////////////////////////////////////////////////////////////////////
+    //  Metafunction returning the iterator type of the lexer given the token 
+    //  definition type.
+    ///////////////////////////////////////////////////////////////////////////
+    template <typename Definition>
+    struct lexer_iterator
+    {
+        typedef typename lexer<Definition>::iterator_type type;
+    };
+
+    ///////////////////////////////////////////////////////////////////////////
+    //  Generator function helping to construct a proper lexer object 
+    //  instance
+    ///////////////////////////////////////////////////////////////////////////
+    template <typename Definition>
+    inline lexer<Definition> 
+    make_lexer(Definition& def)
+    {
+        return lexer<Definition>(def);
+    }
+    
 }}}
 
 #endif

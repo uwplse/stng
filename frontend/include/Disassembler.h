@@ -1,17 +1,9 @@
 #ifndef ROSE_DISASSEMBLER_H
 #define ROSE_DISASSEMBLER_H
 
-#include "BinaryCallingConvention.h"
-#include "Diagnostics.h"                                // rose::Diagnostics
+#include "threadSupport.h"      /* needed for RTS_mutex_t in this header */
 #include "Registers.h"
 #include "MemoryMap.h"
-#include "integerOps.h"
-#include "Map.h"
-#include "BaseSemantics2.h"
-
-namespace rose {
-namespace BinaryAnalysis {
-
 
 /** Virtual base class for instruction disassemblers.
  *
@@ -122,29 +114,28 @@ namespace BinaryAnalysis {
 class Disassembler {
 public:
     /** Exception thrown by the disassemblers. */
-    class Exception: public std::runtime_error {
+    class Exception {
     public:
         /** A bare exception not bound to any particular instruction. */
         Exception(const std::string &reason)
-            : std::runtime_error(reason), ip(0), bit(0), insn(NULL)
+            : mesg(reason), ip(0), bit(0), insn(NULL)
             {}
         /** An exception bound to a virtual address but no raw data or instruction. */
         Exception(const std::string &reason, rose_addr_t ip)
-            : std::runtime_error(reason), ip(ip), bit(0), insn(NULL)
+            : mesg(reason), ip(ip), bit(0), insn(NULL)
             {}
         /** An exception bound to a particular instruction being disassembled. */
         Exception(const std::string &reason, rose_addr_t ip, const SgUnsignedCharList &raw_data, size_t bit)
-            : std::runtime_error(reason), ip(ip), bytes(raw_data), bit(bit), insn(NULL)
+            : mesg(reason), ip(ip), bytes(raw_data), bit(bit), insn(NULL)
             {}
         /** An exception bound to a particular instruction being assembled. */
         Exception(const std::string &reason, SgAsmInstruction *insn)
-            : std::runtime_error(reason), ip(insn->get_address()), bit(0), insn(insn)
+            : mesg(reason), ip(insn->get_address()), bit(0), insn(insn)
             {}
-        ~Exception() throw() {}
-
         void print(std::ostream&) const;
         friend std::ostream& operator<<(std::ostream &o, const Exception &e);
 
+        std::string mesg;               /**< Reason that disassembly failed. */
         rose_addr_t ip;                 /**< Virtual address where failure occurred; zero if no associated instruction */
         SgUnsignedCharList bytes;       /**< Bytes (partial) of failed disassembly, including byte at failure. Empty if the
                                          *   exception is not associated with a particular byte sequence, such as if an
@@ -219,51 +210,32 @@ public:
     typedef std::set<rose_addr_t> AddressSet;
 
     /** The InstructionMap is a mapping from (absolute) virtual address to disassembled instruction. */
-    typedef Map<rose_addr_t, SgAsmInstruction*> InstructionMap;
+    typedef std::map<rose_addr_t, SgAsmInstruction*> InstructionMap;
 
     /** The BadMap is a mapping from (absolute) virtual address to information about a failed disassembly attempt at that
      *  address. */
-    typedef Map<rose_addr_t, Exception> BadMap;
+    typedef std::map<rose_addr_t, Exception> BadMap;
 
     Disassembler()
-        : p_registers(NULL), p_partitioner(NULL), p_search(SEARCH_DEFAULT),
-          p_wordsize(4), p_sex(ByteOrder::ORDER_LSB), p_alignment(4), p_ndisassembled(0),
-          p_protection(MemoryMap::EXECUTABLE)
+        : p_registers(NULL), p_partitioner(NULL), p_search(SEARCH_DEFAULT), p_debug(NULL),
+          p_wordsize(4), p_sex(SgAsmExecutableFileFormat::ORDER_LSB), p_alignment(4), p_ndisassembled(0),
+          p_protection(MemoryMap::MM_PROT_EXEC)
         {ctor();}
+
+    Disassembler(const Disassembler& other)
+        : p_registers(other.p_registers), p_partitioner(other.p_partitioner), p_search(other.p_search),
+          p_debug(other.p_debug), p_wordsize(other.p_wordsize), p_sex(other.p_sex), p_alignment(other.p_alignment),
+          p_ndisassembled(other.p_ndisassembled), p_protection(other.p_protection)
+        {}
 
     virtual ~Disassembler() {}
 
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //                                  Data members
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-private:
-    CallingConvention::Dictionary callingConventions_;
 
-protected:
-    const RegisterDictionary *p_registers;              /**< Description of registers available for this platform. */
-    RegisterDescriptor REG_IP, REG_SP, REG_SS;          /**< Register descriptors initialized during construction. */
-    class Partitioner *p_partitioner;                   /**< Used for placing instructions into blocks and functions. */
-    unsigned p_search;                                  /**< Mask of SearchHeuristic bits specifying instruction searching. */
-    size_t p_wordsize;                                  /**< Word size used by SEARCH_WORDS. */
-    ByteOrder::Endianness p_sex;                        /**< Byte order for SEARCH_WORDS. */
-    size_t p_alignment;                                 /**< Word alignment constraint for SEARCH_WORDS (0 and 1 imply byte). */
-    static std::vector<Disassembler*> disassemblers;    /**< List of disassembler subclasses. */
-    size_t p_ndisassembled;                             /**< Total number of instructions disassembled by disassembleBlock() */
-    unsigned p_protection;                              /**< Memory protection bits that must be set to disassemble. */
-    static double progress_interval;                    /**< Minimum interval between progress reports in seconds. */
-    static double progress_time;                        /**< Time of last report, or zero if no report has been generated. */
 
-    /** Prototypical dispatcher for creating real dispatchers */
-    InstructionSemantics2::BaseSemantics::DispatcherPtr p_proto_dispatcher;
-
-public:
-    static Sawyer::Message::Facility mlog;              /**< Disassembler diagnostic streams. */
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //                                  Registration and lookup methods
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    /*==========================================================================================================================
+     * Registration and lookup methods
+     *========================================================================================================================== */
 public:
     /** Register a disassembler instance. More specific disassembler instances should be registered after more general
      *  disassemblers since the lookup() method will inspect disassemblers in reverse order of their registration.
@@ -286,11 +258,6 @@ public:
      *  Thread safety: Multiple threads can call this class method simultaneously even when other threads are registering
      *  additional disassemblers. */
     static Disassembler *lookup(SgAsmGenericHeader*);
-
-    /** List of names recognized by @ref lookup.
-     *
-     *  Returns the list of names that the @ref lookup method recognizes. */
-    static std::vector<std::string> isaNames();
     
     /** Finds a suitable disassembler. Looks through the list of registered disassembler instances (from most recently
      *  registered to earliest registered) and returns the first one whose can_disassemble() predicate returns true. This is
@@ -302,19 +269,14 @@ public:
      *  particularly the list of file headers referenced by the interpretation. */
     static Disassembler *lookup(SgAsmInterpretation*);
 
-    /** Finds a suitable disassembler.  Looks up a common disassembler by name.  If the name is the word "list" then a
-     *  list of known names is printed to <code>std::cout</code>. */
-    static Disassembler *lookup(const std::string&);
-
     /** Creates a new copy of a disassembler. The new copy has all the same settings as the original.
      *
      *  Thread safety: The thread safety of this virtual method depends on the implementation in the subclass. */
     virtual Disassembler *clone() const = 0;
 
-
-    /***************************************************************************************************************************
-     *                                  Main public disassembly methods
-     ***************************************************************************************************************************/
+    /*==========================================================================================================================
+     * Main public disassembly methods
+     *========================================================================================================================== */
 public:
     /** This high-level method disassembles instructions belonging to part of a file described by an executable file header as
      *  indicated by the specified interpretation.  The disassembleInterp() method is called for the main disassembly work,
@@ -341,21 +303,20 @@ public:
      *  SgFile node above the interpretation (presumably the value set with ROSE's "-rose:disassembler_search" switch),
      *  and invokes the disassemble() method.
      *
-     *  See also, Partitioner::disassembleInterpretation() which does Partitioner-driven disassembly.
-     *
      *  Thread safety: This class method is not thread safe. */
     static void disassembleInterpretation(SgAsmInterpretation*);
 
 
 
-    /***************************************************************************************************************************
-     *                                          Disassembler properties and settings
-     ***************************************************************************************************************************/
+
+
+    /*==========================================================================================================================
+     * Disassembler properties and settings
+     *========================================================================================================================== */
 public:
     /** Specifies the registers available on this architecture.  Rather than using hard-coded class, number, and position
      *  constants, the disassembler should perform a name lookup in this supplied register dictionary and use the values found
-     *  therein. There's usually no need for the user to specify a value because either it will be obtained from an
-     *  SgAsmInterpretation or the subclass will initialize it.
+     *  therein. There's usually no need for the user to specify a value because the subclass will initialize this.
      *
      *  Thread safety: It is not safe to change the register dictionary while another thread is using this same Disassembler
      *  object. */
@@ -370,48 +331,6 @@ public:
         return p_registers;
     }
 
-    /** Property: Calling convention dictionary.
-     *
-     *  This is a dictionary of the common calling conventions for this architecture.
-     *
-     * @{ */
-    const CallingConvention::Dictionary& callingConventions() const { return callingConventions_; }
-    CallingConvention::Dictionary& callingConventions() { return callingConventions_; }
-    void callingConventions(const CallingConvention::Dictionary &d) { callingConventions_ = d; }
-    /** @} */
-
-    /** Returns the register that points to instructions. */
-    virtual RegisterDescriptor instructionPointerRegister() const {
-        ASSERT_require(REG_IP.is_valid());
-        return REG_IP;
-    }
-
-    /** Returns the register that points to the stack. */
-    virtual RegisterDescriptor stackPointerRegister() const {
-        ASSERT_require(REG_SP.is_valid());
-        return REG_SP;
-    }
-
-    /** Returns the segment register for accessing the stack.  Not all architectures have this register, in which case the
-     * default-constructed register descriptor is returned. */
-    virtual RegisterDescriptor stackSegmentRegister() const {
-        return REG_SS;                                  // need not be valid
-    }
-
-    /** Return an instruction semantics dispatcher if possible.
-     *
-     *  If instruction semantics are implemented for this architecure then return a pointer to a dispatcher. The dispatcher
-     *  will have no attached RISC operators and can only be used to create a new dispatcher via its virtual constructor.  If
-     *  instruction semantics are not implemented then the null pointer is returned. */
-    const rose::BinaryAnalysis::InstructionSemantics2::BaseSemantics::DispatcherPtr& dispatcher() const {
-        return p_proto_dispatcher;
-    }
-
-#ifndef USE_ROSE
-  // DQ (2/11/2013): I think it is a problem to use this function (currently being evaluated using delta debug case).
-  // This fails for ROSE compilign "rose.h" header file (ROSE compiling ROSE).
-  // Generates error: ERROR: In parse_function_body(): (this should have been a function body) entry_kind = 0x3a4d47e8 = src-seq-sublist 
-
     /** Specifies the instruction partitioner to use when partitioning instructions into functions.  If none is specified then
      *  a default partitioner will be constructed when necessary.
      *
@@ -419,13 +338,6 @@ public:
     void set_partitioner(class Partitioner *p) {
         p_partitioner = p;
     }
-#else
-    void set_partitioner(class Partitioner *p);
-#endif
-
-#ifndef USE_ROSE
-    // DQ (2/11/2013): I think it is a problem to use this function (currently being evaluated using delta debug case).
-    // This fails for ROSE compilign "rose.h" header file (ROSE compiling ROSE).
 
     /** Returns the partitioner object set by set_partitioner().
      *
@@ -433,9 +345,6 @@ public:
     class Partitioner *get_partitioner() const {
         return p_partitioner;
     }
-#else
-    class Partitioner *get_partitioner() const;
-#endif
 
     /** Specifies the heuristics used when searching for instructions. The @p bits argument should be a bit mask of
      *  SearchHeuristic bits.
@@ -454,20 +363,19 @@ public:
         return p_search;
     }
 
-    /** Property: Machine word size in bits.
-     *
-     *  Natural word size for the machine. This is usually the size of most registers. The default is based on the word size of
-     *  the file header used when the disassembler is constructed.
+    /** Specifies the word size for the SEARCH_WORDS heuristic. The default is based on the word size of the file header used
+     *  when the disassembler is constructed.
      *
      *  Thread safety: It is not safe to change the instruction search word size while another thread is using this same
-     *  Disassembler object.
-     *
-     * @{ */
+     *  Disassembler object. */
     void set_wordsize(size_t);
+
+    /** Returns the word size used by the SEARCH_WORDS heuristic.
+     *
+     *  Thread safety: This method is thread safe. */
     size_t get_wordsize() const {
         return p_wordsize;
     }
-    /** @} */
 
     /** Specifies the alignment for the SEARCH_WORDS heuristic. The value must be a natural, postive power of two. The default
      *  is determined by the subclass (e.g., x86 would probably set this to one since instructions are not aligned, while ARM
@@ -484,21 +392,35 @@ public:
         return p_alignment;
     }
 
-    /** Property: Memory byte order.
+    /** Specifies the byte order for the SEARCH_WORDS heuristic. The default is based on the byte order of the file header
+     *  used when the disassembler is constructed.
      *
-     *  The byte order for memory. The default is based on the byte order of the file header used when the disassembler is
-     *  constructed.
-     *
-     *  Thread safety: It is not safe to change the byte sex while another thread is using this same Disassembler object.
-     *
-     * @{ */
-    void set_sex(ByteOrder::Endianness sex) {
+     *  Thread safety: It is not safe to change the byte sex while another thread is using this same Disassembler object. */
+    void set_sex(SgAsmExecutableFileFormat::ByteOrder sex) {
         p_sex = sex;
     }
-    ByteOrder::Endianness get_sex() const {
+
+    /** Returns the byte order used by the SEARCH_WORDS heuristic.
+     *
+     *  Thread safety: This method is thread safe. */
+    SgAsmExecutableFileFormat::ByteOrder get_sex() const {
         return p_sex;
     }
-    /** @} */
+
+    /** Sends disassembler diagnostics to the specified output stream. Null (the default) turns off debugging.
+     *
+     *  Thread safety: It is not safe to change the debugging stream while another thread is using this same Disassembler
+     *  object. */
+    void set_debug(FILE *f) {
+        p_debug = f;
+    }
+
+    /** Returns the file currently used for debugging; null implies no debugging.
+     *
+     *  Thread safety: This method is thread safe. */
+    FILE *get_debug() const {
+        return p_debug;
+    }
 
     /** Returns the number of instructions successfully disassembled. The counter is updated by disassembleBlock(), which is
      *  generally called by all disassembly methods except for disassembleOne().
@@ -526,26 +448,25 @@ public:
     }
 
     /** Set progress reporting properties.  A progress report is produced not more than once every @p min_interval seconds
-     *  (default is 10) by sending a single line of ouput to the mlog[INFO] diagnostic stream.  Progress reporting can be
-     *  disabled by supplying a negative value.  Progress report properties are class variables. Changing their
-     *  values will immediately affect all disassemblers in all threads.
+     *  (default is 10) by sending a single line of ouput to the specified file.  Progress reporting can be disabled by supplying
+     *  a null pointer for the file.  Progress report properties are class variables. Changing their values will immediately
+     *  affect all disassemblers in all threads.
      *
      * Thread safety: This method is thread safe. */
-    void set_progress_reporting(double min_interval);
+    void set_progress_reporting(FILE*, unsigned min_interval);
 
-    /** Initializes and registers disassembler diagnostic streams. See Diagnostics::initialize(). */
-    static void initDiagnostics();
 
-    /***************************************************************************************************************************
-     *                                          Low-level disassembly functions
-     ***************************************************************************************************************************/
+
+    /*==========================================================================================================================
+     * Low-level disassembly functions
+     *========================================================================================================================== */
 public:
     /** This is the lowest level disassembly function and is implemented in the architecture-specific subclasses. It
      *  disassembles one instruction at the specified virtual address. The @p map is a mapping from virtual addresses to
      *  buffer and enables instructions to span file segments that are mapped contiguously in virtual memory by the loader but
      *  which might not be contiguous in the file.  The instruction's successor virtual addresses are added to the optional
      *  successor set (note that successors of an individual instruction can also be obtained via
-     *  SgAsmInstruction::getSuccessors). If the instruction cannot be disassembled then an exception is thrown and the
+     *  SgAsmInstruction::get_successors). If the instruction cannot be disassembled then an exception is thrown and the
      *  successors set is not modified.
      *
      *  Thread safety:  The safety of this method depends on its implementation in the subclass. In any case, no other thread
@@ -560,6 +481,9 @@ public:
      *  buffer and successors set are not being modified by another thread. */
     SgAsmInstruction *disassembleOne(const unsigned char *buf, rose_addr_t buf_va, size_t buf_size, rose_addr_t start_va,
                                      AddressSet *successors=NULL);
+
+
+
 
     /** Like the disassembleOne method except it disassembles a basic block's worth of instructions beginning at the specified
      *  virtual address.  For the purposes of this function, a basic block is defined as starting from the specified
@@ -576,11 +500,10 @@ public:
      *  address is the instruction that could not be disassembled), and the successors list is not modified.
      *
      *  A cache of previously disassembled instructions can be provided. If one is provided, then the cache will be updated
-     *  with any instructions disassembled during the call to disassembleBlock().  Addresses where disassembly was tried but
-     *  failed will be added to the cache as null pointers. This is convenient when the SEARCH_DEADEND bit is clear in
-     *  conjunction with the SEARCH_FOLLOWING (or similar) being set, since this combination causes the disassembler to try
-     *  every address in a dead-end block. Providing a cache in this case can speed up the disassembler by an order of
-     *  magnitude.
+     *  with any instructions disassembled during the call to disassembleBlock().  This is convenient when the SEARCH_DEADEND
+     *  bit is clear in conjunction with the SEARCH_FOLLOWING (or similar) being set, since this combination causes the
+     *  disassembler to try every address in a dead-end block. Providing a cache in this case can speed up the disassembler by
+     *  an order of magnitude.
      *
      *  Thread safety: The safety of this method depends on the implementation of disassembleOne() in the subclass. In any
      *  case, no other thread should be concurrently modifying the memory map, successors, or cache. */
@@ -594,6 +517,9 @@ public:
      *  case, no other thread should be concurrently modifying the buffer, successors, or cache. */
     InstructionMap disassembleBlock(const unsigned char *buf, rose_addr_t buf_va, size_t buf_size, rose_addr_t start_va,
                                     AddressSet *successors=NULL, InstructionMap *cache=NULL);
+
+
+
 
     /** Disassembles instructions from the content buffer beginning at the specified virtual address and including all
      *  instructions that are direct or indirect successors of the first instruction.  The @p map is a mapping from virtual
@@ -622,6 +548,9 @@ public:
      *  no other thread should be concurrently modifying the memory map, successor list, or exception map. */
     InstructionMap disassembleBuffer(const MemoryMap *map, AddressSet workset, AddressSet *successors=NULL, BadMap *bad=NULL);
 
+
+
+
     /** Disassembles instructions in the specified section by assuming that it's mapped to a particular starting address.
      *  Disassembly will begin at the specified byte offset in the section. The section need not be mapped with execute
      *  permission; in fact, since a starting address is specified, it need not be mapped at all.  All other aspects of this
@@ -630,10 +559,9 @@ public:
                                       AddressSet *successors=NULL, BadMap *bad=NULL);
 
     /** Disassembles instructions in a particular binary interpretation. If the interpretation has a memory map
-     *  (SgAsmInterpretation::get_map()) then that map will be used for disassembly. Otherwise a new map is created to describe
-     *  all code-containing sections of the header, and that map is stored in the interpretation.  The aggressiveness when
-     *  searching for addresses to disassemble is controlled by the disassembler's set_search() method. If the interpretation
-     *  has a register dictionary, then the disassembler's register dictionary will be set to the same value. All other aspects
+     *  (SgAsmInterpretation::get_map()) then that map will be used for disassembly. Otherwise a new map is created to
+     *  describe all code-containing sections of the header, and that map is stored in the interpretation.  The aggressiveness
+     *  when searching for addresses to disassemble is controlled by the disassembler's set_search() method. All other aspects
      *  of this method are similar to the disassembleBuffer() method.
      *
      *  Thread safety:  Not thread safe. */
@@ -641,52 +569,46 @@ public:
 
 
 
-    /***************************************************************************************************************************
-     *                                  Methods for searching for disassembly addresses.
-     ***************************************************************************************************************************/
+
+    /*==========================================================================================================================
+     * Methods for searching for disassembly addresses.
+     *========================================================================================================================== */
 public:
     /** Adds the address following a basic block to the list of addresses that should be disassembled.  This search method is
-     *  invoked automatically if the SEARCH_FOLLOWING bit is set (see set_search()).  The @p tried argument lists all the
-     *  addresses where we already tried to disassemble (including addresses where disassembly failed) and this method refuses
-     *  to add the following address to the worklist if we've already tried that address.
+     *  invoked automatically if the SEARCH_FOLLOWING bit is set (see set_search()).
      *
      *  Thread safety: Multiple threads can call this method using the same Disassembler object as long as they pass different
      *  worklist address sets and no other thread is modifying the other arguments. */
     void search_following(AddressSet *worklist, const InstructionMap &bb, rose_addr_t bb_va, 
-                          const MemoryMap *map, const InstructionMap &tried);
+                          const MemoryMap *map, const BadMap *bad);
 
     /** Adds values of immediate operands to the list of addresses that should be disassembled.  Such operands are often used
-     *  in a closely following instruction as a jump target. E.g., "move 0x400600, reg1; ...; jump reg1". This search method is
-     *  invoked automatically if the SEARCH_IMMEDIATE bit is set (see set_search()).  The @p tried argument lists all the
-     *  addresses where we already tried to disassemble (including addresses where disassembly failed) and this method refuses
-     *  to add the following address to the worklist if we've already tried that address.
+     *  in a closely following instruction as a jump target. E.g., "move 0x400600, reg1; ...; jump reg1". This search method
+     *  is invoked automatically if the SEARCH_IMMEDIATE bit is set (see set_search()).
      *
      *  Thread safety:  Multiple threads can call this method using the same Disassembler object as long as they pass different
      *  worklist address sets and no other thread is modifying the other arguments. */
-    void search_immediate(AddressSet *worklist, const InstructionMap &bb,  const MemoryMap *map, const InstructionMap &tried);
+    void search_immediate(AddressSet *worklist, const InstructionMap &bb,  const MemoryMap *map, const BadMap *bad);
 
-    /** Adds all word-aligned values to work list, provided they specify a virtual address in the @p map.  The @p wordsize must
-     *  be a power of two. This search method is invoked automatically if the SEARCH_WORDS bit is set (see set_search()). The
-     *  @p tried argument lists all the addresses where we already tried to disassemble (including addresses where disassembly
-     *  failed) and this method refuses to add the following address to the worklist if we've already tried that address.
+    /** Adds all word-aligned values to work list, provided they specify a virtual address in the @p map.  The @p wordsize
+     *  must be a power of two. This search method is invoked automatically if the SEARCH_WORDS bit is set (see set_search()).
      *
      *  Thread safety: Multiple threads can call this method using the same Disassembler object as long as they pass different
      *  worklist address sets and no other thread is modifying the other arguments. */
-    void search_words(AddressSet *worklist, const MemoryMap *map, const InstructionMap &tried);
+    void search_words(AddressSet *worklist, const MemoryMap *map, const BadMap *bad);
 
     /** Finds the lowest virtual address, greater than or equal to @p start_va, which does not correspond to a previous
      *  disassembly attempt as evidenced by its presence in the supplied instructions or bad map.  If @p avoid_overlaps is set
      *  then do not return an address if an already disassembled instruction's raw bytes include that address.  Only virtual
-     *  addresses contained in the MemoryMap will be considered.  The @p tried argument lists all the addresses where we
-     *  already tried to disassemble (including addresses where disassembly failed) and this method refuses to add the
-     *  following address to the worklist if we've already tried that address. The address is returned by adding it to the
-     *  worklist; nothing is added if no qualifying address can be found. This method is invoked automatically if the
-     *  SEARCH_ALLBYTES or SEARCH_UNUSED bits are set (see set_search()).
+     *  addresses contained in the MemoryMap will be considered.  The address is returned by adding it to the worklist;
+     *  nothing is added if no qualifying address can be found. This method is invoked automatically if the SEARCH_ALLBYTES or
+     *  SEARCH_UNUSED bits are set (see set_search()).
      *
      *  Thread safety: Multiple threads can call this method using the same Disassembler object as long as they pass different
      *  worklist address sets and no other thread is modifying the other arguments. */
     void search_next_address(AddressSet *worklist, rose_addr_t start_va, const MemoryMap *map, const InstructionMap &insns,
-                             const InstructionMap &tried, bool avoid_overlaps);
+                             const BadMap *bad, bool avoid_overlaps);
+
 
     /** Adds addresses that correspond to function symbols.  This method is invoked automatically if the SEARCH_FUNCSYMS bits
      *  are set (see set_search()). It applies only to disassembly at the file header (SgAsmGenericHeader) level or above.
@@ -697,15 +619,22 @@ public:
     void search_function_symbols(AddressSet *worklist, const MemoryMap*, SgAsmGenericHeader*);
 
 
-    /***************************************************************************************************************************
-     *                                          Miscellaneous methods
-     ***************************************************************************************************************************/
+    /*==========================================================================================================================
+     * Miscellaneous methods
+     *========================================================================================================================== */
 public:
     /** Updates progress information. This should be called each time the subclass' disassembleOne() is about to return a new
      *  instruction.
      *
      *  Thread safety: This method is thread safe. The optional supplied instruction is only used to obtain a virtual address. */
     void update_progress(SgAsmInstruction*);
+
+    /** Conditionally prints a progress report. If progress reporting is enabled and the required amount of time has elapsed
+     *  since the previous report, then the supplied report is emited. Also, if debugging is enabled the report is emitted to
+     *  the debugging file regardless of the elapsed time. The arguments are the same as fprintf().
+     *
+     *  Thread safety: This method is thread safe. */
+    void progress(FILE*, const char *fmt, ...) const __attribute__((format(printf, 3, 4)));
 
     /** Makes an unknown instruction from an exception.
      *
@@ -727,7 +656,6 @@ public:
 private:
     /** Initialize class (e.g., register built-in disassemblers). This class method is thread safe, using class_mutex. */
     static void initclass();
-    static void initclass_helper();
 
     /** Called only during construction. Thread safe. */
     void ctor();
@@ -741,9 +669,27 @@ private:
 
 
 
-};
 
-} // namespace
-} // namespace
+    /*==========================================================================================================================
+     * Data members
+     *========================================================================================================================== */
+protected:
+    const RegisterDictionary *p_registers;              /**< Description of registers available for this platform. */
+    class Partitioner *p_partitioner;                   /**< Used for placing instructions into blocks and functions. */
+    unsigned p_search;                                  /**< Mask of SearchHeuristic bits specifying instruction searching. */
+    FILE *p_debug;                                      /**< Set to non-null to get debugging info. */
+    size_t p_wordsize;                                  /**< Word size used by SEARCH_WORDS. */
+    SgAsmExecutableFileFormat::ByteOrder p_sex;         /**< Byte order for SEARCH_WORDS. */
+    size_t p_alignment;                                 /**< Word alignment constraint for SEARCH_WORDS (0 and 1 imply byte). */
+    static std::vector<Disassembler*> disassemblers;    /**< List of disassembler subclasses. */
+    size_t p_ndisassembled;                             /**< Total number of instructions disassembled by disassembleBlock() */
+    unsigned p_protection;                              /**< Memory protection bits that must be set to disassemble. */
+
+    static time_t progress_interval;                    /**< Minimum interval between progress reports. */
+    static time_t progress_time;                        /**< Time of last report, or zero if no report has been generated. */
+    static FILE *progress_file;                         /**< File to which reports are made. Null disables reporting. */
+
+    static RTS_mutex_t class_mutex;                     /**< Mutex for class-wide thread safety */
+};
 
 #endif

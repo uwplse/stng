@@ -1,4 +1,4 @@
- 
+
 /* unparser.h
  * This header file contains the class declaration for the newest unparser. Six
  * C files include this header file: unparser.C, modified_sage.C, unparse_stmt.C, 
@@ -10,8 +10,6 @@
 
 #include "unparser.h"
 #include "modified_sage.h"
-
-#include "Diagnostics.h"
 
 /* support for handling precedence and associativity */
 typedef int PrecedenceSpecifier;
@@ -37,48 +35,6 @@ class UnparseLanguageIndependentConstructs
           std::string currentOutputFileName;
 
      public:
-
-       // DQ (3/24/2016): Adding Robb's meageage mechanism (data member and function).
-          static Sawyer::Message::Facility mlog;
-          static void initDiagnostics();
-
-       // DQ (12/6/2014): This type permits specification of what bounds to use in the specifiation of token stream subsequence boundaries.
-          enum token_sequence_position_enum_type
-             {
-               e_leading_whitespace_start,
-               e_leading_whitespace_end,
-               e_token_subsequence_start,
-               e_token_subsequence_end,
-               e_trailing_whitespace_start,
-               e_trailing_whitespace_end,
-            // DQ (12/31/2014): Added to support the middle subsequence of tokens in the SgIfStmt as a special case.
-               e_else_whitespace_start,
-               e_else_whitespace_end
-             };
-
-       // Single statement specification of token subsequence.
-          void unparseStatementFromTokenStream (SgStatement* stmt, token_sequence_position_enum_type e_leading_whitespace_start, token_sequence_position_enum_type e_token_subsequence_start);
-
-       // Two statement specification of token subsequence (required for "else" case in SgIfStmt).
-       // void unparseStatementFromTokenStream (SgStatement* stmt_1, SgStatement* stmt_2, token_sequence_position_enum_type e_leading_whitespace_start, token_sequence_position_enum_type e_token_subsequence_start);
-       // void unparseStatementFromTokenStream (SgLocatedNode* stmt_1, SgLocatedNode* stmt_2, token_sequence_position_enum_type e_leading_whitespace_start, token_sequence_position_enum_type e_token_subsequence_start);
-          void unparseStatementFromTokenStream (SgLocatedNode* stmt_1, SgLocatedNode* stmt_2, token_sequence_position_enum_type e_leading_whitespace_start, 
-                                                token_sequence_position_enum_type e_token_subsequence_start, bool unparseOnlyWhitespace = false );
-
-       // DQ (12/30/2014): Adding debugging information.
-          std::string token_sequence_position_name( token_sequence_position_enum_type e );
-
-          enum unparsed_as_enum_type
-             {
-                e_unparsed_as_error,
-                e_unparsed_as_AST,
-                e_unparsed_as_partial_token_sequence,
-                e_unparsed_as_token_stream,
-                e_unparsed_as_last
-             };
-
-          std::string unparsed_as_kind(unparsed_as_enum_type x);
-
           UnparseLanguageIndependentConstructs(Unparser* unp, std::string fname) : unp(unp)
              {
                currentOutputFileName = fname;
@@ -119,20 +75,7 @@ class UnparseLanguageIndependentConstructs
           int num_stmt_in_block(SgBasicBlock*);
 
           std::string resBool(bool val) const;
-#if 0
-       // DQ (7/1/2013): This is the older code where the function definition was in the *.C file (now moved to the header file below).
           template<typename T> std::string tostring(T t) const;
-#else
-       // DQ (7/1/2013): This needs to be defined in the header file, else the GNU 4.5 and 4.6 compilers will have undefined references at link time.
-       // Note that the older GNU compilers have not had any problems with the previous version with the function definition in the *.C file.
-          template<typename T>
-          std::string tostring(T t) const
-             {
-               std::ostringstream myStream;                   // Creates an ostringstream object
-               myStream << std::showpoint << t << std::flush; // Distinguish integer and floating-point numbers
-               return myStream.str();                         // Returns the string form of the stringstream object
-             }
-#endif
           void curprint (const std::string & str) const;
           void printOutComments ( SgLocatedNode* locatedNode ) const;
 
@@ -175,11 +118,10 @@ class UnparseLanguageIndependentConstructs
 
       //! unparse expression functions implemented in unparse_expr.C
        // DQ (4/25/2005): Made this virtual so that Gabriel could build a specialized unparser.
-          ROSE_DLL_API virtual void unparseExpression              (SgExpression* expr, SgUnparse_Info& info);
+          virtual void unparseExpression              (SgExpression* expr, SgUnparse_Info& info);
 
           virtual void unparseExprList                (SgExpression* expr, SgUnparse_Info& info);
-          virtual void unparseMatrixExp               (SgExpression* expr, SgUnparse_Info& info);
-          
+
        // virtual void unparseUnaryOperator           (SgExpression* expr, const char* op, SgUnparse_Info& info);
        // virtual void unparseBinaryOperator          (SgExpression* expr, const char* op, SgUnparse_Info& info);
           virtual void unparseUnaryExpr               (SgExpression* expr, SgUnparse_Info& info);
@@ -216,10 +158,6 @@ class UnparseLanguageIndependentConstructs
           virtual void unparseDoubleVal               (SgExpression* expr, SgUnparse_Info& info);  
           virtual void unparseLongDoubleVal           (SgExpression* expr, SgUnparse_Info& info);  
           virtual void unparseComplexVal              (SgExpression* expr, SgUnparse_Info& info);
-
-       // DQ (7/31/2014): Adding support for C++11 nullptr const value expressions.
-          virtual void unparseNullptrVal              (SgExpression* expr, SgUnparse_Info& info);  
-
 #if 0
           virtual void unparseFuncCall                (SgExpression* expr, SgUnparse_Info& info);  
           virtual void unparsePointStOp               (SgExpression* expr, SgUnparse_Info& info);  
@@ -381,8 +319,6 @@ class UnparseLanguageIndependentConstructs
           virtual void unparseOmpBeginDirectiveClauses      (SgStatement* stmt,     SgUnparse_Info& info); 
           virtual void unparseOmpEndDirectiveClauses        (SgStatement* stmt,     SgUnparse_Info& info); 
           virtual void unparseOmpGenericStatement           (SgStatement* stmt,     SgUnparse_Info& info);
-
-          virtual void unparseMapDistDataPoliciesToString (std::vector< std::pair< SgOmpClause::omp_map_dist_data_enum, SgExpression * > > policies, SgUnparse_Info& info);
 #if 0
        // DQ (7/21/2006): Added support for GNU statement expression extension.
           virtual void unparseStatementExpression (SgExpression* expr, SgUnparse_Info& info);
@@ -421,34 +357,6 @@ class UnparseLanguageIndependentConstructs
           virtual PrecedenceSpecifier getPrecedence(SgExpression* exp);
           virtual AssociativitySpecifier getAssociativity(SgExpression* exp);
 
-       // DQ (4/14/2013): Added to support the mixed use of both overloaded operator names and operator syntax.
-          bool isRequiredOperator( SgBinaryOp* binary_op, bool current_function_call_uses_operator_syntax, bool parent_function_call_uses_operator_syntax );
-
-       // DQ (10/29/2013): Adding support to unparse statements using the token stream.
-       // int unparseStatementFromTokenStream(SgSourceFile* sourceFile, SgStatement* stmt);
-          int unparseStatementFromTokenStream(SgSourceFile* sourceFile, SgStatement* stmt, SgUnparse_Info & info, bool & lastStatementOfGlobalScopeUnparsedUsingTokenStream);
-
-       // DQ (11/4/2014): Unparse a partial sequence of tokens up to the next AST node.
-          int unparseStatementFromTokenStreamForNodeContainingTransformation(SgSourceFile* sourceFile, SgStatement* stmt, SgUnparse_Info & info, bool & lastStatementOfGlobalScopeUnparsedUsingTokenStream, unparsed_as_enum_type unparsed_as);
-
-          bool canBeUnparsedFromTokenStream(SgSourceFile* sourceFile, SgStatement* stmt);
-
-       // DQ (11/29/2013): Added support to detect redundant statements (e.g. variable declarations 
-       // with multiple variables that are mapped to a single token sequence).
-          bool redundantStatementMappingToTokenSequence(SgSourceFile* sourceFile, SgStatement* stmt);
-
-       // DQ (11/30/2013): Adding support to suppress redundant unparsing of CPP directives and comments.
-       // bool isTransitionFromTokenUnparsingToASTunparsing(SgStatement* statement);
-
-      // DQ (1/23/2014): This function support detecting when the supress the output of the SgDotExp
-      // in the access of data members from un-named unions.
-         bool isDotExprWithAnonymousUnion(SgExpression* expr);
-
-      // DQ (9/3/2014): Adding support to supress output of SgThisExp as part of support for C++11 lambda functions code generation.
-         bool isImplicitArrowExpWithinLambdaFunction(SgExpression* expr, SgUnparse_Info& info);
-
-      // DQ (11/13/2014): Detect when to unparse the leading and trailing edge tokens for attached CPP directives and comments.
-         bool unparseAttachedPreprocessingInfoUsingTokenStream(SgLocatedNode* stmt, SgUnparse_Info& info, PreprocessingInfo::RelativePositionType whereToUnparse);
-   };
+};
 
 #endif

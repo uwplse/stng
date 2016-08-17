@@ -1,29 +1,26 @@
 #pragma once
 
-// DQ (10/5/2014): This is more strict now that we include rose_config.h in the sage3basic.h.
-// #include "rose.h"
-// rose.h and sage3basic.h should not be included in librose header files. [Robb P. Matzke 2014-10-15]
-// #include "sage3basic.h"
+#include <rose.h>
 
 struct FunctionCallInheritedAttribute
 {
-    /** The innermost scope inside of which this AST node resides. It is either a for-loop,
-         a do-loop,  a while-loop or a conditioanl expression. */
-    SgNode* currentScope;
+    /** The innermost loop inside of which this AST node resides. It is either a for-loop,
+         a do-loop, or a while-loop. */
+    SgScopeStatement* currentLoop;
 
     /** The last statement encountered before the current node in the AST. */
     SgStatement* lastStatement;
 
-    /** Is the current node inside a for loop or conditional expresion structure (not the body). */
+    /** Is the current node inside a for loop structure (not the body). */
     enum
     {
         INSIDE_FOR_INIT, INSIDE_FOR_TEST, INSIDE_FOR_INCREMENT, INSIDE_WHILE_CONDITION,
-        INSIDE_DO_WHILE_CONDITION, IN_SAFE_PLACE, INSIDE_CONDITIONAL_EXP_TRUE_ARM, INSIDE_CONDITIONAL_EXP_FALSE_ARM, INSIDE_SHORT_CIRCUIT_EXP_RHS
+        INSIDE_DO_WHILE_CONDITION, NOT_IN_LOOP
     }
-    scopeStatus;
+    loopStatus;
 
     /** Default constructor. Initializes everything to NULL. */
-    FunctionCallInheritedAttribute() : currentScope(NULL), lastStatement(NULL), scopeStatus(IN_SAFE_PLACE) { }
+    FunctionCallInheritedAttribute() : currentLoop(NULL), lastStatement(NULL), loopStatus(NOT_IN_LOOP) { }
 };
 
 /** Stores a function call expression, along with associated information about its context. */
@@ -64,7 +61,7 @@ class FunctionEvaluationOrderTraversal : public AstTopDownBottomUpProcessing<Fun
 public:
     /** Traverses the subtree of the given AST node and finds all function calls in
      * function-evaluation order. */
-    static std::pair< std::vector<FunctionCallInfo>, std::vector<FunctionCallInfo> > GetFunctionCalls(SgNode* root);
+    static std::vector<FunctionCallInfo> GetFunctionCalls(SgNode* root);
 
     /** Visits AST nodes in pre-order */
     FunctionCallInheritedAttribute evaluateInheritedAttribute(SgNode* astNode, FunctionCallInheritedAttribute parentAttribute);
@@ -72,18 +69,12 @@ public:
     /** Visits AST nodes in post-order. This is function-evaluation order. */
     bool evaluateSynthesizedAttribute(SgNode* astNode, FunctionCallInheritedAttribute parentAttribute, SynthesizedAttributesList);
 
-    /// Returns true if the function call has no side effects.
-    virtual bool IsFunctionCallSideEffectFree(SgFunctionCallExp* functionCall);
-
 private:
 
     //! Private constructor. Use the static method to access the functionality of this class.
 
     FunctionEvaluationOrderTraversal() { }
 
-    /** All the function calls seen so far that can be normalized. */
-    std::vector<FunctionCallInfo> normalizableFunctionCalls;
-    /** All the function calls seen so far that can't be normalized. */
-    std::vector<FunctionCallInfo> nonNormalizableFunctionCalls;
+    /** All the function calls seen so far. */
+    std::vector<FunctionCallInfo> functionCalls;
 };
-

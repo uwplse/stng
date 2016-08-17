@@ -14,7 +14,7 @@
           string, or ...
      \endif
  */
-class ROSE_DLL_API OptionDeclaration
+class OptionDeclaration
    {
 
      public:

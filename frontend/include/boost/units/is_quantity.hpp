@@ -11,11 +11,6 @@
 #ifndef BOOST_UNITS_IS_QUANTITY_HPP
 #define BOOST_UNITS_IS_QUANTITY_HPP
 
-///
-/// \file
-/// \brief Check that a type is a quantity.
-///
-
 #include <boost/mpl/bool.hpp>
 #include <boost/units/units_fwd.hpp>
 
@@ -23,7 +18,7 @@ namespace boost {
 
 namespace units {
 
-/// Check that a type is a quantity.
+/// check that a type is a quantity
 template<typename T>
 struct is_quantity :
     public mpl::false_

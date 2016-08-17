@@ -1,116 +1,105 @@
-/*=============================================================================
-    Copyright (c) 2001-2011 Hartmut Kaiser
-    Copyright (c) 2001-2011 Joel de Guzman
+//  Copyright (c) 2001-2009 Hartmut Kaiser
+//
+//  Distributed under the Boost Software License, Version 1.0. (See accompanying
+//  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-    Distributed under the Boost Software License, Version 1.0. (See accompanying
-    file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
-==============================================================================*/
-#if !defined(BOOST_SPIRIT_MATCH_MANIP_MAY_05_2007_1202PM)
-#define BOOST_SPIRIT_MATCH_MANIP_MAY_05_2007_1202PM
-
-#if defined(_MSC_VER)
-#pragma once
-#endif
+#if !defined(BOOST_SPIRIT_FORMAT_MANIP_MAY_05_2007_1202PM)
+#define BOOST_SPIRIT_FORMAT_MANIP_MAY_05_2007_1202PM
 
 #include <boost/spirit/home/qi/parse.hpp>
-#include <boost/spirit/home/qi/parser.hpp>
 #include <boost/spirit/home/support/unused.hpp>
 #include <boost/spirit/home/qi/stream/detail/match_manip.hpp>
+
+#include <boost/mpl/assert.hpp>
+#include <boost/utility/enable_if.hpp>
 
 ///////////////////////////////////////////////////////////////////////////////
 namespace boost { namespace spirit { namespace qi
 {
     ///////////////////////////////////////////////////////////////////////////
     template <typename Expr>
-    inline typename detail::match<Expr>::type
-    match(
-        Expr const& expr)
+    inline detail::match_manip<Expr>
+    match(Expr const& xpr)
     {
-        return detail::match<Expr>::call(expr);
+        typedef spirit::traits::is_component<qi::domain, Expr> is_component;
+
+        // report invalid expression error as early as possible
+        BOOST_MPL_ASSERT_MSG(is_component::value,
+            xpr_is_not_convertible_to_a_parser, (Expr));
+
+        return qi::detail::match_manip<Expr>(xpr, unused, unused);
     }
 
     template <typename Expr, typename Attribute>
-    inline detail::match_manip<
-        Expr, mpl::false_, mpl::false_, unused_type, Attribute
-    >
-    match(
-        Expr const& xpr
-      , Attribute& p)
+    inline detail::match_manip<Expr, Attribute>
+    match(Expr const& xpr, Attribute& p)
     {
-        using qi::detail::match_manip;
+        typedef spirit::traits::is_component<qi::domain, Expr> is_component;
 
-        // Report invalid expression error as early as possible.
-        // If you got an error_invalid_expression error message here,
-        // then the expression (expr) is not a valid spirit qi expression.
-        BOOST_SPIRIT_ASSERT_MATCH(qi::domain, Expr);
-        return match_manip<Expr, mpl::false_, mpl::false_, unused_type, Attribute>(
-            xpr, unused, p);
+        // report invalid expression error as early as possible
+        BOOST_MPL_ASSERT_MSG(is_component::value,
+            xpr_is_not_convertible_to_a_parser, (Expr, Attribute));
+
+        return qi::detail::match_manip<Expr, Attribute>(xpr, p, unused);
     }
 
     ///////////////////////////////////////////////////////////////////////////
     template <typename Expr, typename Skipper>
-    inline typename detail::phrase_match<Expr, Skipper>::type 
-    phrase_match(
-        Expr const& expr
-      , Skipper const& s
-      , BOOST_SCOPED_ENUM(skip_flag) post_skip = skip_flag::postskip)
+    inline detail::match_manip<Expr, unused_type const, Skipper>
+    phrase_match(Expr const& xpr, Skipper const& s)
     {
-        return detail::phrase_match<Expr, Skipper>::call(expr, s, post_skip);
+        typedef
+            spirit::traits::is_component<qi::domain, Expr>
+        expr_is_component;
+        typedef
+            spirit::traits::is_component<qi::domain, Skipper>
+        skipper_is_component;
+
+        // report invalid expression errors as early as possible
+        BOOST_MPL_ASSERT_MSG(expr_is_component::value,
+            xpr_is_not_convertible_to_a_parser, (Expr, Skipper));
+
+        BOOST_MPL_ASSERT_MSG(skipper_is_component::value,
+            skipper_is_not_convertible_to_a_parser, (Expr, Skipper));
+
+        return qi::detail::match_manip<Expr, unused_type const, Skipper>(
+            xpr, unused, s);
     }
 
-    template <typename Expr, typename Skipper, typename Attribute>
-    inline detail::match_manip<
-        Expr, mpl::false_, mpl::false_, Skipper, Attribute
-    >
-    phrase_match(
-        Expr const& xpr
-      , Skipper const& s
-      , BOOST_SCOPED_ENUM(skip_flag) post_skip
-      , Attribute& p)
+    template <typename Expr, typename Attribute, typename Skipper>
+    inline detail::match_manip<Expr, Attribute, Skipper>
+    phrase_match(Expr const& xpr, Attribute& p, Skipper const& s)
     {
-        using qi::detail::match_manip;
+        typedef
+            spirit::traits::is_component<qi::domain, Expr>
+        expr_is_component;
+        typedef
+            spirit::traits::is_component<qi::domain, Skipper>
+        skipper_is_component;
 
-        // Report invalid expression error as early as possible.
-        // If you got an error_invalid_expression error message here,
-        // then either the expression (expr) or skipper is not a valid
-        // spirit qi expression.
-        BOOST_SPIRIT_ASSERT_MATCH(qi::domain, Expr);
-        BOOST_SPIRIT_ASSERT_MATCH(qi::domain, Skipper);
-        return match_manip<Expr, mpl::false_, mpl::false_, Skipper, Attribute>(
-            xpr, s, post_skip, p);
-    }
+        // report invalid expression errors as early as possible
+        BOOST_MPL_ASSERT_MSG(expr_is_component::value,
+            xpr_is_not_convertible_to_a_parser, (Expr, Attribute, Skipper));
 
-    template <typename Expr, typename Skipper, typename Attribute>
-    inline detail::match_manip<
-        Expr, mpl::false_, mpl::false_, Skipper, Attribute
-    >
-    phrase_match(
-        Expr const& xpr
-      , Skipper const& s
-      , Attribute& p)
-    {
-        using qi::detail::match_manip;
+        BOOST_MPL_ASSERT_MSG(skipper_is_component::value,
+            skipper_is_not_convertible_to_a_parser, (Expr, Attribute, Skipper));
 
-        // Report invalid expression error as early as possible.
-        // If you got an error_invalid_expression error message here,
-        // then either the expression (expr) or skipper is not a valid
-        // spirit qi expression.
-        BOOST_SPIRIT_ASSERT_MATCH(qi::domain, Expr);
-        BOOST_SPIRIT_ASSERT_MATCH(qi::domain, Skipper);
-        return match_manip<Expr, mpl::false_, mpl::false_, Skipper, Attribute>(
-            xpr, s, p);
+        return qi::detail::match_manip<Expr, Attribute, Skipper>(xpr, p, s);
     }
 
     ///////////////////////////////////////////////////////////////////////////
-    template<typename Char, typename Traits, typename Derived>
-    inline std::basic_istream<Char, Traits>&
-    operator>>(std::basic_istream<Char, Traits>& is, parser<Derived> const& p)
+    template<typename Char, typename Traits, typename Expr>
+    inline typename
+        enable_if<
+            spirit::traits::is_component<qi::domain, Expr>,
+            std::basic_istream<Char, Traits> &
+        >::type
+    operator>> (std::basic_istream<Char, Traits> &is, Expr& xpr)
     {
-        typedef spirit::basic_istream_iterator<Char, Traits> input_iterator;
-
+        typedef std::istream_iterator<Char, Char, Traits> input_iterator;
         input_iterator f(is);
         input_iterator l;
-        if (!p.derived().parse(f, l, unused, unused, unused))
+        if (!qi::parse (f, l, xpr))
         {
             is.setstate(std::ios_base::failbit);
         }

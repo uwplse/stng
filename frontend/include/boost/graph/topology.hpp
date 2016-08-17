@@ -249,21 +249,7 @@ class hypercube_topology : public convex_topology<Dims>
   point_type center() const {
     point_type result;
     for (std::size_t i = 0; i < Dims; ++i)
-      result[i] = scaling * .5;
-    return result;
-  }
-
-  point_type origin() const {
-    point_type result;
-    for (std::size_t i = 0; i < Dims; ++i)
       result[i] = 0;
-    return result;
-  }
-
-  point_difference_type extent() const {
-    point_difference_type result;
-    for (std::size_t i = 0; i < Dims; ++i)
-      result[i] = scaling;
     return result;
   }
 
@@ -347,20 +333,6 @@ class rectangle_topology : public convex_topology<2>
     return result;
   }
 
-  point_type origin() const {
-    point_type result;
-    result[0] = left;
-    result[1] = top;
-    return result;
-  }
-
-  point_difference_type extent() const {
-    point_difference_type result;
-    result[0] = right - left;
-    result[1] = bottom - top;
-    return result;
-  }
-
  private:
   shared_ptr<RandomNumberGenerator> gen_ptr;
   shared_ptr<rand_t> rand;
@@ -387,7 +359,6 @@ class ball_topology : public convex_topology<Dims>
 
  public:
   typedef typename convex_topology<Dims>::point_type point_type;
-  typedef typename convex_topology<Dims>::point_difference_type point_difference_type;
 
   explicit ball_topology(double radius = 1.0) 
     : gen_ptr(new RandomNumberGenerator), rand(new rand_t(*gen_ptr)), 
@@ -439,20 +410,6 @@ class ball_topology : public convex_topology<Dims>
     point_type result;
     for (std::size_t i = 0; i < Dims; ++i)
       result[i] = 0;
-    return result;
-  }
-
-  point_type origin() const {
-    point_type result;
-    for (std::size_t i = 0; i < Dims; ++i)
-      result[i] = -radius;
-    return result;
-  }
-
-  point_difference_type extent() const {
-    point_difference_type result;
-    for (std::size_t i = 0; i < Dims; ++i)
-      result[i] = 2. * radius;
     return result;
   }
 

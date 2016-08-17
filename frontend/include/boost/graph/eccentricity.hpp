@@ -7,10 +7,9 @@
 #ifndef BOOST_GRAPH_ECCENTRICITY_HPP
 #define BOOST_GRAPH_ECCENTRICITY_HPP
 
-#include <boost/next_prior.hpp>
+#include <boost/utility.hpp>
 #include <boost/config.hpp>
 #include <boost/graph/detail/geodesic.hpp>
-#include <boost/concept/assert.hpp>
 
 namespace boost
 {
@@ -20,9 +19,9 @@ template <typename Graph,
 inline typename property_traits<DistanceMap>::value_type
 eccentricity(const Graph& g, DistanceMap dist, Combinator combine)
 {
-    BOOST_CONCEPT_ASSERT(( GraphConcept<Graph> ));
+    function_requires< GraphConcept<Graph> >();
     typedef typename graph_traits<Graph>::vertex_descriptor Vertex;
-    BOOST_CONCEPT_ASSERT(( ReadablePropertyMapConcept<DistanceMap,Vertex> ));
+    function_requires< ReadablePropertyMapConcept<DistanceMap,Vertex> >();
     typedef typename property_traits<DistanceMap>::value_type Distance;
 
     return detail::combine_distances(g, dist, combine, Distance(0));
@@ -32,9 +31,9 @@ template <typename Graph, typename DistanceMap>
 inline typename property_traits<DistanceMap>::value_type
 eccentricity(const Graph& g, DistanceMap dist)
 {
-    BOOST_CONCEPT_ASSERT(( GraphConcept<Graph> ));
+    function_requires< GraphConcept<Graph> >();
     typedef typename graph_traits<Graph>::vertex_descriptor Vertex;
-    BOOST_CONCEPT_ASSERT(( ReadablePropertyMapConcept<DistanceMap,Vertex> ));
+    function_requires< ReadablePropertyMapConcept<DistanceMap,Vertex> >();
     typedef typename property_traits<DistanceMap>::value_type Distance;
 
     return eccentricity(g, dist, detail::maximize<Distance>());
@@ -45,22 +44,22 @@ inline std::pair<typename property_traits<EccentricityMap>::value_type,
                     typename property_traits<EccentricityMap>::value_type>
 all_eccentricities(const Graph& g, const DistanceMatrix& dist, EccentricityMap ecc)
 {
-    BOOST_CONCEPT_ASSERT(( VertexListGraphConcept<Graph> ));
+    function_requires< VertexListGraphConcept<Graph> >();
     typedef typename graph_traits<Graph>::vertex_descriptor Vertex;
     typedef typename graph_traits<Graph>::vertex_iterator VertexIterator;
-    BOOST_CONCEPT_ASSERT(( ReadablePropertyMapConcept<DistanceMatrix,Vertex> ));
+    function_requires< ReadablePropertyMapConcept<DistanceMatrix,Vertex> >();
     typedef typename property_traits<DistanceMatrix>::value_type DistanceMap;
-    BOOST_CONCEPT_ASSERT(( WritablePropertyMapConcept<EccentricityMap,Vertex> ));
+    function_requires< WritablePropertyMapConcept<EccentricityMap,Vertex> >();
     typedef typename property_traits<EccentricityMap>::value_type Eccentricity;
     BOOST_USING_STD_MIN();
     BOOST_USING_STD_MAX();
-    
+
     Eccentricity
             r = numeric_values<Eccentricity>::infinity(),
             d = numeric_values<Eccentricity>::zero();
     VertexIterator i, end;
-    boost::tie(i, end) = vertices(g);
-    for(boost::tie(i, end) = vertices(g); i != end; ++i) {
+    tie(i, end) = vertices(g);
+    for(tie(i, end) = vertices(g); i != end; ++i) {
         DistanceMap dm = get(dist, *i);
         Eccentricity e = eccentricity(g, dm);
         put(ecc, *i, e);
@@ -69,7 +68,7 @@ all_eccentricities(const Graph& g, const DistanceMatrix& dist, EccentricityMap e
         r = min BOOST_PREVENT_MACRO_SUBSTITUTION (r, e);
         d = max BOOST_PREVENT_MACRO_SUBSTITUTION (d, e);
     }
-    return std::make_pair(r, d);
+    return make_pair(r, d);
 }
 
 template <typename Graph, typename EccentricityMap>
@@ -77,16 +76,14 @@ inline std::pair<typename property_traits<EccentricityMap>::value_type,
                     typename property_traits<EccentricityMap>::value_type>
 radius_and_diameter(const Graph& g, EccentricityMap ecc)
 {
-    BOOST_CONCEPT_ASSERT(( VertexListGraphConcept<Graph> ));
+    function_requires< VertexListGraphConcept<Graph> >();
     typedef typename graph_traits<Graph>::vertex_descriptor Vertex;
     typedef typename graph_traits<Graph>::vertex_iterator VertexIterator;
-    BOOST_CONCEPT_ASSERT(( ReadablePropertyMapConcept<EccentricityMap, Vertex> ));
+    function_requires< ReadablePropertyMapConcept<EccentricityMap, Vertex> >();
     typedef typename property_traits<EccentricityMap>::value_type Eccentricity;
-    BOOST_USING_STD_MIN();
-    BOOST_USING_STD_MAX();
 
     VertexIterator i, end;
-    boost::tie(i, end) = vertices(g);
+    tie(i, end) = vertices(g);
     Eccentricity radius = get(ecc, *i);
     Eccentricity diameter = get(ecc, *i);
     for(i = boost::next(i); i != end; ++i) {

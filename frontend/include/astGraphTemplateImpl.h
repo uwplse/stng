@@ -1,5 +1,3 @@
-#include <astGraph.h>
-
 namespace AST_Graph{
 
 template<typename Functional1, typename Functional2>

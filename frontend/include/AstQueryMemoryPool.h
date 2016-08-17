@@ -248,14 +248,6 @@ case V_SgTypeTable: {
   SgTypeTable::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgJavaImportStatementList: {
-  SgJavaImportStatementList::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgJavaClassDeclarationList: {
-  SgJavaClassDeclarationList::traverseMemoryPoolNodes(astQuery);
-  break;
-}
 case V_SgSupport: {
   SgSupport::traverseMemoryPoolNodes(astQuery);
   break;
@@ -356,18 +348,6 @@ case V_SgTypeBool: {
   SgTypeBool::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgTypeMatrix: {
-  SgTypeMatrix::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgTypeTuple: {
-  SgTypeTuple::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgTypeNullptr: {
-  SgTypeNullptr::traverseMemoryPoolNodes(astQuery);
-  break;
-}
 case V_SgTypeComplex: {
   SgTypeComplex::traverseMemoryPoolNodes(astQuery);
   break;
@@ -388,52 +368,20 @@ case V_SgReferenceType: {
   SgReferenceType::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgRvalueReferenceType: {
-  SgRvalueReferenceType::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgDeclType: {
-  SgDeclType::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgTypeOfType: {
-  SgTypeOfType::traverseMemoryPoolNodes(astQuery);
-  break;
-}
 case V_SgTypeCAFTeam: {
   SgTypeCAFTeam::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgTypeUnsigned128bitInteger: {
-  SgTypeUnsigned128bitInteger::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgTypeSigned128bitInteger: {
-  SgTypeSigned128bitInteger::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgTypeLabel: {
   SgTypeLabel::traverseMemoryPoolNodes(astQuery);
   break;
 }
+case V_SgClassType: {
+  SgClassType::traverseMemoryPoolNodes(astQuery);
+  break;
+}
 case V_SgJavaParameterizedType: {
   SgJavaParameterizedType::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgJavaQualifiedType: {
-  SgJavaQualifiedType::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgJavaWildcardType: {
-  SgJavaWildcardType::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgJavaUnionType: {
-  SgJavaUnionType::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgJavaParameterType: {
-  SgJavaParameterType::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgTemplateType: {
@@ -482,10 +430,6 @@ case V_SgFunctionType: {
 }
 case V_SgPointerType: {
   SgPointerType::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgClassType: {
-  SgClassType::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgNamedType: {
@@ -548,8 +492,8 @@ case V_SgCatchOptionStmt: {
   SgCatchOptionStmt::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgFunctionParameterScope: {
-  SgFunctionParameterScope::traverseMemoryPoolNodes(astQuery);
+case V_SgVariableDeclaration: {
+  SgVariableDeclaration::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgVariableDefinition: {
@@ -566,6 +510,10 @@ case V_SgEnumDeclaration: {
 }
 case V_SgAsmStmt: {
   SgAsmStmt::traverseMemoryPoolNodes(astQuery);
+  break;
+}
+case V_SgTypedefDeclaration: {
+  SgTypedefDeclaration::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgFunctionTypeTable: {
@@ -612,16 +560,20 @@ case V_SgSpawnStmt: {
   SgSpawnStmt::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgTemplateTypedefDeclaration: {
-  SgTemplateTypedefDeclaration::traverseMemoryPoolNodes(astQuery);
+case V_SgJavaThrowStatement: {
+  SgJavaThrowStatement::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgTemplateInstantiationTypedefDeclaration: {
-  SgTemplateInstantiationTypedefDeclaration::traverseMemoryPoolNodes(astQuery);
+case V_SgJavaForEachStatement: {
+  SgJavaForEachStatement::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgTypedefDeclaration: {
-  SgTypedefDeclaration::traverseMemoryPoolNodes(astQuery);
+case V_SgJavaSynchronizedStatement: {
+  SgJavaSynchronizedStatement::traverseMemoryPoolNodes(astQuery);
+  break;
+}
+case V_SgJavaLabelStatement: {
+  SgJavaLabelStatement::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgNullStatement: {
@@ -648,16 +600,8 @@ case V_SgTemplateFunctionDeclaration: {
   SgTemplateFunctionDeclaration::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgTemplateVariableDeclaration: {
-  SgTemplateVariableDeclaration::traverseMemoryPoolNodes(astQuery);
-  break;
-}
 case V_SgTemplateDeclaration: {
   SgTemplateDeclaration::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgVariableDeclaration: {
-  SgVariableDeclaration::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgTemplateInstantiationDecl: {
@@ -804,10 +748,6 @@ case V_SgIOStatement: {
   SgIOStatement::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgMatlabForStatement: {
-  SgMatlabForStatement::traverseMemoryPoolNodes(astQuery);
-  break;
-}
 case V_SgUpcNotifyStatement: {
   SgUpcNotifyStatement::traverseMemoryPoolNodes(astQuery);
   break;
@@ -852,18 +792,6 @@ case V_SgOmpSectionsStatement: {
   SgOmpSectionsStatement::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgOmpTargetStatement: {
-  SgOmpTargetStatement::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgOmpTargetDataStatement: {
-  SgOmpTargetDataStatement::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgOmpSimdStatement: {
-  SgOmpSimdStatement::traverseMemoryPoolNodes(astQuery);
-  break;
-}
 case V_SgOmpClauseBodyStatement: {
   SgOmpClauseBodyStatement::traverseMemoryPoolNodes(astQuery);
   break;
@@ -896,52 +824,8 @@ case V_SgOmpBodyStatement: {
   SgOmpBodyStatement::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgJavaThrowStatement: {
-  SgJavaThrowStatement::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgJavaForEachStatement: {
-  SgJavaForEachStatement::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgJavaSynchronizedStatement: {
-  SgJavaSynchronizedStatement::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgJavaLabelStatement: {
-  SgJavaLabelStatement::traverseMemoryPoolNodes(astQuery);
-  break;
-}
 case V_SgJavaImportStatement: {
   SgJavaImportStatement::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgJavaPackageDeclaration: {
-  SgJavaPackageDeclaration::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgJavaPackageStatement: {
-  SgJavaPackageStatement::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgAsyncStmt: {
-  SgAsyncStmt::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgFinishStmt: {
-  SgFinishStmt::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgAtStmt: {
-  SgAtStmt::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgAtomicStmt: {
-  SgAtomicStmt::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgWhenStmt: {
-  SgWhenStmt::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgBlockDataStatement: {
@@ -1050,10 +934,6 @@ case V_SgUsingDirectiveStatement: {
 }
 case V_SgTemplateInstantiationDirectiveStatement: {
   SgTemplateInstantiationDirectiveStatement::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgStaticAssertionDeclaration: {
-  SgStaticAssertionDeclaration::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgTemplateClassDefinition: {
@@ -1188,10 +1068,6 @@ case V_SgOmpThreadprivateStatement: {
   SgOmpThreadprivateStatement::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgMicrosoftAttributeDeclaration: {
-  SgMicrosoftAttributeDeclaration::traverseMemoryPoolNodes(astQuery);
-  break;
-}
 case V_SgDeclarationStatement: {
   SgDeclarationStatement::traverseMemoryPoolNodes(astQuery);
   break;
@@ -1202,10 +1078,6 @@ case V_SgStatement: {
 }
 case V_SgVarRefExp: {
   SgVarRefExp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgCompoundLiteralExp: {
-  SgCompoundLiteralExp::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgLabelRefExp: {
@@ -1224,56 +1096,16 @@ case V_SgMemberFunctionRefExp: {
   SgMemberFunctionRefExp::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgTemplateFunctionRefExp: {
-  SgTemplateFunctionRefExp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgTemplateMemberFunctionRefExp: {
-  SgTemplateMemberFunctionRefExp::traverseMemoryPoolNodes(astQuery);
+case V_SgFunctionCallExp: {
+  SgFunctionCallExp::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgSizeOfOp: {
   SgSizeOfOp::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgAlignOfOp: {
-  SgAlignOfOp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgNoexceptOp: {
-  SgNoexceptOp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
 case V_SgJavaInstanceOfOp: {
   SgJavaInstanceOfOp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgJavaMarkerAnnotation: {
-  SgJavaMarkerAnnotation::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgJavaSingleMemberAnnotation: {
-  SgJavaSingleMemberAnnotation::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgJavaNormalAnnotation: {
-  SgJavaNormalAnnotation::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgJavaAnnotation: {
-  SgJavaAnnotation::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgJavaTypeExpression: {
-  SgJavaTypeExpression::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgTypeExpression: {
-  SgTypeExpression::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgLambdaExp: {
-  SgLambdaExp::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgUpcLocalsizeofExpression: {
@@ -1330,10 +1162,6 @@ case V_SgThisExp: {
 }
 case V_SgSuperExp: {
   SgSuperExp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgClassExp: {
-  SgClassExp::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgRefExp: {
@@ -1656,18 +1484,6 @@ case V_SgLongDoubleVal: {
   SgLongDoubleVal::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgNullptrValExp: {
-  SgNullptrValExp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgFunctionParameterRefExp: {
-  SgFunctionParameterRefExp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgTemplateParameterVal: {
-  SgTemplateParameterVal::traverseMemoryPoolNodes(astQuery);
-  break;
-}
 case V_SgUpcThreads: {
   SgUpcThreads::traverseMemoryPoolNodes(astQuery);
   break;
@@ -1764,22 +1580,6 @@ case V_SgYieldExpression: {
   SgYieldExpression::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgHereExp: {
-  SgHereExp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgDotDotExp: {
-  SgDotDotExp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgAtExp: {
-  SgAtExp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgFinishExp: {
-  SgFinishExp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
 case V_SgSubscriptExpression: {
   SgSubscriptExpression::traverseMemoryPoolNodes(astQuery);
   break;
@@ -1828,58 +1628,6 @@ case V_SgDesignatedInitializer: {
   SgDesignatedInitializer::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgMatrixExp: {
-  SgMatrixExp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgRangeExp: {
-  SgRangeExp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgMagicColonExp: {
-  SgMagicColonExp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgElementwiseMultiplyOp: {
-  SgElementwiseMultiplyOp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgPowerOp: {
-  SgPowerOp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgElementwisePowerOp: {
-  SgElementwisePowerOp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgElementwiseDivideOp: {
-  SgElementwiseDivideOp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgLeftDivideOp: {
-  SgLeftDivideOp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgElementwiseLeftDivideOp: {
-  SgElementwiseLeftDivideOp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgElementwiseAddOp: {
-  SgElementwiseAddOp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgElementwiseSubtractOp: {
-  SgElementwiseSubtractOp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgMatrixTransposeOp: {
-  SgMatrixTransposeOp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgElementwiseOp: {
-  SgElementwiseOp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
 case V_SgInitializer: {
   SgInitializer::traverseMemoryPoolNodes(astQuery);
   break;
@@ -1916,24 +1664,12 @@ case V_SgExprListExp: {
   SgExprListExp::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgFunctionCallExp: {
-  SgFunctionCallExp::traverseMemoryPoolNodes(astQuery);
-  break;
-}
 case V_SgCallExpression: {
   SgCallExpression::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgTypeTraitBuiltinOperator: {
-  SgTypeTraitBuiltinOperator::traverseMemoryPoolNodes(astQuery);
-  break;
-}
 case V_SgExpression: {
   SgExpression::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgTemplateVariableSymbol: {
-  SgTemplateVariableSymbol::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgVariableSymbol: {
@@ -1942,10 +1678,6 @@ case V_SgVariableSymbol: {
 }
 case V_SgFunctionTypeSymbol: {
   SgFunctionTypeSymbol::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgTemplateClassSymbol: {
-  SgTemplateClassSymbol::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgClassSymbol: {
@@ -1964,20 +1696,12 @@ case V_SgEnumFieldSymbol: {
   SgEnumFieldSymbol::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgTemplateTypedefSymbol: {
-  SgTemplateTypedefSymbol::traverseMemoryPoolNodes(astQuery);
-  break;
-}
 case V_SgTypedefSymbol: {
   SgTypedefSymbol::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgTemplateFunctionSymbol: {
-  SgTemplateFunctionSymbol::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgTemplateMemberFunctionSymbol: {
-  SgTemplateMemberFunctionSymbol::traverseMemoryPoolNodes(astQuery);
+case V_SgMemberFunctionSymbol: {
+  SgMemberFunctionSymbol::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgLabelSymbol: {
@@ -2016,10 +1740,6 @@ case V_SgRenameSymbol: {
   SgRenameSymbol::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgMemberFunctionSymbol: {
-  SgMemberFunctionSymbol::traverseMemoryPoolNodes(astQuery);
-  break;
-}
 case V_SgFunctionSymbol: {
   SgFunctionSymbol::traverseMemoryPoolNodes(astQuery);
   break;
@@ -2044,20 +1764,12 @@ case V_SgAsmArmInstruction: {
   SgAsmArmInstruction::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgAsmX86Instruction: {
-  SgAsmX86Instruction::traverseMemoryPoolNodes(astQuery);
+case V_SgAsmx86Instruction: {
+  SgAsmx86Instruction::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgAsmPowerpcInstruction: {
   SgAsmPowerpcInstruction::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgAsmMipsInstruction: {
-  SgAsmMipsInstruction::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgAsmM68kInstruction: {
-  SgAsmM68kInstruction::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgAsmInstruction: {
@@ -2144,32 +1856,52 @@ case V_SgAsmUnaryExpression: {
   SgAsmUnaryExpression::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgAsmDirectRegisterExpression: {
-  SgAsmDirectRegisterExpression::traverseMemoryPoolNodes(astQuery);
+case V_SgAsmx86RegisterReferenceExpression: {
+  SgAsmx86RegisterReferenceExpression::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgAsmIndirectRegisterExpression: {
-  SgAsmIndirectRegisterExpression::traverseMemoryPoolNodes(astQuery);
+case V_SgAsmArmRegisterReferenceExpression: {
+  SgAsmArmRegisterReferenceExpression::traverseMemoryPoolNodes(astQuery);
+  break;
+}
+case V_SgAsmPowerpcRegisterReferenceExpression: {
+  SgAsmPowerpcRegisterReferenceExpression::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgAsmRegisterReferenceExpression: {
   SgAsmRegisterReferenceExpression::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgAsmRegisterNames: {
-  SgAsmRegisterNames::traverseMemoryPoolNodes(astQuery);
+case V_SgAsmByteValueExpression: {
+  SgAsmByteValueExpression::traverseMemoryPoolNodes(astQuery);
+  break;
+}
+case V_SgAsmWordValueExpression: {
+  SgAsmWordValueExpression::traverseMemoryPoolNodes(astQuery);
+  break;
+}
+case V_SgAsmDoubleWordValueExpression: {
+  SgAsmDoubleWordValueExpression::traverseMemoryPoolNodes(astQuery);
+  break;
+}
+case V_SgAsmQuadWordValueExpression: {
+  SgAsmQuadWordValueExpression::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgAsmIntegerValueExpression: {
   SgAsmIntegerValueExpression::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgAsmFloatValueExpression: {
-  SgAsmFloatValueExpression::traverseMemoryPoolNodes(astQuery);
+case V_SgAsmSingleFloatValueExpression: {
+  SgAsmSingleFloatValueExpression::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgAsmConstantExpression: {
-  SgAsmConstantExpression::traverseMemoryPoolNodes(astQuery);
+case V_SgAsmDoubleFloatValueExpression: {
+  SgAsmDoubleFloatValueExpression::traverseMemoryPoolNodes(astQuery);
+  break;
+}
+case V_SgAsmVectorValueExpression: {
+  SgAsmVectorValueExpression::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgAsmValueExpression: {
@@ -2188,10 +1920,6 @@ case V_SgAsmCommonSubExpression: {
   SgAsmCommonSubExpression::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgAsmRiscOperation: {
-  SgAsmRiscOperation::traverseMemoryPoolNodes(astQuery);
-  break;
-}
 case V_SgAsmExprListExp: {
   SgAsmExprListExp::traverseMemoryPoolNodes(astQuery);
   break;
@@ -2200,20 +1928,44 @@ case V_SgAsmExpression: {
   SgAsmExpression::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgAsmIntegerType: {
-  SgAsmIntegerType::traverseMemoryPoolNodes(astQuery);
+case V_SgAsmTypeByte: {
+  SgAsmTypeByte::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgAsmFloatType: {
-  SgAsmFloatType::traverseMemoryPoolNodes(astQuery);
+case V_SgAsmTypeWord: {
+  SgAsmTypeWord::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgAsmScalarType: {
-  SgAsmScalarType::traverseMemoryPoolNodes(astQuery);
+case V_SgAsmTypeDoubleWord: {
+  SgAsmTypeDoubleWord::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgAsmVectorType: {
-  SgAsmVectorType::traverseMemoryPoolNodes(astQuery);
+case V_SgAsmTypeQuadWord: {
+  SgAsmTypeQuadWord::traverseMemoryPoolNodes(astQuery);
+  break;
+}
+case V_SgAsmTypeDoubleQuadWord: {
+  SgAsmTypeDoubleQuadWord::traverseMemoryPoolNodes(astQuery);
+  break;
+}
+case V_SgAsmTypeSingleFloat: {
+  SgAsmTypeSingleFloat::traverseMemoryPoolNodes(astQuery);
+  break;
+}
+case V_SgAsmTypeDoubleFloat: {
+  SgAsmTypeDoubleFloat::traverseMemoryPoolNodes(astQuery);
+  break;
+}
+case V_SgAsmType80bitFloat: {
+  SgAsmType80bitFloat::traverseMemoryPoolNodes(astQuery);
+  break;
+}
+case V_SgAsmType128bitFloat: {
+  SgAsmType128bitFloat::traverseMemoryPoolNodes(astQuery);
+  break;
+}
+case V_SgAsmTypeVector: {
+  SgAsmTypeVector::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgAsmType: {
@@ -2230,18 +1982,6 @@ case V_SgAsmBlock: {
 }
 case V_SgAsmStaticData: {
   SgAsmStaticData::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgAsmSynthesizedDataStructureDeclaration: {
-  SgAsmSynthesizedDataStructureDeclaration::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgAsmSynthesizedFieldDeclaration: {
-  SgAsmSynthesizedFieldDeclaration::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgAsmSynthesizedDeclaration: {
-  SgAsmSynthesizedDeclaration::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgAsmStatement: {
@@ -2956,32 +2696,12 @@ case V_SgInitializedName: {
   SgInitializedName::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgLambdaCapture: {
-  SgLambdaCapture::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgLambdaCaptureList: {
-  SgLambdaCaptureList::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgJavaMemberValuePair: {
-  SgJavaMemberValuePair::traverseMemoryPoolNodes(astQuery);
-  break;
-}
 case V_SgOmpOrderedClause: {
   SgOmpOrderedClause::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgOmpNowaitClause: {
   SgOmpNowaitClause::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgOmpBeginClause: {
-  SgOmpBeginClause::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgOmpEndClause: {
-  SgOmpEndClause::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgOmpUntiedClause: {
@@ -3002,14 +2722,6 @@ case V_SgOmpIfClause: {
 }
 case V_SgOmpNumThreadsClause: {
   SgOmpNumThreadsClause::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgOmpDeviceClause: {
-  SgOmpDeviceClause::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgOmpSafelenClause: {
-  SgOmpSafelenClause::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgOmpExpressionClause: {
@@ -3044,22 +2756,6 @@ case V_SgOmpReductionClause: {
   SgOmpReductionClause::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgOmpMapClause: {
-  SgOmpMapClause::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgOmpLinearClause: {
-  SgOmpLinearClause::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgOmpUniformClause: {
-  SgOmpUniformClause::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgOmpAlignedClause: {
-  SgOmpAlignedClause::traverseMemoryPoolNodes(astQuery);
-  break;
-}
 case V_SgOmpVariablesClause: {
   SgOmpVariablesClause::traverseMemoryPoolNodes(astQuery);
   break;
@@ -3084,146 +2780,6 @@ case V_SgHeaderFileBody: {
   SgHeaderFileBody::traverseMemoryPoolNodes(astQuery);
   break;
 }
-case V_SgUntypedUnaryOperator: {
-  SgUntypedUnaryOperator::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedBinaryOperator: {
-  SgUntypedBinaryOperator::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedValueExpression: {
-  SgUntypedValueExpression::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedArrayReferenceExpression: {
-  SgUntypedArrayReferenceExpression::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedOtherExpression: {
-  SgUntypedOtherExpression::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedFunctionCallOrArrayReferenceExpression: {
-  SgUntypedFunctionCallOrArrayReferenceExpression::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedReferenceExpression: {
-  SgUntypedReferenceExpression::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedExpression: {
-  SgUntypedExpression::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedImplicitDeclaration: {
-  SgUntypedImplicitDeclaration::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedVariableDeclaration: {
-  SgUntypedVariableDeclaration::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedProgramHeaderDeclaration: {
-  SgUntypedProgramHeaderDeclaration::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedSubroutineDeclaration: {
-  SgUntypedSubroutineDeclaration::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedFunctionDeclaration: {
-  SgUntypedFunctionDeclaration::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedModuleDeclaration: {
-  SgUntypedModuleDeclaration::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedDeclarationStatement: {
-  SgUntypedDeclarationStatement::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedAssignmentStatement: {
-  SgUntypedAssignmentStatement::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedFunctionCallStatement: {
-  SgUntypedFunctionCallStatement::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedBlockStatement: {
-  SgUntypedBlockStatement::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedNamedStatement: {
-  SgUntypedNamedStatement::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedOtherStatement: {
-  SgUntypedOtherStatement::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedFunctionScope: {
-  SgUntypedFunctionScope::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedModuleScope: {
-  SgUntypedModuleScope::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedGlobalScope: {
-  SgUntypedGlobalScope::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedScope: {
-  SgUntypedScope::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedStatement: {
-  SgUntypedStatement::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedArrayType: {
-  SgUntypedArrayType::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedType: {
-  SgUntypedType::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedAttribute: {
-  SgUntypedAttribute::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedInitializedName: {
-  SgUntypedInitializedName::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedFile: {
-  SgUntypedFile::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedStatementList: {
-  SgUntypedStatementList::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedDeclarationStatementList: {
-  SgUntypedDeclarationStatementList::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedFunctionDeclarationList: {
-  SgUntypedFunctionDeclarationList::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedInitializedNameList: {
-  SgUntypedInitializedNameList::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgUntypedNode: {
-  SgUntypedNode::traverseMemoryPoolNodes(astQuery);
-  break;
-}
 case V_SgLocatedNodeSupport: {
   SgLocatedNodeSupport::traverseMemoryPoolNodes(astQuery);
   break;
@@ -3234,10 +2790,6 @@ case V_SgToken: {
 }
 case V_SgLocatedNode: {
   SgLocatedNode::traverseMemoryPoolNodes(astQuery);
-  break;
-}
-case V_SgAterm: {
-  SgAterm::traverseMemoryPoolNodes(astQuery);
   break;
 }
 case V_SgNode: {

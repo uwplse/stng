@@ -22,10 +22,12 @@
 
 #include "unparseFortran.h"
 #include "unparseFortran_types.h"
+
 #include "unparseJava.h"
+
 #include "unparsePHP.h"
+
 #include "unparsePython.h"
-#include "unparseX10.h"
 
 // DQ (7/20/2008): New mechanism to permit unparsing of arbitrary strings at IR nodes.
 // This is intended to suppport non standard backend compiler annotations.
@@ -81,7 +83,7 @@ std::string get_output_filename( SgFile& file);
 std::string get_type_name( SgType* t);
 
 //! Unparse the declaration as a string for use in prototypes within the AST rewrite mechanism prefix mechanism
-ROSE_DLL_API std::string unparseDeclarationToString ( SgDeclarationStatement* declaration, bool unparseAsDeclaration = true );
+std::string unparseDeclarationToString ( SgDeclarationStatement* declaration, bool unparseAsDeclaration = true );
 
 //! Unparse the header of the scope statement (used in the prefix generation to 
 //! permit context to be accounted for the in generation of AST fragements from 
@@ -194,19 +196,6 @@ class Unparser
           bool p_resetSourcePosition;
 
      public:
-#if 0
-       // DQ (12/6/2014): This type permits specification of what bounds to use in the specifiation of token stream subsequence boundaries.
-          enum token_sequence_position_enum_type
-             {
-               e_leading_whitespace_start,
-               e_leading_whitespace_end,
-               e_token_subsequence_start,
-               e_token_subsequence_end,
-               e_trailing_whitespace_start,
-               e_trailing_whitespace_end
-             };
-#endif
-
        // DQ (8/19/2007): I have removed the "int lineNumberToUnparse" function parameter (see code for details).
        // Unparser( std::ostream* localStream, std::string filename, Unparser_Opt info, int lineNumberToUnparse, UnparseFormatHelp *h = NULL, UnparseDelegate* repl = NULL);
       //! constructor
@@ -272,15 +261,6 @@ class Unparser
        // DQ (5/8/2010): Added support to force unparser to reset the source positon in the AST (this is the only side-effect in unparsing).
       //! Reset the Sg_File_Info to reference the unparsed (generated) source code.
           void resetSourcePosition (SgStatement* stmt);
-
-       // DQ (9/30/2013): Unparse the file using the token stream (stored in the SgFile).
-          void unparseFileUsingTokenStream ( SgSourceFile* file );
-
-       // DQ (9/30/2013): Supporting function for evaluating token source position information.
-       // int getNumberOfLines( std::string s ) const;
-       // int getColumnNumberOfEndOfString( std::string s ) const;
-          static int getNumberOfLines( std::string s );
-          static int getColumnNumberOfEndOfString( std::string s );
    };
 
 
@@ -292,13 +272,13 @@ void resetSourcePositionToGeneratedCode( SgFile* file, UnparseFormatHelp *unpars
 // called by the user if backend compilation using the vendor compiler is not required.
 
 //! User callable function available if compilation using the backend compiler is not required.
-ROSE_DLL_API void unparseFile   ( SgFile*    file,    UnparseFormatHelp* unparseHelp = NULL, UnparseDelegate *repl  = NULL, SgScopeStatement* unparseScope = NULL );
+void unparseFile   ( SgFile*    file,    UnparseFormatHelp* unparseHelp = NULL, UnparseDelegate *repl  = NULL, SgScopeStatement* unparseScope = NULL );
 
 //! User callable function available if compilation using the backend compiler is not required.
-ROSE_DLL_API void unparseIncludedFiles( SgProject* project, UnparseFormatHelp* unparseHelp = NULL, UnparseDelegate *repl  = NULL );
+void unparseIncludedFiles( SgProject* project, UnparseFormatHelp* unparseHelp = NULL, UnparseDelegate *repl  = NULL );
 
 //! User callable function available if compilation using the backend compiler is not required.
-ROSE_DLL_API void unparseProject( SgProject* project, UnparseFormatHelp* unparseHelp = NULL, UnparseDelegate *repl  = NULL );
+void unparseProject( SgProject* project, UnparseFormatHelp* unparseHelp = NULL, UnparseDelegate *repl  = NULL );
 
 //! Support for handling directories of files in ROSE (useful for code generation).
 void unparseDirectory   ( SgDirectory* directory, UnparseFormatHelp* unparseHelp = NULL, UnparseDelegate *repl  = NULL );

@@ -102,8 +102,7 @@ class StoragePolicy
 #include <functional>
 #include <limits>
 #include <stdexcept>
-#include <ios>
-
+#include <iosfwd>
 #include <cstddef>
 #include <cstring>
 #include <cstdlib>
@@ -326,7 +325,7 @@ public:
         E buffer_[1];
     };
     static const Data emptyString_;
-
+    
     typedef typename A::size_type size_type;
 
 private:
@@ -343,7 +342,7 @@ private:
         {
             // 11-17-2000: comment added: 
             //     No need to allocate (capacity + 1) to 
-            //     accommodate the terminating 0, because Data already
+            //     accomodate the terminating 0, because Data already
             //     has one one character in there
             pData_ = static_cast<Data*>(
                 malloc(sizeof(Data) + capacity * sizeof(E)));
@@ -352,34 +351,34 @@ private:
             pData_->pEndOfMem_ = pData_->buffer_ + capacity;
         }
     }
-
+    
 private:
     // Warning - this doesn't initialize pData_. Used in reserve()
     SimpleStringStorage()
     { }
-
+    
 public:
     typedef E value_type;
     typedef E* iterator;
     typedef const E* const_iterator;
     typedef A allocator_type;
-
+    
     SimpleStringStorage(const SimpleStringStorage& rhs) 
     {
         const size_type sz = rhs.size();
         Init(sz, sz);
         if (sz) flex_string_details::pod_copy(rhs.begin(), rhs.end(), begin());
     }
-
+    
     SimpleStringStorage(const SimpleStringStorage& s, 
         flex_string_details::Shallow) 
         : pData_(s.pData_)
     {
     }
-
+    
     SimpleStringStorage(const A&)
     { pData_ = const_cast<Data*>(&emptyString_); }
-
+    
     SimpleStringStorage(const E* s, size_type len, const A&)
     {
         Init(len, len);
@@ -391,7 +390,7 @@ public:
         Init(len, len);
         flex_string_details::pod_fill(begin(), end(), c);
     }
-
+    
     SimpleStringStorage& operator=(const SimpleStringStorage& rhs)
     {
         const size_type sz = rhs.size();
@@ -409,16 +408,16 @@ public:
 
     iterator begin()
     { return pData_->buffer_; }
-
+    
     const_iterator begin() const
     { return pData_->buffer_; }
-
+    
     iterator end()
     { return pData_->pEnd_; }
-
+    
     const_iterator end() const
     { return pData_->pEnd_; }
-
+    
     size_type size() const
     { return pData_->pEnd_ - pData_->buffer_; }
 
@@ -480,7 +479,7 @@ public:
         flex_string_details::pod_copy(s, s + sz, end());
         pData_->pEnd_ += sz;
     }
-
+    
     template <class InputIterator>
     void append(InputIterator b, InputIterator e)
     {
@@ -528,8 +527,12 @@ public:
 
 template <typename E, class A>
 const typename SimpleStringStorage<E, A>::Data
-SimpleStringStorage<E, A>::emptyString_ = 
-    typename SimpleStringStorage<E, A>::Data();
+SimpleStringStorage<E, A>::emptyString_ = typename SimpleStringStorage<E, A>::Data();
+//{ 
+//  const_cast<E*>(SimpleStringStorage<E, A>::emptyString_.buffer_), 
+//  const_cast<E*>(SimpleStringStorage<E, A>::emptyString_.buffer_), 
+//  { E() }
+//};
 
 ////////////////////////////////////////////////////////////////////////////////
 // class template AllocatorStringStorage
@@ -581,13 +584,13 @@ class AllocatorStringStorage : public A
             pData_->pEndOfMem_ = pData_->buffer_ + cap;
         }
     }
-
+    
 public:
     typedef E value_type;
-    typedef E* iterator;
-    typedef const E* const_iterator;
     typedef A allocator_type;
-
+    typedef typename A::pointer iterator;
+    typedef typename A::const_pointer const_iterator;
+    
     AllocatorStringStorage() 
     : A(), pData_(0)
     {
@@ -600,24 +603,24 @@ public:
         Init(sz, sz);
         if (sz) flex_string_details::pod_copy(rhs.begin(), rhs.end(), begin());
     }
-
+    
     AllocatorStringStorage(const AllocatorStringStorage& s, 
         flex_string_details::Shallow) 
     : A(s.get_allocator())
     {
         pData_ = s.pData_;
     }
-
+    
     AllocatorStringStorage(const A& a) : A(a)
     { 
         pData_ = const_cast<Data*>(
             &SimpleStringStorage<E, A>::emptyString_);
     }
-
+    
     AllocatorStringStorage(const E* s, size_type len, const A& a)
     : A(a)
     {
-        Init(len, len);
+        Init(len, len);        
         flex_string_details::pod_copy(s, s + len, begin());
     }
 
@@ -627,7 +630,7 @@ public:
         Init(len, len);
         flex_string_details::pod_fill(&*begin(), &*end(), c);
     }
-
+    
     AllocatorStringStorage& operator=(const AllocatorStringStorage& rhs)
     {
         const size_type sz = rhs.size();
@@ -636,7 +639,7 @@ public:
         pData_->pEnd_ = &*begin() + rhs.size();
         return *this;
     }
-
+    
     ~AllocatorStringStorage()
     {
         if (capacity())
@@ -645,19 +648,19 @@ public:
                 sizeof(Data) + capacity() * sizeof(E));
         }
     }
-
+        
     iterator begin()
     { return pData_->buffer_; }
-
+    
     const_iterator begin() const
     { return pData_->buffer_; }
-
+    
     iterator end()
     { return pData_->pEnd_; }
-
+    
     const_iterator end() const
     { return pData_->pEnd_; }
-
+    
     size_type size() const
     { return size_type(end() - begin()); }
 
@@ -687,13 +690,13 @@ public:
             // @@@ shrink to fit here 
             return;
         }
-
+        
         A& myAlloc = *this;
         AllocatorStringStorage newStr(myAlloc);
         newStr.Init(size(), res_arg);
-
+        
         flex_string_details::pod_copy(begin(), end(), newStr.begin());
-
+        
         swap(newStr);
     }
 
@@ -713,14 +716,14 @@ public:
         std::copy(b, e, end());
         pData_->pEnd_ += sz;
     }
-
+    
     void swap(AllocatorStringStorage& rhs)
     {
         // @@@ The following line is commented due to a bug in MSVC
         //std::swap(lhsAlloc, rhsAlloc);
         std::swap(pData_, rhs.pData_);
     }
-
+    
     const E* c_str() const
     { 
         if (pData_ != &SimpleStringStorage<E, A>::emptyString_) 
@@ -732,7 +735,7 @@ public:
 
     const E* data() const
     { return &*begin(); }
-
+    
     A get_allocator() const
     { return *this; }
 };
@@ -891,26 +894,26 @@ private:
         mutable value_type buf_[maxSmallString + 1];
         Align align_;
     };
-
+    
     Storage& GetStorage()
     {
         BOOST_ASSERT(buf_[maxSmallString] == magic);
         Storage* p = reinterpret_cast<Storage*>(&buf_[0]);
         return *p;
     }
-
+    
     const Storage& GetStorage() const
     {
         BOOST_ASSERT(buf_[maxSmallString] == magic);
         const Storage *p = reinterpret_cast<const Storage*>(&buf_[0]);
         return *p;
     }
-
+    
     bool Small() const
     {
         return buf_[maxSmallString] != magic;
     }
-
+        
 public:
   SmallStringOpt(const SmallStringOpt& s)
     {
@@ -927,12 +930,12 @@ public:
         }
         buf_[maxSmallString] = s.buf_[maxSmallString];
     }
-
+    
     SmallStringOpt(const allocator_type&)
     {
         buf_[maxSmallString] = maxSmallString;
     }
-
+    
     SmallStringOpt(const value_type* s, size_type len, const allocator_type& a)
     {
         if (len <= maxSmallString)
@@ -960,7 +963,7 @@ public:
             buf_[maxSmallString] = magic;
         }
     }
-
+    
     SmallStringOpt& operator=(const SmallStringOpt& rhs)
     {
         reserve(rhs.size());
@@ -979,25 +982,25 @@ public:
         if (Small()) return buf_;
         return &*GetStorage().begin(); 
     }
-
+    
     const_iterator begin() const
     {
         if (Small()) return buf_;
         return &*GetStorage().begin(); 
     }
-
+    
     iterator end()
     {
         if (Small()) return buf_ + maxSmallString - buf_[maxSmallString];
         return &*GetStorage().end(); 
     }
-
+    
     const_iterator end() const
     {
         if (Small()) return buf_ + maxSmallString - buf_[maxSmallString];
         return &*GetStorage().end(); 
     }
-
+    
     size_type size() const
     {
         BOOST_ASSERT(!Small() || maxSmallString >= buf_[maxSmallString]);
@@ -1030,7 +1033,7 @@ public:
         }
         BOOST_ASSERT(capacity() >= res_arg);
     }
-
+    
     void append(const value_type* s, size_type sz)
     {
         if (!Small())
@@ -1063,7 +1066,7 @@ public:
             }
         }
     }
-
+    
     template <class InputIterator>
     void append(InputIterator b, InputIterator e)
     {
@@ -1163,7 +1166,7 @@ public:
             }
         }
     }
-
+    
     const value_type* c_str() const
     { 
         if (!Small()) return GetStorage().c_str(); 
@@ -1208,10 +1211,7 @@ private:
     };
 
     Storage& Data() const
-    { 
-        Storage* p = reinterpret_cast<Storage*>(&buf_[0]);
-        return *p;
-    }
+    { return *reinterpret_cast<Storage*>(buf_); }
 
     RefCountType GetRefs() const
     {
@@ -1240,10 +1240,8 @@ private:
         } temp;
 
         --(*Data().begin()); // decrement the use count of the remaining object
-
-        Storage* p = reinterpret_cast<Storage*>(&temp.buf_[0]);
         new(buf_) Storage(
-            *new(p) Storage(Data()), 
+            *new(temp.buf_) Storage(Data()), 
             flex_string_details::Shallow());
         *Data().begin() = 1;
     }
@@ -1819,7 +1817,7 @@ private:
 #ifndef NDEBUG
         Invariant checker(*this); 
 #endif
-        BOOST_ASSERT(begin() <= p && p <= end());
+        assert(begin() <= p && p <= end());
         const size_type insertOffset(p - begin());
         const size_type originalSize(size());
         if(n < originalSize - insertOffset)
@@ -1885,16 +1883,16 @@ private:
         const typename std::iterator_traits<FwdIterator>::difference_type n2 = 
             std::distance(s1, s2);
 
-        BOOST_ASSERT(n2 >= 0);
+        assert(n2 >= 0);
         using namespace flex_string_details;
-        BOOST_ASSERT(pos <= size());
+        assert(pos <= size());
 
         const typename std::iterator_traits<FwdIterator>::difference_type maxn2 = 
             capacity() - size();
         if (maxn2 < n2)
         {
             // Reallocate the string.
-            BOOST_ASSERT(!IsAliasedRange(s1, s2));
+            assert(!IsAliasedRange(s1, s2));
             reserve(size() + n2);
             i = begin() + pos;
         }
@@ -1911,7 +1909,7 @@ private:
             FwdIterator t = s1;
             const size_type old_size = size();
             std::advance(t, old_size - pos);
-            BOOST_ASSERT(std::distance(t, s2) >= 0);
+            assert(std::distance(t, s2) >= 0);
             Storage::append(t, s2);
             Storage::append(data() + pos, data() + old_size);
             std::copy(s1, t, i);
@@ -2012,9 +2010,9 @@ private:
     flex_string& ReplaceImplDiscr(iterator i1, iterator i2, 
         const value_type* s, size_type n, Selector<2>)
     { 
-        BOOST_ASSERT(i1 <= i2);
-        BOOST_ASSERT(begin() <= i1 && i1 <= end());
-        BOOST_ASSERT(begin() <= i2 && i2 <= end());
+        assert(i1 <= i2);
+        assert(begin() <= i1 && i1 <= end());
+        assert(begin() <= i2 && i2 <= end());
         return replace(i1, i2, s, s + n); 
     }
     
@@ -2053,10 +2051,10 @@ private:
 #endif
         const typename std::iterator_traits<iterator>::difference_type n1 = 
             i2 - i1;
-        BOOST_ASSERT(n1 >= 0);
+        assert(n1 >= 0);
         const typename std::iterator_traits<FwdIterator>::difference_type n2 = 
         std::distance(s1, s2);
-        BOOST_ASSERT(n2 >= 0);
+        assert(n2 >= 0);
 
         if (IsAliasedRange(s1, s2))
         {
@@ -2536,10 +2534,10 @@ operator<<(
 // Graphics makes no representations about the suitability of this software for 
 // any purpose. It is provided "as is" without express or implied warranty.
 // 
-// Copyright (c) 1997-1999
+// Copyright © 1997-1999
 // Silicon Graphics Computer Systems, Inc.
 // 
-// Copyright (c) 1994
+// Copyright © 1994
 // Hewlett-Packard Company 
 
 template <typename E, class T, class A, class S>

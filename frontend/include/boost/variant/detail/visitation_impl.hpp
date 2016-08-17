@@ -35,10 +35,6 @@
 #include "boost/type_traits/has_nothrow_copy.hpp"
 #include "boost/variant/detail/has_nothrow_move.hpp"
 
-#if BOOST_WORKAROUND(BOOST_MSVC, >= 1400) 
-# pragma warning (push) 
-# pragma warning (disable : 4702) //unreachable code 
-#endif
 
 ///////////////////////////////////////////////////////////////////////////////
 // BOOST_VARIANT_VISITATION_UNROLLING_LIMIT
@@ -167,7 +163,7 @@ visitation_impl_invoke(
         , has_nothrow_copy<T>
         >::type never_uses_backup;
 
-    return (visitation_impl_invoke_impl)(
+    return visitation_impl_invoke_impl(
           internal_which, visitor, storage, t
         , never_uses_backup()
         );
@@ -246,7 +242,7 @@ visitation_impl(
     // ...applying the appropriate case:
 #   define BOOST_VARIANT_AUX_APPLY_VISITOR_STEP_CASE(z, N, _) \
     case (Which::value + (N)): \
-        return (visitation_impl_invoke)( \
+        return visitation_impl_invoke( \
               internal_which, visitor, storage \
             , static_cast<BOOST_PP_CAT(T,N)*>(0) \
             , no_backup_flag, 1L \
@@ -261,7 +257,6 @@ visitation_impl(
 
 #   undef BOOST_VARIANT_AUX_APPLY_VISITOR_STEP_CASE
 
-    default: break;
     }
 
     // If not handled in this iteration, continue unrolling:
@@ -287,9 +282,5 @@ visitation_impl(
 
 }} // namespace detail::variant
 } // namespace boost
-
-#if BOOST_WORKAROUND(BOOST_MSVC, >= 1400)  
-# pragma warning(pop)  
-#endif 
 
 #endif // BOOST_VARIANT_DETAIL_VISITATION_IMPL_HPP

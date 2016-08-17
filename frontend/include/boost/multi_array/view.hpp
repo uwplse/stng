@@ -24,7 +24,6 @@
 #include "boost/multi_array/subarray.hpp"
 #include "boost/multi_array/algorithm.hpp"
 #include "boost/type_traits/is_integral.hpp"
-#include "boost/utility/enable_if.hpp"
 #include "boost/array.hpp"
 #include "boost/limits.hpp"
 #include <algorithm>
@@ -82,7 +81,7 @@ public:
 #endif
   reindex(const BaseList& values) {
     boost::function_requires<
-      CollectionConcept<BaseList> >();
+      detail::multi_array::CollectionConcept<BaseList> >();
     boost::detail::multi_array::
       copy_n(values.begin(),num_dimensions(),index_base_list_.begin());
     origin_offset_ =
@@ -120,7 +119,7 @@ public:
   template <typename IndexList>
   const element& operator()(IndexList indices) const {
     boost::function_requires<
-      CollectionConcept<IndexList> >();
+      detail::multi_array::CollectionConcept<IndexList> >();
     return super_type::access_element(boost::type<const element&>(),
                                       indices,origin(),
                                       shape(),strides(),index_bases());
@@ -298,7 +297,7 @@ public:
   template <typename ConstMultiArray>
   multi_array_view& operator=(const ConstMultiArray& other) {
     function_requires< 
-      boost::multi_array_concepts::
+      boost::detail::multi_array::
       ConstMultiArrayConcept<ConstMultiArray,NumDims> >();
 
     // make sure the dimensions agree
@@ -329,7 +328,7 @@ public:
   template <class IndexList>
   element& operator()(const IndexList& indices) {
     boost::function_requires<
-      CollectionConcept<IndexList> >();
+      detail::multi_array::CollectionConcept<IndexList> >();
     return super_type::access_element(boost::type<element&>(),
                                       indices,origin(),
                                       this->shape(),this->strides(),
@@ -393,7 +392,7 @@ public:
   template <class IndexList>
   const element& operator()(const IndexList& indices) const {
     boost::function_requires<
-      CollectionConcept<IndexList> >();
+      detail::multi_array::CollectionConcept<IndexList> >();
     return super_type::operator()(indices);
   }
 

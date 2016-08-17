@@ -19,7 +19,6 @@
 #include <boost/graph/topological_sort.hpp>
 #include <boost/graph/graph_concepts.hpp>
 #include <boost/graph/named_function_params.hpp>
-#include <boost/concept/assert.hpp>
 
 namespace boost
 {
@@ -77,12 +76,12 @@ namespace boost
     typedef typename graph_traits <
       Graph >::adjacency_iterator adjacency_iterator;
 
-    BOOST_CONCEPT_ASSERT(( VertexListGraphConcept < Graph > ));
-    BOOST_CONCEPT_ASSERT(( AdjacencyGraphConcept < Graph > ));
-    BOOST_CONCEPT_ASSERT(( VertexMutableGraphConcept < GraphTC > ));
-    BOOST_CONCEPT_ASSERT(( EdgeMutableGraphConcept < GraphTC > ));
-    BOOST_CONCEPT_ASSERT(( ReadablePropertyMapConcept < VertexIndexMap,
-      vertex > ));
+    function_requires < VertexListGraphConcept < Graph > >();
+    function_requires < AdjacencyGraphConcept < Graph > >();
+    function_requires < VertexMutableGraphConcept < GraphTC > >();
+    function_requires < EdgeMutableGraphConcept < GraphTC > >();
+    function_requires < ReadablePropertyMapConcept < VertexIndexMap,
+      vertex > >();
 
     typedef size_type cg_vertex;
     std::vector < cg_vertex > component_number_vec(num_vertices(g));
@@ -102,7 +101,7 @@ namespace boost
       for (size_type i = 0; i < components[s].size(); ++i) {
         vertex u = components[s][i];
         adjacency_iterator v, v_end;
-        for (boost::tie(v, v_end) = adjacent_vertices(u, g); v != v_end; ++v) {
+        for (tie(v, v_end) = adjacent_vertices(u, g); v != v_end; ++v) {
           cg_vertex t = component_number[*v];
           if (s != t)           // Avoid loops in the condensation graph
             adj.push_back(t);
@@ -145,7 +144,7 @@ namespace boost
             chain.push_back(v);
             in_a_chain[v] = true;
             typename graph_traits<CG_t>::adjacency_iterator adj_first, adj_last;
-            boost::tie(adj_first, adj_last) = adjacent_vertices(v, CG);
+            tie(adj_first, adj_last) = adjacent_vertices(v, CG);
             typename graph_traits<CG_t>::adjacency_iterator next
               = std::find_if(adj_first, adj_last,
                              std::not1(detail::subscript(in_a_chain)));
@@ -175,7 +174,7 @@ namespace boost
            i = topo_order.rbegin(); i != topo_order.rend(); ++i) {
       cg_vertex u = *i;
       typename graph_traits<CG_t>::adjacency_iterator adj, adj_last;
-      for (boost::tie(adj, adj_last) = adjacent_vertices(u, CG);
+      for (tie(adj, adj_last) = adjacent_vertices(u, CG);
            adj != adj_last; ++adj) {
         cg_vertex v = *adj;
         if (topo_number[v] < successors[u][chain_number[v]]) {
@@ -205,15 +204,15 @@ namespace boost
     typedef typename graph_traits < GraphTC >::vertex_descriptor tc_vertex;
     {
       vertex_iterator i, i_end;
-      for (boost::tie(i, i_end) = vertices(g); i != i_end; ++i)
+      for (tie(i, i_end) = vertices(g); i != i_end; ++i)
         g_to_tc_map[*i] = add_vertex(tc);
     }
     // Add edges between all the vertices in two adjacent SCCs
     typename graph_traits<CG_t>::vertex_iterator si, si_end;
-    for (boost::tie(si, si_end) = vertices(CG); si != si_end; ++si) {
+    for (tie(si, si_end) = vertices(CG); si != si_end; ++si) {
       cg_vertex s = *si;
       typename graph_traits<CG_t>::adjacency_iterator i, i_end;
-      for (boost::tie(i, i_end) = adjacent_vertices(s, CG); i != i_end; ++i) {
+      for (tie(i, i_end) = adjacent_vertices(s, CG); i != i_end; ++i) {
         cg_vertex t = *i;
         for (size_type k = 0; k < components[s].size(); ++k)
           for (size_type l = 0; l < components[t].size(); ++l)
@@ -234,7 +233,7 @@ namespace boost
     // Need to add it to transitive closure.
     {
       vertex_iterator i, i_end;
-      for (boost::tie(i, i_end) = vertices(g); i != i_end; ++i)
+      for (tie(i, i_end) = vertices(g); i != i_end; ++i)
         {
           adjacency_iterator ab, ae;
           for (boost::tie(ab, ae) = adjacent_vertices(*i, g); ab != ae; ++ab)
@@ -303,8 +302,8 @@ namespace boost
     typedef typename graph_traits < G >::vertex_descriptor vertex;
     typedef typename graph_traits < G >::vertex_iterator vertex_iterator;
 
-    BOOST_CONCEPT_ASSERT(( AdjacencyMatrixConcept < G > ));
-    BOOST_CONCEPT_ASSERT(( EdgeMutableGraphConcept < G > ));
+    function_requires < AdjacencyMatrixConcept < G > >();
+    function_requires < EdgeMutableGraphConcept < G > >();
 
     // Matrix form:
     // for k
@@ -313,10 +312,10 @@ namespace boost
     //      for j
     //        A[i,j] = A[i,j] | A[k,j]
     vertex_iterator ki, ke, ii, ie, ji, je;
-    for (boost::tie(ki, ke) = vertices(g); ki != ke; ++ki)
-      for (boost::tie(ii, ie) = vertices(g); ii != ie; ++ii)
+    for (tie(ki, ke) = vertices(g); ki != ke; ++ki)
+      for (tie(ii, ie) = vertices(g); ii != ie; ++ii)
         if (edge(*ii, *ki, g).second)
-          for (boost::tie(ji, je) = vertices(g); ji != je; ++ji)
+          for (tie(ji, je) = vertices(g); ji != je; ++ji)
             if (!edge(*ii, *ji, g).second && edge(*ki, *ji, g).second) {
               add_edge(*ii, *ji, g);
             }
@@ -329,8 +328,8 @@ namespace boost
     typedef typename graph_traits < G >::vertex_descriptor vertex;
     typedef typename graph_traits < G >::vertex_iterator vertex_iterator;
 
-    BOOST_CONCEPT_ASSERT(( AdjacencyMatrixConcept < G > ));
-    BOOST_CONCEPT_ASSERT(( EdgeMutableGraphConcept < G > ));
+    function_requires < AdjacencyMatrixConcept < G > >();
+    function_requires < EdgeMutableGraphConcept < G > >();
 
     // Make sure second loop will work
     if (num_vertices(g) == 0)
@@ -343,10 +342,10 @@ namespace boost
     //          A[i,j] = A[i,j] | A[k,j]
 
     vertex_iterator ic, ie, jc, je, kc, ke;
-    for (boost::tie(ic, ie) = vertices(g), ++ic; ic != ie; ++ic)
-      for (boost::tie(kc, ke) = vertices(g); *kc != *ic; ++kc)
+    for (tie(ic, ie) = vertices(g), ++ic; ic != ie; ++ic)
+      for (tie(kc, ke) = vertices(g); *kc != *ic; ++kc)
         if (edge(*ic, *kc, g).second)
-          for (boost::tie(jc, je) = vertices(g); jc != je; ++jc)
+          for (tie(jc, je) = vertices(g); jc != je; ++jc)
             if (!edge(*ic, *jc, g).second && edge(*kc, *jc, g).second) {
               add_edge(*ic, *jc, g);
             }
@@ -356,10 +355,10 @@ namespace boost
     //        for j = 1 to n
     //          A[i,j] = A[i,j] | A[k,j]
 
-    for (boost::tie(ic, ie) = vertices(g), --ie; ic != ie; ++ic)
+    for (tie(ic, ie) = vertices(g), --ie; ic != ie; ++ic)
       for (kc = ic, ke = ie, ++kc; kc != ke; ++kc)
         if (edge(*ic, *kc, g).second)
-          for (boost::tie(jc, je) = vertices(g); jc != je; ++jc)
+          for (tie(jc, je) = vertices(g); jc != je; ++jc)
             if (!edge(*ic, *jc, g).second && edge(*kc, *jc, g).second) {
               add_edge(*ic, *jc, g);
             }

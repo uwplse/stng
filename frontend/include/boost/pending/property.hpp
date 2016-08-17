@@ -6,7 +6,7 @@
 #ifndef BOOST_PROPERTY_HPP
 #define BOOST_PROPERTY_HPP
 
-#include <boost/mpl/bool.hpp>
+#include <boost/pending/ct_if.hpp>
 
 namespace boost {
 
@@ -47,9 +47,15 @@ namespace boost {
   };
 
   template <class P>
-  struct has_property : boost::mpl::true_ {};
+  struct has_property {
+    BOOST_STATIC_CONSTANT(bool, value = true);
+    typedef true_type type;
+  };
   template <>
-  struct has_property<no_property> : boost::mpl::false_ {};
+  struct has_property<no_property> {
+    BOOST_STATIC_CONSTANT(bool, value = false);
+    typedef false_type type;
+  };
 
 } // namespace boost
 
@@ -71,7 +77,7 @@ namespace boost {
 
   template <class Tag2>
   inline detail::error_property_not_found
-  get_property_value(const no_property&, Tag2) {
+  get_property_value(const no_property& p, Tag2) {
     return detail::error_property_not_found();
   }
 
@@ -150,7 +156,7 @@ namespace boost {
         typedef FinalType retagged;
     };
 
-    // A final base case of the retag_property_list, this will terminate a
+    // A final base case of the retag_propert_list, this will terminate a
     // properly structured list.
     template<typename FinalTag>
     struct retag_property_list<FinalTag, no_property>

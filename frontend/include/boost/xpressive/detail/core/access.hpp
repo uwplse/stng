@@ -15,7 +15,6 @@
 
 #include <vector>
 #include <boost/shared_ptr.hpp>
-#include <boost/proto/traits.hpp>
 #include <boost/xpressive/detail/detail_fwd.hpp>
 #include <boost/xpressive/detail/dynamic/matchable.hpp>
 #include <boost/xpressive/match_results.hpp> // for type_info_less
@@ -72,13 +71,13 @@ struct core_access
     (
         match_results<BidiIter> &what
       , regex_id_type regex_id
-      , intrusive_ptr<traits<char_type> const> const &tr
+      , intrusive_ptr<traits<char_type> const> const &traits
       , sub_match_impl<BidiIter> *sub_matches
       , std::size_t size
       , std::vector<named_mark<char_type> > const &named_marks
     )
     {
-        what.init_(regex_id, tr, sub_matches, size, named_marks);
+        what.init_(regex_id, traits, sub_matches, size, named_marks);
     }
 
     static sub_match_vector<BidiIter> &get_sub_match_vector(match_results<BidiIter> &what)
@@ -119,11 +118,6 @@ struct core_access
     static void set_base(match_results<BidiIter> &what, BidiIter base)
     {
         what.set_base_(base);
-    }
-
-    static BidiIter get_base(match_results<BidiIter> &what)
-    {
-        return *what.base_;
     }
 };
 

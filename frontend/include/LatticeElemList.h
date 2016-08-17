@@ -24,10 +24,7 @@ class LatticeElemList : public DoublyLinkedListWrap<T>
 
   typedef typename DoublyLinkedListWrap<T>::iterator iterator;
   typedef typename DoublyLinkedListWrap<T>::const_iterator const_iterator;
-
-  // DQ (4/12/2016): Clang c++11 mode error: "C++11 does not allow access declarations; use using declarations instead"
-  // DoublyLinkedListWrap<T>::First;
-  using DoublyLinkedListWrap<T>::First;
+  DoublyLinkedListWrap<T>::First;
 
    bool AddElem( const T& _item, LatticeElemMerge<T> *Merge = 0)
    { if (Merge != 0 && Merge->IsTop(_item))
@@ -36,12 +33,12 @@ class LatticeElemList : public DoublyLinkedListWrap<T>
      T item = _item;
      for (DoublyLinkedEntryWrap<T> *e = First(); e != 0; ) {
         DoublyLinkedEntryWrap<T>* tmp = e;
-        e = this->Next(e);
+        e = Next(e);
         T& d = tmp->GetEntry();
         T result;
         if (Merge != 0 && Merge->MergeElem(d, item, result))  {
           if (result != d)  {
-             this->Delete(tmp);
+             Delete(tmp);
              mod = true;
              if (!Merge->IsTop(result))
                 item = result;
@@ -57,7 +54,7 @@ class LatticeElemList : public DoublyLinkedListWrap<T>
         }
     }
     if (add)  {
-       this->AppendLast(item);
+       AppendLast(item);
        mod = true;
     }
     return mod;
@@ -65,11 +62,11 @@ class LatticeElemList : public DoublyLinkedListWrap<T>
 
   void UpdateElem( bool (*Update)(T & info) )
   {
-    for (DoublyLinkedEntryWrap<T> *e = First(); e != 0; e = this->Next(e)) {
+    for (DoublyLinkedEntryWrap<T> *e = First(); e != 0; e = Next(e)) {
        T& d = e->GetEntry();
        if (! Update(d)) {
-          DoublyLinkedEntryWrap<T> *tmp = this->Prev(e);
-          this->Delete(e);
+          DoublyLinkedEntryWrap<T> *tmp = Prev(e);
+          Delete(e);
           e = (tmp == 0)? First() : tmp;
        }
     }

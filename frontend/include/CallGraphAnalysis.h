@@ -12,7 +12,7 @@
 #include "RoseObj.h"
 #include "RoseBin_CallGraphAnalysis.h"
 
-class ROSE_DLL_API SB_CallGraph {
+class SB_CallGraph {
  private:
   RoseBin_CallGraphAnalysis* bin_callanalysis;
   RoseSrc_CallGraphAnalysis* src_callanalysis;

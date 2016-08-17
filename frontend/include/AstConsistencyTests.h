@@ -66,15 +66,12 @@ class ROSE_DLL_API AstTests
           static bool isCorrectAst(SgProject* sageProject);
    };
 
-#ifndef SWIG
-// DQ (3/10/2013): Swig has a problem with this class (remove from visability to swig).
-
 class TestAstNullPointers : public AstNodePtrs {
  public:
   TestAstNullPointers() {}
   virtual void visitWithAstNodePointersList(SgNode* node, AstNodePointersList l);
 };
-#endif
+
 
   // these dummy classes are just to show the interfaces of the 4 kinds of traversals
   // void dummyTests(SgProject* sageProject); // traverse AST with all 4 kinds of traversals
@@ -144,29 +141,6 @@ class TestAstForUniqueStatementsInScopes : public AstSimpleProcessing
      public:
           void visit ( SgNode* node );
    };
-
-// DQ (4/2/2012): This appears to be a test that we have not got into place yet.
-// the test code: test2012_59.C demonstrates an example where a IR node is shared
-// between the global scope and a class definition scope.  This causes an error 
-// in the generated code, so we want to detect this case.
-class TestAstForUniqueNodesInAST : public AstSimpleProcessing
-   {
-  // This class uses a traversal to test properties of AST.
-  // We look for redundent entries anywhere in the AST.
-  // This test has to save a pointer to ever AST IR node 
-  // that is traversed so it is a bit expensive in memory.
-
-     std::set<SgNode*> astNodeSet;
-
-     public:
-          void visit ( SgNode* node );
-
-          static void test ( SgNode* node );
-   };
-
-// DQ (4/3/2012): Simple globally visible function to call (used for debugging elsewhee in ROSE).
-void testAstForUniqueNodes ( SgNode* node );
-
 
 class TestAstCompilerGeneratedNodes : public AstSimpleProcessing
    {
@@ -312,7 +286,7 @@ void testParentPointersOfSymbols();
 class TestParentPointersInMemoryPool : public ROSE_VisitTraversal
    {
      public:
-          virtual ~TestParentPointersInMemoryPool() {};
+     virtual ~TestParentPointersInMemoryPool() {};
       //! static function to do test on any IR node
           static void test();
 
@@ -330,13 +304,9 @@ class TestParentPointersInMemoryPool : public ROSE_VisitTraversal
 class TestChildPointersInMemoryPool : public ROSE_VisitTraversal 
    {
      public:
-          virtual ~TestChildPointersInMemoryPool() {};
+     virtual ~TestChildPointersInMemoryPool() {};
       //! static function to do test on any IR node
           static void test();
-
-       // DQ (3/24/2016): Adding Robb's meageage mechanism (data member and function).
-          static Sawyer::Message::Facility mlog;
-          static void initDiagnostics();
 
           virtual void visit( SgNode * );
    };
@@ -521,94 +491,6 @@ class TestForReferencesToDeletedNodes : public ROSE_VisitTraversal
        // Simple funtion to call to get the traversal started...
           static void test( SgProject* project );
    };
-
-
-class TestForParentsMatchingASTStructure: public AstPrePostProcessing
-   {
-  // DQ (3/19/2012): This is a test from Robb that I want to use uniformally in the AST.
-  // This has been used to catch several locations in the AST where parents were not set
-  // as they are defined to be set in the AST (based on a traversal).  So this test is
-  // an important addition to the EDG 4.3 work to fix a number of the bugs in the EDG 3.3
-  // work and define a cleaner representation of the AST.
-
-  // Check that all nodes have the correct parent.  This code is not thread safe. 
-
-     public:
-          std::vector<SgNode*> stack;                 // current path within the AST
-#ifndef USE_ROSE
-       // DQ (3/6/2013): Disable code that is a problem for SWIG (vesion 2.0.9).
-       // This data member is a problem for SWIG, so ignore it when
-       // processing using USE_ROSE which we define when using SWIG.
-          std::ostream &output;                       // where to emit warning/error messages
-#endif
-          size_t nproblems;                           // number of problems detected
-          size_t limit;                               // number of errors to allow before exit
-          std::string prefix;                         // line prefix
-
-     public:
-          explicit TestForParentsMatchingASTStructure(std::ostream &output, const std::string & prefix = "");
-          bool check(SgNode *ast, size_t limit = 0);
-          void preOrderVisit(SgNode *node);
-          void postOrderVisit(SgNode *node);
-          void show_details_and_maybe_fail(SgNode *node);
-
-       // Simple funtion to call to get the traversal started...
-          static void test( SgProject* project );
-   };
-
-
-class TestForSourcePosition: public AstSimpleProcessing
-   {
-  // DQ (12/3/2012): This tests for Sg_File_Info objects that have an empty filename.
-  // These have been set at an early stage in the defelopment of the edg4x work and 
-  // now they are a problem.  so it is time to detect them and get rid of them.
-
-     public:
-          void testFileInfo( Sg_File_Info* fileInfo );
-
-          void visit ( SgNode* node );
-   };
-
-
-class TestForMultipleWaysToSpecifyRestrictKeyword: public AstSimpleProcessing
-   {
-  // DQ (12/11/2012): This tests for the two different ways in which const-volitile-restrict 
-  // modifiers can be specified.  It is a consiquence of the CV-modifier (SgTypeModifier) being 
-  // a part of the type declaration modifier and also the SgModifierType and the SgDeclarationModifier.
-  // Both are required and as a result it can be confusing that there are two locations to set
-  // these.  Historically in the EDG 3.3 version we used the SgModifierType for C-V, but the 
-  // SgDeclarationModifier for the restrict keyword.  In the edg 4.x version of ROSE, we now want 
-  // to make this more uniform and use the SgModifierType everywhere. To address the inconsistancy, 
-  // we want to check that both are always set consistanly.
-
-     public:
-          void visit ( SgNode* node );
-   };
-
-
-// DQ (10/27/2015): This test is part of debugging test2015_97.C which
-// is a reduced version of the 600K line ROSEExample_test_01.C file.
-// The issue is that we have previously generated a cycle in typedef types
-// and so we want to detect these as errors.
-class TestAstForCyclesInTypedefs : public ROSE_VisitTraversal
-   {
-  // This class uses a traversal to test properties of AST.
-  // We look for redundent entries anywhere in the AST.
-  // This test has to save a pointer to ever AST IR node 
-  // that is traversed so it is a bit expensive in memory.
-
-  // std::set<SgNode*> astNodeSet;
-
-     public:
-          virtual ~TestAstForCyclesInTypedefs() {};
-
-       // Overloaded pure virtual function.
-          void visit( SgNode* node );
-
-       // Simple funtion to call to get the traversal started...
-          static void test();
-   };
-
 
 
 #endif

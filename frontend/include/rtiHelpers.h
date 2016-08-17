@@ -31,10 +31,6 @@ static std::string toStringForRTI(const T& x) {
   return ss.str();
 }
 
-static std::string toStringForRTI(const Sawyer::Container::BitVector &x) {
-    return "0x" + x.toHex();
-}
-
 template <typename T>
 static std::string toStringForRTI(const std::vector<T>& x) {
   std::ostringstream ss;
@@ -53,18 +49,6 @@ static std::string toStringForRTI(const std::vector<std::pair<T,T> >& x) {
   ss << "]";
   return ss.str();
 }
-
-// std::vector < std::pair <SgOmpClause::omp_map_dist_data_enum, SgExpression*> >
-template <typename F, typename S> // First and Second
-static std::string toStringForRTI(const std::vector<std::pair<F,S> >& x) {
-  std::ostringstream ss;
-  ss << "[";
-  for (typename std::vector<std::pair<F,S> >::const_iterator i = x.begin(); i != x.end(); ++i) 
-  {if (i != x.begin()) ss << ", "; ss << i->first << "->" << i->second;}
-  ss << "]";
-  return ss.str();
-}
-
 
 static std::string toStringForRTI(const ExtentMap &x)
 {
@@ -125,7 +109,7 @@ template <typename K, typename V>
 static std::string toStringForRTI(const std::map<K, V>& x) {
   std::ostringstream ss;
   ss << "[";
-  for (typename std::map<K, V>::const_iterator i = x.begin(); i != x.end(); ++i) {if (i != x.begin()) ss << ", "; ss << i->first << "->" << toStringForRTI(i->second);}
+  for (typename std::map<K, V>::const_iterator i = x.begin(); i != x.end(); ++i) {if (i != x.begin()) ss << ", "; ss << i->first << "->" << i->second;}
   ss << "]";
   return ss.str();
 }

@@ -37,12 +37,10 @@ namespace detail
     
       long count(object_cref sub, object_cref start, object_cref end) const;
 
-#if PY_VERSION_HEX < 0x03000000
       object decode() const;
       object decode(object_cref encoding) const;
 
       object decode(object_cref encoding, object_cref errors) const;
-#endif
 
       object encode() const;
       object encode(object_cref encoding) const;
@@ -187,7 +185,6 @@ class str : public detail::str_base
         return base::count(object(sub), object(start));
     }
 
-#if PY_VERSION_HEX < 0x03000000
     object decode() const { return base::decode(); }
     
     template<class T>
@@ -201,7 +198,6 @@ class str : public detail::str_base
     {
         return base::decode(object(encoding),object(errors));
     }
-#endif
 
     object encode() const { return base::encode(); }
 
@@ -408,11 +404,7 @@ namespace converter
 {
   template <>
   struct object_manager_traits<str>
-#if PY_VERSION_HEX >= 0x03000000
-      : pytype_object_manager_traits<&PyUnicode_Type,str>
-#else
       : pytype_object_manager_traits<&PyString_Type,str>
-#endif
   {
   };
 }

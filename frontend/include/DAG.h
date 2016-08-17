@@ -5,11 +5,11 @@
 
 #include <DirectedGraph.h>
 #include <PtrSet.h>
-#include "rosedll.h"
+
 
 template <class Node, class Edge> class DAG;
 template <class Node, class Edge>
-class ROSE_UTIL_API DAGNode : public DirectedGraphNode<Node, Edge>
+class DAGNode : public DirectedGraphNode<Node, Edge>
 {
   unsigned ordNo, visitNo;
  public:
@@ -22,7 +22,7 @@ class ROSE_UTIL_API DAGNode : public DirectedGraphNode<Node, Edge>
 };
 
 template <class Node, class Edge>
-class ROSE_UTIL_API DAGEdge : public DirectedGraphEdge<Node,Edge>
+class DAGEdge : public DirectedGraphEdge<Node,Edge>
 {
   bool isBackEdge;
   bool ValidTopoOrder() 
@@ -35,12 +35,12 @@ class ROSE_UTIL_API DAGEdge : public DirectedGraphEdge<Node,Edge>
   virtual ~DAGEdge() {}
   void MoveEndPoint(Node *n, EdgeDirection dir);
   bool IsBackEdge() const;
-  using DirectedGraphEdge<Node,Edge>::EndPoint;
+  DirectedGraphEdge<Node,Edge>::EndPoint;
  friend class DAG<Node,Edge>;
 };
 
 template <class Node, class Edge>
-class ROSE_UTIL_API DAG  : public DirectedGraph<Node,Edge>
+class DAG  : public DirectedGraph<Node,Edge>
 {
  public:
   typedef enum {NON_SORT, TOPO_SORT, R_TOPO_SORT} SortType;
@@ -120,7 +120,7 @@ class ROSE_UTIL_API DAG  : public DirectedGraph<Node,Edge>
   DAG() : ordered(true), sort(NON_SORT) {}
   virtual ~DAG() {}
 
-  using DirectedGraph<Node,Edge>::GetNodeIterator;
+  DirectedGraph<Node,Edge>::GetNodeIterator;
 
   void TopoOrderNodes()
   { if (!ordered) {

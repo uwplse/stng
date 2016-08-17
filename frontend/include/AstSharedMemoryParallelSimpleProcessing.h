@@ -46,7 +46,7 @@ private:
 // is identical except that you call traverseInParallel() instead of
 // traverse(). (Calling traverse() is identical to AstCombined*Processing,
 // i.e. it will not run in parallel.)
-class ROSE_DLL_API AstSharedMemoryParallelSimpleProcessing
+class AstSharedMemoryParallelSimpleProcessing
     : public AstCombinedSimpleProcessing
 {
 public:

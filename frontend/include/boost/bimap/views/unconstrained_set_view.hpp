@@ -29,7 +29,7 @@ class unconstrained_set_view
 {
     public:
     template< class T >
-    unconstrained_set_view(const T &) {}
+    unconstrained_set_view(const T & t) {}
 
     typedef void iterator;
     typedef void const_iterator;

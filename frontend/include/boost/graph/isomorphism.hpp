@@ -11,12 +11,10 @@
 #include <iterator>
 #include <algorithm>
 #include <boost/config.hpp>
-#include <boost/assert.hpp>
-#include <boost/smart_ptr.hpp>
 #include <boost/graph/depth_first_search.hpp>
+#include <boost/utility.hpp>
 #include <boost/detail/algorithm.hpp>
 #include <boost/pending/indirect_cmp.hpp> // for make_indirect_pmap
-#include <boost/concept/assert.hpp>
 
 #ifndef BOOST_GRAPH_ITERATION_MACROS_HPP
 #define BOOST_ISO_INCLUDED_ITER_MACROS // local macro, see bottom of file
@@ -92,7 +90,7 @@ namespace boost {
         void discover_vertex(vertex1_t v, const Graph1&) const {
           vertices.push_back(v);
         }
-        void examine_edge(edge1_t e, const Graph1&) const {
+        void examine_edge(edge1_t e, const Graph1& G1) const {
           edges.push_back(e);
         }
         std::vector<vertex1_t>& vertices;
@@ -135,10 +133,6 @@ namespace boost {
     
       bool test_isomorphism()
       {
-        // reset isomapping
-        BGL_FORALL_VERTICES_T(v, G1, Graph1)
-          f[v] = graph_traits<Graph2>::null_vertex();
-          
         {
           std::vector<invar1_value> invar1_array;
           BGL_FORALL_VERTICES_T(v, G1, Graph1)
@@ -159,7 +153,7 @@ namespace boost {
         {
           std::vector<size_type> multiplicity(max_invariant, 0);
           BGL_FORALL_VERTICES_T(v, G1, Graph1)
-            ++multiplicity.at(invariant1(v));
+            ++multiplicity[invariant1(v)];
           sort(V_mult, compare_multiplicity(invariant1, &multiplicity[0]));
         }
         
@@ -200,130 +194,69 @@ namespace boost {
       }
     
     private:
-      struct match_continuation {
-        enum {pos_G2_vertex_loop, pos_fi_adj_loop, pos_dfs_num} position;
-        typedef typename graph_traits<Graph2>::vertex_iterator vertex_iterator;
-        std::pair<vertex_iterator, vertex_iterator> G2_verts;
-        typedef typename graph_traits<Graph2>::adjacency_iterator adjacency_iterator;
-        std::pair<adjacency_iterator, adjacency_iterator> fi_adj;
-        edge_iter iter;
-        int dfs_num_k;
-      };
-
       bool match(edge_iter iter, int dfs_num_k)
       {
-        std::vector<match_continuation> k;
-        typedef typename graph_traits<Graph2>::vertex_iterator vertex_iterator;
-        std::pair<vertex_iterator, vertex_iterator> G2_verts(vertices(G2));
-        typedef typename graph_traits<Graph2>::adjacency_iterator adjacency_iterator;
-        std::pair<adjacency_iterator, adjacency_iterator> fi_adj;
-        vertex1_t i, j;
-
-        recur:
         if (iter != ordered_edges.end()) {
-          i = source(*iter, G1);
-          j = target(*iter, G2);
+          vertex1_t i = source(*iter, G1), j = target(*iter, G2);
           if (dfs_num[i] > dfs_num_k) {
-            G2_verts = vertices(G2);
-            while (G2_verts.first != G2_verts.second) {
-              {
-                vertex2_t u = *G2_verts.first;
-                vertex1_t kp1 = dfs_vertices[dfs_num_k + 1];
-                if (invariant1(kp1) == invariant2(u) && in_S[u] == false) {
-                  {
-                    f[kp1] = u;
-                    in_S[u] = true;
-                    num_edges_on_k = 0;
+            vertex1_t kp1 = dfs_vertices[dfs_num_k + 1];
+            BGL_FORALL_VERTICES_T(u, G2, Graph2) {
+              if (invariant1(kp1) == invariant2(u) && in_S[u] == false) {
+                f[kp1] = u;
+                in_S[u] = true;
+                num_edges_on_k = 0;
+                
+                if (match(iter, dfs_num_k + 1))
+#if 0
+                    // dwa 2003/7/11 -- this *HAS* to be a bug!
+                    ;
+#endif 
+                    return true;
                     
-                    match_continuation new_k;
-                    new_k.position = match_continuation::pos_G2_vertex_loop;
-                    new_k.G2_verts = G2_verts;
-                    new_k.iter = iter;
-                    new_k.dfs_num_k = dfs_num_k;
-                    k.push_back(new_k);
-                    ++dfs_num_k;
-                    goto recur;
-                  }
-                }
+                in_S[u] = false;
               }
-G2_loop_k:    ++G2_verts.first;
             }
                
           }
           else if (dfs_num[j] > dfs_num_k) {
-            {
-              vertex1_t vk = dfs_vertices[dfs_num_k];
-              num_edges_on_k -= 
-                count_if(adjacent_vertices(f[vk], G2), make_indirect_pmap(in_S));
-                  
-              for (int jj = 0; jj < dfs_num_k; ++jj) {
-                vertex1_t j = dfs_vertices[jj];
-                num_edges_on_k -= count(adjacent_vertices(f[j], G2), f[vk]);
-              }
+            vertex1_t k = dfs_vertices[dfs_num_k];
+            num_edges_on_k -= 
+              count_if(adjacent_vertices(f[k], G2), make_indirect_pmap(in_S));
+                
+            for (int jj = 0; jj < dfs_num_k; ++jj) {
+              vertex1_t j = dfs_vertices[jj];
+              num_edges_on_k -= count(adjacent_vertices(f[j], G2), f[k]);
             }
                 
             if (num_edges_on_k != 0)
-              goto return_point_false;
-            fi_adj = adjacent_vertices(f[i], G2);
-            while (fi_adj.first != fi_adj.second) {
-              {
-                vertex2_t v = *fi_adj.first;
-                if (invariant2(v) == invariant1(j) && in_S[v] == false) {
-                  f[j] = v;
-                  in_S[v] = true;
-                  num_edges_on_k = 1;
-                  BOOST_USING_STD_MAX();
-                  int next_k = max BOOST_PREVENT_MACRO_SUBSTITUTION(dfs_num_k, max BOOST_PREVENT_MACRO_SUBSTITUTION(dfs_num[i], dfs_num[j]));
-                  match_continuation new_k;
-                  new_k.position = match_continuation::pos_fi_adj_loop;
-                  new_k.fi_adj = fi_adj;
-                  new_k.iter = iter;
-                  new_k.dfs_num_k = dfs_num_k;
-                  ++iter;
-                  dfs_num_k = next_k;
-                  k.push_back(new_k);
-                  goto recur;
-                }
+              return false;
+            BGL_FORALL_ADJ_T(f[i], v, G2, Graph2)
+              if (invariant2(v) == invariant1(j) && in_S[v] == false) {
+                f[j] = v;
+                in_S[v] = true;
+                num_edges_on_k = 1;
+                BOOST_USING_STD_MAX();
+                int next_k = max BOOST_PREVENT_MACRO_SUBSTITUTION(dfs_num_k, max BOOST_PREVENT_MACRO_SUBSTITUTION(dfs_num[i], dfs_num[j]));
+                if (match(boost::next(iter), next_k))
+                  return true;
+                in_S[v] = false;
               }
-fi_adj_loop_k:++fi_adj.first;
-            }
+                
+                
           }
           else {
             if (container_contains(adjacent_vertices(f[i], G2), f[j])) {
               ++num_edges_on_k;
-              match_continuation new_k;
-              new_k.position = match_continuation::pos_dfs_num;
-              k.push_back(new_k);
-              ++iter;
-              goto recur;
+              if (match(boost::next(iter), dfs_num_k))
+                return true;
             }
                 
           }
         } else 
-          goto return_point_true;
-        goto return_point_false;
-    
-        {
-          return_point_true: return true;
-
-          return_point_false:
-          if (k.empty()) return false;
-          const match_continuation& this_k = k.back();
-          switch (this_k.position) {
-            case match_continuation::pos_G2_vertex_loop: {G2_verts = this_k.G2_verts; iter = this_k.iter; dfs_num_k = this_k.dfs_num_k; k.pop_back(); in_S[*G2_verts.first] = false; i = source(*iter, G1); j = target(*iter, G2); goto G2_loop_k;}
-            case match_continuation::pos_fi_adj_loop: {fi_adj = this_k.fi_adj; iter = this_k.iter; dfs_num_k = this_k.dfs_num_k; k.pop_back(); in_S[*fi_adj.first] = false; i = source(*iter, G1); j = target(*iter, G2); goto fi_adj_loop_k;}
-            case match_continuation::pos_dfs_num: {k.pop_back(); goto return_point_false;}
-            default: {
-              BOOST_ASSERT(!"Bad position");
-#ifdef UNDER_CE
-              exit(-1);
-#else
-              abort();
-#endif
-            }
-          }
-        }
+          return true;
+        return false;
       }
+    
     };
 
     
@@ -351,30 +284,18 @@ fi_adj_loop_k:++fi_adj.first;
     typedef size_type result_type;
 
     degree_vertex_invariant(const InDegreeMap& in_degree_map, const Graph& g)
-      : m_in_degree_map(in_degree_map),
-        m_max_vertex_in_degree(0),
-        m_max_vertex_out_degree(0),
-        m_g(g) {
-      BGL_FORALL_VERTICES_T(v, g, Graph) {
-        m_max_vertex_in_degree =
-          (std::max)(m_max_vertex_in_degree, get(m_in_degree_map, v));
-        m_max_vertex_out_degree =
-          (std::max)(m_max_vertex_out_degree, out_degree(v, g));
-      }
-    }
+      : m_in_degree_map(in_degree_map), m_g(g) { }
 
     size_type operator()(vertex_t v) const {
-      return (m_max_vertex_in_degree + 1) * out_degree(v, m_g)
+      return (num_vertices(m_g) + 1) * out_degree(v, m_g)
         + get(m_in_degree_map, v);
     }
     // The largest possible vertex invariant number
     size_type max BOOST_PREVENT_MACRO_SUBSTITUTION () const { 
-      return (m_max_vertex_in_degree + 1) * (m_max_vertex_out_degree + 1);
+      return num_vertices(m_g) * num_vertices(m_g) + num_vertices(m_g);
     }
   private:
     InDegreeMap m_in_degree_map;
-    size_type m_max_vertex_in_degree;
-    size_type m_max_vertex_out_degree;
     const Graph& m_g;
   };
 
@@ -389,31 +310,31 @@ fi_adj_loop_k:++fi_adj.first;
 
   {
     // Graph requirements
-    BOOST_CONCEPT_ASSERT(( VertexListGraphConcept<Graph1> ));
-    BOOST_CONCEPT_ASSERT(( EdgeListGraphConcept<Graph1> ));
-    BOOST_CONCEPT_ASSERT(( VertexListGraphConcept<Graph2> ));
-    BOOST_CONCEPT_ASSERT(( BidirectionalGraphConcept<Graph2> ));
+    function_requires< VertexListGraphConcept<Graph1> >();
+    function_requires< EdgeListGraphConcept<Graph1> >();
+    function_requires< VertexListGraphConcept<Graph2> >();
+    function_requires< BidirectionalGraphConcept<Graph2> >();
     
     typedef typename graph_traits<Graph1>::vertex_descriptor vertex1_t;
     typedef typename graph_traits<Graph2>::vertex_descriptor vertex2_t;
     typedef typename graph_traits<Graph1>::vertices_size_type size_type;
     
     // Vertex invariant requirement
-    BOOST_CONCEPT_ASSERT(( AdaptableUnaryFunctionConcept<Invariant1,
-      size_type, vertex1_t> ));
-    BOOST_CONCEPT_ASSERT(( AdaptableUnaryFunctionConcept<Invariant2,
-      size_type, vertex2_t> ));
+    function_requires< AdaptableUnaryFunctionConcept<Invariant1,
+      size_type, vertex1_t> >();
+    function_requires< AdaptableUnaryFunctionConcept<Invariant2,
+      size_type, vertex2_t> >();
     
     // Property map requirements
-    BOOST_CONCEPT_ASSERT(( ReadWritePropertyMapConcept<IsoMapping, vertex1_t> ));
+    function_requires< ReadWritePropertyMapConcept<IsoMapping, vertex1_t> >();
     typedef typename property_traits<IsoMapping>::value_type IsoMappingValue;
     BOOST_STATIC_ASSERT((is_same<IsoMappingValue, vertex2_t>::value));
     
-    BOOST_CONCEPT_ASSERT(( ReadablePropertyMapConcept<IndexMap1, vertex1_t> ));
+    function_requires< ReadablePropertyMapConcept<IndexMap1, vertex1_t> >();
     typedef typename property_traits<IndexMap1>::value_type IndexMap1Value;
     BOOST_STATIC_ASSERT((is_convertible<IndexMap1Value, size_type>::value));
     
-    BOOST_CONCEPT_ASSERT(( ReadablePropertyMapConcept<IndexMap2, vertex2_t> ));
+    function_requires< ReadablePropertyMapConcept<IndexMap2, vertex2_t> >();
     typedef typename property_traits<IndexMap2>::value_type IndexMap2Value;
     BOOST_STATIC_ASSERT((is_convertible<IndexMap2Value, size_type>::value));
     

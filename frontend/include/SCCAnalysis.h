@@ -3,7 +3,6 @@
 
 #include <GraphAccess.h>
 #include <GraphGroup.h>
-#include "rosedll.h"
 
 class SCCAnalOperator 
 {
@@ -47,7 +46,7 @@ class SCCGroupGraphOperator : public SCCAnalOperator
 };
 
 class DAGBaseGraphImpl;
-class ROSE_UTIL_API SCCGraphCreate : public GroupGraphCreate
+class SCCGraphCreate : public GroupGraphCreate
 {
   DAGBaseGraphImpl *impl;
  public:

@@ -10,7 +10,6 @@
 
 #include <limits>
 #include <functional>
-#include <boost/static_assert.hpp>
 #include <boost/mpl/if.hpp>
 #include <boost/mpl/and.hpp>
 #include <boost/type_traits/remove_const.hpp>
@@ -278,8 +277,6 @@ namespace boost { namespace numeric
         struct as_min_base
           : std::unary_function<Arg, typename remove_const<Arg>::type>
         {
-            BOOST_STATIC_ASSERT(std::numeric_limits<typename remove_const<Arg>::type>::is_specialized);
-
             typename remove_const<Arg>::type operator ()(Arg &) const
             {
                 return (std::numeric_limits<typename remove_const<Arg>::type>::min)();
@@ -290,8 +287,6 @@ namespace boost { namespace numeric
         struct as_min_base<Arg, typename enable_if<is_floating_point<Arg> >::type>
           : std::unary_function<Arg, typename remove_const<Arg>::type>
         {
-            BOOST_STATIC_ASSERT(std::numeric_limits<typename remove_const<Arg>::type>::is_specialized);
-
             typename remove_const<Arg>::type operator ()(Arg &) const
             {
                 return -(std::numeric_limits<typename remove_const<Arg>::type>::max)();
@@ -302,8 +297,6 @@ namespace boost { namespace numeric
         struct as_max_base
           : std::unary_function<Arg, typename remove_const<Arg>::type>
         {
-            BOOST_STATIC_ASSERT(std::numeric_limits<typename remove_const<Arg>::type>::is_specialized);
-
             typename remove_const<Arg>::type operator ()(Arg &) const
             {
                 return (std::numeric_limits<typename remove_const<Arg>::type>::max)();

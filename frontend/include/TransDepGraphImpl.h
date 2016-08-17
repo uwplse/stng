@@ -73,7 +73,7 @@ SetTransInfo( GraphAccessInterface::Node *src1, GraphAccessInterface::Node *snk1
      }
      else {
          edge = new DepInfoSetEdge(this, info);
-         this->AddEdge(src, snk, edge);
+         AddEdge(src, snk, edge);
      }
    }
 
@@ -100,7 +100,7 @@ TransDepGraphCreate(GraphAccessTemplate<Node,DepInfoEdge> *graph,
    access(graph),
    anal(&access, analop=new TransDepAnalImpl<Node>(), splitlimit) 
 {
-  this->AddNodeSet(graph->GetNodeIterator());
+  AddNodeSet(graph->GetNodeIterator());
 }
 
 template <class Node> TransDepGraphCreate<Node> :: ~TransDepGraphCreate()

@@ -18,7 +18,6 @@
 #include <cstring>
 #include <string>
 #include <boost/config.hpp>
-#include <boost/throw_exception.hpp>
 #include <boost/iostreams/detail/config/windows_posix.hpp>
 #include <boost/iostreams/detail/ios.hpp>  // failure.
 
@@ -74,10 +73,10 @@ inline BOOST_IOSTREAMS_FAILURE system_failure(const std::string& msg)
 { return system_failure(msg.c_str()); }
 
 inline void throw_system_failure(const char* msg)
-{ boost::throw_exception(system_failure(msg)); }
+{ throw system_failure(msg); }
 
 inline void throw_system_failure(const std::string& msg)
-{ boost::throw_exception(system_failure(msg)); }
+{ throw system_failure(msg); }
 
 } } } // End namespaces detail, iostreams, boost.
 

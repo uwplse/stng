@@ -1,5 +1,5 @@
 /*=============================================================================
-    Copyright (c) 2001-2011 Joel de Guzman
+    Copyright (c) 2001-2006 Joel de Guzman
 
     Distributed under the Boost Software License, Version 1.0. (See accompanying 
     file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -10,7 +10,6 @@
 #include <boost/mpl/at.hpp>
 #include <boost/fusion/support/detail/access.hpp>
 #include <boost/type_traits/is_const.hpp>
-#include <boost/mpl/if.hpp>
 
 namespace boost { namespace fusion
 {
@@ -30,14 +29,14 @@ namespace boost { namespace fusion
                 typedef typename Iterator::vector vector;
                 typedef typename Iterator::index index;
                 typedef typename mpl::at<
-                    typename vector::types, index>::type
+                    typename vector::types, index> 
                 element;
                 
                 typedef typename
-                    mpl::if_<
+                    mpl::eval_if<
                         is_const<vector>
-                      , typename fusion::detail::cref_result<element>::type
-                      , typename fusion::detail::ref_result<element>::type
+                      , fusion::detail::cref_result<element>
+                      , fusion::detail::ref_result<element>
                     >::type
                 type;
 

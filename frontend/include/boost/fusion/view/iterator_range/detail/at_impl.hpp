@@ -33,7 +33,7 @@ namespace boost { namespace fusion
                 static type
                 call(Seq& s)
                 {
-                    return * fusion::advance<N>(s.first);
+                    return * advance<N>(s.first);
                 }
             };
         };

@@ -20,7 +20,7 @@
 #ifndef BOOST_NO_EXCEPTIONS
 #include <exception>
 
-#include <boost/assert.hpp>
+#include <cassert>
 
 namespace boost {
 namespace archive {
@@ -53,7 +53,7 @@ public:
             msg = "attempt to decode a value not in base64 char set";
             break;
         default:
-            BOOST_ASSERT(false);
+            assert(false);
             break;
         }
         return msg;

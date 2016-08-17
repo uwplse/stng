@@ -132,7 +132,7 @@ class CompSlice
  friend class DependenceHoisting;
 };
 
-class CompSliceSelect : public RoseSelectObject<LoopTreeNode*>
+class CompSliceSelect : public SelectObject<LoopTreeNode*>
 {
   const CompSlice* slice;
  public:

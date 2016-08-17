@@ -20,7 +20,6 @@
 #include <boost/property_map/property_map.hpp>
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/graph_concepts.hpp>
-#include <boost/concept/assert.hpp>
 
 /** @file howard_cycle_ratio.hpp
  * @brief The implementation of the maximum/minimum cycle ratio/mean algorithm.
@@ -174,8 +173,8 @@ namespace boost {
       virtual ~mcr_howard() {}
 
     protected:
-      virtual void store_critical_edge(edge_t, critical_cycle_t &) {}
-      virtual void store_critical_cycle(critical_cycle_t &) {}
+      virtual void store_critical_edge(edge_t ed, critical_cycle_t &cc) {}
+      virtual void store_critical_cycle(critical_cycle_t &cc) {}
 
     private:
       /*!
@@ -188,9 +187,9 @@ namespace boost {
         float_t cz = (std::numeric_limits<float_t>::max)(); //Closest to zero value
         float_t s = 0;
         const float_t eps_ = std::numeric_limits<float_t>::epsilon();
-        for (boost::tie(vi, vie) = vertices(m_g); vi != vie; ++vi)
+        for (tie(vi, vie) = vertices(m_g); vi != vie; ++vi)
           {
-            for (boost::tie(oei, oeie) = out_edges(*vi, m_g); oei != oeie; ++oei)
+            for (tie(oei, oeie) = out_edges(*vi, m_g); oei != oeie; ++oei)
               {
                 s += std::abs(m_ew1m[*oei]);
                 float_t a = std::abs(m_ew2m[*oei]);
@@ -212,15 +211,15 @@ namespace boost {
         m_sink = graph_traits<Graph>().null_vertex();
         typename  graph_traits<Graph>::vertex_iterator  vi, vie;
         typename  graph_traits<Graph>::out_edge_iterator  oei, oeie;
-        for ( boost::tie(vi, vie) = vertices(m_g); vi != vie; ++vi )
+        for ( tie(vi, vie) = vertices(m_g); vi != vie; ++vi )
           {
-            boost::tie(oei, oeie) = out_edges(*vi, m_g);
+            tie(oei, oeie) = out_edges(*vi, m_g);
             typename graph_traits<Graph>::out_edge_iterator mei =
               std::max_element(oei, oeie,
-                               boost::bind(m_cmp,
-                                           boost::bind(&EdgeWeight1::operator[], m_ew1m, _1),
-                                           boost::bind(&EdgeWeight1::operator[], m_ew1m, _2)
-                                          )
+                               bind(m_cmp,
+                                    bind(&EdgeWeight1::operator[], m_ew1m, _1),
+                                    bind(&EdgeWeight1::operator[], m_ew1m, _2)
+                                    )
                                );
             if (mei == oeie)
               {
@@ -332,13 +331,13 @@ namespace boost {
         std::fill(m_col_bfs.begin(), m_col_bfs.end(), my_white);
         color_map_t vcm_ = color_map_t(m_col_bfs.begin(), m_vim);
         typename graph_traits<Graph>::vertex_iterator uv_itr, vie;
-        boost::tie(uv_itr, vie) = vertices(m_g);
+        tie(uv_itr, vie) = vertices(m_g);
         float_t mcr = m_bound;
         while ( (uv_itr = std::find_if(uv_itr, vie,
-                                       boost::bind(std::equal_to<my_color_type>(),
-                                                   my_white,
-                                                   boost::bind(&color_map_t::operator[], vcm_, _1)
-                                                   )
+                                       bind(std::equal_to<my_color_type>(),
+                                            my_white,
+                                            bind(&color_map_t::operator[], vcm_, _1)
+                                            )
                                        )
                  ) != vie )
           ///While there are undiscovered vertices
@@ -374,11 +373,11 @@ namespace boost {
         typename  graph_traits<Graph>::vertex_iterator  vi, vie;
         typename  graph_traits<Graph>::out_edge_iterator  oei, oeie;
         const float_t eps_ =  FloatTraits::epsilon();
-        for (boost::tie(vi, vie) = vertices(m_g); vi != vie; ++vi)
+        for (tie(vi, vie) = vertices(m_g); vi != vie; ++vi)
           {
             if (!m_badv[*vi])
               {
-                for (boost::tie(oei, oeie) = out_edges(*vi, m_g); oei != oeie; ++oei)
+                for (tie(oei, oeie) = out_edges(*vi, m_g); oei != oeie; ++oei)
                   {
                     vertex_t t = target(*oei, m_g);
                     //Current distance from *vi to some vertex
@@ -478,13 +477,13 @@ namespace boost {
     {
       typedef typename graph_traits<TG>::directed_category DirCat;
       BOOST_STATIC_ASSERT((is_convertible<DirCat*, directed_tag*>::value == true));
-      BOOST_CONCEPT_ASSERT(( IncidenceGraphConcept<TG> ));
-      BOOST_CONCEPT_ASSERT(( VertexListGraphConcept<TG> ));
+      function_requires< IncidenceGraphConcept<TG> >();
+      function_requires< VertexListGraphConcept<TG> >();
       typedef typename graph_traits<TG>::vertex_descriptor Vertex;
-      BOOST_CONCEPT_ASSERT(( ReadablePropertyMapConcept<TVIM, Vertex> ));
+      function_requires< ReadablePropertyMapConcept<TVIM, Vertex> >();
       typedef typename graph_traits<TG>::edge_descriptor Edge;
-      BOOST_CONCEPT_ASSERT(( ReadablePropertyMapConcept<TEW1, Edge> ));
-      BOOST_CONCEPT_ASSERT(( ReadablePropertyMapConcept<TEW2, Edge> ));
+      function_requires< ReadablePropertyMapConcept<TEW1, Edge> >();
+      function_requires< ReadablePropertyMapConcept<TEW2, Edge> >();
 
       if(pcc == 0) {
           return detail::mcr_howard<FT,TG, TVIM, TEW1, TEW2>(

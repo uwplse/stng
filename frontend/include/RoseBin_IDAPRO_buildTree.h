@@ -11,7 +11,6 @@
 #include <stdio.h>
 #include <iostream>
 
-// rose.h and sage3basic.h should not be included in librose header files. [Robb P. Matzke 2014-10-15]
 // #include "rose.h"
 #include "RoseBin_IDAPRO_exprTree.h"
 #include "RoseBin_IDAPRO_substTree.h"
@@ -21,6 +20,7 @@
 class RoseBin_IDAPRO_buildTree : public RoseBin_buildTree  {
  private:
   SgAsmExpression* previousExp;
+  //  SgAsmRegisterReferenceExpression* rememberOffset;
 
   /****************************************************
    * create a BinaryNode

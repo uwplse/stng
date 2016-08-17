@@ -89,7 +89,7 @@ inline void load(
     boost::serialization::stl::load_collection<
         Archive,
         std::multiset<Key, Compare, Allocator>,
-        boost::serialization::stl::archive_input_set<
+        boost::serialization::stl::archive_input_multiset<
             Archive, std::multiset<Key, Compare, Allocator> 
         >,
         boost::serialization::stl::no_reserve_imp<

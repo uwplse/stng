@@ -11,7 +11,6 @@
 #include <boost/config.hpp>
 #include <boost/graph/graph_concepts.hpp>
 #include <boost/graph/numeric_values.hpp>
-#include <boost/concept/assert.hpp>
 
 // TODO: Should this really be in detail?
 
@@ -52,13 +51,13 @@ namespace detail {
                         Combinator combine,
                         Distance init)
     {
-        BOOST_CONCEPT_ASSERT(( VertexListGraphConcept<Graph> ));
+        function_requires< VertexListGraphConcept<Graph> >();
         typedef typename graph_traits<Graph>::vertex_descriptor Vertex;
         typedef typename graph_traits<Graph>::vertex_iterator VertexIterator;
-        BOOST_CONCEPT_ASSERT(( ReadablePropertyMapConcept<DistanceMap,Vertex> ));
-        BOOST_CONCEPT_ASSERT(( NumericValueConcept<Distance> ));
+        function_requires< ReadablePropertyMapConcept<DistanceMap,Vertex> >();
+        function_requires< NumericValueConcept<Distance> >();
         typedef numeric_values<Distance> DistanceNumbers;
-        BOOST_CONCEPT_ASSERT(( AdaptableBinaryFunction<Combinator,Distance,Distance,Distance> ));
+        function_requires< AdaptableBinaryFunction<Combinator,Distance,Distance,Distance> >();
 
         // If there's ever an infinite distance, then we simply return
         // infinity. Note that this /will/ include the a non-zero
@@ -66,7 +65,7 @@ namespace detail {
         // zero, so it shouldn't be too problematic.
         Distance ret = init;
         VertexIterator i, end;
-        for(boost::tie(i, end) = vertices(g); i != end; ++i) {
+        for(tie(i, end) = vertices(g); i != end; ++i) {
             Vertex v = *i;
             if(get(dist, v) != DistanceNumbers::infinity()) {
                 ret = combine(ret, get(dist, v));

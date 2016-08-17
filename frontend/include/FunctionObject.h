@@ -1,14 +1,14 @@
 #ifndef FUNCTIONAL_OBJECT_H
 #define FUNCTIONAL_OBJECT_H
 
-template <class T> class RoseSelectObject
+template <class T> class SelectObject
 {
   public:
    virtual bool operator()(const T& t) const = 0;
-   virtual ~RoseSelectObject() {}
+   virtual ~SelectObject() {}
 };
 
-template <class T> class SelectObject1 : public RoseSelectObject<T>
+template <class T> class SelectObject1 : public SelectObject<T>
 {
    T sel;
   public:
@@ -17,7 +17,7 @@ template <class T> class SelectObject1 : public RoseSelectObject<T>
     { return t == sel; }
 };
 
-template <class T> class SelectObject2 : public RoseSelectObject<T>
+template <class T> class SelectObject2 : public SelectObject<T>
 {
    T sel1, sel2;
   public:

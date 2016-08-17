@@ -1,6 +1,6 @@
 //
-//  Copyright (c) 2000-2010
-//  Joerg Walter, Mathias Koch. David Bellot
+//  Copyright (c) 2000-2002
+//  Joerg Walter, Mathias Koch
 //
 //  Distributed under the Boost Software License, Version 1.0. (See
 //  accompanying file LICENSE_1_0.txt or copy at
@@ -22,13 +22,8 @@
 
 namespace boost { namespace numeric { namespace ublas {
 
-    /** \brief Base class for uBLAS statically derived expressions using the the Barton Nackman trick
-     *
-     * This is a NonAssignable class
-     * Directly implement nonassignable - simplifes debugging call trace!
-     * 
-     * \tparam E an expression type
-     */
+    // Base class for uBLAS staticaly derived expressions - see the Barton Nackman trick
+    //  Provides numeric properties for linear algebra
     template<class E>
     class ublas_expression {
     public:
@@ -38,6 +33,7 @@ namespace boost { namespace numeric { namespace ublas {
         typedef typename E::value_type value_type;
         */
         
+        // Directly implement nonassignable - simplifes debugging call trace!
     protected:
         ublas_expression () {}
         ~ublas_expression () {}
@@ -46,16 +42,11 @@ namespace boost { namespace numeric { namespace ublas {
     };
 
 
-    /** \brief Base class for Scalar Expression models
-     *
-     * It does not model the Scalar Expression concept but all derived types should.
-     * The class defines a common base type and some common interface for all statically 
-     * derived Scalar Expression classes.
-     *
-     * We implement the casts to the statically derived type.
-     *
-     * \tparam E an expression type
-     */
+    // Base class for Scalar Expression models -
+    //  it does not model the Scalar Expression concept but all derived types should.
+    // The class defines a common base type and some common interface for all
+    // statically derived Scalar Expression classes
+    // We implement the casts to the statically derived type.
     template<class E>
     class scalar_expression:
         public ublas_expression<E> {
@@ -172,13 +163,11 @@ namespace boost { namespace numeric { namespace ublas {
     };
 
 
-    /** \brief Base class for Vector Expression models
-     *
-     * it does not model the Vector Expression concept but all derived types should.
-     * The class defines a common base type and some common interface for all
-     * statically derived Vector Expression classes.
-     * We implement the casts to the statically derived type.
-     */
+    // Base class for Vector Expression models -
+    //  it does not model the Vector Expression concept but all derived types should.
+    // The class defines a common base type and some common interface for all
+    // statically derived Vector Expression classes
+    // We implement the casts to the statically derived type.
     template<class E>
     class vector_expression:
         public ublas_expression<E> {
@@ -266,13 +255,11 @@ namespace boost { namespace numeric { namespace ublas {
 #endif
     };
 
-    /** \brief Base class for Vector container models
-     *
-     * it does not model the Vector concept but all derived types should.
-     * The class defines a common base type and some common interface for all
-     * statically derived Vector classes
-     * We implement the casts to the statically derived type.
-     */
+    // Base class for Vector container models -
+    //  it does not model the Vector concept but all derived types should.
+    // The class defines a common base type and some common interface for all
+    // statically derived Vector classes
+    // We implement the casts to the statically derived type.
     template<class C>
     class vector_container:
         public vector_expression<C> {
@@ -296,13 +283,11 @@ namespace boost { namespace numeric { namespace ublas {
     };
 
 
-    /** \brief Base class for Matrix Expression models
-     *
-     * it does not model the Matrix Expression concept but all derived types should.
-     * The class defines a common base type and some common interface for all
-     * statically derived Matrix Expression classes
-     * We implement the casts to the statically derived type.
-     */
+    // Base class for Matrix Expression models -
+    //  it does not model the Matrix Expression concept but all derived types should.
+    // The class defines a common base type and some common interface for all
+    // statically derived Matrix Expression classes
+    // We implement the casts to the statically derived type.
     template<class E>
     class matrix_expression:
         public ublas_expression<E> {
@@ -473,13 +458,11 @@ namespace boost { namespace numeric { namespace ublas {
     }
 #endif
 
-    /** \brief Base class for Matrix container models
-     *
-     * it does not model the Matrix concept but all derived types should.
-     * The class defines a common base type and some common interface for all
-     * statically derived Matrix classes
-     * We implement the casts to the statically derived type.
-     */
+    // Base class for Matrix container models -
+    //  it does not model the Matrix concept but all derived types should.
+    // The class defines a common base type and some common interface for all
+    // statically derived Matrix classes
+    // We implement the casts to the statically derived type.
     template<class C>
     class matrix_container:
         public matrix_expression<C> {

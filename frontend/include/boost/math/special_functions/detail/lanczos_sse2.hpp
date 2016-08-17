@@ -12,8 +12,8 @@
 
 #include <emmintrin.h>
 
-#if defined(__GNUC__) || defined(__PGI)
-#define ALIGN16 __attribute__((__aligned__(16)))
+#ifdef __GNUC__
+#define ALIGN16 __attribute__((aligned(16)))
 #else
 #define ALIGN16 __declspec(align(16))
 #endif
@@ -194,10 +194,7 @@ inline double lanczos13m53::lanczos_sum_expG_scaled<double>(const double& x)
 } // namespace math
 } // namespace boost
 
-#undef ALIGN16
-
 #endif // BOOST_MATH_SPECIAL_FUNCTIONS_LANCZOS
-
 
 
 

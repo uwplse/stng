@@ -14,7 +14,6 @@
 #error "Parallel BGL files should not be included unless <boost/graph/use_mpi.hpp> has been included"
 #endif
 
-#include <boost/assert.hpp>
 #include <boost/property_map/property_map.hpp>
 #include <boost/graph/parallel/algorithm.hpp>
 #include <boost/pending/indirect_cmp.hpp>
@@ -112,7 +111,7 @@ namespace boost { namespace graph { namespace distributed {
       // a mapping for that component number (which would be bad)
       void add(const component_value_type &a) 
       {
-        BOOST_ASSERT(collisions.count(a) == 0);
+        assert(collisions.count(a) == 0);
         collisions[a] = a;
       }
 
@@ -148,8 +147,8 @@ namespace boost { namespace graph { namespace distributed {
       // Used to resolve mapping at end of run.
       component_value_type update(component_value_type a)
       {
-        BOOST_ASSERT(num_unique > 0);
-        BOOST_ASSERT(collisions.count(a) != 0);
+        assert(num_unique > 0);
+        assert(collisions.count(a) != 0);
         return collisions[a];
       }
 
@@ -175,7 +174,7 @@ namespace boost { namespace graph { namespace distributed {
       // components in the graph.
       int unique(void)
       {
-        BOOST_ASSERT(num_unique > 0);
+        assert(num_unique > 0);
         return num_unique;
       }
 
@@ -307,7 +306,7 @@ namespace boost { namespace graph { namespace distributed {
     BGL_FORALL_VERTICES_T(v, g, Graph) put(c, v, max_component);
 
     vertex_iterator current, end;
-    boost::tie(current, end) = vertices(g);
+    tie(current, end) = vertices(g);
 
     cc_ps_detail::component_value_allocator<component_value_type> cva(process_id(pg), num_processes(pg));
     cc_ps_detail::collision_map<component_value_type> collisions;
