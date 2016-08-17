@@ -1,7 +1,10 @@
 # STNG
-compiler for fortran stencils using verified lifting
+Compiler for fortran stencils using verified lifting
 
 This repo contains the frontend and backend of the STNG compiler, along with test cases.
+
+**Note: This is still under development and is not ready for tryout. Please [sign up on our mailing list](https://mailman.cs.washington.edu/mailman/listinfo/stng-users) if you are interested
+in our tool.**
 
 Notes for the frontend:
 - The `include` and `lib` directories should contain all the header and library files from boost version 1.40 and 
@@ -11,3 +14,4 @@ to compile the frontend. The libraries were compiled on a 32-bit machine running
 - The rose library is stored as compressed form on github (due to its 100MB limit). The Makefile will 
 decompress it to `lib/rose/lib/librose.so.0.0.0` on first execution.
 - For trying out the tool, use the included `Dockerfile`. Building the docker file will create an image of 32-bit ubuntu 14.04, download the stng source code, build it, and put the compiled frontend executable `translator` in `/bin`. Invoke it with `<input fortran source code> -out <output directory for the Halide translated source>`.
+- For RAW arrays: don't generate output variables. For WAR arrays: generate output variables. If an array is read after WAR, then output error.
