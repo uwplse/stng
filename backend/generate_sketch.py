@@ -3,6 +3,7 @@ from verify import *
 from assertion_to_sketch import *
 import asp.codegen.ast_tools as ast_tools
 from invariant import *
+import logging
 
 def loop_key(node):
     import hashlib
@@ -44,22 +45,25 @@ class OutputArrayFinder(ast_tools.NodeVisitor):
         map(self.visit, node.body)
 
     def visit_AssignExp(self, node):
-        print "outputarrayfinder visiting ", tree_to_str(node)
+        logging.debug("outputarrayfinder visiting %s", tree_to_str(node))
         if isinstance(node.lval, ArrExp):
             if node.lval.name.name not in self.output_arrays:
                 self.output_arrays += [node.lval.name.name]
 
 class MaxFinder(asp.codegen.ast_tools.NodeVisitor):
+    """
+    Searches for the loop condition for an incrementing loop.
+    """
     def __init__(self, loopvar):
         super(MaxFinder, self).__init__()
         self.maximum = None
         self.loopvar = loopvar
-        print "finding max for ", loopvar
+        logging.debug("finding max for %s", loopvar)
     def visit_Block(self, node):
         #print "visiting ", g.tree_to_str(node)
         map(self.visit, node.body)
     def visit_WhileLoop(self, node):
-        print "visiting ", tree_to_str(node)
+        logging.debug("visiting %s", tree_to_str(node))
         if node.iter_var.name != self.loopvar:
             self.generic_visit(node)
         if (type(node.test) == BinExp and
@@ -69,6 +73,9 @@ class MaxFinder(asp.codegen.ast_tools.NodeVisitor):
         self.generic_visit(node)
 
 class InitFinder(asp.codegen.ast_tools.NodeVisitor):
+    """
+    Searches for the loop initializer.
+    """
     class VarFinder(asp.codegen.ast_tools.NodeVisitor):
         def __init__(self, varname):
             self.varname = varname
@@ -82,7 +89,7 @@ class InitFinder(asp.codegen.ast_tools.NodeVisitor):
     def __init__(self, loopvar):
         self.loopvar = loopvar
         self.init = None
-        print "finding initial value for ", loopvar
+        logging.debug("finding initial value for %s", loopvar)
     def visit_Block(self, node):
         map(self.visit, node.body)
     def visit_AssignExp(self, node):
@@ -110,7 +117,7 @@ class ArrLDFinder(asp.codegen.ast_tools.NodeVisitor):
             self.loopvars = loopvars
             self.largest_candidates = []
             self.visit(node)
-            print "LARGEST CAND: ", self.largest_candidates
+            logging.debug("largest candidates: %s", self.largest_candidates)
             return self.largest_candidates
 
         def visit_BinExp(self, node):
@@ -120,10 +127,10 @@ class ArrLDFinder(asp.codegen.ast_tools.NodeVisitor):
             if lresult and rresult:
                 self.largest_candidates.append(node)
             elif lresult:
-                print "LRESULT", lresult
+                logging.debug("LRESULT %s", lresult)
                 self.largest_candidates.append(node.left)
             elif rresult:
-                print "RRESULT", rresult
+                logging.debug("RRESULT %s", rresult)
                 self.largest_candidates.append(node.right)
 
             return lresult and rresult
@@ -1163,38 +1170,6 @@ class SketchGeneratorLevel12(SketchGeneratorLevel11):
             invariant_info[inv] = invariant_gen.generate_invariant(
                 self.invariant_names_to_loops[inv].iter_var.name,
                 inv)
-        print invariant_info
-
-        # OLD
-        # for invariant in self.invariant_names_to_loops.keys():
-        #     #FIXME
-        #     looplevel = 0
-        #     node = self.invariant_names_to_loops[invariant]
-        #     thiskey = loop_key(node)
-        #     var = node.iter_var.name
-        #     containing_loop_invs = self.get_containing_loop_invs(node)
-        #     # we need to also know which loops this loop contains
-        #     thisloopcontains = self.get_loops_contained_by(node)
-        #     ret += inv_template.render(name=invariant,
-        #                                looplevel=looplevel,
-        #                                output_nesting=self.output_nesting,
-        #                                containing_loop_invs=containing_loop_invs,
-        #                                parameters=self.get_params(),
-        #                                int_params=[x[0] for x in self.inputs if x[1]=="int"] + self.get_loopvars(),
-        #                                call_params=self.get_params_without_types(),
-        #                                outarray=self.get_out_array(),
-        #                                thisloopvar=var,
-        #                                thiskey=thiskey,
-        #                                thisloopcontains=thisloopcontains,
-        #                                loopvar=self.get_loopvars(),
-        #                                per_loop_mins=self.get_per_loop_mins(),
-        #                                per_loop_maxs=self.get_per_loop_maxs(),
-        #                                mins=self.get_loopvar_mins(),
-        #                                maxs=self.get_loopvar_maxs(),
-        #                                loopvar_nesting=self.loopvar_nesting,
-        #                                dependent_loopvars=self.dependent_loopvars,
-        #                                recursion_limit=self.recursion_limit)
-        # NEW
         for invariant in self.invariant_names_to_loops.keys():
             #FIXME
             looplevel = 0
