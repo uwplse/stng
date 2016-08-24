@@ -15,3 +15,4 @@ to compile the frontend. The libraries were compiled on a 32-bit machine running
 decompress it to `lib/rose/lib/librose.so.0.0.0` on first execution.
 - For trying out the tool, use the included `Dockerfile`. Building the docker file will create an image of 32-bit ubuntu 14.04, download the stng source code, build it, and put the compiled frontend executable `translator` in `/bin`. Invoke it with `<input fortran source code> -out <output directory for the Halide translated source>`.
 - For RAW arrays: don't generate output variables. For WAR arrays: generate output variables. If an array is read after WAR, then output error.
+- build docker image with `docker build -f /path/to/a/Dockerfile -t <tagname> .`
