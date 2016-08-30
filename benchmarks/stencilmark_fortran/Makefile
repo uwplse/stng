@@ -1,3 +1,6 @@
+# akcheung: type 'make stencil' to use stng to generate halide code
+# the outputs are stored in the 'stencil' directory
+
 FC=gfortran
 CC=gcc
 #FFLAGS=-Ofast
@@ -20,7 +23,7 @@ clean:
 
 
 
-STENCIL_COMPILER=$(HOME)/stencil/translator
+STENCIL_COMPILER=../../frontend/bin/translator
 STENCIL_DIR=stencil
 STENCIL_LIB_DIR=$(HOME)/stencil/lib
 STENCIL_FLAGS=-out $(STENCIL_DIR)
