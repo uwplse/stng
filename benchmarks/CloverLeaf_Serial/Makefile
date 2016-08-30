@@ -1,3 +1,6 @@
+# akcheung: type 'make clover_leaf_stencil' to use stng to generate halide code
+# the outputs are stored in the 'stencil' directory
+
 #Crown Copyright 2012 AWE.
 #
 # This file is part of CloverLeaf.
@@ -128,7 +131,7 @@ C_MPI_COMPILER=mpicc
 # do not add initialise.f90, rose generates code that doesn't compile
 # and added -c flag
 
-STENCIL_COMPILER=$(HOME)/stencil/translator
+STENCIL_COMPILER=../../frontend/bin/translator
 STENCIL_DIR=stencil
 STENCIL_LIB_DIR=$(HOME)/stencil/lib
 STENCIL_FLAGS=-out $(STENCIL_DIR)
