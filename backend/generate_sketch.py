@@ -145,7 +145,6 @@ class ArrLDFinder(asp.codegen.ast_tools.NodeVisitor):
     def find(self, program, loopvars):
         self.loopvars = loopvars
         self.candidates = []
-        print "ArrLDFinder"
         self.visit(program)
         return self.candidates
 
@@ -153,7 +152,7 @@ class ArrLDFinder(asp.codegen.ast_tools.NodeVisitor):
         map(self.visit, node.body)
 
     def visit_ArrExp(self, node):
-        print "Checking ", tree_to_str(node)
+        logging.debug("Checking %s", tree_to_str(node))
         self.candidates += ArrLDFinder.LargestWantedSubtree().find(node, self.loopvars)
 
 class SketchGenerator(object):
@@ -168,7 +167,6 @@ class SketchGenerator(object):
         inputs is a dict mapping names to (Sketch) types (most importantly for arrays).
         """
         self.program = program
-        print tree_to_str(program)
         self.inputs = self.concretize_arrays(inputs)
         self.loopvars = loopvars
         self.loopvar_mins = {}
@@ -190,7 +188,7 @@ class SketchGenerator(object):
             if "_N" in x[1]:
                 x = (x[0], re.subn("\[.*\]", "[1000]", x[1])[0])
             new_inputs.append(x)
-        print "After concretization: ", new_inputs
+        logging.debug("After concretization: %s", new_inputs)
         return new_inputs
 
     def generate(self):
@@ -203,7 +201,7 @@ class SketchGenerator(object):
 
         new_invariants = self.generate_invariant_func_signatures()
 
-        print "Found %d loops and generated invariant signatures." % len(new_invariants)
+        logging.debug("Found %d loops and generated invariant signatures.", len(new_invariants))
 
         # get verification conditions
         wpc = WeakestPrecondition(self.program, postcondition, [], invariant_call=new_invariants)
@@ -275,7 +273,6 @@ class SketchGenerator(object):
         from mako.template import Template
         inv_template = Template(filename="templates/invariant/1.mako")
         ret = ""
-        print "IN generate_invariant_funcs()"
 
         for invariant in self.invariant_names_to_loops.keys():
             #FIXME
@@ -303,19 +300,6 @@ class SketchGenerator(object):
                                        maxs=self.get_loopvar_maxs(),
                                        recursion_limit=self.recursion_limit)
         print ret
-        # exit()
-        # for looplevel in range(len(self.get_loopvars())):
-        #     var = self.get_loopvars()[looplevel]
-        #     ret += inv_template.render(name="I_"+var,
-        #                                looplevel=looplevel,
-        #                                parameters=self.get_params(),
-        #                                int_params=[x[0] for x in self.inputs if x[1]=="int"] + self.get_loopvars(),
-        #                                call_params=self.get_params_without_types(),
-        #                                outarray=self.get_out_array(),
-        #                                loopvar=self.get_loopvars(),
-        #                                mins=self.get_loopvar_mins(),
-        #                                maxs=self.get_loopvar_maxs(),
-        #                                recursion_limit=self.recursion_limit)
         return ret
 
     def generate_size(self):
@@ -325,7 +309,7 @@ class SketchGenerator(object):
         """
         import re
         #TODO: generalize to have outputs of different sizes (i.e. allow outputs not all to be same size)
-        print self.inputs, "OUTARRAY: ", self.get_out_array()
+        logging.debug(" %s OUTARRAY: %s", self.inputs, self.get_out_array())
         out_array_type = [x[1] for x in self.inputs if x[0] == self.get_out_array()[0]][0]
         match = re.search("\[(.*)\]", out_array_type)
         sz = match.group(1)
@@ -373,7 +357,7 @@ class SketchGenerator(object):
         # find candidate expressions for array LDs
         candidates = ArrLDFinder().find(self.program, self.get_loopvars())
         filtered_candidates = list(set(map(tree_to_str, candidates)))
-        print "Candidate expressions for array LDs: ", '\n'.join(filtered_candidates)
+        logging.debug("Candidate expressions for array LDs: %s", '\n'.join(filtered_candidates))
 
         ret = common_template.render(loopvar=self.get_loopvars(),
                                      int_params=[x[0] for x in self.inputs if x[1]=="int"] + self.get_loopvars(),
@@ -436,13 +420,13 @@ class SketchGenerator(object):
         # get maxs
         max_visitor = PerLoopMaxFinder(loop_key)
         max_visitor.visit(self.program)
-        print "PER_LOOP_MAXS: ",  ["[%s: %s] " % (key, tree_to_str(max_visitor.maxs[key])) for key in max_visitor.maxs.keys()]
+        logging.debug("PER_LOOP_MAXS: %s",  ["[%s: %s] " % (key, tree_to_str(max_visitor.maxs[key])) for key in max_visitor.maxs.keys()])
         self.per_loop_maxs = max_visitor.maxs
 
         # get mins
         min_visitor = PerLoopInitFinder()
         min_visitor.visit(self.program)
-        print "PER_LOOP_MINS: ", ["[%s: %s] " % (key, tree_to_str(min_visitor.mins[key])) for key in min_visitor.mins.keys()]
+        logging.debug("PER_LOOP_MINS: %s", ["[%s: %s] " % (key, tree_to_str(min_visitor.mins[key])) for key in min_visitor.mins.keys()])
         self.per_loop_mins = min_visitor.mins
 
     def get_per_loop_maxs(self):
@@ -508,7 +492,7 @@ class SketchGenerator(object):
             visitor = ContainingLoopVisitor()
             visitor.visit(self.program)
             self.containing_loop_invs = visitor.containing_loops
-            print "CONTAINING LOOPS:", visitor.containing_loops
+            logging.debug("CONTAINING LOOPS: %s", visitor.containing_loops)
 
         key = loop_key(node)
         invariant_name = "I_%s_%s" % (node.iter_var.name, key)
@@ -563,43 +547,6 @@ class SketchGenerator(object):
 
         return ret
 
-class SketchGeneratorLevel2(SketchGenerator):
-    """
-    This version considers all points within the offset, instead of a "cross" shape.
-    """
-    def generate_generators(self):
-        """
-        Generates the generators for the RHS for the invariant/postcondition.
-        """
-        from mako.template import Template
-        import re
-        common_template = Template(filename="templates/generators/common.mako")
-        gen_template = Template(filename="templates/generators/2.mako")
-
-        # find candidate expressions for array LDs
-        candidates = ArrLDFinder().find(self.program, self.get_loopvars())
-        filtered_candidates = list(set(map(tree_to_str, candidates)))
-        print "Candidate expressions for array LDs: ", '\n'.join(filtered_candidates)
-
-        ret = common_template.render(loopvar=self.get_loopvars(),
-                                     int_params=[x[0] for x in self.inputs if x[1]=="int"] + self.get_loopvars(),
-                                     array_sz_candidates = filtered_candidates,
-                                     arrays=[x[0] for x in self.inputs if re.search("\[", x[1])])
-
-
-        for arr in self.get_out_array():
-            # we want all the arrays that are not output
-            # this is because even if we use the output arrays in a RAW manner, we want to
-            # construct our conditions in terms of the inputs
-            arraynames = [x[0] for x in self.inputs if re.search("\[", x[1]) and x[0] not in self.get_out_array()]
-            ret += gen_template.render(parameters=self.get_params() + ", " + ','.join(["int " + x for x in self.get_loopvars()]),
-                                        call_params=self.get_params_without_types() + ", " + ','.join(self.get_loopvars()),
-                                        outarray=arr,
-                                        int_params=[x[0] for x in self.inputs if x[1]=="int"] + self.get_loopvars(),
-                                        arraynames=arraynames,
-                                        loopvar=self.get_loopvars())
-        return ret
-
 
 class SketchGeneratorLevel5(SketchGenerator):
     """
@@ -627,17 +574,17 @@ class SketchGeneratorLevel5(SketchGenerator):
             sofar = -1
             for arr in self.found.keys():
                 for acc in self.found[arr]:
-                    print "acc is : ", acc
+                    logging.debug("acc is : %s", acc)
                     if len(acc) > sofar:
                         sofar = len(acc)
 
-            print "Max Dimension: ", sofar
+            loggin.debug("Max Dimension: %s", sofar)
             for arr in self.found.keys():
                 for acc in self.found[arr]:
                     howmany = sofar-len(acc)
                     for i in range(howmany):
                         acc += ['0']
-            print self.found
+            logging.debug("%s", self.found)
 
         def reorder(self):
             """
@@ -647,8 +594,8 @@ class SketchGeneratorLevel5(SketchGenerator):
             import collections
             newfound = collections.defaultdict(list)
             for arr in self.found.keys():
-                print "before reorder of ", arr
-                print arr, self.found[arr]
+                logging.debug("before reorder of %s", arr)
+                logging.debug("%s %s", arr, self.found[arr])
                 newacc = []
                 for acc in self.found[arr]:
                     # first check if it's a constant access; if so, leave it alone
@@ -656,113 +603,18 @@ class SketchGeneratorLevel5(SketchGenerator):
                     if is_constant:
                         newfound[arr].append(acc)
                         continue
-                    print acc
+                    logging.debug("%s", acc)
                     newacc = ['0'] * len(self.loopvars)
                     for i in range(len(self.loopvars)):
                         for pt in acc:
                             if self.loopvars[i] in pt:
                                 newacc[i] = pt
-                    print newacc
+                    logging.debug("%s", newacc)
                     newfound[arr].append(newacc)
 
-            print self.found
-            print newfound
+            logging.debug("%s", self.found)
+            logging.debug("%s", newfound)
             self.found = newfound
-
-        def reorder_lessOLD(self):
-            """
-            Our access functions are in loop-nesting order, so an access like
-            a(j,k) is a(k,j) if k is the outermost loop.  we need to reorder so
-            that it is consistent with the loop ordering.
-            """
-            print "IN REORDER", self.loopvars
-            import collections
-            newfound = collections.defaultdict(list)
-
-            # first find what the max dim is
-            sofar = -1
-            for arr in self.found.keys():
-                for acc in self.found[arr]:
-                    print "acc is : ", acc
-                    if len(acc) > sofar:
-                        sofar = len(acc)
-
-            print "After finding max dim, sofar is ", sofar
-
-            for k in self.found.keys():
-                for acc in self.found[k]:
-                    mapper = []
-                    if len(acc) < sofar:
-                        newfound[k].append(acc)
-                        continue
-                    for access in acc:
-                        for i in range(len(self.loopvars)):
-                            if self.loopvars[i] in access:
-                                    mapper = mapper + [i]
-
-
-                    mapped = []
-                    print k, acc, mapper
-                    for m in mapper:
-                        print "m is ", m
-                        mapped = mapped + [acc[m]]
-                    print k, acc, mapper, mapped
-                    newfound[k].append(mapped)
-            print self.found
-            print newfound
-            self.found = newfound
-
-
-
-        def reorder_OLD(self):
-            """
-            Our access functions are in loop-nesting order, so an access like
-            a(j,k) is a(k,j) if k is the outermost loop.  we need to reorder so
-            that it is consistent with the loop ordering.
-            """
-            print "IN REORDER", self.loopvars
-            import collections
-            newfound = collections.defaultdict(list)
-
-            # first find what the max dim is
-            sofar = -1
-            for arr in self.found.keys():
-                for acc in self.found[arr]:
-                    print "acc is : ", acc
-                    if len(acc) > sofar:
-                        sofar = len(acc)
-
-            # find a reordering using one of the max dim accesses
-            mapper = []
-            for k in self.found.keys():
-                if len(mapper) == sofar:
-                    break
-                for acc in self.found[k]:
-                    for access in acc:
-                        for i in range(len(self.loopvars)):
-                            if self.loopvars[i] in access:
-                                    mapper = mapper + [i]
-                    if len(mapper) == sofar:
-                        break
-                    else:
-                        mapper = []
-            for k in self.found.keys():
-                for acc in self.found[k]:
-                    mapped = []
-                    print k, acc, mapper
-                    for m in mapper:
-                        # don't remap if it's just a single dim
-#                        if len(acc) == 1:
-#                            mapped = acc
-#                            break
-                        mapped = mapped + [acc[m]]
-                    print k, acc, mapper, mapped
-                    newfound[k].append(mapped)
-            print self.found
-            print newfound
-            self.found = newfound
-
-
 
         def visit_Block(self, node):
             map(self.visit, node.body)
@@ -770,39 +622,39 @@ class SketchGeneratorLevel5(SketchGenerator):
 
         def visit_ArrExp(self, node):
             self.in_arr_access = tree_to_str(node.name)
-            print "in_arr_acc:", self.in_arr_access
+            logging.debug("in_arr_acc: %s", self.in_arr_access)
             self.sofar = []
             self.visit(node.loc)
             if (isinstance(node.loc, VarNode) and node.loc.name in self.loopvars):
                 self.sofar.append(node.loc.name)
             if isinstance(node.loc, NumNode):
                 self.sofar.append(str(node.loc.val))
-            print "SOFAR:", self.sofar
+            logging.debug("SOFAR: %s", self.sofar)
             if self.sofar not in self.found[self.in_arr_access]:
                 self.found[self.in_arr_access].append(self.sofar)
             self.in_arr_access = False
 
 
         def visit_BinExp(self, node):
-            print "looking at ", tree_to_str(node)
+            logging.debug("looking at %s", tree_to_str(node))
             if self.in_arr_access:
-                print "and access is within array expression", self.in_arr_access
+                logging.debug("and access is within array expression %s", self.in_arr_access)
                 if isinstance(node.left, VarNode) and node.left.name in self.loopvars:
                     if isinstance(node.right, NumNode):
-                        print "sofar was: ", self.sofar, "and appending ", tree_to_str(node)
+                        logging.debug("sofar was: %s and appending %s", self.sofar, tree_to_str(node))
                         self.sofar.append(tree_to_str(node))
                     else:
-                        print "sofar was: ", self.sofar, "and appending ", tree_to_str(node.left)
+                        logging.debug("sofar was: %s and appending %s", self.sofar, tree_to_str(node.left))
                         self.sofar.append(tree_to_str(node.left))
                         self.visit(node.right)
                     return
 
                 if isinstance(node.right, VarNode) and node.right.name in self.loopvars:
                     if isinstance(node.left, NumNode):
-                        print "sofar was: ", self.sofar, "and appending ", tree_to_str(node)
+                        logging.debug("sofar was: %s and appending %s", self.sofar, tree_to_str(node))
                         self.sofar.append(tree_to_str(node))
                     else:
-                        print "sofar was: ", self.sofar, "and appending ", tree_to_str(node.right)
+                        logging.debug("sofar was: %s and appending %s", self.sofar, tree_to_str(node.right))
                         self.sofar.append(tree_to_str(node.right))
                         self.visit(node.left)
                     return
@@ -821,9 +673,9 @@ class SketchGeneratorLevel5(SketchGenerator):
         # find candidate expressions for array LDs
         candidates = ArrLDFinder().find(self.program, self.get_loopvars())
         filtered_candidates = list(set(map(tree_to_str, candidates)))
-        print "Candidate expressions for array LDs: ", filtered_candidates
-        print "arrays=" ,  self.inputs
-        print [x[0] for x in self.inputs if re.search("\[", x[1])]
+        logging.debug("Candidate expressions for array LDs: %s", filtered_candidates)
+        logging.debug("arrays=%s",  self.inputs)
+        logging.debug("%s", [x[0] for x in self.inputs if re.search("\[", x[1])])
         ret = common_template.render(loopvar=self.get_loopvars(),
                                      int_params=[x[0] for x in self.inputs if x[1]=="int"] + self.get_loopvars(),
                                      array_sz_candidates = filtered_candidates,
@@ -832,89 +684,7 @@ class SketchGeneratorLevel5(SketchGenerator):
 
         # find candidate array accesses
         candidate_accesses = SketchGeneratorLevel5.FindAccesses().find(self.program, self.get_loopvars())
-        print "Candidate array accesses: ", candidate_accesses
-
-
-        for arr in self.get_out_array():
-            # we want all the arrays that are not output
-            # this is because even if we use the output arrays in a RAW manner, we want to
-            # construct our conditions in terms of the inputs
-            arraynames = [x[0] for x in self.inputs if re.search("\[", x[1]) and x[0] not in self.get_out_array()]
-            ret += gen_template.render(parameters=self.get_params() + ", " + ','.join(["int " + x for x in self.get_loopvars()]),
-                                        call_params=self.get_params_without_types() + ", " + ','.join(self.get_loopvars()),
-                                        outarray=arr,
-                                        candidate_accesses=candidate_accesses,
-                                        int_params=[x[0] for x in self.inputs if x[1]=="int"] + self.get_loopvars(),
-                                        float_params=[(x[1],x[0]) for x in self.inputs if x[1]=="double" or x[1]=="float"],
-                                        arraynames=arraynames,
-                                        loopvar=self.get_loopvars())
-        return ret
-
-class SketchGeneratorLevel6(SketchGeneratorLevel5):
-    def generate_generators(self):
-        """
-        Generates the generators for the RHS for the invariant/postcondition.
-        """
-        from mako.template import Template
-        import re
-        common_template = Template(filename="templates/generators/common.mako")
-        gen_template = Template(filename="templates/generators/6.mako")
-
-        # find candidate expressions for array LDs
-        candidates = ArrLDFinder().find(self.program, self.get_loopvars())
-        filtered_candidates = list(set(map(tree_to_str, candidates)))
-        print "Candidate expressions for array LDs: ", filtered_candidates
-
-        ret = common_template.render(loopvar=self.get_loopvars(),
-                                     int_params=[x[0] for x in self.inputs if x[1]=="int"] + self.get_loopvars(),
-                                     array_sz_candidates = filtered_candidates,
-                                     arrays=[x[0] for x in self.inputs if re.search("\[", x[1])])
-
-
-        # find candidate array accesses
-        candidate_accesses = SketchGeneratorLevel5.FindAccesses().find(self.program, self.get_loopvars())
-        print "Candidate array accesses: ", candidate_accesses
-
-
-        for arr in self.get_out_array():
-            # we want all the arrays that are not output
-            # this is because even if we use the output arrays in a RAW manner, we want to
-            # construct our conditions in terms of the inputs
-            arraynames = [x[0] for x in self.inputs if re.search("\[", x[1]) and x[0] not in self.get_out_array()]
-            ret += gen_template.render(parameters=self.get_params() + ", " + ','.join(["int " + x for x in self.get_loopvars()]),
-                                        call_params=self.get_params_without_types() + ", " + ','.join(self.get_loopvars()),
-                                        outarray=arr,
-                                        candidate_accesses=candidate_accesses,
-                                        int_params=[x[0] for x in self.inputs if x[1]=="int"] + self.get_loopvars(),
-                                        float_params=[(x[1],x[0]) for x in self.inputs if x[1]=="double" or x[1]=="float"],
-                                        arraynames=arraynames,
-                                        loopvar=self.get_loopvars())
-        return ret
-
-class SketchGeneratorLevel7(SketchGeneratorLevel5):
-    def generate_generators(self):
-        """
-        Generates the generators for the RHS for the invariant/postcondition.
-        """
-        from mako.template import Template
-        import re
-        common_template = Template(filename="templates/generators/common.mako")
-        gen_template = Template(filename="templates/generators/7.mako")
-
-        # find candidate expressions for array LDs
-        candidates = ArrLDFinder().find(self.program, self.get_loopvars())
-        filtered_candidates = list(set(map(tree_to_str, candidates)))
-        print "Candidate expressions for array LDs: ", filtered_candidates
-
-        ret = common_template.render(loopvar=self.get_loopvars(),
-                                     int_params=[x[0] for x in self.inputs if x[1]=="int"] + self.get_loopvars(),
-                                     array_sz_candidates = filtered_candidates,
-                                     arrays=[x[0] for x in self.inputs if re.search("\[", x[1])])
-
-
-        # find candidate array accesses
-        candidate_accesses = SketchGeneratorLevel5.FindAccesses().find(self.program, self.get_loopvars())
-        print "Candidate array accesses: ", candidate_accesses
+        logging.debug("Candidate array accesses: %s", candidate_accesses)
 
 
         for arr in self.get_out_array():
@@ -1218,26 +988,10 @@ class SketchGeneratorLevel12(SketchGeneratorLevel11):
                                     loopvar_nesting=self.loopvar_nesting,
                                     dependent_loopvars=self.dependent_loopvars,
                                     output_nesting=self.output_nesting,
-                                    recursion_limit=self.recursion_limit)
-
-class SketchGeneratorLevel13(SketchGeneratorLevel12):
-    pass
-
 # The levels correspond to:
-# 1: Addition of points only, and only consider offset in one dimension at a time
-# 2: Addition of points only, and consider full offset^dim points
-# 3: 1, with multiplication in lexicographic order (TODO)
-# 4: 2, with multiplication in lexicographic order (TODO)
-# 5: Addition of points only, guess points based on code, include weights
-# 6: 5, with multiplication / division
-# 7: 6, but limit multiplications to lexicographic ordering (TODO)
 # 11: use interpreter plus guessed points
 # 12: use interpreter, try to work with mixed dimensionality
-# 13: try to fix bugs in 12 without screwing anything up
 
-SketchGeneratorLevels = {'1': SketchGenerator, '2': SketchGeneratorLevel2,
-        '5': SketchGeneratorLevel5, '6': SketchGeneratorLevel6,
-        '7': SketchGeneratorLevel7,
+SketchGeneratorLevels = {
         '11': SketchGeneratorLevel11,
-        '12': SketchGeneratorLevel12,
-        '13': SketchGeneratorLevel13}
+        '12': SketchGeneratorLevel12}
