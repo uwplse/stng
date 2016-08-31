@@ -44,7 +44,9 @@ all: $(OBJS) $(SRC)/*.h lib $(ROSE_LIB)/librose.so.0.0.0
 
 # only matches if librose.so.0.0.0.lzma is found
 $(ROSE_LIB)/librose.so.0.0.0: $(wildcard $(ROSE_LIB)/librose.so.0.0.0.lzma)
-	xz --decompress $(ROSE_LIB)/librose.so.0.0.0.lzma
+	if [ ! -e $(ROSE_LIB)/librose.so.0.0.0 ]; then \
+	xz --decompress $(ROSE_LIB)/librose.so.0.0.0.lzma; \
+	fi
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ -c $<
