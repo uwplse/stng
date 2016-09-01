@@ -1,0 +1,200 @@
+
+<html lang="en"><head>
+		<meta charset="utf-8">
+
+		<meta name="keywords" content="stng, compiler, stencils, high performance computing, big data, Adobe, Data Processing, UW, Univeristy of Washington, Programming Languages, program synthesis">
+		
+		<title>Stng</title>
+		<meta name="description" content="Stng is a compiler that automatically translates stencils to leverage GPUs using Halide.">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-83551104-1', 'auto');
+			ga('send', 'pageview');
+
+		</script>
+		
+		<link rel="stylesheet" href="codemirror.css">
+		<script src="codemirror.js"></script>
+		<script src="clike.js"></script>
+
+		<style>
+			.label {
+		    		padding: .2em 0.6em .2em;
+			}
+			.container{
+				max-width: 730px;
+			}
+
+			.content{
+				float: left;
+				max-width: 730px;
+				width: 100%;
+			}
+
+			p{
+				font-size: 16px;
+				text-align: justify;
+			}
+
+			h1{
+				font-size: 56px;
+				margin-bottom: 0px;
+				font-weight: bold;
+				color: #4b2e83;
+			}
+
+			.subtitle{
+				font-size: 24px;
+				color: #666;
+				margin-bottom: 20px;
+			}
+
+			h2{
+				font-size: 24px;
+				color: #666;
+				margin-top: 18px;
+				color: #85754d;
+			}
+
+			.person {
+			    margin: 10px;
+			    width: 110px;
+			    height: 140px;
+			    float: left;
+			}
+
+			.person:hover{
+				transition: opacity .1s;
+    			opacity: 0.7;
+			}
+
+			.person img{
+				height: 100%;
+			    width: 100%;
+			    border-radius: 6px;
+			    object-fit: cover;
+			    object-position: center
+			}
+
+			.person p{
+				text-align: center;
+			    font-size: 1em;
+			    font-weight: bold;
+			    color: white;
+			    position: relative;
+			    text-shadow: 1px 1px 2px black;
+			    padding-bottom: 4px;
+			    bottom: 25px;
+			    display: table-cell;
+			    vertical-align: bottom;
+			    width: 110px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+      		<div class="content">
+  				<h1>Stng</h1>
+  				<p class="subtitle">Automatically leverage GPUs for your high-performance computation</p>
+  				<p>
+  				  High-performance codes are prevalent in many domains (image processing, physical simulations, etc).
+            These codes are often manually tuned over long periods of time for performance. Unfortunately, 
+            newly emerged architectures and software frameworks often render such tuning obsolete, and rewriting
+            legacy codes, either manually or by implementing a new compiler, 
+            to leverage the new features offered by the new architectures is often a big pain.
+          </p>
+          <p>
+  					<i>Verified lifting</i> is a new technique that automatically 
+            rewrites input codes from source to target language. Rather than manually writing rules to translate
+            source language constructs to the target, verified lifting uses program synthesis to <i>automatically search</i>
+            for rewrites in the target language given a piece of input code. Any found candidate is formally verified
+            using theorem provers to guarantee that it preserves the same program semantics as the original.
+          </p>
+          <p>
+            Stng is a compiler built based on verified lifting techniques. It takes in input codes in Fortran
+            and automatically rewrites them to <a href="http://halide-lang.org">Halide</a>, a new high-performance 
+            domain-specific language that leverages GPUs. We have previously used Stng to compile real-world 
+            high-performance applications consisting of <a href="https://en.wikipedia.org/wiki/Stencil_code">stencil computations</a>
+            and the resulting applications achieved median performance speedups of 4.1x and up to 24x as compared to the 
+            original.
+          </p>
+          <p>
+            Stng is open-source software available on <a href="http://github.com/uwplse/stng">GitHub</a> 
+				    Please feel free to submit comments, issues, and pull requests there!
+          </p>
+				
+			  <h2>News</h2>
+				<p>
+					We presented Stng at <a href="http://conf.researchr.org/event/pldi-2016/pldi-2016-papers-verifying-bit-manipulations-of-floating-point">PLDI</a> this year.
+          The link includes the presentation video and slides.
+        </p>
+
+  			<h2>Publications</h2>
+  			<p>
+  					[1] Shoaib Kamil, Alvin Cheung, Shachar Itzhaky, Armando Solar-Lezama, <a href="https://homes.cs.washington.edu/~akcheung/papers/pldi16.html">
+            Verified Lifting of Stencil Computations</a>, PLDI 2016. <br>
+  		  </p>
+
+        <h2>Team</h2>
+        <p>
+          If you have any questions, want to be kept up-to date, or just want to say hi, please sign up on our 
+          <a href="https://mailman.cs.washington.edu/mailman/listinfo/stng-users">mailing list</a>!
+        </p>
+
+        <div class="person" title="Shoaib Kamil">
+          <a href="https://research.adobe.com/person/shoaib-kamil/">
+              <img src="https://research.adobe.com/wp-content/uploads/2016/06/dd9a-1a19-9a1a-0628-1024x682.jpg">
+              <p>Shoaib Kamil</p>
+          </a>
+        </div>
+
+        <div class="person" title="Alvin Cheung">
+          <a href="http://homes.cs.washington.edu/~akcheung/">
+              <img src="http://db.cs.washington.edu/images/people/alvin.jpg">
+              <p>Alvin Cheung</p>
+          </a>
+        </div>
+
+         <div class="person" title="Shachar Itzhaky">
+          <a href="http://people.csail.mit.edu/shachari/">
+              <img src="http://groups.csail.mit.edu/cap/images/ShacharFrontSmall.jpg">
+              <p>Shachar Itzhaky</p>
+          </a>
+        </div>
+       
+      </div>
+    </div>
+
+</body>
+<script>
+  var javaEditor = CodeMirror.fromTextArea(document.getElementById("java-code"), {
+	lineNumbers: true,
+	matchBrackets: true,
+	mode: "text/x-java",
+	readOnly: true
+  });
+  javaEditor.setSize("100%","370px");
+  var javaEditor2 = CodeMirror.fromTextArea(document.getElementById("java-code-translated"), {
+	lineNumbers: true,
+	matchBrackets: true,
+	mode: "text/x-java",
+	readOnly: true
+  });
+  javaEditor2.setSize("100%","880px");
+</script>
+</html>
+
