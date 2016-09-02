@@ -113,27 +113,27 @@
   				<p>
   				  High-performance codes are prevalent in many domains (image processing, physical simulations, etc).
             These codes are often manually tuned over long periods of time for performance. Unfortunately, 
-            newly emerged architectures and software frameworks often render such tuning obsolete, and rewriting
-            legacy codes, either manually or by implementing a new compiler, 
-            to leverage the new features offered by the new architectures is often a big pain.
+            newly emerged architectures and software frameworks render such tuning obsolete, and rewriting
+            legacy codes, either manually for each application or by implementing a new compiler, 
+            to leverage the new features offered by the new architectures is a big pain.
           </p>
           <p>
   					<i>Verified lifting</i> is a new technique that automatically 
             rewrites input codes from source to target language. Rather than manually writing rules to translate
-            source language constructs to the target, verified lifting uses program synthesis to <i>automatically search</i>
+            source language constructs to the target language, verified lifting uses program synthesis to <i>automatically search</i>
             for rewrites in the target language given a piece of input code. Any found candidate is formally verified
             using theorem provers to guarantee that it preserves the same program semantics as the original.
           </p>
           <p>
-            Stng is a compiler built based on verified lifting techniques. It takes in input codes in Fortran
+            Stng is a compiler built using verified lifting. It takes in input codes in Fortran
             and automatically rewrites them to <a href="http://halide-lang.org">Halide</a>, a new high-performance 
-            domain-specific language that leverages GPUs. We have previously used Stng to compile real-world 
+            domain-specific language that leverages GPUs for computation. We have used Stng to compile real-world 
             high-performance applications consisting of <a href="https://en.wikipedia.org/wiki/Stencil_code">stencil computations</a>
             and the resulting applications achieved median performance speedups of 4.1x and up to 24x as compared to the 
             original.
           </p>
           <p>
-            Stng is open-source software available on <a href="http://github.com/uwplse/stng">GitHub</a> 
+            Stng is open-source software available on <a href="http://github.com/uwplse/stng">GitHub</a>. 
 				    Please feel free to submit comments, issues, and pull requests there!
           </p>
           <p>
@@ -143,8 +143,12 @@
 				
 			  <h2>News</h2>
 				<p>
+        <ul>
+        <li>
 					We presented Stng at <a href="http://conf.researchr.org/event/pldi-2016/pldi-2016-papers-verifying-bit-manipulations-of-floating-point">PLDI</a> this year.
           The link includes the presentation video and slides.
+        </li>
+        </ul>
         </p>
 
   			<h2>Publications</h2>
@@ -155,7 +159,7 @@
 
         <h2>Team</h2>
         <p>
-          If you have any questions, want to be kept up-to date, or just want to say hi, please sign up on our 
+          If you have any questions, want to keep up-to date, or just like to say hi, please sign up on our 
           <a href="https://mailman.cs.washington.edu/mailman/listinfo/stng-users">mailing list</a>!
         </p>
 
