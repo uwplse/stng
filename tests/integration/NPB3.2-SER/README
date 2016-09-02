@@ -1,0 +1,36 @@
+NAS Parallel Benchmarks 3.2 - Serial version (NPB3.2-SER)
+---------------------------------------------------------
+
+   NAS Parallel Benchmarks Team
+   npb@nas.nasa.gov
+
+This version contains a few minor improvements over NPB3.1-SER.
+The detailed changes are included Changes.log in the upper directory. 
+Compilation and run of the benchmarks are explained in README-3.0.  
+Several new features and main improvements are listed here.  
+
+Main changes from NPB3.1-SER:
+
+   - Convert C++ version of DC to plain C.
+
+   - A number of fixes in UA.
+
+Main changes from NPB3.0-SER:
+
+   - Include the Class D problem size in all benchmarks except for
+     the IS benchmark.
+
+   - Redefine the Class W problem size for MG to avoid too fast
+     convergence.  The new size is 128x128x128, 4 iterations.
+
+   - Use relative errors for verification in MG and CG, which is
+     consistent with other benchmarks.
+
+   - Include one SSOR iteration before the time step loop in both
+     LU and LU-HP to touch all pages.
+
+   - Include the UA benchmark
+
+   - Include the DC benchmark
+
+
