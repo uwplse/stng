@@ -3,8 +3,9 @@ Compiler for fortran stencils using verified lifting
 
 This repo contains the code for the STNG compiler.
 
-**Note: This is still under active development. Please [sign up on our mailing list](https://mailman.cs.washington.edu/mailman/listinfo/stng-users) if you are interested
-in our tool.**
+**Note: This is still under active development. If you encounter bugs, like to suggest features,
+etc, please [sign up on our mailing list](https://mailman.cs.washington.edu/mailman/listinfo/stng-users) 
+or open a github issue.**
 
 ## Description
 
