@@ -24,9 +24,14 @@ The following describes how to use the various components in the compiler.
 1. Clone this repo and run `make` in `frontend`. Building the
 frontend on your own machine requires installing [Rose](http://rosecompiler.org). If you don't
 want to do that, an easier way is to build the docker image file with:
-`docker build -f frontend/Dockerfile -t <optional tagname>` and then starts a container with
-`docker run -ti <optional tagname> /bin/bash`, which would have built the frontend
-for you in `/home/stng/stng/frontend/bin/translator`.
+  ```
+docker build -f frontend/Dockerfile -t <optional tagname>
+  ```
+which builds the frontend. After that, starts a container with:
+  ```
+docker run -ti <optional tagname> /bin/bash`, 
+  ```
+The frontend executable is `/home/stng/stng/frontend/bin/translator`.
 
 2. Run the frontend with the input Fortran file. This will generate a number of output files
 in the output directory as specified by the `-out` flag.
