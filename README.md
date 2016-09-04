@@ -29,7 +29,7 @@ docker build -f frontend/Dockerfile -t <optional tagname>
   ```
 which builds the frontend. After that, starts a container with:
   ```
-docker run -ti <optional tagname> /bin/bash`, 
+docker run -ti <optional tagname> /bin/bash 
   ```
 The frontend executable is `/home/stng/stng/frontend/bin/translator`.
 
