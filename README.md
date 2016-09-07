@@ -38,17 +38,16 @@ in the output directory as specified by the `-out` flag.
 
 If you are using docker then after building the image you can run the frontend with:
   ```
-docker run -v $PWD:/tmp --rm -t <optional tagname> 
-  /home/stng/stng/frontend/bin/translator /tmp/<filename> -out /tmp/<output directory>
+docker run -v $PWD:/tmp --rm -t <optional tagname> translator /tmp/<filename> -out /tmp/<output directory>
   ```
 This maps the current directory on the host (`$PWD`) to `/tmp` in the docker container, allowing
-you to pass files from the current directory to the container. 
+you to pass files directly from the host's current directory to the container. 
 The outputs are generated in `$/PWD/<output directory>`.
 
 3. TBD for running the synthesizer and the backend
 
 
-## An End-to-end Example
+## An End-to-End Example
 
 ### Frontend
 Given this code (`simple.f90` in `frontend/tests/simple.f90`):
