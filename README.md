@@ -42,7 +42,8 @@ docker run -v $PWD:/tmp --rm -t <optional tagname>
   /home/stng/stng/frontend/bin/translator /tmp/<filename> -out /tmp/<output directory>
   ```
 This maps the current directory on the host (`$PWD`) to `/tmp` in the docker container, allowing
-you to pass files in the current directory. The outputs are generated in `$/PWD/<output directory>`.
+you to pass files from the current directory to the container. 
+The outputs are generated in `$/PWD/<output directory>`.
 
 3. TBD for running the synthesizer and the backend
 
