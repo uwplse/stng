@@ -1,3 +1,6 @@
+// akcheung (10/11/2016): this file used to be called ControlFlowGraph.h
+// but since on macOS and windows filenames are case insentitive this created
+// problems for git (from Shoaib)
 #ifndef _CONTROLFLOWGRAPH_H_
 #define _CONTROLFLOWGRAPH_H_
 
