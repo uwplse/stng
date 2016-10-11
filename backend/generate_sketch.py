@@ -720,7 +720,7 @@ class SketchGeneratorLevel11(SketchGeneratorLevel5):
         # find candidate expressions for array LDs
         candidates = ArrLDFinder().find(self.program, self.get_loopvars())
         filtered_candidates = list(set(map(tree_to_str, candidates)))
-        print "Candidate expressions for array LDs: ", filtered_candidates
+        logging.debug("Candidate expressions for array LDs: %s", filtered_candidates)
 
         ret = common_template.render(loopvar=self.get_loopvars(),
                                      int_params=[x[0] for x in self.inputs if x[1]=="int"] + self.get_loopvars(),
@@ -730,7 +730,7 @@ class SketchGeneratorLevel11(SketchGeneratorLevel5):
 
         # find candidate array accesses
         candidate_accesses = SketchGeneratorLevel5.FindAccesses().find(self.program, self.get_loopvars())
-        print "Candidate array accesses: ", candidate_accesses
+        logging.debug("Candidate array accesses: %s", candidate_accesses)
 
         # interpret the loop nest to find the overall structure
         import interpret
@@ -738,11 +738,11 @@ class SketchGeneratorLevel11(SketchGeneratorLevel5):
         inputs = [x for x in self.inputs if x[0] not in self.get_out_array()]
         outputs = [x for x in self.inputs if x[0] in self.get_out_array()]
 
-        print "Interpreter inputs:", inputs
-        print "Interpreter outputs:", outputs
+        logging.debug("Interpreter inputs: %s", inputs)
+        logging.debug("Interpreter outputs: %s", outputs)
         interpreter_result = interpret.Interpreter(inputs, outputs).interpret(self.program)
         pcon_guess = interpret.Guesser(inputs, outputs).guess_postcondition(interpreter_result)
-        print pcon_guess
+        logging.debug("%s", pcon_guess)
 
 
         # compute aggregates across all loops
