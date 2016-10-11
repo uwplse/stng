@@ -3,6 +3,7 @@ import asp.codegen.ast_tools as ast_tools
 import sympy
 import random
 import re
+import logging
 
 ARRAYSIZE = 10000
 AOFFSET = 99
@@ -37,13 +38,6 @@ class Interpreter(ast_tools.NodeVisitor):
         # it's a scalar
         if x[1] == 'int':
           self.state[x[0]] = sympy.sympify(random.randint(1,9))
-   #    elif x[1] == 'float' or x[1] == 'double':
-   #          # these come in the form __float__<num>
-   #          import re
-   #
-   #          self.state[x[0]] = float(re.sub("_", ".", x[0][9:]))
-
-
 
     for x in self.outputs:
       if "[" in x[1]:
@@ -61,7 +55,7 @@ class Interpreter(ast_tools.NodeVisitor):
             i += 1
         if i<ARRAYSIZE:
             outputs_changed = True
-            print "Outputs have changed."
+            logging.debug("Outputs have changed.")
             break
     return outputs_changed
 
@@ -78,7 +72,7 @@ class Interpreter(ast_tools.NodeVisitor):
         self.initialize_state()
 
     if tries_left == 0:
-        print "WARNING: May have exhausted all tries."
+        logging.info("WARNING: Interpreter may have exhausted all tries.")
 
     return self.state
 
@@ -92,9 +86,7 @@ class Interpreter(ast_tools.NodeVisitor):
       return node.name
 
   def visit_ArrExp(self, node):
-    print "In ArrExp: ", tree_to_str(node)
     loc = self.visit(node.loc)
-    print "--->", loc
     return self.state[node.name.name][loc+AOFFSET]
 
   def visit_BinExp(self, node):
@@ -106,10 +98,9 @@ class Interpreter(ast_tools.NodeVisitor):
             left = self.visit(node.left)
             right = self.visit(node.right)
             ret = left < right
-            print "binop conditional: ", tree_to_str(node), " aka ", left, "<", right, " evaluates to ", ret
+            #print "binop conditional: ", tree_to_str(node), " aka ", left, "<", right, " evaluates to ", ret
             return ret
     ret = sympy.sympify("(("+str(self.visit(node.left))+")" + node.op +"("+str(self.visit(node.right))+"))")
-    print "binop:", ret
     return ret
 
   def visit_Block(self, node):
@@ -138,20 +129,18 @@ class Guesser(object):
     # a function of indices
     guess = {}
     for output in self.outputs:
-      print "Finding first changed value for output ", output[0]
+      logging.debug("Finding first changed value for output %s", output[0])
       if "[" in output[1]:
         # find changed value
         i = 0
         while results[output[0]][i] == sympy.sympify(output[0]+"_"+str(i)):
           i += 1
-        print "first changed value in ", output[0], i, results[output[0]][i]
+        logging.debug("first changed value in %s is at %s and is %s", output[0], i, results[output[0]][i])
         template = str(results[output[0]][i])
         # replace _XX with an idx generator
-        #template = re.sub(r'(.*?)_\d+', r'\1(ptgen_\1())', template)
-        #template = re.sub(r'(.*?)_\d+', lambda x: "%s(ptgen_%s())" % (x.group(1), re.sub(r'\W', '', x.group(1))), template)
         for inp in self.inputs:
             template = re.sub(inp[0]+'_\d+', "%s[ptgen_%s()]" % (inp[0], inp[0]), template)
 
-        print "replaced with: ", template
+        logging.debug("replaced with: %s", template)
         guess[output[0]] = template
     return guess

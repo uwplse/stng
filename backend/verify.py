@@ -1,4 +1,5 @@
 from stencil_ir import *
+import logging
 
 class WeakestPrecondition(object):
     counter = 0
@@ -22,8 +23,6 @@ class WeakestPrecondition(object):
             return without_conds
 
     def get(self):
-#        if self.additional_conditions:
-#            print "Additional: " + '&'.join([tree_to_str(x) for x in self.additional_conditions])
         if type(self.ast) == NumNode:
             return self.q
         if type(self.ast) == VarNode:
@@ -57,7 +56,6 @@ class WeakestPrecondition(object):
                     return self.visit_AugArrayVarNode(node)
                 return super(CustomReplacer, self).visit(node)
             def visit_AugArrayVarNode(self, node):
-                #print "in augarrayvar!", tree_to_str(node)
                 newnode = super(CustomReplacer, self).visit(node)
                 aug = {}
                 for x in newnode.augmentation.keys():
@@ -69,14 +67,10 @@ class WeakestPrecondition(object):
             old = copy_tree(self.ast.lval)
             replacement = copy_tree(self.ast.rval)
         elif type(self.ast.lval) == ArrExp:
-            #print "in replacer...\n"
             old = copy_tree(self.ast.lval.name)
             replacement = AugArrayVarNode(copy_tree(self.ast.lval.name), {})
             replacement.augmentation[copy_tree(self.ast.lval.loc)] = copy_tree(self.ast.rval)
-            #print "Going to replace ", tree_to_str(self.ast), " with " + tree_to_str(replacement) + "\n"
-        #replaced =  asp.codegen.ast_tools.ASTNodeReplacer(old, replacement).visit(copy.deepcopy(self.q))
         replaced =  CustomReplacer(old, replacement).visit(copy.deepcopy(self.q))
-        #print "Replaced tree: " + tree_to_str(replaced) + "\n"
         return replaced
     def processBlock(self):
         """
@@ -101,11 +95,7 @@ class WeakestPrecondition(object):
         """
         import copy, hashlib
         key = hashlib.sha224(tree_to_str(self.ast)).hexdigest()[0:10]
-        print "INVARIANT CALL: ", self.invariant_call
-        print "KEY:", key
         invariant = copy.deepcopy(self.invariant_call[key])
-        #pcon_invariant = self.invariant_for_pcon(invariant, copy_tree(self.ast.iter_var))
-        #test_pcon = self.test_for_pcon(copy_tree(self.ast.test), copy_tree(self.ast.iter_var))
         pcon_invariant = copy.deepcopy(invariant)
         test_pcon = NotExp(copy_tree(self.ast.test))
         if len(self.invariant_call) > 1:

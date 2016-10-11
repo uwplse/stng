@@ -27,7 +27,6 @@ class ToSketch(ast_tools.NodeVisitor):
     decls = []
     def __init__(self, tree, additional_conds=[]):
         self.tree = ToSketch.ImplicationSimplifier().visit(tree)
-        print "AFTER ImplicationSimplification: ", tree_to_str(self.tree)
         # maps augmented arrays to names.
         # key is string representation of node
         self.aug_map = {}
@@ -42,13 +41,10 @@ class ToSketch(ast_tools.NodeVisitor):
         return decls + additional_conditions + processed
 
     def add_decl(self, node):
-#        print "adding decls"
         key = tree_to_str(node)
         newname = self.aug_map[key]
         ToSketch.decls.append("double[_array_sz] %s = %s;" % (newname, self.visit(node.name)))
-#        ToSketch.decls.append("if (true) {\n")
         ToSketch.decls += ["%s[99+%s] = %s;" % (newname, self.visit(x), self.visit(node.augmentation[x])) for x in node.augmentation.keys()]
-#        ToSketch.decls.append("\n}")
 
     def get_decls(self):
         return '\n'.join(ToSketch.decls)

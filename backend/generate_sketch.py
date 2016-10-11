@@ -60,7 +60,6 @@ class MaxFinder(asp.codegen.ast_tools.NodeVisitor):
         self.loopvar = loopvar
         logging.debug("finding max for %s", loopvar)
     def visit_Block(self, node):
-        #print "visiting ", g.tree_to_str(node)
         map(self.visit, node.body)
     def visit_WhileLoop(self, node):
         logging.debug("visiting %s", tree_to_str(node))
@@ -123,7 +122,6 @@ class ArrLDFinder(asp.codegen.ast_tools.NodeVisitor):
         def visit_BinExp(self, node):
             lresult = self.visit(node.left)
             rresult = self.visit(node.right)
-            print tree_to_str(node), lresult, rresult
             if lresult and rresult:
                 self.largest_candidates.append(node)
             elif lresult:
@@ -299,7 +297,6 @@ class SketchGenerator(object):
                                        mins=self.get_loopvar_mins(),
                                        maxs=self.get_loopvar_maxs(),
                                        recursion_limit=self.recursion_limit)
-        print ret
         return ret
 
     def generate_size(self):
@@ -390,7 +387,6 @@ class SketchGenerator(object):
                 self.keyfunc = keyfunc
                 self.maxs = {}
             def visit_Block(self, node):
-                #print "visiting ", g.tree_to_str(node)
                 map(self.visit, node.body)
             def visit_WhileLoop(self, node):
                 import copy
@@ -578,7 +574,7 @@ class SketchGeneratorLevel5(SketchGenerator):
                     if len(acc) > sofar:
                         sofar = len(acc)
 
-            loggin.debug("Max Dimension: %s", sofar)
+            logging.debug("Max Dimension: %s", sofar)
             for arr in self.found.keys():
                 for acc in self.found[arr]:
                     howmany = sofar-len(acc)
@@ -742,7 +738,7 @@ class SketchGeneratorLevel11(SketchGeneratorLevel5):
         logging.debug("Interpreter outputs: %s", outputs)
         interpreter_result = interpret.Interpreter(inputs, outputs).interpret(self.program)
         pcon_guess = interpret.Guesser(inputs, outputs).guess_postcondition(interpreter_result)
-        logging.debug("%s", pcon_guess)
+        logging.debug("Postcondition guess: %s", pcon_guess)
 
 
         # compute aggregates across all loops
@@ -784,7 +780,7 @@ class SketchGeneratorLevel12(SketchGeneratorLevel11):
         # find candidate expressions for array LDs
         candidates = ArrLDFinder().find(self.program, self.get_loopvars())
         filtered_candidates = list(set(map(tree_to_str, candidates)))
-        print "Candidate expressions for array LDs: ", filtered_candidates
+        logging.debug("Candidate expressions for array LDs: %s", filtered_candidates)
 
         ret = common_template.render(loopvar=self.get_loopvars(),
                                      int_params=[x[0] for x in self.inputs if x[1]=="int"] + self.get_loopvars(),
@@ -794,7 +790,7 @@ class SketchGeneratorLevel12(SketchGeneratorLevel11):
 
         # find candidate array accesses
         candidate_accesses = SketchGeneratorLevel5.FindAccesses().find(self.program, self.get_loopvars())
-        print "Candidate array accesses: ", candidate_accesses
+        logging.debug("Candidate array accesses: %s", candidate_accesses)
 
         # interpret the loop nest to find the overall structure
         import interpret
@@ -802,11 +798,11 @@ class SketchGeneratorLevel12(SketchGeneratorLevel11):
         inputs = [x for x in self.inputs if x[0] not in self.get_out_array()]
         outputs = [x for x in self.inputs if x[0] in self.get_out_array()]
 
-        print "Interpreter inputs:", inputs
-        print "Interpreter outputs:", outputs
+        logging.debug("Interpreter inputs: %s", inputs)
+        logging.debug("Interpreter outputs: %s", outputs)
         interpreter_result = interpret.Interpreter(inputs, outputs).interpret(self.program)
         pcon_guess = interpret.Guesser(inputs, outputs).guess_postcondition(interpreter_result)
-        print pcon_guess
+        logging.debug("Postcondition guess: %s", pcon_guess)
 
 
         # compute aggregates across all loops
@@ -870,7 +866,7 @@ class SketchGeneratorLevel12(SketchGeneratorLevel11):
 
         df = DependenceFinder(self.get_out_array(), self.loopvars)
         df.visit(self.program)
-        print "DEPNDENT LOOP VARS: ", df.dependences
+        logging.debug("Dependent loop vars: %s", df.dependences)
         self.dependent_loopvars = df.dependences
 
     def find_loopvar_nesting(self):
@@ -885,9 +881,9 @@ class SketchGeneratorLevel12(SketchGeneratorLevel11):
             node = self.invariant_names_to_loops[inv]
             thisnodevar = node.iter_var.name
             for x in self.get_containing_loop_invs(node):
-                print thisnodevar, "contained by ", x[1].iter_var.name
+                logging.debug("%s contained by %s", thisnodevar, x[1].iter_var.name)
                 self.loopvar_nesting[thisnodevar].append(x[1].iter_var.name)
-        print "LOOPVAR NESTING: ", self.loopvar_nesting
+        logging.debug("Loopvar nesting: %s", self.loopvar_nesting)
 
     def find_output_nesting(self):
         """
@@ -913,7 +909,7 @@ class SketchGeneratorLevel12(SketchGeneratorLevel11):
                     self.output_nesting[node.lval.name.name] = self.cur_loopvar
         onf = OutputNestFinder(self.get_out_array())
         onf.visit(self.program)
-        print "OUTPUT NESTING: ", onf.output_nesting
+        logging.debug("Output nesting: %s", onf.output_nesting)
         self.output_nesting = onf.output_nesting
 
     def generate_invariant_funcs(self):
@@ -924,7 +920,6 @@ class SketchGeneratorLevel12(SketchGeneratorLevel11):
         #inv_template = Template(filename="templates/invariant/2.mako")
         inv_template = Template(filename="templates/invariant/3.mako")
         ret = ""
-        print "IN generate_invariant_funcs()"
 
         invariant_gen = InvariantGenerator(self.program, self.inputs, self.get_out_array(), self.loopvars,
             self.invariant_names_to_loops, self.get_loopvar_mins(), self.get_loopvar_maxs())
@@ -969,7 +964,6 @@ class SketchGeneratorLevel12(SketchGeneratorLevel11):
                                        loopvar_nesting=self.loopvar_nesting,
                                        dependent_loopvars=self.dependent_loopvars,
                                        recursion_limit=self.recursion_limit)
-        print ret
         return ret
 
     def generate_postcon_func(self):
@@ -988,10 +982,9 @@ class SketchGeneratorLevel12(SketchGeneratorLevel11):
                                     loopvar_nesting=self.loopvar_nesting,
                                     dependent_loopvars=self.dependent_loopvars,
                                     output_nesting=self.output_nesting,
+                                    recursion_limit=self.recursion_limit)
 # The levels correspond to:
 # 11: use interpreter plus guessed points
 # 12: use interpreter, try to work with mixed dimensionality
 
-SketchGeneratorLevels = {
-        '11': SketchGeneratorLevel11,
-        '12': SketchGeneratorLevel12}
+SketchGeneratorLevels = {'11': SketchGeneratorLevel11, '12': SketchGeneratorLevel12}
