@@ -113,6 +113,10 @@ void LoopAttribute::setLoopDepth (unsigned int depth) { this->loopDepth = depth;
 
 unsigned int LoopAttribute::getLoopDepth () const { return loopDepth; }
 
+void LoopAttribute::setHasRAW (bool hasRAW) { this->hasRAW = hasRAW; }
+
+bool LoopAttribute::getHasRAW () const { return hasRAW; }
+
 // returns whether this loop is nested in another loop
 bool LoopAttribute::getIsInLoop () const { return loopDepth > 1; }
 

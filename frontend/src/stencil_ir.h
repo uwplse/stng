@@ -43,8 +43,8 @@ class VarNode : public Exp
     { 
       if (isLVal && (isSgArrayType(type) || isPointerToArrayType(type)) && 
           mode == Variable::InOut)
-        //return name + "_out"; // append _out if LHS of array assignments
-        return name;
+        return name + "_out"; // append _out if LHS of array assignments
+        //return name;
       else
         return name;
     }

@@ -90,6 +90,7 @@ namespace StencilTranslator
       bool hasCall;
       bool useArray;
       bool usePointer;
+      bool hasRAW;
       unsigned int loopDepth; // 0 means not in a loop
       bool hasComplexArrayAssign; // whether it has arr(x + 1, y)
 
@@ -129,6 +130,8 @@ namespace StencilTranslator
       void setHasComplexArrayAssign (bool v);
       bool getHasComplexArrayAssign () const;
       bool hasUnknownUsedVars () const;
+      void setHasRAW (bool hasRAW);
+      bool getHasRAW () const; 
 
       void addUsedVar (Variable * v);
       void addSketchVar (Variable * v);

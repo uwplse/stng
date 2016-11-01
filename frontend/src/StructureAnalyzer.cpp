@@ -226,6 +226,32 @@ UsePointerVisitor::isPointerType (SgType * t)
   else return isSgPointerType(t);
 }
 
+/* DataDepVisitor */
+bool
+DataDepVisitor::evaluateSynthesizedAttribute (SgNode * n, SynthesizedAttributesList child)
+{
+  bool hasRAW = 
+    std::accumulate(child.begin(), child.end(), false , std::logical_or<bool>());
+  
+  if (isSgDotExp(n)) 
+    hasRAW = true;
+  
+  else if (isSgPointerAssignOp(n))
+    hasRAW = true;
+
+  else if (isSgFortranDo(n))
+  {
+    LoopAttribute * attr = static_cast<LoopAttribute *>(n->getAttribute(LoopAttribute::Name));
+    std::cout << n->unparseToString() << " has RAW: " << hasRAW << "\n";
+    attr->setHasRAW(hasRAW);
+
+    // propagate if we are part of a loop
+    if (!attr->getIsInLoop())
+      hasRAW = false;
+  }
+
+  return hasRAW;
+}
 
 
 }

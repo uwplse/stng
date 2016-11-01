@@ -423,7 +423,10 @@ LoopVisitor::generateMetadata (SgScopeStatement * loop) const
     ss << "[\"" << v->name << "\", " << translateType(v->type) << "]";
    
     if (v->getMode() == Variable::InOut)
+    {
+      std::cout << "variable:" << v->name << " is inout\n";
       ss << ",[\"" << v->name << "_out\", " << translateType(v->type) << "]";
+    }
 
     VariableSet::const_iterator it2 = it; 
     ++it2;

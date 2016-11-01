@@ -38,6 +38,12 @@ namespace StencilTranslator
     bool isPointerType (SgType * t);
   };
 
+  struct DataDepVisitor : public AstBottomUpProcessing<bool>
+  {
+    bool evaluateSynthesizedAttribute (SgNode * n, SynthesizedAttributesList c);
+    bool hasRAW (SgType * t);
+  };
+
   struct ComplexArrayAssignVisitor : public AstBottomUpProcessing<bool>
   {
     bool evaluateSynthesizedAttribute (SgNode * n, SynthesizedAttributesList c);
