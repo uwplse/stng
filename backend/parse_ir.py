@@ -43,7 +43,7 @@ binexp_atoms = (arrexp | lit | LPAR + binexp + RPAR )
 def myaction(x):
   #print "HI ", x
   while len(x[0]) > 3:
-    print "IN WHILE"
+#    print "IN WHILE"
     ret = BinExp(x[0][0], x[0][1], x[0][2])
     #del x[0][0::2]
     x[0] = [ret] + x[0][3:]

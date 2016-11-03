@@ -1,3 +1,4 @@
+import logging
 from stencil_ir import *
 import assertion_to_sketch
 import asp.codegen.ast_tools as ast_tools
@@ -23,32 +24,32 @@ class IndexDesugar(ast_tools.NodeVisitor):
         self.visit(node)
         return self.expr
     def visit_VarNode(self, node):
-        print "in visit_varnode: ", node.name
+        logging.debug("in visit_varnode: %s", node.name)
         # need this for 1D
         self.expr.append(node)
         return
     def visit_BinExp(self, node):
         #FIXME: obviously need to not just be "N"
         if node.op == "+" and isinstance(node.right, ag.BinExp) and node.right.op == "*":
-            print "1" + " adding " + ag.tree_to_str(node.left)
+            logging.debug("%s",  "1" + " adding " + ag.tree_to_str(node.left))
             self.expr.append(node.left)
             self.visit(node.right)
             return
         if node.op == "+" and isinstance(node.left, ag.BinExp) and node.left.op == "*":
-            print "2" + " adding " + ag.tree_to_str(node.right)
+            logging.debug("%s", "2" + " adding " + ag.tree_to_str(node.right))
             self.expr.append(node.right)
             self.visit(node.left)
             return
         if isinstance(node.left, ag.VarNode) and node.left.name == "N":
             if not IndexDesugar.NFinder("N").find(node.right):
-                print "3" + " adding " + ag.tree_to_str(node.right)
+                logging.debug("%s", "3" + " adding " + ag.tree_to_str(node.right))
                 self.expr += [node.right]
             else:
                 self.visit(node.right)
             return
         if isinstance(node.right, ag.VarNode) and node.right.name == "N":
             if not IndexDesugar.NFinder("N").find(node.right):
-                print "4" + " adding " + ag.tree_to_str(node.left)
+                logging.debug("%s", "4" + " adding " + ag.tree_to_str(node.left))
                 self.expr += [node.left]
             else:
                 self.visit(node.right)
@@ -96,13 +97,11 @@ class IndexResugar(object):
             if i[0] == arrname:
                 match = re.split("\*", i[1])
                 dim = len(match)
-        print "loc is length", len(loc), "and dim is ", dim, " for ", arrname
-        print loc
+        logging.debug("loc is length %s and dim is %s for %s", len(loc), dim, arrname)
+        logging.debug("%s", loc)
         if len(loc) > dim:
             loc = map(lambda x:'0' if is_int(x) else x, loc)
-            print loc
             loc.remove('0')
-        #assert(len(loc) == dim)
         return loc
 
 
@@ -110,16 +109,15 @@ class IndexResugar(object):
         import sympy
         import itertools
         #FIXME: we can't assume dimensionality == loopvars
-        print "*** Resugaring ", arrname, self.funcdict["idx_" + arrname], " into ", tree_to_str(loc)
+        logging.debug("*** Resugaring %s %s into %s", arrname, self.funcdict["idx_" + arrname], tree_to_str(loc))
         candidates = []
         candidates += itertools.product([x for x in range(-2,2)], repeat=len(self.loopvars))
-#        candidates += itertools.product([x for x in range(-1,1)], repeat=len(self.loopvars))
-        print "Evaluating resugaring candidates (this could take a while)....."
-        print "looking for loc ", tree_to_str(loc)
-        print "and index function is ", self.funcdict["idx_"+arrname]
+        logging.info("Evaluating resugaring candidates (this could take a while).....")
+        logging.debug("looking for loc %s", tree_to_str(loc))
+        logging.debug("and index function is %s", self.funcdict["idx_"+arrname])
         for pt in candidates:
             # evaluate at pt
-            print "Evaluating at ", pt
+            logging.debug("Evaluating at %s", pt)
             e = self.funcdict["idx_"+arrname]
             need_to_rev = self.need_to_rev(e)
             e = sympy.sympify(e)
@@ -129,9 +127,8 @@ class IndexResugar(object):
                 lv = self.loopvars[i]
                 c += ["%s + %s" % (lv, pt[i])]
                 e = e.subs(lv, lv + "+%s" % pt[i])
-   #         print "is %s == %s ?" % (e, sympy.sympify(tree_to_str(loc)))
             if e == sympy.sympify(tree_to_str(loc)):
-                print "found: ", e,tree_to_str(loc)
+                logging.debug("found: %s", e,tree_to_str(loc))
                 if need_to_rev:
                     return (",".join(reversed([str(sympy.sympify(x)) for x in c])), True)
                 else:
@@ -163,7 +160,6 @@ class IndexResugar(object):
             need_to_rev = self.need_to_rev(e)
             rev_e = sympy.sympify(e)
             e = sympy.sympify(e)
-   #         print "HERE e is ", e
             for which in range(len(self.loopvars)):
                 c = []
                 for i in range(len(self.loopvars)):
@@ -171,25 +167,21 @@ class IndexResugar(object):
                         c += ["%s" % pt[i]]
                     else:
                         c += ["%s__" % self.loopvars[i]]
-#                    print self.loopvars[i], c[i], "||", self.loopvars[len(self.loopvars)-i-1], c[i]
                     e = e.subs(self.loopvars[i], c[i])
                     rev_e = rev_e.subs(self.loopvars[len(self.loopvars)-i-1], c[i])
                 for lv2 in self.loopvars:
                     e = e.subs(lv2+"__", lv2)
                     rev_e = rev_e.subs(lv2+"__", lv2)
-   #                 print "before map, c is ", c
                     c = map(lambda x:x if x!=lv2+"__" else lv2, c)
-#                print c, e, "||||", rev_e
 
                 simpified_loc = sympy.sympify(tree_to_str(loc))
                 match = False
-   #             print "e is ", e, "    rev_e is ", rev_e, "     simplified_loc is ", simpified_loc
                 if e == simpified_loc:
-                    print "match found: ", c
+                    logging.debug("match found: %s", c)
                     c = self.dimension_reduce(arrname, c)
                     return (",".join([str(sympy.sympify(x)) for x in c]), False)
                 if rev_e == simpified_loc:
-                    print "match found: ", c
+                    logging.debug("match found: %s", c)
                     c = self.dimension_reduce(arrname, c)
                     return (",".join([str(sympy.sympify(x)) for x in c]), True)
 
@@ -243,12 +235,10 @@ class ToHalide(assertion_to_sketch.ToSketch):
         self.loopvars = loopvars
         self.inputs = inputs
     def visit_ArrExp(self, node):
-        print "visiting", ag.tree_to_str(node)
-#        idx_expression = ','.join(map(ag.tree_to_str,
-#            IndexResugar(self.invariants,self.loopvars).desugar(node.loc)))
-        print "resugar: ", node.name.name, tree_to_str(node.loc)
+        logging.debug("visiting %s", ag.tree_to_str(node))
+        logging.debug("resugar:  %s", node.name.name, tree_to_str(node.loc))
         idx_expression,self.should_reverse = IndexResugar(self.invariants, self.loopvars, self.inputs).resugar(node.name.name, node.loc)
-        print "idx expression is: ", idx_expression
+        logging.debug("idx expression is:  %s", idx_expression)
         return "%s(%s)" % (self.visit(node.name), idx_expression)
 
 class HalideBackend(object):
@@ -263,21 +253,21 @@ class HalideBackend(object):
         from mako.template import Template
         cpp_template = Template(filename="templates/halide/halide_aot.cpp.mako")
         scalar_inputs, inputs, outputs = self.get_inputs_and_outputs()
-        print "inputs: ", inputs
-        print "scalar inputs: ", scalar_inputs
-        print "outputs: ", outputs
-        print "invariants: ", self.invariants
+        logging.debug("inputs: %s", inputs)
+        logging.debug("scalar inputs: %s", scalar_inputs)
+        logging.debug("outputs: %s", outputs)
+        logging.debug("invariants: %s", self.invariants)
 
-        print "LHS looking for ", outputs
-        print "invariants has the following keys: ", self.invariants.keys()
+        logging.debug("LHS looking for %s", outputs)
+        logging.debug("invariants has the following keys: %s", self.invariants.keys())
         pcon = ["%s[%s] = %s" % (x, self.invariants["lhs_idx_"+x], self.invariants["gen_"+x+"_postcondition"]) for x in outputs]
-        print "postcondition: ", pcon
+        logging.debug( "postcondition: %s", pcon)
         counter = 0
         for x in pcon:
-            print counter
+            logging.debug("%s", counter)
             counter += 1
-            print x
-            print parse_ir.statement.parseString(x)[0]
+            logging.debug("%s", x)
+            logging.debug("%s", parse_ir.statement.parseString(x)[0])
         pcon = [parse_ir.statement.parseString(x)[0] for x in pcon]
 
         test_should_reverse = ToHalide(self.invariants, self.loopvars, self.inputs)
@@ -296,7 +286,7 @@ class HalideBackend(object):
         import re
 
         # outputs are Expr's
-        print "tree is:", self.program
+        logging.debug("tree is: %s", self.program)
         outputs = GatherOutputArrays().get_out_arrays(self.program)
 
         # inputs are ImageParams

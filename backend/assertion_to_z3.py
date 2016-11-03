@@ -1,6 +1,7 @@
 from stencil_ir import *
 import asp.codegen.ast_tools as ast_tools
 import os, binascii
+import logging
 from backend_halide import IndexResugar
 
 class ToZ3(ast_tools.NodeVisitor):
@@ -10,8 +11,6 @@ class ToZ3(ast_tools.NodeVisitor):
     def __init__(self, tree, loopvars=None, additional_conds=None, convert_floats=False, funcdict={}, inputs=[]):
         self.tree = tree
         self.convert_floats = convert_floats
-        print "IN TOZ3", loopvars
-        print "IN TOZ3", additional_conds
         if loopvars:
             self.loopvars = loopvars
         else:
@@ -22,7 +21,7 @@ class ToZ3(ast_tools.NodeVisitor):
             self.additional_conds = []
 
         self.funcdict = funcdict
-        print "FUNCDICT IS ", funcdict
+        logging.debug("Func dict is %s", funcdict)
         self.inputs = inputs
 
     def to_str(self):
@@ -36,7 +35,7 @@ class ToZ3(ast_tools.NodeVisitor):
             import re
             num = re.sub("__float__", "", node.name)
             num = re.sub("_", ".", num)
-            print "Converting ", node.name, "to ", float(num)
+            logging.debug("Converting %s to %s", node.name, float(num))
             return str(float(num))
         return node.name
 
@@ -69,19 +68,12 @@ class ToZ3(ast_tools.NodeVisitor):
             else:
                 return "(select %s %s)" % (construct_select(terms[:-1]), terms[-1])
 
-        print "inputs", self.inputs
-        print "funcdict", self.funcdict
-        print "loopvars", self.loopvars
-        # import grammar as g
-        # if isinstance(node, g.ArrExp):
-        #     print "node", tree_to_str(to_ag_tree(node))
-        #     idx_expression,self.should_reverse = IndexResugar(self.funcdict, self.loopvars, self.inputs).resugar(node.name.name, node.loc)
-        #else:
-        print "node", tree_to_str(node)
+        logging.debug("inputs: %s", self.inputs)
+        logging.debug("funcdict %s", self.funcdict)
+        logging.debug("loopvars %s", self.loopvars)
+        logging.debug("node: %s", tree_to_str(node))
         idx_expression,self.should_reverse = IndexResugar(self.funcdict, self.loopvars, self.inputs).resugar(node.name.name, node.loc)
-        print "idx expression is: ", idx_expression
-#        return "(select %s %s)" % (self.visit(node.name), self.visit(node.loc))
-#        return "(select %s %s)" % (self.visit(node.name), construct_select(idx_expression.split(',')))
+        logging.debug("idx expression is: %s", idx_expression)
         return construct_select([self.visit(node.name)] + map(in2pre, idx_expression.split(',')))
 
     def visit_AugArrayVarNode(self, node):
@@ -97,24 +89,19 @@ class ToZ3(ast_tools.NodeVisitor):
             if len(m)==2:
                 return "(store %s %s %s)" % (m[0], m[1], aug)
             else:
-                print "Stuff to concat: ", m[:2], " and ", m[2:]
+                logging.debug("Stuff to concat: %s and %s", m[:2], m[2:])
                 return "(store %s %s %s)" % (m[0], m[1], nester([construct_select(m[:2])]+m[2:], aug))
 
         # helper to recursively add augmentations
         def helper(node, aug_keys, cur_idx):
-            #import grammar as g
             if cur_idx == len(aug_keys)-1:
                 name = self.visit(node.name)
-                # if isinstance(node, g.ArrExp):
-                #     idx_expression,should_reverse = IndexResugar(self.funcdict, self.loopvars, self.inputs).resugar(name, aug_keys[cur_idx])
-                # else:
                 idx_expression,should_reverse = IndexResugar(self.funcdict, self.loopvars, self.inputs).resugar(name, aug_keys[cur_idx])
                 return nester([name]+idx_expression.split(','), self.visit(node.augmentation[aug_keys[cur_idx]]))
             else:
                 name = helper(node, aug_keys, cur_idx+1)
             a = self.visit(aug_keys[cur_idx])
             b = self.visit(node.augmentation[aug_keys[cur_idx]])
-            print "we got: ", name, a, b
             return "(store %s %s %s)" % (name, a, b)
         return helper(node, node.augmentation.keys(), 0)
 
@@ -132,13 +119,5 @@ class ToZ3(ast_tools.NodeVisitor):
                     self.found = True
 
         ifx = node.ifx
-
-#        if PostconFinder().find(node.then):
-#            print "FOUND POSTCONDITION:", tree_to_str(node.then)
-#            import copy
-#            for lv in self.loopvars:
-#                print "Replacing ", lv
-#                ifx = ast_tools.ASTNodeReplacer(VarNode(lv+"_to_check"), VarNode(lv+"_valp")).visit(copy.deepcopy(ifx))
-#                print tree_to_str(ifx)
 
         return "(=> %s %s)\n" % (self.visit(ifx), self.visit(node.then))

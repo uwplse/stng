@@ -1,3 +1,4 @@
+import logging
 import sympy
 import re
 
@@ -16,7 +17,6 @@ class IdxParser(object):
         inline-able expression.
         """
         mobj = re.match("void (\w+)\s*\((.*)\)", func)
-        #print "function name: %s" %  mobj.group(1)
 
         params = mobj.group(2)
 
@@ -26,8 +26,6 @@ class IdxParser(object):
         # split params
         params = params.split(", ")
 
-
-        print "params: %s" % params
         self.params = params
         self.fname = mobj.group(1)
 
@@ -35,7 +33,6 @@ class IdxParser(object):
         funclines = func.split('\n')[2:-1]
         funclines = [x.rstrip(";") for x in funclines]
         funclines = filter(lambda x: "return" not in x, funclines)
-        print funclines
         self.func_body = funclines
 
     def interpret(self, call):
@@ -51,9 +48,6 @@ class IdxParser(object):
         # split params
         concrete_params = concrete_params.split(",")
         concrete_params = [x.lstrip() for x in concrete_params]
-        print concrete_params
-        print len(concrete_params)
-        print len(self.params)
 
         # split each line at = and use symbolic replacement
         # to replace the params with concrete params in the RHS
@@ -63,10 +57,8 @@ class IdxParser(object):
             newline_lhs = sympy.sympify(newline[0])
             newline_rhs = sympy.sympify(newline[1])
             for p in range(len(self.params)):
-#                newline,x = re.subn(self.params[p], concrete_params[p], newline)
                 replacement = re.sub(r'([a-zA-Z]\w*)', r'\1__', concrete_params[p])
-                print "replacing rhs: ", newline_rhs, "with ", self.params[p], replacement
-                #replacement = concrete_params[p] + ("" if is_int(concrete_params[p]) else "__")
+                logging.debug("replacing rhs: %s with %s %s", newline_rhs, self.params[p], replacement)
                 newline_rhs = newline_rhs.subs(self.params[p], replacement) #concrete_params[p])
                 newline_lhs = newline_lhs.subs(self.params[p], replacement) #concrete_params[p])
             ret += str(newline_lhs) + " = " + str(newline_rhs) + "\n"
@@ -103,7 +95,7 @@ class SketchResultProcessor(object):
         # normalize by removing a bunch of unnecessary things
         import copy
         func_copy = copy.deepcopy(func)
-        print "BEFORE CLEANUP", '\n'.join(func_copy)
+        logging.debug("Before cleanup: %s ", '\n'.join(func_copy))
         for lineno in range(len(func_copy)):
             # remove all "foo = 0"
             func_copy[lineno] = re.sub("[\w\s_]* = 0;.*", "\n", func_copy[lineno])
@@ -122,9 +114,9 @@ class SketchResultProcessor(object):
             # inline index expressions
             match = re.search("(idx_[^\(]+)\(", func_copy[lineno])
             if match:
-                print "index expr match: ", func_copy[lineno]
+                logging.debug("index expr match: %s", func_copy[lineno])
                 func_copy[lineno] = self.idx_funcs[match.group(1)].interpret(func_copy[lineno])
-                print "after interpret: ", func_copy[lineno]
+                logging.debug("after interpret: %s", func_copy[lineno])
 
 
             # remove all assertions
@@ -143,15 +135,11 @@ class SketchResultProcessor(object):
             # strip space
             func_copy[lineno] = func_copy[lineno].strip()
 
-            #if re.search("0;", func_copy[lineno]):
-            #    print "found ", func_copy[lineno]
-            #    func_copy[lineno] = ""
-
             # convert __float__<val> to floating point value
             match = re.search("__float__([\d_]+)", func_copy[lineno])
             if match:
                 num = re.sub("_", ".", match.group(1))
-                print "inserting ", num
+                logging.debug("inserting %s", num)
                 func_copy[lineno] = re.sub("__float__([\d_])+", num, func_copy[lineno])
 
 
@@ -166,12 +154,12 @@ class SketchResultProcessor(object):
                 out = sympy.sympify(expr)
                 func_copy[lineno] = ""
 
-        print "AFTER CLEANUP1", '\n'.join(func_copy)
+        logging.debug("After cleanup phase 1: %s", '\n'.join(func_copy))
         # eliminate extra = 0 stuff added in interpreting the index exprs
         for lineno in range(len(func_copy)):
             func_copy[lineno] = re.sub("(.*) = 0[^\.]", "", func_copy[lineno])
 
-        print "AFTER CLEANUP2", '\n'.join(func_copy)
+        logging.debug("After cleanup phase 2: %s", '\n'.join(func_copy))
         # iterate from bottom up
         for lineno in reversed(range(len(func_copy))):
             match = re.match("(.*) = (.*)", func_copy[lineno])
@@ -179,26 +167,24 @@ class SketchResultProcessor(object):
                 expr_rhs = match.group(2)
                 expr_rhs = re.sub("\]", "-%s)" % self.offset, expr_rhs)
                 expr_rhs = re.sub("\[", "(", expr_rhs)
-                print match.group(1), "should be replaced with", expr_rhs
-                print "types: ", type(match.group(1)), type(out), type(expr_rhs)
-#                out = out.subs(match.group(1), expr_rhs)
+                logging.debug("%s should be replaced with %s", match.group(1), expr_rhs)
+                logging.debug("types: %s %s %s", type(match.group(1)), type(out), type(expr_rhs))
                 out = re.sub(match.group(1), expr_rhs, str(out))
                 # stupid thing can't handle 'var' as an array name or variable
                 if "var(" in out:
                     out = re.sub("var\(", "v___ar(", out)
-                print "replaced version: ", out
+                logging.debug("replaced version: %s", out)
                 out = sympy.sympify(out)
-                print "new output is ", out
+                logging.debug("new output is %s", out)
 
-        print '\n'.join(func_copy)
         # now we want to convert the arrays back from functions
         outstr = str(out)
         for arr in out.atoms(sympy.Function):
             arrstr = re.sub("([\w_]+)\(", "\g<1>[", str(arr))
             arrstr = arrstr[:-1] + "]"
             outstr = re.sub(re.escape(str(arr)), arrstr, outstr)
-            print "outstr after sub", outstr
-        print "output is ", outstr
+            logging.debug("outstr after sub: %s", outstr)
+        logging.debug("output is %s", outstr)
         # we can't handle -foo, so here's a HACK HACK FIXME
         outstr = re.sub("\(-", "(0 - ", outstr)
         outstr = re.sub("v___ar", "var", outstr) ###
@@ -206,15 +192,14 @@ class SketchResultProcessor(object):
 
     def process_pcon_lhs(self, start_lineno):
         end_lineno = start_lineno
-        #while "}" not in self.sketch_result[end_lineno]:
         while "return;" not in self.sketch_result[end_lineno]:
             end_lineno += 1
         # find index expressions
         for lineno in range(start_lineno,end_lineno):
             match = re.search("(idx_[^\(]+)\(", self.sketch_result[lineno])
-            print "looking for match in pcon lhs: ", self.sketch_result[lineno]
+            logging.debug("looking for match in pcon lhs: %s", self.sketch_result[lineno])
             if match:
-                print "match found for pcon lhs: ", self.sketch_result[lineno]
+                logging.debug("match found for pcon lhs: %s", self.sketch_result[lineno])
                 key = "lhs_" + match.group(1)
                 idx_expr = self.idx_funcs[match.group(1)].interpret(self.sketch_result[lineno]).split('\n')[-2]
                 idx_expr = idx_expr.split("= ")[-1]
@@ -222,7 +207,7 @@ class SketchResultProcessor(object):
                 idx_expr = str(sympy.sympify(idx_expr + "-99"))
                 # we can't handle -foo so here's a HACK HACK FIXME
                 idx_expr = re.sub("\(-", "(0 - ", idx_expr)
-                print "adding to generated funcs: ", key, idx_expr
+                logging.debug("adding to generated funcs: %s %s", key, idx_expr)
                 self.generated_funcs[key] = idx_expr
 
 
@@ -232,16 +217,15 @@ class SketchResultProcessor(object):
         for lineno in range(len(self.sketch_result)):
             match = re.search("void (idx_[^\(]+)\(", self.sketch_result[lineno])
             if match:
-                print "MATCH ON ", match
+                logging.debug("Match on: %s", match)
                 self.process_idx_func(match.group(1).strip(), lineno)
-        print "IDX FUNCS", self.idx_funcs
+        logging.debug("Idx funcs: %s", self.idx_funcs)
 
         # find lhs equations for postcondition
-        # FIXME: is this always same for invariants?
         for lineno in range(len(self.sketch_result)):
             match = re.search("void postcondition.*", self.sketch_result[lineno])
             if match:
-                print "found postcondition, and calling process_pcon_lhs", match.group(0)
+                logging.debug("found postcondition, and calling process_pcon_lhs %s", match.group(0))
                 self.process_pcon_lhs(lineno)
 
         # now find invariants/postcon
@@ -250,7 +234,6 @@ class SketchResultProcessor(object):
             if match:
                 self.process_generated_func(match.group(1), lineno)
 
-        print "BEFORE NORMALIZE OF idx_*", self.generated_funcs
         # normalize ones that start with -
         for x in self.generated_funcs.keys():
             if self.generated_funcs[x][0] == "-":
@@ -258,7 +241,7 @@ class SketchResultProcessor(object):
 
         # normalize idx_* functions and include in generated funcs
         for idx_func in self.idx_funcs.keys():
-            print self.idx_funcs[idx_func].func_body[1]
+            logging.debug("%s", self.idx_funcs[idx_func].func_body[1])
             idx_expr = self.idx_funcs[idx_func].func_body[1].split("= ")[-1]
             idx_expr = str(sympy.sympify(idx_expr + "-99"))
             self.generated_funcs[idx_func] = idx_expr
