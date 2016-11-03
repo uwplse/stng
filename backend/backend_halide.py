@@ -3,6 +3,7 @@ from stencil_ir import *
 import assertion_to_sketch
 import asp.codegen.ast_tools as ast_tools
 import parse_ir
+import stencil_ir
 
 class IndexDesugar(ast_tools.NodeVisitor):
     class NFinder(ast_tools.NodeVisitor):
@@ -30,26 +31,26 @@ class IndexDesugar(ast_tools.NodeVisitor):
         return
     def visit_BinExp(self, node):
         #FIXME: obviously need to not just be "N"
-        if node.op == "+" and isinstance(node.right, ag.BinExp) and node.right.op == "*":
-            logging.debug("%s",  "1" + " adding " + ag.tree_to_str(node.left))
+        if node.op == "+" and isinstance(node.right, stencil_ir.BinExp) and node.right.op == "*":
+            logging.debug("%s",  "1" + " adding " + stencil_ir.tree_to_str(node.left))
             self.expr.append(node.left)
             self.visit(node.right)
             return
-        if node.op == "+" and isinstance(node.left, ag.BinExp) and node.left.op == "*":
-            logging.debug("%s", "2" + " adding " + ag.tree_to_str(node.right))
+        if node.op == "+" and isinstance(node.left, stencil_ir.BinExp) and node.left.op == "*":
+            logging.debug("%s", "2" + " adding " + stencil_ir.tree_to_str(node.right))
             self.expr.append(node.right)
             self.visit(node.left)
             return
-        if isinstance(node.left, ag.VarNode) and node.left.name == "N":
+        if isinstance(node.left, stencil_ir.VarNode) and node.left.name == "N":
             if not IndexDesugar.NFinder("N").find(node.right):
-                logging.debug("%s", "3" + " adding " + ag.tree_to_str(node.right))
+                logging.debug("%s", "3" + " adding " + stencil_ir.tree_to_str(node.right))
                 self.expr += [node.right]
             else:
                 self.visit(node.right)
             return
-        if isinstance(node.right, ag.VarNode) and node.right.name == "N":
+        if isinstance(node.right, stencil_ir.VarNode) and node.right.name == "N":
             if not IndexDesugar.NFinder("N").find(node.right):
-                logging.debug("%s", "4" + " adding " + ag.tree_to_str(node.left))
+                logging.debug("%s", "4" + " adding " + stencil_ir.tree_to_str(node.left))
                 self.expr += [node.left]
             else:
                 self.visit(node.right)
@@ -235,7 +236,7 @@ class ToHalide(assertion_to_sketch.ToSketch):
         self.loopvars = loopvars
         self.inputs = inputs
     def visit_ArrExp(self, node):
-        logging.debug("visiting %s", ag.tree_to_str(node))
+        logging.debug("visiting %s", stencil_ir.tree_to_str(node))
         logging.debug("resugar:  %s", node.name.name, tree_to_str(node.loc))
         idx_expression,self.should_reverse = IndexResugar(self.invariants, self.loopvars, self.inputs).resugar(node.name.name, node.loc)
         logging.debug("idx expression is:  %s", idx_expression)
