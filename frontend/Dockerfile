@@ -1,4 +1,4 @@
-FROM 32bit/ubuntu:14.04
+FROM ioft/i386-ubuntu:14.04
 RUN apt-get -y update && \
 apt-get install -y vim gcc-4.4 g++-4.4 gfortran-4.4 make openssh-client openjdk-6-jdk wget git xz-utils && \
 ln -s /usr/bin/gcc-4.4 /usr/bin/gcc && \
