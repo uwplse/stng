@@ -115,8 +115,8 @@ cmd.add_argument("--generate-backend-code", action="store_true",
         help="Generate backend code from sketch output. Requires --sketch-output-src to be specified.")
 
 sketch_opts = parser.add_argument_group("Sketch Generation Options")
-sketch_opts.add_argument("--sketch-level", type=int, default=1,
-        help="Change how complex the generated sketch is (level 1 is simplest).")
+sketch_opts.add_argument("--sketch-level", type=int, default=11,
+        help="Change how complex the generated sketch is (level 11 and 12 only supported).")
 
 backend_opts = parser.add_argument_group("Backend Options")
 backend_opts.add_argument("--backend-cpp", action="store_true",
