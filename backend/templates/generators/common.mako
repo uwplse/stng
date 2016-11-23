@@ -18,8 +18,8 @@ generator int idxgen(${','.join(["int "+x for x in int_params])}) {
   % for cand in array_sz_candidates[1:]:
     if (??) z = ${cand};
   % endfor
-  % endif
     return z;
+  % endif
   <%
     non_lvars = [x for x in int_params if x not in loopvar]
   %>

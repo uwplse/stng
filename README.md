@@ -137,7 +137,7 @@ In general, different generated Sketch files require different
 parameters to Sketch in order to resolve.  We'll use a set of parameters
 that works for most generated stencil sketches:
 ```
-docker run --rm -v `pwd`:`pwd` -w `pwd` -e PYTHONPATH=`pwd` skdsl ./stng-backend.py \
+docker run --rm -v `pwd`:`pwd` -w `pwd` -e PYTHONPATH=`pwd` skdsl sketch \
   -V11 --fe-cegis-path  /sketch/sketch-backend/src/SketchSolver/cegis --beopt:simplifycex NOSIM \
   --fe-fpencoding AS_FFIELD --bnd-arr-size 400 --bnd-arr1d-size 400 --bnd-inbits 2 --bnd-cbits 2 \
   --bnd-unroll-amnt 18 --bnd-inline-amnt 15 --debug-cex simple_loop0.sk \
