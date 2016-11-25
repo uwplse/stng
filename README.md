@@ -41,7 +41,7 @@ in the output directory as specified by the `-out` flag.
 
 If you are using docker then after building the image you can run the frontend with:
   ```
-docker run -v $PWD:/tmp --rm -t <optional tagname> translator /tmp/<filename> -out /tmp/<output directory>
+docker run --rm -v `pwd`:`pwd` -w `pwd` -t stng_frontend translator /tmp/<filename> -out /tmp/<output directory>
   ```
 This maps the current directory on the host (`$PWD`) to `/tmp` in the docker container, allowing
 you to pass files directly from the host's current directory to the container. 
