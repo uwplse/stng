@@ -27,11 +27,12 @@ The following describes how to use the various components in the compiler.
 frontend on your own machine requires installing [Rose](http://rosecompiler.org). If you don't
 want to do that, an easier way is to build the docker image file with:
   ```
-docker build -f frontend/Dockerfile -t <optional tagname>
+cd frontend
+docker build --rm -t stng_frontend .
   ```
 which builds the frontend. After that, starts a container with:
   ```
-docker run -ti <optional tagname> /bin/bash 
+docker run -ti stng_frontend /bin/bash 
   ```
 The frontend executable is `/home/stng/stng/frontend/bin/translator`.
 
