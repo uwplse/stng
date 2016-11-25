@@ -3,7 +3,7 @@ BENCHMARK=mg
 BENCHMARKU=MG
 
 # Fill this in with absolute path to stng directory
-STNG_HOME=$(HOME)/stng
+STNG_HOME=/path/to/stng/
 
 include $(STNG_HOME)/tests/integration/NPB3.2-SER/config/make.def
 
