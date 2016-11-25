@@ -21,15 +21,18 @@ The following describes how to use the various components in the compiler.
 
 ## Usage Instructions
 
+### Frontend
+
 1. Clone this repo and run `make` in `frontend`. Building the
 frontend on your own machine requires installing [Rose](http://rosecompiler.org). If you don't
 want to do that, an easier way is to build the docker image file with:
   ```
-docker build -f frontend/Dockerfile -t <optional tagname>
+cd frontend
+docker build --rm -t stng_frontend .
   ```
 which builds the frontend. After that, starts a container with:
   ```
-docker run -ti <optional tagname> /bin/bash 
+docker run -ti stng_frontend /bin/bash 
   ```
 The frontend executable is `/home/stng/stng/frontend/bin/translator`.
 
@@ -38,13 +41,36 @@ in the output directory as specified by the `-out` flag.
 
 If you are using docker then after building the image you can run the frontend with:
   ```
-docker run -v $PWD:/tmp --rm -t <optional tagname> translator /tmp/<filename> -out /tmp/<output directory>
+docker run --rm -v `pwd`:`pwd` -w `pwd` -t stng_frontend translator <input filename> -out <output directory>
   ```
-This maps the current directory on the host (`$PWD`) to `/tmp` in the docker container, allowing
+This maps the current directory on the host (`PWD`) to the same directory in the docker container, allowing
 you to pass files directly from the host's current directory to the container. 
-The outputs are generated in `$/PWD/<output directory>`.
+The outputs are generated in `<output directory>`.
 
-3. TBD for running the synthesizer and the backend
+### Backend
+
+1. Build the backend docker image:
+```
+$ cd backend/docker
+$ docker build --rm -t stng_backend
+```
+
+2. The backend needs to be run from within the `stng/backend` directory,
+or, optionally, you can run from another directory while setting the
+`PYTHONPATH` variable appropriately.  The main executable for the
+backend is `backend/stng-backend.py`, which can be run with:
+```
+$ cd backend
+$ docker run --rm -v `pwd`:`pwd` -w `pwd` -e PYTHONPATH=`pwd` stng_backend ./stng-backend.py --help
+```
+
+It supports three major
+options: `--generate-sketch` generates a Sketch from an IR file
+generated from the frontend. `--generate-z3` generates a file to verify
+in Z3.  Finally, `--generate-backend-code` generates either serial C++
+or Halide code for a given stencil, based on the Sketch output.  Each
+has some suboptions described by in the help text above.
+
 
 
 ## An End-to-End Example
@@ -98,7 +124,59 @@ the integration tests and can be ignored otherwise.
 
 ### Finding summaries using sketch and z3
 
+First, we will generate a Sketch file that searches for summaries of
+this stencil, and then we'll verify that the found summary is correct
+using Z3.
+
+To generate the Sketch file, run:
+```
+docker run --rm -v `pwd`:`pwd` -w `pwd` -e PYTHONPATH=`pwd` skdsl ./stng-backend.py \
+  --generate-sketch --sketch-level 11 simple_loop0.ir simple_loop0.sk
+```
+
+In general, different generated Sketch files require different
+parameters to Sketch in order to resolve.  We'll use a set of parameters
+that works for most generated stencil sketches:
+```
+docker run --rm -v `pwd`:`pwd` -w `pwd` -e PYTHONPATH=`pwd` skdsl sketch \
+  -V11 --fe-cegis-path  /sketch/sketch-backend/src/SketchSolver/cegis --beopt:simplifycex NOSIM \
+  --fe-fpencoding AS_FFIELD --bnd-arr-size 400 --bnd-arr1d-size 400 --bnd-inbits 2 --bnd-cbits 2 \
+  --bnd-unroll-amnt 18 --bnd-inline-amnt 15 --debug-cex simple_loop0.sk \
+  > simple_loop0.sk.out
+```
+
+We can observe this running by looking at `simple_loop0.sk.out`.  After
+a few seconds, it should return, with the end of the file showing that
+the Sketch problem was correctly solved.
+
+Now, given the candidate postconditions and invariants in the Sketch
+output, we generate a Z3 file to check if the candidates are correct.
+To generate the Z3 file:
+```
+docker run --rm -v `pwd`:`pwd` -w `pwd` -e PYTHONPATH=`pwd` skdsl ./stng-backend.py \
+  --generate-z3 --sketch-output-src simple_loop0.sk.out simple_loop0.ir simple_loop0.z3
+```
+and to check with Z3:
+```
+docker run --rm -v `pwd`:`pwd` -w `pwd` -e PYTHONPATH=`pwd` skdsl ./stng-backend.py \
+  z3 -smt2 simple_loop0.z3
+```
+Z3 should respond that the problem is UNSAT (i.e. no counterexample
+exists).
+
 ### Halide code generation
+
+STNG supports two backends for code generation: we can generate Halide
+or serial C++ code.
+
+To generate Halide code, we use the `--backend-halide` option, and for
+C++, the `--backend-cpp` option:
+```
+docker run --rm -v `pwd`:`pwd` -w `pwd` -e PYTHONPATH=`pwd` skdsl ./stng-backend.py \
+  --generate-backend-code --backend-halide --sketch-output-src simple_loop0.sk.out \
+  simple_loop0.ir simple_loop0_halide.cpp
+
+```
 
 
 ## Test Cases
@@ -113,3 +191,10 @@ those benchmarks, do the following:
   - `make MG_stencil` in `NPB3.2-SER`
 Doing so will generate a `stencil` directory containing the outputs from running the frontend
 on these benchmarks.
+
+## Known Issues
+
+- The current backend is a partial rewrite and is more limited than the
+backend in the paper.  We plan on reintroducing features such as
+imperfect loop nests that are more general than the original
+implementation.

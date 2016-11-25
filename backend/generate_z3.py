@@ -1,3 +1,4 @@
+import logging
 from stencil_ir import *
 from verify import *
 from assertion_to_z3 import *
@@ -26,9 +27,9 @@ class Z3Generator(object):
         self.loopvar_mins = {}
         self.loopvar_maxs = {}
         self.set_maxs_and_mins()
-        print "PRE-PROCESSING, INVARIANT IS ", invariant
+        logging.debug("Preprocessing, invariat is %s", invariant)
         self.synthesized_invariant = self.process_invariants(invariant)
-        print self.synthesized_invariant
+        logging.debug("Synthesized invariant: %s", self.synthesized_invariant)
         self.out_array = generate_sketch.OutputArrayFinder().get_output_arrays(program)
         self.containing_loop_invs = {}
 
@@ -41,17 +42,14 @@ class Z3Generator(object):
         ret = {}
         for inv_key in invariant.keys():
             ir = parse_ir.parse_expression(invariant[inv_key])
-            #print ag.tree_to_str(ag.to_ag_tree(ir))
 
-            #ir = self.replace_idx_vars(ir)
-            print "loopvars are", self.loopvars
+            logging.debug("loopvars are %s", self.loopvars)
             if "gen" in inv_key:
                 converted_invariant = ToZ3(ir,self.loopvars,None,False,invariant,self.inputs).to_str()
-                #print converted_invariant
                 ret[inv_key] = converted_invariant
             else:
                 ret[inv_key] = tree_to_str(ir)
-        print "PROCESSED INVARIANTS: ", ret
+        logging.debug("Processed invariants: ", ret)
 
         return ret
 
@@ -69,9 +67,9 @@ class Z3Generator(object):
 
         new_invariant_signatures = self.generate_invariant_func_signatures()
         for x in new_invariant_signatures.keys():
-            print tree_to_str(new_invariant_signatures[x])
+            logging.debug("inv: %s", tree_to_str(new_invariant_signatures[x]))
         # get verification conditions
-        print "invariant signatures: ", [tree_to_str(new_invariant_signatures[x]) for x in new_invariant_signatures.keys()]
+        logging.debug("invariant signatures: %s", [tree_to_str(new_invariant_signatures[x]) for x in new_invariant_signatures.keys()])
         wpc = WeakestPrecondition(self.program, postcondition, [], invariant_call=new_invariant_signatures)
         conds = wpc.get()
         additional_conds = wpc.additional_conditions
@@ -82,7 +80,7 @@ class Z3Generator(object):
 
 
         # translate verification conditions to Z3
-        print "Translating the following VCs: ", tree_to_str(conds), '\n\n'.join([tree_to_str(x) for x in additional_conds])
+        logging.debug("Translating the following VCs: %s %s", tree_to_str(conds), '\n\n'.join([tree_to_str(x) for x in additional_conds]))
         vc = ToZ3(conds, self.get_loopvars(), additional_conds, True, self.synthesized_invariant, self.inputs).to_str()
 
         # put it all together
@@ -244,14 +242,10 @@ class Z3Generator(object):
         For arrays of the type `T[N]` it generates bounds for `N` such that it is greater than 3.
         """
         import asp.codegen.ast_tools
-        import grammar
         import re
         ret = ""
         for x in self.get_loopvars():
             ret += "(assert (> (- %s %s) 1))" % (self.loopvar_maxs[x], self.loopvar_mins[x]) + "\n"
-
-        #FIXME: This may not generalize for more than 2D.
-        #ret += "(assert (< %s_to_check %s))" % (self.get_loopvars()[0], self.get_loopvars()[0]) + "\n"
 
         return ret
 
@@ -272,7 +266,6 @@ class Z3Generator(object):
         return self.synthesized_invariant
 
     def set_maxs_and_mins(self):
-        import grammar
         for x in self.get_loopvars():
             maxfinder = generate_sketch.MaxFinder(x)
             maxfinder.visit(self.program)
@@ -335,7 +328,7 @@ class Z3Generator(object):
 
         df = DependenceFinder(self.get_out_array(), self.loopvars)
         df.visit(self.program)
-        print "DEPNDENT LOOP VARS: ", df.dependences
+        logging.debug("Dependent loop vars: %s", df.dependences)
         self.dependent_loopvars = df.dependences
 
     def find_loopvar_nesting(self):
@@ -350,7 +343,7 @@ class Z3Generator(object):
             node = self.invariant_names_to_loops[inv]
             thisnodevar = node.iter_var.name
             for x in self.get_containing_loop_invs(node):
-                print thisnodevar, "contained by ", x[1].iter_var.name
+                logging.debug("%s contained by %s", thisnodevar, x[1].iter_var.name)
                 self.loopvar_nesting[thisnodevar].append(x[1].iter_var.name)
 
     def find_output_nesting(self):
@@ -377,7 +370,7 @@ class Z3Generator(object):
                     self.output_nesting[node.lval.name.name] = self.cur_loopvar
         onf = OutputNestFinder(self.get_out_array())
         onf.visit(self.program)
-        print "OUTPUT NESTING: ", onf.output_nesting
+        logging.debug("Output nesting: %s", onf.output_nesting)
         self.output_nesting = onf.output_nesting
 
     def get_containing_loop_invs(self, node):
@@ -407,7 +400,7 @@ class Z3Generator(object):
             visitor = ContainingLoopVisitor()
             visitor.visit(self.program)
             self.containing_loop_invs = visitor.containing_loops
-            print "CONTAINING LOOPS:", visitor.containing_loops
+            logging.debug("Containing loops: %s", visitor.containing_loops)
 
         key = loop_key(node)
         invariant_name = "I_%s_%s" % (node.iter_var.name, key)
