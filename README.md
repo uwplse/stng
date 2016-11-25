@@ -41,11 +41,11 @@ in the output directory as specified by the `-out` flag.
 
 If you are using docker then after building the image you can run the frontend with:
   ```
-docker run --rm -v `pwd`:`pwd` -w `pwd` -t stng_frontend translator /tmp/<filename> -out /tmp/<output directory>
+docker run --rm -v `pwd`:`pwd` -w `pwd` -t stng_frontend translator <input filename> -out <output directory>
   ```
-This maps the current directory on the host (`$PWD`) to `/tmp` in the docker container, allowing
+This maps the current directory on the host (`PWD`) to the same directory in the docker container, allowing
 you to pass files directly from the host's current directory to the container. 
-The outputs are generated in `$/PWD/<output directory>`.
+The outputs are generated in `<output directory>`.
 
 ### Backend
 
