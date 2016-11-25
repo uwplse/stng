@@ -188,8 +188,8 @@ docker run --rm -v `pwd`:`pwd` -w `pwd` -e PYTHONPATH=`pwd` skdsl ./stng-backend
 [PLDI paper](https://homes.cs.washington.edu/~akcheung/papers/pldi16.html).
 To run the frontend on those benchmarks, do the following:
 
-  - CloverLeaf: `make clover_leaf_stencil` in `CloverLeaf_Serial`
-  - Stencilmark: `make stencil` in `stencilmark_fortran`
+  - CloverLeaf: Edit `STENCIL_COMPILER` in `CloverLeaf_Serial/Makefile`, then `make clover_leaf_stencil` in `CloverLeaf_Serial`
+  - Stencilmark: Edit `STENCIL_COMPILER` in `Makefile`, then `make stencil` in `stencilmark_fortran`
   - MG: first read `README_STNG` and modify `MG/Makefile`, then run `make MG_stencil` in `NPB3.2-SER`.
     Note that you need a fortran compiler installed on your system to build the prerequisite files.
   
