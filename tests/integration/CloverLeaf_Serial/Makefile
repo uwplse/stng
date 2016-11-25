@@ -131,7 +131,11 @@ C_MPI_COMPILER=mpicc
 # do not add initialise.f90, rose generates code that doesn't compile
 # and added -c flag
 
+# Use this if you built STNG from the repo
 STENCIL_COMPILER=../../../frontend/bin/translator
+# Or use this if you use the docker image
+STENCIL_COMPILER=docker run --rm -v `pwd`:`pwd` -w `pwd` -t stng_frontend translator
+
 STENCIL_DIR=stencil
 STENCIL_LIB_DIR=$(HOME)/stencil/lib
 STENCIL_FLAGS=-out $(STENCIL_DIR)
