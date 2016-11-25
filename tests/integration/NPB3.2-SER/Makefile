@@ -26,7 +26,9 @@ mg: header
 	cd MG; $(MAKE) CLASS=$(CLASS)
 
 MG_stencil : header
-	cd MG; $(MAKE) MG_stencil CLASS=$(CLASS)
+	cd sys; $(MAKE) # build setparams
+	cd common; $(CC) -c print_results.f randi8.f wtime.c  # build common/*.o
+	cd MG; $(MAKE) MG_stencil CLASS=$(CLASS) # build stencil files
 
 FT: ft
 ft: header
