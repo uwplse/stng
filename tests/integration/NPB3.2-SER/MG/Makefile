@@ -19,8 +19,12 @@ ${PROGRAM}: config ${OBJS}
 mg.o:		mg.f90 globals.h npbparams.h
 	${FCOMPILE} mg.f90
 
-
+# path to the frontend translator. Use this if you built stng from the repo
 TRANSLATOR = $(STNG_HOME)/frontend/bin/translator
+# And use this if you used the docker image for the frontend
+TRANSLATOR=docker run --rm -v `pwd`:`pwd` -w `pwd` -t stng_frontend translator
+
+# output directory for frontend files
 STENCIL_DIR = stencil
 
 HALIDE_OBJ = $(shell find . -name '*_halide.o')
