@@ -1,3 +1,4 @@
-to compile MG, first edit STNG_HOME in MG/Makefile to point to the 
-absolute path of the stng directory, then run 'make MG_stencil' to produce
+to compile MG, edit STNG_HOME in MG/Makefile to point to the 
+absolute path of the stng directory, and TRANSLATOR to point to the right
+frontend binary. Then run 'make MG_stencil' to produce
 the stencil frontend output files in MG/stencil
