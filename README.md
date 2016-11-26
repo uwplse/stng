@@ -52,7 +52,7 @@ The outputs are generated in `<output directory>`.
 1. Build the backend docker image:
 ```
 $ cd backend/docker
-$ docker build --rm -t stng_backend
+$ docker build --rm -t stng_backend .
 ```
 
 2. The backend needs to be run from within the `stng/backend` directory,
@@ -131,7 +131,7 @@ using Z3.
 
 To generate the Sketch file, run:
 ```
-docker run --rm -v `pwd`:`pwd` -w `pwd` -e PYTHONPATH=`pwd` skdsl ./stng-backend.py \
+docker run --rm -v `pwd`:`pwd` -w `pwd` -e PYTHONPATH=`pwd` stng_backend ./stng-backend.py \
   --generate-sketch --sketch-level 11 simple_loop0.ir simple_loop0.sk
 ```
 
@@ -139,7 +139,7 @@ In general, different generated Sketch files require different
 parameters to Sketch in order to resolve.  We'll use a set of parameters
 that works for most generated stencil sketches:
 ```
-docker run --rm -v `pwd`:`pwd` -w `pwd` -e PYTHONPATH=`pwd` skdsl sketch \
+docker run --rm -v `pwd`:`pwd` -w `pwd` -e PYTHONPATH=`pwd` stng_backend sketch \
   -V11 --fe-cegis-path  /sketch/sketch-backend/src/SketchSolver/cegis --beopt:simplifycex NOSIM \
   --fe-fpencoding AS_FFIELD --bnd-arr-size 400 --bnd-arr1d-size 400 --bnd-inbits 2 --bnd-cbits 2 \
   --bnd-unroll-amnt 18 --bnd-inline-amnt 15 --debug-cex simple_loop0.sk \
@@ -154,12 +154,12 @@ Now, given the candidate postconditions and invariants in the Sketch
 output, we generate a Z3 file to check if the candidates are correct.
 To generate the Z3 file:
 ```
-docker run --rm -v `pwd`:`pwd` -w `pwd` -e PYTHONPATH=`pwd` skdsl ./stng-backend.py \
+docker run --rm -v `pwd`:`pwd` -w `pwd` -e PYTHONPATH=`pwd` stng_backend ./stng-backend.py \
   --generate-z3 --sketch-output-src simple_loop0.sk.out simple_loop0.ir simple_loop0.z3
 ```
 and to check with Z3:
 ```
-docker run --rm -v `pwd`:`pwd` -w `pwd` -e PYTHONPATH=`pwd` skdsl ./stng-backend.py \
+docker run --rm -v `pwd`:`pwd` -w `pwd` -e PYTHONPATH=`pwd` stng_backend ./stng-backend.py \
   z3 -smt2 simple_loop0.z3
 ```
 Z3 should respond that the problem is UNSAT (i.e. no counterexample
@@ -173,7 +173,7 @@ or serial C++ code.
 To generate Halide code, we use the `--backend-halide` option, and for
 C++, the `--backend-cpp` option:
 ```
-docker run --rm -v `pwd`:`pwd` -w `pwd` -e PYTHONPATH=`pwd` skdsl ./stng-backend.py \
+docker run --rm -v `pwd`:`pwd` -w `pwd` -e PYTHONPATH=`pwd` stng_backend ./stng-backend.py \
   --generate-backend-code --backend-halide --sketch-output-src simple_loop0.sk.out \
   simple_loop0.ir simple_loop0_halide.cpp
 
