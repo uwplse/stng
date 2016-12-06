@@ -129,7 +129,7 @@ class IndexResugar(object):
                 c += ["%s + %s" % (lv, pt[i])]
                 e = e.subs(lv, lv + "+%s" % pt[i])
             if e == sympy.sympify(tree_to_str(loc)):
-                logging.debug("found: %s", e,tree_to_str(loc))
+                logging.debug("found: %s %s", e,tree_to_str(loc))
                 if need_to_rev:
                     return (",".join(reversed([str(sympy.sympify(x)) for x in c])), True)
                 else:

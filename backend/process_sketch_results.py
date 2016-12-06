@@ -173,6 +173,8 @@ class SketchResultProcessor(object):
                 # stupid thing can't handle 'var' as an array name or variable
                 if "var(" in out:
                     out = re.sub("var\(", "v___ar(", out)
+                if "in(" in out:
+                    out = re.sub("in\(", "i___n(", out)
                 logging.debug("replaced version: %s", out)
                 out = sympy.sympify(out)
                 logging.debug("new output is %s", out)
@@ -187,7 +189,8 @@ class SketchResultProcessor(object):
         logging.debug("output is %s", outstr)
         # we can't handle -foo, so here's a HACK HACK FIXME
         outstr = re.sub("\(-", "(0 - ", outstr)
-        outstr = re.sub("v___ar", "var", outstr) ###
+        outstr = re.sub("v___ar", "var", outstr) ### undo replacement
+        outstr = re.sub("i___n", "in", outstr) ###
         return outstr
 
     def process_pcon_lhs(self, start_lineno):
