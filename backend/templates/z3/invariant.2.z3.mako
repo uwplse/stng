@@ -78,7 +78,7 @@
     ;output ${output} is inside this loop
     (ite (and
     % for lv in [output_nesting[output]] + loopvar_nesting[output_nesting[output]]:
-      % if lv == thisloopvar:
+      % if lv == thisloopvar and loopvar_nesting[output_nesting[output]]:
       ;;; loop over ${lv} from ${mins[lv]} to ${maxs[lv]}
       ;for (int _${lv}=${mins[lv]}; _${lv} < ${maxs[lv]}; _${lv}++)
       (>= _${lv} ${mins[lv]}) (< _${lv} ${maxs[lv]})
@@ -195,7 +195,7 @@
     ;output ${output} is inside this loop
     (ite (and
     % for lv in [output_nesting[output]] + loopvar_nesting[output_nesting[output]]:
-      % if lv == thisloopvar:
+      % if lv == thisloopvar and loopvar_nesting[output_nesting[output]]:
       ;;; loop over ${lv} from ${mins[lv]} to ${maxs[lv]}
       ;for (int _${lv}=${mins[lv]}; _${lv} < ${maxs[lv]}; _${lv}++)
       (>= _${lv} ${mins[lv]}) (< _${lv} ${maxs[lv]})
