@@ -159,7 +159,7 @@ docker run --rm -v `pwd`:`pwd` -w `pwd` -e PYTHONPATH=`pwd` stng_backend ./stng-
 ```
 and to check with Z3:
 ```
-docker run --rm -v `pwd`:`pwd` -w `pwd` -e PYTHONPATH=`pwd` stng_backend ./stng-backend.py \
+docker run --rm -v `pwd`:`pwd` -w `pwd` -e PYTHONPATH=`pwd` stng_backend \
   z3 -smt2 simple_loop0.z3
 ```
 Z3 should respond that the problem is UNSAT (i.e. no counterexample
