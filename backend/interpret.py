@@ -44,6 +44,8 @@ class Interpreter(ast_tools.NodeVisitor):
         # it is an array
         self.state[x[0]] = [sympy.sympify(x[0]+"_"+str(i)) for i in range(ARRAYSIZE)]
 
+    logging.debug("Finished initializing interpreter state.")
+
   def outputs_changed(self):
     """
     Check to see if any outputs are changed.
@@ -87,6 +89,7 @@ class Interpreter(ast_tools.NodeVisitor):
 
   def visit_ArrExp(self, node):
     loc = self.visit(node.loc)
+    logging.debug("Array access to loc %s", loc+AOFFSET)
     return self.state[node.name.name][loc+AOFFSET]
 
   def visit_BinExp(self, node):

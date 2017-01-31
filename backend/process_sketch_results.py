@@ -137,10 +137,11 @@ class SketchResultProcessor(object):
 
             # convert __float__<val> to floating point value
             match = re.search("__float__([\d_]+)", func_copy[lineno])
-            if match:
+            while match:
                 num = re.sub("_", ".", match.group(1))
                 logging.debug("inserting %s", num)
-                func_copy[lineno] = re.sub("__float__([\d_])+", num, func_copy[lineno])
+                func_copy[lineno] = re.sub("__float__" + match.group(1), num, func_copy[lineno])
+                match = re.search("__float__([\d_]+)", func_copy[lineno])
 
 
 
