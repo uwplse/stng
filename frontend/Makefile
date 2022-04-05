@@ -21,8 +21,7 @@ BOOST_LIB=$(ROOT)/lib/boost
 
 INCLUDES=-I$(BOOST_INCLUDE) -I$(ROSE_INCLUDE)
 
-# JVM_LIB=/usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/client
-JVM_LIB=/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/
+JVM_LIB=/usr/lib/jvm/java-6-openjdk-i386/jre/lib/i386/server/
 
 LIBS=-L$(BOOST_LIB) -L$(ROSE_LIB) -L$(JVM_LIB) \
      -lboost_system -lboost_filesystem -lboost_regex -lboost_thread -lboost_wave \
